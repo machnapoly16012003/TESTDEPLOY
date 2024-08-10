@@ -11,7 +11,7 @@ interface IHomePageProps {}
 const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
   return (
     <div className='h-auto bg-[#F4F7F9]'>
-        <Banner3D />
+      <Banner3D />
       <div className='accurate-count' data-aos='fade-up'>
         <div className='container-wrapper accurate-container flex flex-col gap-10'>
           <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px]'>Accurate Count And Analyze</h1>
@@ -19,6 +19,14 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
             source='https://img.m.pro/fiai-home.mp4'
             defaultImage='https://via.placeholder.com/1920x1080'
           />
+        </div>
+      </div>
+      <div data-aos='fade-up' className='md:mt-0'>
+        <div className='container-wrapper flex flex-col gap-10'>
+          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px]'>
+            AI-Powered Support, Anytime, Anywhere
+          </h1>
+          <AutoplayVideo source='https://img.m.pro/siteC1.mp4' defaultImage='https://via.placeholder.com/1920x1080' />
         </div>
       </div>
       <Unleash />
@@ -30,7 +38,7 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
           />
         </div>
       </div>
-      <div className='mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden bg-instore xs:bg-[length:640px_100%] sm:bg-cover mt-[20px]'>
+      <div className='mx-auto mt-[20px] min-h-screen w-full max-w-[1440px] overflow-hidden bg-instore xs:bg-[length:640px_100%] sm:bg-cover'>
         <InStore />
       </div>
       <CustomerReaction />
