@@ -111,7 +111,7 @@ const Banner3D = () => {
             position: 'relative'
           }}
         >
-          <h1 className='title-wrap max-w-[800px] text-center font-bold capitalize md:text-[52px]'>
+          <h1 className='title-wrap max-w-[900px] text-center font-bold capitalize md:text-[56px]'>
             With AI, understand customers in-store with ease
           </h1>
           <ButtonPrimary className='z-[99999]'>

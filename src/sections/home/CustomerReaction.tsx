@@ -20,11 +20,11 @@ const CustomerReaction = () => {
         )}
       >
         <div className={classNames('relative flex-1')}>
-          <div className='absolute left-5 top-0'>
+          <div className='absolute left-0 top-[-15px]'>
             <p
               className={classNames(
-                'title-wrap max-w-[180px] font-bold leading-[30px] md:text-[36px]/[40px]',
-                'lg:max-w-[400px] lg:text-[44px]/[50px]'
+                'title-wrap max-w-[180px] font-semibold leading-[30px] md:text-[36px]/[40px]',
+                'lg:max-w-[400px] lg:text-[64px]/[72px] tracking-[-2px]'
               )}
             >
               Customer’s Reaction

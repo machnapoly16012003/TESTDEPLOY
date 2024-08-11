@@ -71,7 +71,7 @@ const Unleash = () => {
     <div className='unleash-the-power container-wrapper relative flex h-screen flex-col items-center gap-[24px] py-[80px] md:py-[100px] lg:flex-row'>
       <div className='absolute z-[1000] flex w-[100%] flex-col'>
         <h2 className='title-wrap font-bold md:text-[40px] lg:text-[56px]'>Unleash the power</h2>
-        <h1 className='text-[50px] font-bold md:text-[56px] lg:pl-[18%] lg:text-[104px]'>
+        <h1 className='text-[70px] font-bold md:text-[56px] lg:pl-[18%] lg:text-[104px]'>
           Of Offli<span className='lg:text-white'>ne</span>{' '}
         </h1>
         <h2 className='title-wrap font-bold md:text-[40px] lg:pl-[30%] lg:text-[56px] lg:font-medium'>

@@ -9,7 +9,7 @@ import ListGridListen from '~/components/ListGridListen'
 const ListenToOurCustomer = memo(() => {
   return (
     <div className={classNames('mx-auto min-h-screen w-full', '')}>
-      <div className='flex min-h-screen w-full flex-col items-center justify-center pt-10'>
+      <div className='flex min-h-screen w-full flex-col items-center justify-center pt-[100px] md:pt-[200px]'>
         <div className='flex w-full flex-col items-center justify-center px-[20px] text-center'>
           <h2 className='title-wrap font-bold md:text-[64px]' data-aos='fade-up'>
             Listen to our customers

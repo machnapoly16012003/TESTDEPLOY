@@ -30,7 +30,7 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
         </div>
       </div>
       <Unleash />
-      <div data-aos='fade-up' className='mt-[180px] md:mt-0'>
+      <div data-aos='fade-up' className='mt-[180px] md:mt-[40px]'>
         <div className='container-wrapper flex flex-col gap-10'>
           <AutoplayVideo
             source='https://img.m.pro/fiai-banner-3d.mp4'
