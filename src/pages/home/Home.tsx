@@ -14,7 +14,9 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       <Banner3D />
       <div className='accurate-count' data-aos='fade-up'>
         <div className='container-wrapper accurate-container flex flex-col gap-10'>
-          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px]'>Accurate Count And Analyze</h1>
+          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px]'>
+            Demographic Analysis with Every Scan
+          </h1>
           <AutoplayVideo
             source='https://img.m.pro/fiai-home.mp4'
             defaultImage='https://via.placeholder.com/1920x1080'
@@ -23,8 +25,8 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       </div>
       <div data-aos='fade-up' className='md:mt-0'>
         <div className='container-wrapper flex flex-col gap-10'>
-          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px]'>
-            AI-Powered Support, Anytime, Anywhere
+          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px]'>
+            Seamless AI-Powered Without Manual Filtering
           </h1>
           <AutoplayVideo source='https://img.m.pro/siteC1.mp4' defaultImage='https://via.placeholder.com/1920x1080' />
         </div>

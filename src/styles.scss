@@ -630,7 +630,7 @@ header {
   &::before {
     content: '';
     position: absolute;
-    top: -1%;
+    top: -8%;
     left: 0;
     width: 100%;
     scale: 1;
@@ -639,6 +639,7 @@ header {
     // background-position: center;
     background-image: url('../public/bg-2.png');
     background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .accurate-container {

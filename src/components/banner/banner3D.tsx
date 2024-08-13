@@ -90,7 +90,7 @@ const Banner3D = () => {
 
   return (
     <div
-      className='carousel relative w-full h-screen'
+      className='carousel relative h-screen w-full'
       style={{
         backgroundImage: 'url(/bg.png)',
         backgroundSize: 'cover',
@@ -100,7 +100,7 @@ const Banner3D = () => {
         transition: 'opacity 0.5s'
       }}
     >
-      <div className='w-full h-full flex items-center justify-center flex-col'>
+      <div className='flex h-full w-full flex-col items-center justify-center'>
         <div
           className='mt-[120px] flex flex-col items-center gap-7 px-5 md:mt-[200px] md:gap-14'
           style={{
@@ -111,8 +111,8 @@ const Banner3D = () => {
             position: 'relative'
           }}
         >
-          <h1 className='title-wrap max-w-[900px] text-center font-bold capitalize md:text-[56px]'>
-            With AI, understand customers in-store with ease
+          <h1 className='title-wrap max-w-[1000px] text-center font-bold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
+            Effortlessly Understand Customers with AI Assistance
           </h1>
           <ButtonPrimary className='z-[99999]'>
             <Link to='http://pre.fi.ai' className='h-full w-full'>
@@ -121,17 +121,17 @@ const Banner3D = () => {
           </ButtonPrimary>
         </div>
         {/* <div style={{ width: '100vw', height: '100vh', overflow: 'hidden', position: 'relative', zIndex: '2' }}> */}
-        <div className={classNames("relative", !isMobile && "w-screen h-screen overflow-hidden z-[2]")}>
+        <div className={classNames('relative', !isMobile && 'z-[2] h-screen w-screen overflow-hidden')}>
           {isMobile ? (
             <div className='mt-4 w-full'>
               <img
                 src={bannerImage}
                 alt='Banner'
                 // style={{
-                  // width: '100%',
-                  // height: '100%'
+                // width: '100%',
+                // height: '100%'
                 // }}
-                className='w-full h-auto'
+                className='h-auto w-full'
               />
             </div>
           ) : (
