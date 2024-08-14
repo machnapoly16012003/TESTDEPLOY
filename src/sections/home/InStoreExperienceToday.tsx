@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Lottie, { AnimationItem } from 'lottie-web'
 import Astronaut from '../../assets/astronaut.json'
 import { GoArrowRight } from 'react-icons/go'
+import { Link } from 'react-router-dom'
 
 const InStoreExperienceToday = () => {
   const loadingRef = useRef<HTMLDivElement>(null)
@@ -42,8 +43,10 @@ const InStoreExperienceToday = () => {
               Liberate yourself <br /> and all store owners now!
             </h2>
           </div>
-          <button className='btn-gradien-astronaut mt-8'>
-            Get started
+          <button className='btn-gradien-astronaut mt-8 flex items-center justify-center'>
+            <Link to='http://pre.fi.ai' className='h-full'>
+              start with AI
+            </Link>
             <GoArrowRight />
           </button>
         </div>

@@ -2,7 +2,6 @@ import { memo, useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import images from '~/assets'
-import { ButtonPrimary } from '~/components/button'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -19,6 +18,12 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen)
+  }
+
+  const handleAlert = () => {
+    alert(
+      'Apologies, this page is currently not accessible. Please reach out to the administrator for further details.'
+    )
   }
   useEffect(() => {
     window.addEventListener('scroll', function () {
@@ -43,7 +48,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={handleAlert}>Getting started</NavigationMenuTrigger>
                   {/* <NavigationMenuContent>
                     <ul className='grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
                       <li className='row-span-3'>
@@ -74,7 +79,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={handleAlert}>Components</NavigationMenuTrigger>
                   {/* <NavigationMenuContent>
                     <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
                       {menuBar.map((component) => (
@@ -86,8 +91,8 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to='/docs'>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Documentation</NavigationMenuLink>
+                  <Link to=''>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleAlert}>Documentation</NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -95,7 +100,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
           </div>
 
           <div className='flex items-center gap-2'>
-            <div className='flex h-[40px] w-[100px] items-center justify-center overflow-hidden rounded-[20px] bg-primary-gradient bg-clip-text p-2 font-semibold text-transparent'>
+            {/* <div className='flex h-[40px] w-[100px] items-center justify-center overflow-hidden rounded-[20px] bg-primary-gradient bg-clip-text p-2 font-semibold text-transparent'>
               <Link to='/login' className=''>
                 Login
               </Link>
@@ -104,7 +109,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
               <Link to='/register' className=''>
                 Register
               </Link>
-            </ButtonPrimary>
+            </ButtonPrimary> */}
           </div>
         </div>
       </div>
@@ -113,11 +118,11 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
         <button onClick={toggleMenu} className='rounded-[50%] bg-white p-[16px] text-2xl'>
           <FaBars />
         </button>
-        <ButtonPrimary>
+        {/* <ButtonPrimary>
           <Link to='/#' className=''>
             SIGN IN
           </Link>
-        </ButtonPrimary>
+        </ButtonPrimary> */}
         {isMenuOpen && (
           <div className='shadow-lg absolute left-10 top-16 z-10 rounded-md bg-white p-8'>
             <ul className='space-y-2'>

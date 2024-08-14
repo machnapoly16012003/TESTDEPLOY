@@ -10,6 +10,7 @@ interface IItemBannerCustomerReaction {
   idx: number
   classIcon: string
   classWrapContent: string
+  duration: number
 }
 const ItemBannerCustomerReaction = ({
   img,
@@ -17,13 +18,14 @@ const ItemBannerCustomerReaction = ({
   className,
   idx,
   classIcon,
-  classWrapContent
+  classWrapContent,
+  duration
 }: IItemBannerCustomerReaction) => {
   const isOdd = idx % 2 === 0
   console.log('isOdd', isOdd)
   return (
     <React.Fragment>
-      <div className={classNames('w-full', 'md:h-1/3')}>
+      <div className={classNames('w-full', 'md:h-1/3')} data-aos={'fade-down'} data-aos-duration={duration}>
         <div className={classNames('flex h-full items-center gap-5', className)}>
           <div
             className={classNames(
@@ -51,6 +53,18 @@ const ItemBannerCustomerReaction = ({
 }
 
 const ListBannerCustomerReaction = () => {
+  const handleCheackDurian = (index: number) => {
+    console.log('index', index)
+    if (index === 0) {
+      return 1000
+    }
+    if (index === 1) {
+      return 1300
+    }
+    if (index === 2) {
+      return 1600
+    }
+  }
   const reactionData = useMemo(
     () => [
       {
@@ -83,9 +97,9 @@ const ListBannerCustomerReaction = () => {
 
   return (
     <React.Fragment>
-      <div className={classNames('flex h-full w-full flex-col justify-center gap-3 p-5', 'md:p-0')}>
+      <div className={classNames('flex h-full w-full flex-col justify-center gap-3 p-5')}>
         {reactionData.map((item, i) => (
-          <ItemBannerCustomerReaction key={i} {...item} idx={i} />
+          <ItemBannerCustomerReaction key={i} {...item} idx={i} duration={handleCheackDurian(i) ?? 0} />
         ))}
       </div>
     </React.Fragment>

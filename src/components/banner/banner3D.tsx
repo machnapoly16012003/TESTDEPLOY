@@ -111,12 +111,19 @@ const Banner3D = () => {
             position: 'relative'
           }}
         >
-          <h1 className='title-wrap max-w-[1000px] text-center font-bold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
-            Effortlessly Understand Customers with AI Assistance
-          </h1>
+          {isMobile ? (
+            <h1 className='title-wrap max-w-[1000px] text-center font-bold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
+              Meet the new <br /> AI assistant for <br /> store management
+            </h1>
+          ) : (
+            <h1 className='title-wrap max-w-[1000px] text-center font-bold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
+              {' '}
+              Meet the new AI assistant for store management
+            </h1>
+          )}
           <ButtonPrimary className='z-[99999]'>
             <Link to='http://pre.fi.ai' className='h-full w-full'>
-              <span>Start</span>
+              <span className='uppercase'>start with ai</span>
             </Link>
           </ButtonPrimary>
         </div>

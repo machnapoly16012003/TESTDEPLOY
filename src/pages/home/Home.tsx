@@ -14,8 +14,11 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       <Banner3D />
       <div className='accurate-count' data-aos='fade-up'>
         <div className='container-wrapper accurate-container flex flex-col gap-10'>
-          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px]'>
+          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px] hidden md:block'>
             Demographic Analysis with Every Scan
+          </h1>
+          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px] md:hidden'>
+            Demographic Analysis with <br /> Every Scan
           </h1>
           <AutoplayVideo
             source='https://img.m.pro/fiai-home.mp4'
@@ -32,7 +35,7 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
         </div>
       </div>
       <Unleash />
-      <div data-aos='fade-up' className='mt-[180px] md:mt-[40px]'>
+      <div data-aos='fade-up' className='mt-[220px] md:mt-[40px]'>
         <div className='container-wrapper flex flex-col gap-10'>
           <AutoplayVideo
             source='https://img.m.pro/fiai-banner-3d.mp4'
@@ -40,7 +43,7 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
           />
         </div>
       </div>
-      <div className='mx-auto mt-[20px] min-h-screen w-full max-w-[1440px] overflow-hidden bg-instore xs:bg-[length:640px_100%] sm:bg-cover'>
+      <div className='mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden bg-instore xs:bg-[length:640px_100%] sm:bg-cover'>
         <InStore />
       </div>
       <CustomerReaction />

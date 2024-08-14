@@ -56,7 +56,7 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
             className={classNames(
               'font-semibold text-black transition-all duration-300 ease-in-out',
               size === 'small'
-                ? 'xs:text-[16px]/[13.4px] sm:text-[15px]/[18.9px] md:text-[21px]/[19.04px]'
+                ? 'xs:text-[16px]/[16px] sm:text-[15px]/[22px] md:text-[21px]/[26px]'
                 : size === 'medium'
                   ? 'xs:text-[10px]/[8.68px] sm:text-[17px]/[18.9px] md:text-[22px]/[20.77px]'
                   : 'xs:text-[9px]/[7.19px] sm:text-[18px]/[18.9px] md:text-[24px]/[22.5px]'

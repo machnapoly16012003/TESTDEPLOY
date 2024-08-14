@@ -195,6 +195,7 @@ header {
   text-align: center;
   font-weight: 600;
   font-size: 16px;
+  padding: 0px 20px;
   letter-spacing: 0.02em;
   line-height: 1.5;
   color: var(--c-color);
@@ -651,4 +652,15 @@ header {
 .title-wrap {
   font-size: 36px;
   line-height: 44px;
+}
+
+.custom-pagination .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: black;
 }

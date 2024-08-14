@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import React from 'react'
+import images from '~/assets'
 import ArrowListen from '~/assets/icons/ArrowListen'
 import InfoUser from './InfoUser'
-import images from '~/assets'
 
 const classArrow = 'size-12 md:size-[5vw] absolute transform'
 const classText = 'text-sm absolute font-bold'
@@ -13,6 +13,7 @@ const data = [
     des: 'United States',
     avatar: images.image.user4,
     className: classNames('rotate-[5deg]', 'sm:rotate-[0deg]', 'lg:rotate-[15deg]'),
+    isActive: 0,
     role: (
       <div className=''>
         <ArrowListen
@@ -53,6 +54,7 @@ const data = [
     des: 'Germany',
     avatar: images.image.user6,
     className: classNames('rotate-[-10deg]', 'sm:rotate-[0deg]', 'lg:rotate-[-5deg] lg:translate-y-[-30%]'),
+    isActive: 1,
     role: (
       <div className=''>
         <ArrowListen
@@ -86,6 +88,7 @@ const data = [
       'sm:rotate-[0deg]',
       'lg:rotate-[-12deg] lg:translate-x-[40%] lg:translate-y-[-10%]'
     ),
+    isActive: 2,
     role: (
       <div className=''>
         <ArrowListen
@@ -124,6 +127,7 @@ const data = [
     des: 'Australia',
     avatar: images.image.user9,
     className: classNames('rotate-[5deg] flex-row-reverse', 'sm:rotate-[0deg]', 'lg:rotate-[12deg] '),
+    isActive: 3,
     role: (
       <div className=''>
         <ArrowListen
@@ -147,7 +151,11 @@ const data = [
   }
 ]
 
-const ListGridListen = () => {
+type ListGridListenProps = {
+  active: number
+}
+
+const ListGridListen = ({active} : ListGridListenProps) => {
   return (
     <React.Fragment>
       <div className={classNames('block w-full items-center justify-center py-[60px]', 'lg:flex lg:py-[100px]')}>
@@ -162,6 +170,7 @@ const ListGridListen = () => {
             <InfoUser
               key={index}
               {...user}
+              isActive={user.isActive === active}
               // className={user.className}
             />
           ))}

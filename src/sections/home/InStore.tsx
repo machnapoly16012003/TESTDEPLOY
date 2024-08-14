@@ -31,12 +31,12 @@ const InStore = memo(() => {
     <div ref={reportRef} className='relative overflow-hidden xs:pt-24 sm:pt-24 md:pt-20'>
       <h3
         className={classNames(
-          'absolute font-semibold transition-all ease-in-out xs:text-[30px]/[40px] sm:left-[20px] sm:text-[40px]/[50px] md:left-[45px] md:text-[64px]/[72px]',
+          'absolute font-semibold capitalize transition-all ease-in-out xs:text-[30px]/[40px] sm:left-[20px] sm:text-[40px]/[50px] md:left-[45px] md:text-[64px]/[72px]',
           viewing ? 'opacity-100 xs:top-[2%] xs:ml-4 sm:top-[10%] md:top-[16%]' : 'opacity-0 sm:top-[20%] md:top-[30%]'
         )}
         style={{ transitionDuration: '2500ms' }}
       >
-        Build A Smarter <br /> In-Store <br /> Experience Today!
+        Free Yourself With <br /> Top Tier technologies
       </h3>
 
       <img
