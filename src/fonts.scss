@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'SVN-Gilroy';
   src: url('./assets/fonts/SVNGilroy-Light.otf') format('opentype');
@@ -22,6 +23,35 @@
 @font-face {
   font-family: 'SVN-Gilroy';
   src: url('./assets/fonts/SVNGilroy-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Light.ttf') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Medium.ttf') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-SemiBoldc.ttf') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Bold.ttf') format('woff2');
   font-weight: 700;
   font-style: normal;
 }

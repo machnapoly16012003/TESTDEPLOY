@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Lottie, { AnimationItem } from 'lottie-web'
 import Astronaut from '../../assets/astronaut.json'
 import { GoArrowRight } from 'react-icons/go'
+import { Link } from 'react-router-dom'
 
 const InStoreExperienceToday = () => {
   const loadingRef = useRef<HTMLDivElement>(null)
@@ -37,13 +38,15 @@ const InStoreExperienceToday = () => {
         <div className='relative z-50 mx-auto flex min-h-screen w-full max-w-[1440px] flex-col items-center justify-center text-center xs:bg-[length:640px_100%] sm:bg-cover'>
           <div ref={loadingRef} className='aspect-square w-full sm:size-[400px]' key={status} />
           <div>
-            <h2 className='text-[30px] font-bold md:text-[64px]'>
+            <h2 className='text-[30px] font-semibold md:text-[64px]'>
               {/* Create a more intelligent <br /> in-store experience today! */}
               Liberate yourself <br /> and all store owners now!
             </h2>
           </div>
-          <button className='btn-gradien-astronaut mt-8'>
-            Get started
+          <button className='btn-gradien-astronaut mt-8 flex items-center justify-center'>
+            <Link to='http://pre.fi.ai' className='h-full'>
+              start with AI
+            </Link>
             <GoArrowRight />
           </button>
         </div>

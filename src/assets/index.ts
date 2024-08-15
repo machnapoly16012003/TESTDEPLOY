@@ -38,6 +38,7 @@ import user9 from '~/assets/images/use9.png'
 import customerReact from '~/assets/images/customerReact.png'
 
 import bg_vistor_card from '~/assets/bg/bg-vistor-card.png'
+import bg_footer from '~/assets/bg/Ai store manager fi.ai.png'
 
 import happy_green from '~/assets/icons/happy-green.svg'
 import unhappy_pink from '~/assets/icons/unhappy-pink.svg'
@@ -75,7 +76,8 @@ const images = {
     user7,
     user8,
     user9,
-    bg_vistor_card
+    bg_vistor_card,
+    bg_footer
   },
   bg: { bg_vistor_card },
   icon: { happy_green, unhappy_pink, unhappy_vistor, learning, plugplay, compliance, icon_instagram, icon_facebook, icon_social }

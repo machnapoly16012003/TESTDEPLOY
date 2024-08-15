@@ -1,39 +1,54 @@
 import classNames from 'classnames'
-import { memo } from 'react'
+import { memo, useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ListGridListen from '~/components/ListGridListen'
 
 const ListenToOurCustomer = memo(() => {
+  const [activeSlide, setActiveSlide] = useState(0)
   return (
     <div className={classNames('mx-auto min-h-screen w-full', '')}>
       <div className='flex min-h-screen w-full flex-col items-center justify-center pt-[100px] md:pt-[200px]'>
         <div className='flex w-full flex-col items-center justify-center px-[20px] text-center'>
-          <h2 className='title-wrap font-bold md:text-[64px]' data-aos='fade-up'>
+          <h2 className='title-wrap font-semibold md:text-[64px]' data-aos='fade-up'>
             Listen to our customers
           </h2>
-          <div className='w-full max-w-[600px] text-center' data-aos='fade-up'>
+          <div className='w-full max-w-[600px] text-center md:mt-[20px]' data-aos='fade-up'>
             <span className='text-[16px] md:text-[20px]'>
-              We provide solution tailored with specific industry, give our clients a special seamless experience with
-              top advance technology AI. Connect tech and people together
+              Just ask, your tailored AI assistant will access the CRM and POS systems to answer all of your necessary
+              information.
             </span>
           </div>
         </div>
         <div className='mb-10 flex w-full flex-1' data-aos='fade-up'>
-          <Swiper pagination={true} modules={[Pagination]} className='mySwiper'>
+          <Swiper
+            pagination={{
+              clickable: true,
+              el: '.custom-pagination',
+              renderBullet: (index, className) => `<span class="${className} custom-bullet"></span>`
+            }}
+            autoplay={{ delay: 2000 }}
+            onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
+            modules={[Pagination, Autoplay]}
+            className='mySwiper'
+          >
             <SwiperSlide>
-              <ListGridListen />
+              <ListGridListen active={activeSlide} />
             </SwiperSlide>
             <SwiperSlide>
-              <ListGridListen />
+              <ListGridListen active={activeSlide} />
             </SwiperSlide>
             <SwiperSlide>
-              <ListGridListen />
+              <ListGridListen active={activeSlide} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <ListGridListen active={activeSlide} />
             </SwiperSlide>
           </Swiper>
         </div>
+        <div className='custom-pagination mt-[-35px] flex justify-center gap-2 text-center'></div>
       </div>
     </div>
   )

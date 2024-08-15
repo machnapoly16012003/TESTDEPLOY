@@ -8,9 +8,10 @@ interface Props {
   des: string
   avatar: string
   role?: ReactNode
+  isActive: boolean
 }
 const InfoUser = (props: Props) => {
-  const { className, name, des, role, avatar } = props
+  const { className, name, des, role, avatar, isActive } = props
   return (
     <React.Fragment>
       <div className={classNames('flex w-full items-center', className)}>
@@ -21,7 +22,7 @@ const InfoUser = (props: Props) => {
             'md:shadow-s-2'
           )}
         >
-          {role}
+          <div className={classNames({ 'opacity-50': !isActive })}>{role}</div>
           <div className='aspect-square h-full overflow-hidden rounded-full bg-slate-200'>
             <img src={avatar} className='h-full w-full object-cover' alt='' />
           </div>
