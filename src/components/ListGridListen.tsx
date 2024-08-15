@@ -31,7 +31,7 @@ const data = [
 
             '-right-12 -top-4 rotate-[-8deg]',
             'sm:left-0 sm:right-auto sm:translate-x-[-8vw]',
-            'lg:top-0 lg:translate-x-[-4vw] lg:translate-y-[-8vw]'
+            'lg:top-0 lg:translate-x-[-3vw] lg:translate-y-[-8vw]'
           )}
         >
           F&B

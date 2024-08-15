@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { GoArrowRight } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 import * as THREE from 'three'
+import imgUnleash from '../../assets/images/unpleash.png'
 
 interface ModelProps {
   model: { name: string }
@@ -39,6 +40,7 @@ const MyModel = ({ model, rotationY, scale, position }: ModelProps) => {
 const Unleash = () => {
   const [rotationY, setRotationY] = useState(0)
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +59,10 @@ const Unleash = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobileOrTablet(window.innerWidth <= 1024)
+      const isMobileOrTablet = window.innerWidth <= 1024
+      const isDesktop = window.innerWidth > 1024 && window.innerWidth <= 1920
+      setIsMobileOrTablet(isMobileOrTablet)
+      setIsDesktop(isDesktop)
     }
 
     handleResize()
@@ -71,13 +76,18 @@ const Unleash = () => {
   return (
     <div className='unleash-the-power container-wrapper relative flex h-screen flex-col items-center gap-[24px] py-[80px] md:py-[100px] lg:flex-row'>
       <div className='absolute z-[1000] flex w-[100%] flex-col'>
-        <h2 className='title-wrap font-bold md:text-[40px] lg:text-[56px]'>Unleash the power</h2>
-        <h1 className='mt-[-10px] text-[70px] font-bold md:text-[56px] lg:text-[104px]'>Of Offline</h1>
-        <h2 className='title-wrap mt-[-10px] font-bold md:text-[40px] lg:text-[56px] lg:font-bold'>Commerce</h2>
-        <div className='mt-[50px] flex max-w-[500px] flex-col items-start md:items-end'>
+        <h2 className='title-wrap font-semibold tracking-[-2px] md:text-[40px] lg:text-[56px]'>Unleash The Power</h2>
+        <h1 className='mt-[-10px] text-[70px] font-bold md:text-[56px] lg:flex lg:max-w-[700px] lg:justify-end lg:text-[104px]'>
+          Of Offline
+        </h1>
+        <h2 className='title-wrap mt-[-10px] font-semibold tracking-[-2px] md:text-[40px] lg:flex lg:max-w-[700px] lg:justify-end lg:text-[56px] lg:font-semibold'>
+          Commerce
+        </h2>
+        <div className='mt-[20px] flex max-w-[600px] flex-col items-start md:mt-[50px] md:items-end'>
           <span>
-            We offer AI assistant solutions that free store owners from daily tasks, saving time, costs, and manpower.
-            Simplify your operations and enhance efficiency effortlessly.
+            We offer a 24/7 AI Assistant for shop monitoring . It detects issues like theft, employee misconduct, and
+            unhappy customers, providing instant alerts. It tracks employee performance, calculates hours and bonuses,
+            and analyzes CRM and POS data for real-time insights.
           </span>
           <button className='btn-gradien-astronaut mt-8 flex items-center justify-center'>
             <Link to='http://pre.fi.ai' className='h-full'>
@@ -87,14 +97,21 @@ const Unleash = () => {
           </button>
         </div>
       </div>
-      <div
-        className='relative top-[400px] ml-auto h-full w-[100%] bg-unpleash md:top-[300px] lg:top-[120px] lg:w-[60%]'
-        style={{
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <div className='relative top-[450px] ml-auto h-full w-[100%] md:top-[300px] lg:top-[0px] lg:w-[45%]'>
+        <div
+          style={{
+            position: 'absolute',
+            top: '100%',
+            left: '50%',
+            transform: 'translate(-50%, -100%)',
+            width: '100%',
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <img src={imgUnleash} alt='' width='100%' style={{ height: isDesktop ? '300px' : '450px' }} />
+        </div>
         <Canvas
           shadows
           camera={{
@@ -109,7 +126,7 @@ const Unleash = () => {
           <MyModel
             model={{ name: 'IHVtsHAQU7cF91LAuAlKN5.glb' }}
             rotationY={rotationY}
-            scale={isMobileOrTablet ? [0.6, 0.6, 0.6] : [1.55, 1.55, 1.55]}
+            scale={isMobileOrTablet ? [0.6, 0.6, 0.6] : [1.5, 1.5, 1.6]}
             position={isMobileOrTablet ? [0, -1, 0] : [0, -6, 0]}
           />
         </Canvas>

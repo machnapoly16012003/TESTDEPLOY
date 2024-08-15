@@ -14,10 +14,10 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       <Banner3D />
       <div className='accurate-count' data-aos='fade-up'>
         <div className='container-wrapper accurate-container flex flex-col gap-10'>
-          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px] hidden md:block'>
-            Demographic Analysis with Every Scan
+          <h1 className='title-wrap mt-[100px] hidden text-center font-semibold md:block md:text-[64px] md:leading-[90px]'>
+            Segment customers by the value of items they carry
           </h1>
-          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px] md:hidden'>
+          <h1 className='title-wrap mt-[100px] text-center font-semibold md:hidden md:text-[64px] md:leading-[90px]'>
             Demographic Analysis with <br /> Every Scan
           </h1>
           <AutoplayVideo
@@ -28,8 +28,8 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       </div>
       <div data-aos='fade-up' className='md:mt-0'>
         <div className='container-wrapper flex flex-col gap-10'>
-          <h1 className='title-wrap mt-[100px] text-center font-bold md:text-[64px] md:leading-[90px]'>
-            Seamless AI-Powered Without Manual Filtering
+          <h1 className='title-wrap mt-[100px] text-center font-semibold md:text-[64px] md:leading-[90px]'>
+            Interaction in nature language
           </h1>
           <AutoplayVideo source='https://img.m.pro/siteC1.mp4' defaultImage='https://via.placeholder.com/1920x1080' />
         </div>

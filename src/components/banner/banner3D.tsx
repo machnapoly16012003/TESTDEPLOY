@@ -112,17 +112,17 @@ const Banner3D = () => {
           }}
         >
           {isMobile ? (
-            <h1 className='title-wrap max-w-[1000px] text-center font-bold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
+            <h1 className='title-wrap max-w-[1000px] text-center font-semibold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
               Meet the new <br /> AI assistant for <br /> store management
             </h1>
           ) : (
-            <h1 className='title-wrap max-w-[1000px] text-center font-bold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
+            <h1 className='title-wrap max-w-[1200px] text-center font-semibold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
               {' '}
-              Meet the new AI assistant for store management
+              Unlock your own AI store manager
             </h1>
           )}
           <ButtonPrimary className='z-[99999]'>
-            <Link to='http://pre.fi.ai' className='h-full w-full'>
+            <Link to='http://pre.fi.ai' className='h-full w-full px-[20px]'>
               <span className='uppercase'>start with ai</span>
             </Link>
           </ButtonPrimary>

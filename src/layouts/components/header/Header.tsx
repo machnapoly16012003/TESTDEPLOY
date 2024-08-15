@@ -1,5 +1,6 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect } from 'react'
 import { FaBars } from 'react-icons/fa6'
+import { TbLockCancel } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 import images from '~/assets'
 import {
@@ -14,15 +15,15 @@ import {
 interface HeaderProps {}
 
 const Header: React.FunctionComponent<HeaderProps> = memo(() => {
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  // const [isMenuOpen, setMenuOpen] = useState(false)
 
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen)
-  }
+  // const toggleMenu = () => {
+  //   setMenuOpen(!isMenuOpen)
+  // }
 
   const handleAlert = () => {
     alert(
-      'Apologies, this page is currently not accessible. Please reach out to the administrator for further details.'
+      'It appears that you does not have administrative rights. If you require access to these features, please contact the system administrator for further assistance.'
     )
   }
   useEffect(() => {
@@ -38,7 +39,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
   }, [])
 
   return (
-    <header className='shadow-md fixed left-0 top-0 z-[9999] w-[100%] bg-white'>
+    <header className='shadow-md fixed left-0 top-0 z-[9999] w-[100%] bg-white font-poppins'>
       <div className='header_desktop hidden h-[80px] lg:block'>
         <div className='container-wrapper mx-auto flex h-full items-center justify-between'>
           <div className='flex items-center gap-10'>
@@ -92,38 +93,41 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link to=''>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleAlert}>Documentation</NavigationMenuLink>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleAlert}>
+                      Documentation
+                    </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
 
-          <div className='flex items-center gap-2'>
-            {/* <div className='flex h-[40px] w-[100px] items-center justify-center overflow-hidden rounded-[20px] bg-primary-gradient bg-clip-text p-2 font-semibold text-transparent'>
-              <Link to='/login' className=''>
+          {/* <div className='flex items-center gap-2'>
+            <div className='flex h-[40px] w-[100px] items-center justify-center overflow-hidden rounded-[20px] bg-primary-gradient bg-clip-text p-2 font-semibold text-transparent'>
+              <Link to='/' className='' onClick={handleAlert}>
                 Login
               </Link>
             </div>
             <ButtonPrimary>
-              <Link to='/register' className=''>
+              <Link to='/' className='' onClick={handleAlert}>
                 Register
               </Link>
-            </ButtonPrimary> */}
-          </div>
+            </ButtonPrimary>
+          </div> */}
         </div>
       </div>
 
       <div className='flex items-center justify-between bg-gray-100 p-4 lg:hidden'>
-        <button onClick={toggleMenu} className='rounded-[50%] bg-white p-[16px] text-2xl'>
-          <FaBars />
+        <button onClick={handleAlert} className='relative rounded-[50%] bg-white p-[16px] text-2xl'>
+          <FaBars className='relative z-10' />
+          <TbLockCancel className='absolute left-[0px] top-[3px] text-[0.7em]' />
         </button>
         {/* <ButtonPrimary>
-          <Link to='/#' className=''>
+          <Link to='/#' className='' onClick={handleAlert}>
             SIGN IN
           </Link>
         </ButtonPrimary> */}
-        {isMenuOpen && (
+        {/* {isMenuOpen && (
           <div className='shadow-lg absolute left-10 top-16 z-10 rounded-md bg-white p-8'>
             <ul className='space-y-2'>
               <li className='cursor-pointer hover:text-blue-500'>Home</li>
@@ -131,7 +135,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
               <li className='cursor-pointer hover:text-blue-500'>Contact</li>
             </ul>
           </div>
-        )}
+        )} */}
       </div>
     </header>
   )

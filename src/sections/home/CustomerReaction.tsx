@@ -24,7 +24,7 @@ const CustomerReaction = () => {
             <p
               className={classNames(
                 'title-wrap max-w-[180px] font-semibold leading-[30px] md:text-[36px]/[40px]',
-                'lg:max-w-[400px] lg:text-[64px]/[72px] tracking-[-2px]'
+                'tracking-[-2px] lg:max-w-[400px] lg:text-[64px]/[72px]'
               )}
             >
               Customer’s Reaction
@@ -38,7 +38,12 @@ const CustomerReaction = () => {
           <div className='my-3 flex w-full items-end gap-5'>
             {Array.from({ length: 3 }).map((_, i) => (
               <>
-                <div className={classNames('block h-1 w-full rounded-full bg-black', 'md:h-2')}></div>
+                <div
+                  className={classNames('block h-1 w-full rounded-full', 'md:h-2', {
+                    'bg-black': i === activeSlide,
+                    'bg-slate-400': i !== activeSlide
+                  })}
+                ></div>
                 {i === activeSlide && (
                   <span className={classNames('text-[18px] font-semibold leading-none', 'md:text-[24px]')}>
                     {i + 1}

@@ -23,7 +23,7 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
         className={classNames(
           'relative box-content flex items-center bg-white/[.64] shadow-s-20 backdrop-blur-[125px] transition-all duration-1000 ease-in-out',
           size === 'small'
-            ? 'gap-[22.56px] rounded-[66.25px] pr-[22.21px] xs:h-[78.01px] xs:max-w-[336px] sm:h-[65px] sm:w-[320px] md:h-[110px] md:w-[509px]'
+            ? 'gap-[22.56px] rounded-[66.25px] pr-[22.21px] xs:h-[78.01px] xs:max-w-[336px] sm:h-[65px] sm:w-[320px] md:h-[120px] md:w-[509px]'
             : size === 'medium'
               ? 'gap-[22.56px] rounded-[66.25px] pr-[24.23px] xs:h-[51px] xs:w-[208px] sm:h-[75px] sm:w-[380px] md:h-[120px] md:w-[555px]'
               : 'gap-[22.56px] rounded-[66.25px] pr-[26.25px] xs:h-[42px] xs:w-[166px] sm:h-[85px] sm:w-[440px] md:h-[130px] md:w-[600px]',
@@ -68,7 +68,7 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
             className={classNames(
               'text-black/[.64] transition-all duration-300 ease-in-out',
               size === 'small'
-                ? 'xs:max-w-[90%] xs:text-[12px]/[16px] sm:text-[13px]/[16.9px] md:max-w-[65%] md:text-[16px]/[22px]'
+                ? 'xs:max-w-[90%] xs:text-[12px]/[16px] sm:text-[13px]/[16.9px] md:max-w-[75%] md:text-[16px]/[22px]'
                 : size === 'medium'
                   ? 'xs:max-w-[95%] xs:text-[8px]/[12px] sm:max-w-[85%] sm:text-[14px]/[20px] md:max-w-[75%] md:text-[18px]/[26px]'
                   : 'xs:max-w-[90%] xs:text-[7px]/[10px] sm:max-w-[90%] sm:text-[16px]/[20px] md:max-w-[70%] md:text-[20px]/[28px]'
