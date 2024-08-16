@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import ScrollToTop from 'react-scroll-to-top'
 import { Footer } from '../components/footer'
 import { Header } from '../components/header'
-import IconBxChevronUp from '~/components/icons/chevUp'
+import IconBxChevronUp from '~/assets/icons/chevUp'
 
 const BaseLayout = memo(() => {
   return (
@@ -12,8 +12,8 @@ const BaseLayout = memo(() => {
       <Outlet />
       <Footer />
       <ScrollToTop
-        className='mb-[160px]'
-        style={{ zIndex: '100' }}
+        className='mb-[160px] rounded-full'
+        style={{ zIndex: '100', borderRadius: '50%', width: '50px', height: '50px' }}
         smooth
         component={<IconBxChevronUp className='rounded-full bg-secondary text-black' />}
       />

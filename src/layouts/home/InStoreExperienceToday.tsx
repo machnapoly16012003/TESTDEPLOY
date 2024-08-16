@@ -38,7 +38,7 @@ const InStoreExperienceToday = () => {
         <div className='relative z-50 mx-auto flex min-h-screen w-full max-w-[1440px] flex-col items-center justify-center text-center xs:bg-[length:640px_100%] sm:bg-cover'>
           <div ref={loadingRef} className='aspect-square w-full sm:size-[400px]' key={status} />
           <div>
-            <h2 className='text-[30px] font-semibold md:text-[64px]'>
+            <h2 className='text-[30px] font-semibold capitalize md:text-[64px]'>
               {/* Create a more intelligent <br /> in-store experience today! */}
               Liberate yourself <br /> and all store owners now!
             </h2>

@@ -23,9 +23,9 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
         className={classNames(
           'relative box-content flex items-center bg-white/[.64] shadow-s-20 backdrop-blur-[125px] transition-all duration-1000 ease-in-out',
           size === 'small'
-            ? 'gap-[22.56px] rounded-[66.25px] pr-[22.21px] xs:h-[78.01px] xs:max-w-[336px] sm:h-[65px] sm:w-[320px] md:h-[120px] md:w-[509px]'
+            ? 'gap-[22.56px] rounded-[66.25px] pr-[22.21px] xs:h-[88.01px] xs:max-w-[336px] sm:h-[65px] sm:w-[320px] md:h-[130px] md:w-[509px]'
             : size === 'medium'
-              ? 'gap-[22.56px] rounded-[66.25px] pr-[24.23px] xs:h-[51px] xs:w-[208px] sm:h-[75px] sm:w-[380px] md:h-[120px] md:w-[555px]'
+              ? 'gap-[22.56px] rounded-[66.25px] pr-[24.23px] xs:h-[62px] xs:w-[208px] sm:h-[75px] sm:w-[380px] md:h-[130px] md:w-[555px]'
               : 'gap-[22.56px] rounded-[66.25px] pr-[26.25px] xs:h-[42px] xs:w-[166px] sm:h-[85px] sm:w-[440px] md:h-[130px] md:w-[600px]',
           className
         )}
@@ -36,9 +36,9 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
           className={classNames(
             'absolute',
             size === 'small'
-              ? 'xs:left-[-10.5%] xs:top-[-53.5%] xs:w-[180px] sm:left-[-13.5%] sm:top-[-75%] sm:w-[180px] md:left-[-8%] md:top-[-40.5%] md:w-fit'
+              ? 'xs:left-[-10.5%] xs:top-[-43.5%] xs:w-[180px] sm:left-[-13.5%] sm:top-[-75%] sm:w-[180px] md:left-[-8%] md:top-[-25.5%] md:w-fit'
               : size === 'medium'
-                ? 'xs:left-[-13%] xs:top-[-65.5%] xs:w-[130px] sm:left-[-11.5%] sm:top-[-65%] sm:w-[190px] md:left-[-6.5%] md:top-[-35.1%] md:w-fit'
+                ? 'xs:left-[-13%] xs:top-[-44.5%] xs:w-[130px] sm:left-[-11.5%] sm:top-[-65%] sm:w-[190px] md:left-[-6.5%] md:top-[-28.1%] md:w-fit'
                 : 'xs:left-[-11.5%] xs:top-[-60%] xs:w-[100px] sm:left-[-9.5%] sm:top-[-57%] sm:w-[200px] md:left-[-5.5%] md:top-[-29.6%] md:w-fit'
           )}
         />

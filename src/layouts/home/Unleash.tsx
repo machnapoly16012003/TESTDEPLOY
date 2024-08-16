@@ -60,7 +60,7 @@ const Unleash = () => {
   useEffect(() => {
     const handleResize = () => {
       const isMobileOrTablet = window.innerWidth <= 1024
-      const isDesktop = window.innerWidth > 1024 && window.innerWidth <= 1920
+      const isDesktop = window.innerWidth > 1024 && window.innerWidth < 1920
       setIsMobileOrTablet(isMobileOrTablet)
       setIsDesktop(isDesktop)
     }
@@ -101,7 +101,7 @@ const Unleash = () => {
         <div
           style={{
             position: 'absolute',
-            top: '100%',
+            top: isMobileOrTablet ? '65%' : '100%',
             left: '50%',
             transform: 'translate(-50%, -100%)',
             width: '100%',
@@ -110,12 +110,17 @@ const Unleash = () => {
             backgroundRepeat: 'no-repeat'
           }}
         >
-          <img src={imgUnleash} alt='' width='100%' style={{ height: isDesktop ? '300px' : '450px' }} />
+          <img
+            src={imgUnleash}
+            alt=''
+            width='100%'
+            style={{ height: isMobileOrTablet ? '200px' : isDesktop ? '300px' : '450px' }}
+          />
         </div>
         <Canvas
           shadows
           camera={{
-            position: isMobileOrTablet ? [0, 0, 6] : [6, 2, 8]
+            position: isMobileOrTablet ? [-1, 2, 6] : [6, 2, 8]
             // fov: 35,
             // near: 1,
             // far: 30

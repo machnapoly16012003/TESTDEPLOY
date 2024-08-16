@@ -3,7 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as THREE from 'three'
-import { ButtonPrimary } from '../button'
+import { ButtonPrimary } from '../../components/button'
 import bannerImage from '~/assets/bg/banner.png'
 import classNames from 'classnames'
 
@@ -113,7 +113,7 @@ const Banner3D = () => {
         >
           {isMobile ? (
             <h1 className='title-wrap max-w-[1000px] text-center font-semibold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>
-              Meet the new <br /> AI assistant for <br /> store management
+              Unlock your own AI store manager
             </h1>
           ) : (
             <h1 className='title-wrap max-w-[1200px] text-center font-semibold capitalize tracking-[-2px] md:text-[56px] md:leading-[80px]'>

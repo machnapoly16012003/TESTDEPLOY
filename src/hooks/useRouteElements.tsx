@@ -4,8 +4,7 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { BaseLayout } from '~/layouts/baseLayout'
 
-import { SimpleLayout } from '~/layouts/simpleLayout'
-import { Analysis } from '~/pages/analysis'
+// import { Analysis } from '~/pages/analysis'
 
 import { Home } from '~/pages/home'
 
@@ -28,18 +27,18 @@ function useRouteElements() {
             element: <Home />
           }
         ]
-      },
-      {
-        path: '',
-        element: <SimpleLayout />,
-        children: [
-          {
-            index: true,
-            path: removeSlash(PATH_PUBLIC_APP.analysis),
-            element: <Analysis />
-          }
-        ]
       }
+      // {
+      //   path: '',
+      //   element: <SimpleLayout />,
+      //   children: [
+      //     {
+      //       index: true,
+      //       path: removeSlash(PATH_PUBLIC_APP.analysis),
+      //       element: <Analysis />
+      //     }
+      //   ]
+      // }
     ],
     []
   )
