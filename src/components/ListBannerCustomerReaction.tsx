@@ -97,7 +97,7 @@ const ListBannerCustomerReaction = () => {
 
   return (
     <React.Fragment>
-      <div className={classNames('flex h-full w-full flex-col justify-center gap-3 p-5')}>
+      <div className={classNames('flex h-full w-full flex-col justify-center gap-3')}>
         {reactionData.map((item, i) => (
           <ItemBannerCustomerReaction key={i} {...item} idx={i} duration={handleCheackDurian(i) ?? 0} />
         ))}

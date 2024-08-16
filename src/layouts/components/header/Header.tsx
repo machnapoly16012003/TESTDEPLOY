@@ -49,7 +49,10 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={handleAlert}>Getting started</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={handleAlert} className='relative'>
+                    Getting started
+                    <TbLockCancel className='absolute left-[0px] top-[0px] text-[0.7em]' />
+                  </NavigationMenuTrigger>
                   {/* <NavigationMenuContent>
                     <ul className='grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
                       <li className='row-span-3'>
@@ -80,7 +83,10 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={handleAlert}>Components</NavigationMenuTrigger>
+                  <NavigationMenuTrigger onClick={handleAlert} className='relative'>
+                    Components
+                    <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' />
+                  </NavigationMenuTrigger>
                   {/* <NavigationMenuContent>
                     <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
                       {menuBar.map((component) => (
@@ -93,8 +99,9 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link to=''>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()} onClick={handleAlert}>
+                    <NavigationMenuLink className={(navigationMenuTriggerStyle(), 'relative')} onClick={handleAlert}>
                       Documentation
+                      <TbLockCancel className='absolute left-[-7px] top-[-8px] text-[0.7em]' />
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>

@@ -49,7 +49,7 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
               ? 'xs:mt-1 xs:space-y-[7px] xs:pl-[82px] sm:space-y-[0px] sm:pl-[68px] md:mt-0 md:space-y-[9px] md:pl-[110px]'
               : size === 'medium'
                 ? 'mt-[4px] xs:space-y-[5px] xs:pl-[57px] sm:space-y-[2px] sm:pl-[78px] md:space-y-[9.38px] md:pl-[120px]'
-                : 'mt-[4px] xs:space-y-[2px] xs:pl-[46px] sm:space-y-[2px] sm:pl-[92px] md:space-y-[11px] md:pl-[130px]'
+                : 'mb-[4px] mt-[4px] xs:space-y-[2px] xs:pl-[46px] sm:space-y-[2px] sm:pl-[92px] md:space-y-[11px] md:pl-[130px]'
           )}
         >
           <h6
@@ -59,7 +59,7 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
                 ? 'xs:text-[16px]/[16px] sm:text-[15px]/[22px] md:text-[21px]/[26px]'
                 : size === 'medium'
                   ? 'xs:text-[10px]/[8.68px] sm:text-[17px]/[18.9px] md:text-[22px]/[20.77px]'
-                  : 'xs:text-[9px]/[7.19px] sm:text-[18px]/[18.9px] md:text-[24px]/[22.5px]'
+                  : 'xs:text-[9px]/[15px] sm:text-[18px]/[18.9px] md:text-[24px]/[22.5px]'
             )}
           >
             {title}
@@ -71,7 +71,7 @@ const BoxContentInStore: FC<IBoxContentInStore> = memo(
                 ? 'xs:max-w-[90%] xs:text-[12px]/[16px] sm:text-[13px]/[16.9px] md:max-w-[75%] md:text-[16px]/[22px]'
                 : size === 'medium'
                   ? 'xs:max-w-[95%] xs:text-[8px]/[12px] sm:max-w-[85%] sm:text-[14px]/[20px] md:max-w-[75%] md:text-[18px]/[26px]'
-                  : 'xs:max-w-[90%] xs:text-[7px]/[10px] sm:max-w-[90%] sm:text-[16px]/[20px] md:max-w-[70%] md:text-[20px]/[28px]'
+                  : 'xs:max-w-[90%] xs:text-[7px]/[9px] sm:max-w-[90%] sm:text-[16px]/[20px] md:max-w-[70%] md:text-[20px]/[28px]'
             )}
           >
             {content}

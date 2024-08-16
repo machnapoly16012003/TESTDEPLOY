@@ -30,7 +30,15 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
           <h1 className='title-wrap mt-[100px] text-center font-semibold capitalize md:text-[64px] md:leading-[90px]'>
             Interaction in nature language
           </h1>
-          <AutoplayVideo source='https://img.m.pro/siteC1.mp4' defaultImage='https://via.placeholder.com/1920x1080' />
+          <div className='container-wrapper flex hidden flex-col gap-10 md:block'>
+            <AutoplayVideo source='https://img.m.pro/siteC1.mp4' defaultImage='https://via.placeholder.com/1920x1080' />
+          </div>
+          <div className='block md:hidden'>
+            <AutoplayVideo
+              source='https://img.m.pro/siteC4-mobile.mp4'
+              defaultImage='https://via.placeholder.com/1920x1080'
+            />
+          </div>
         </div>
       </div>
       <Unleash />
