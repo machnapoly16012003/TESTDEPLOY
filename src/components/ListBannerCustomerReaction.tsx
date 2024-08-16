@@ -86,7 +86,7 @@ const ListBannerCustomerReaction = () => {
       {
         img: images.image.user3,
         content:
-          'This is truly a major leap forward. An AI tool that provides better customer understanding would be a significant competitive advantage.',
+          'This is truly a major leap forward. An AI tool that provides better customer understanding would be a significant.',
         className: '',
         classIcon: 'right-[2%] bottom-[8%] text-black',
         classWrapContent: 'bg-[#E3E5E9] pr-8'

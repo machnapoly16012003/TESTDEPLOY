@@ -85,7 +85,7 @@ const Unleash = () => {
         </h2>
         <div className='mt-[20px] flex max-w-[600px] flex-col items-start md:mt-[50px] md:items-end'>
           <span>
-            We offer a 24/7 AI Assistant for shop monitoring . It detects issues like theft, employee misconduct, and
+            We offer a 24/7 AI Assistant for shop monitoring. It detects issues like theft, employee misconduct, and
             unhappy customers, providing instant alerts. It tracks employee performance, calculates hours and bonuses,
             and analyzes CRM and POS data for real-time insights.
           </span>

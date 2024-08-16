@@ -6,10 +6,8 @@ import images from '~/assets'
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
+  NavigationMenuTrigger
 } from '~/components/navigationMenu'
 
 interface HeaderProps {}
@@ -98,12 +96,16 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link to=''>
+                  <NavigationMenuTrigger onClick={handleAlert} className='relative'>
+                    Documentation
+                    <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' />
+                  </NavigationMenuTrigger>
+                  {/* <Link to=''>
                     <NavigationMenuLink className={(navigationMenuTriggerStyle(), 'relative')} onClick={handleAlert}>
                       Documentation
                       <TbLockCancel className='absolute left-[-7px] top-[-8px] text-[0.7em]' />
                     </NavigationMenuLink>
-                  </Link>
+                  </Link> */}
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
