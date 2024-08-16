@@ -1,11 +1,10 @@
 import React, { memo } from 'react'
 import { AutoplayVideo } from '~/components/autoplayVideo'
-import Banner3D from '~/components/banner/banner3D'
-import Unleash from '~/components/unleash'
-import { InStore, ListenToOurCustomer } from '~/sections/home'
-import CustomerReaction from '~/sections/home/CustomerReaction'
-import InStoreExperienceToday from '~/sections/home/InStoreExperienceToday'
-
+import Banner3D from '~/layouts/home/banner3D'
+import { InStore, ListenToOurCustomer } from '~/layouts/home'
+import CustomerReaction from '~/layouts/home/CustomerReaction'
+import InStoreExperienceToday from '~/layouts/home/InStoreExperienceToday'
+import Unleash from '~/layouts/home/Unleash'
 interface IHomePageProps {}
 
 const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
@@ -14,11 +13,11 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       <Banner3D />
       <div className='accurate-count' data-aos='fade-up'>
         <div className='container-wrapper accurate-container flex flex-col gap-10'>
-          <h1 className='title-wrap mt-[100px] hidden text-center font-semibold md:block md:text-[64px] md:leading-[90px]'>
+          <h1 className='title-wrap mt-[100px] hidden text-center font-semibold capitalize md:block md:text-[64px] md:leading-[90px]'>
             Segment customers by the value of items they carry
           </h1>
-          <h1 className='title-wrap mt-[100px] text-center font-semibold md:hidden md:text-[64px] md:leading-[90px]'>
-            Demographic Analysis with <br /> Every Scan
+          <h1 className='title-wrap mt-[100px] text-center font-semibold capitalize md:hidden md:text-[64px] md:leading-[90px]'>
+            Segment customers by the value of items they carry
           </h1>
           <AutoplayVideo
             source='https://img.m.pro/fiai-home.mp4'
@@ -28,17 +27,23 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       </div>
       <div data-aos='fade-up' className='md:mt-0'>
         <div className='container-wrapper flex flex-col gap-10'>
-          <h1 className='title-wrap mt-[100px] text-center font-semibold md:text-[64px] md:leading-[90px]'>
+          <h1 className='title-wrap mt-[100px] text-center font-semibold capitalize md:text-[64px] md:leading-[90px]'>
             Interaction in nature language
           </h1>
           <AutoplayVideo source='https://img.m.pro/siteC1.mp4' defaultImage='https://via.placeholder.com/1920x1080' />
         </div>
       </div>
       <Unleash />
-      <div data-aos='fade-up' className='mt-[220px] md:mt-[40px]'>
-        <div className='container-wrapper flex flex-col gap-10'>
+      <div data-aos='fade-up' className='mt-[300px] md:mt-[40px]'>
+        <div className='container-wrapper flex hidden flex-col gap-10 md:block'>
           <AutoplayVideo
             source='https://img.m.pro/fiai-banner-3d.mp4'
+            defaultImage='https://via.placeholder.com/1920x1080'
+          />
+        </div>
+        <div className='block md:hidden'>
+          <AutoplayVideo
+            source='https://img.m.pro/fiai-banner-3d-mobile.mp4'
             defaultImage='https://via.placeholder.com/1920x1080'
           />
         </div>
