@@ -20,9 +20,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
   // }
 
   const handleAlert = () => {
-    alert(
-      'It appears that you does not have administrative rights. If you require access to these features, please contact the system administrator for further assistance.'
-    )
+    alert('you do not have administrative rights, please contact the administrator.')
   }
   useEffect(() => {
     window.addEventListener('scroll', function () {

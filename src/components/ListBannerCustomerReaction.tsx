@@ -38,7 +38,7 @@ const ItemBannerCustomerReaction = ({
           <div className={classNames('relative flex h-full flex-1 items-center rounded-[18px] p-4', classWrapContent)}>
             <p
               className={classNames(
-                'line-clamp-4 max-w-[300px] text-[12px]/[14px]',
+                'line-clamp-5 max-w-[300px] text-[12px]/[14px]',
                 'leading-[1.3] md:max-w-[500px] md:text-[18px]'
               )}
             >
@@ -86,7 +86,7 @@ const ListBannerCustomerReaction = () => {
       {
         img: images.image.user3,
         content:
-          'This is truly a major leap forward. An AI tool that provides better customer understanding would be a significant.',
+          'This is truly a major leap forward. An AI tool that provides better customer understanding would be significant.',
         className: '',
         classIcon: 'right-[2%] bottom-[8%] text-black',
         classWrapContent: 'bg-[#E3E5E9] pr-8'

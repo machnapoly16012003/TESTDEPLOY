@@ -59,7 +59,7 @@ const CustomerReaction = () => {
               }}
               pagination={true}
               modules={[Pagination]}
-              className='mySwiper h-full w-full'
+              className='mySwiper h-full w-full py-3'
             >
               <SwiperSlide>
                 <ListBannerCustomerReaction />
