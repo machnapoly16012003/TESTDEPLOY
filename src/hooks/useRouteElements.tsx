@@ -7,6 +7,7 @@ import { BaseLayout } from '~/layouts/baseLayout'
 // import { Analysis } from '~/pages/analysis'
 
 import { Home } from '~/pages/home'
+import Document from '~/pages/Document'
 
 function useRouteElements() {
   const removeSlash = useCallback((path: string) => (path.startsWith('/') ? path.slice(1) : path), [])
@@ -25,6 +26,10 @@ function useRouteElements() {
             index: true,
             path: removeSlash(PATH_PUBLIC_APP.home),
             element: <Home />
+          },
+          {
+            path: '/document',
+            element: <Document />
           }
         ]
       }

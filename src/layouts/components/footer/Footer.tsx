@@ -1,4 +1,6 @@
+import classNames from 'classnames'
 import { memo } from 'react'
+import { useLocation } from 'react-router-dom'
 import images from '~/assets'
 import logo from '~/assets/logo/logo-fi-ai.png'
 // import images from '~/assets'
@@ -79,8 +81,11 @@ interface IFooterProps {}
 // ]
 
 const Footer: React.FunctionComponent<IFooterProps> = memo(() => {
+  const location = useLocation();
+  const isOnPageDocument = location.pathname === '/document';
+  console.log("isOnPageDocument: ", isOnPageDocument)
   return (
-    <div className='relative z-50 gap-[24px] rounded-b-none rounded-t-[44px] bg-[#0D0D0D] p-[32px] px-[40px]'>
+    <div className={classNames("relative z-50 gap-[24px] rounded-b-none bg-[#0D0D0D] p-[32px] px-[40px]", isOnPageDocument ? "" : "rounded-t-[44px]")}>
       <div className='flex items-center gap-2 border-b border-white border-opacity-70 pb-[20px]'>
         <div className='h-[34px] w-[34px]'>
           <img src={logo} alt='logo' className='h-[100%] w-[100%]' />

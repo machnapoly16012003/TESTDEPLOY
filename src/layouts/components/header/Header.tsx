@@ -45,9 +45,9 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={handleAlert} className='relative'>
+                  <NavigationMenuTrigger onClick={() => window.location.href = 'https://pre.fi.ai/'} className='relative'>
                     Getting started
-                    <TbLockCancel className='absolute left-[0px] top-[0px] text-[0.7em]' />
+                    {/* <TbLockCancel className='absolute left-[0px] top-[0px] text-[0.7em]' /> */}
                   </NavigationMenuTrigger>
                   {/* <NavigationMenuContent>
                     <ul className='grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
@@ -79,9 +79,9 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={handleAlert} className='relative'>
+                  <NavigationMenuTrigger onClick={() => document.querySelector('#ai-work')?.scrollIntoView({ block: "start", behavior: 'smooth' })} className='relative'>
                     Components
-                    <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' />
+                    {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
                   </NavigationMenuTrigger>
                   {/* <NavigationMenuContent>
                     <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
@@ -94,9 +94,9 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={handleAlert} className='relative'>
-                    Documentation
-                    <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' />
+                <NavigationMenuTrigger onClick={() => document.querySelector('#in-store')?.scrollIntoView({ block: "start", behavior: 'smooth' })} className='relative'>
+                Documentation
+                    {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
                   </NavigationMenuTrigger>
                   {/* <Link to=''>
                     <NavigationMenuLink className={(navigationMenuTriggerStyle(), 'relative')} onClick={handleAlert}>
