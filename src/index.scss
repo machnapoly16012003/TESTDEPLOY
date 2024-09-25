@@ -224,12 +224,32 @@
   }
 }
 
+@keyframes CustomTranslateY {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 .rotate-y-360deg {
   animation: rotateY 1s ease-in-out;
 }
 
 .translateY-5s {
   animation: CustomTranslateY 3s ease-in-out infinite;
+}
+
+.translateY-4s {
+  animation: CustomTranslateY 4s ease-in-out infinite;
+}
+
+.translateY-8s {
+  animation: CustomTranslateY 5s ease-in-out infinite;
 }
 
 .instagram-text {

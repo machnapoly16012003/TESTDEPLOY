@@ -1,7 +1,7 @@
 import { Theme } from '@radix-ui/themes'
 import ReactDOM from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 
 import '@radix-ui/themes/styles.css'
 import 'swiper/css'
@@ -17,11 +17,11 @@ import './styles.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <HelmetProvider>
-    <BrowserRouter>
+    <HashRouter>
       <Theme>
         <App />
       </Theme>
-    </BrowserRouter>
+    </HashRouter>
   </HelmetProvider>
 )
 

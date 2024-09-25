@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { FC, memo } from 'react'
-import { FaPhoneVolume } from 'react-icons/fa6'
+import { FaMapLocationDot, FaPhoneVolume } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import images from '~/assets'
@@ -24,11 +24,15 @@ const Footer: FC<IFooterProps> = memo(() => {
             <p className='text-[16px]/[24px] font-semibold text-white'>Contact Us</p>
             <div className='flex items-center gap-3'>
               <FaPhoneVolume className='size-5' color='white' />
-              <p className='text-[16px]/[24px] text-white'>Phone number: +358 9 2316 1426 </p>
+              <p className='text-[16px]/[24px] text-white'>Phone number: +1-714-548-6789</p>
             </div>
             <div className='flex items-center gap-3'>
               <MdEmail className='size-5' color='white' />
-              <p className='text-[16px]/[24px] text-white'>Mail: chatbot@gmail.com</p>
+              <p className='text-[16px]/[24px] text-white'>Mail: in@fi.ai</p>
+            </div>
+            <div className='flex items-center gap-3'>
+              <FaMapLocationDot className='size-5' color='white' />
+              <p className='text-[16px]/[24px] text-white'>Address: 10300 Westoffice Dr #100 Houston, TX 77042</p>
             </div>
           </div>
 
@@ -53,7 +57,7 @@ const Footer: FC<IFooterProps> = memo(() => {
             <img src={images.bg.bg_footer} alt='bg-footer' className='w-full' />
           </div>
 
-          <div className='bg-box-input absolute left-1/2 flex max-w-[536px] -translate-x-1/2 transform items-center bg-cover bg-no-repeat object-cover object-center p-2 backdrop-blur-[80px] xs:bottom-7 xs:w-full xs:rounded-[10px] xs:pl-2 md:bottom-0 md:min-w-[536px] md:rounded-2xl md:pl-4'>
+          <div className='absolute left-1/2 flex max-w-[536px] -translate-x-1/2 transform items-center bg-box-input bg-cover bg-no-repeat object-cover object-center p-2 backdrop-blur-[80px] xs:bottom-7 xs:w-full xs:rounded-[10px] xs:pl-2 md:bottom-0 md:min-w-[536px] md:rounded-2xl md:pl-4'>
             <input
               type='text'
               placeholder='Email, Phone number or Telegram ID'
@@ -71,7 +75,7 @@ const Footer: FC<IFooterProps> = memo(() => {
           <img src={images.bg.bg_text_footer} alt='bg-text-footer' className='mx-auto h-auto md:w-full' />
         </div>
 
-        <div className='bg-ln-line-footer mb-10 mt-10 h-[2px] w-full' />
+        <div className='mb-10 mt-10 h-[2px] w-full bg-ln-line-footer' />
 
         <div className='mx-auto flex items-center justify-between gap-4 text-white xs:w-fit xs:flex-col md:w-full md:flex-row'>
           <p className='text-[14px]/[19.6px] xs:hidden md:flex'>Terms of Service</p>

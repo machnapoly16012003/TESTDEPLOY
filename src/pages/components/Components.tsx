@@ -21,8 +21,8 @@ const Components = memo(() => {
         />
         <BoxContentComponent
           icon={images.icon.ai_camera}
-          title='AI 4K Camera'
-          content='Capture high-resolution video and images, providing detailed visual data for real-time analysis and actionable insights'
+          title='Real-Time Communication (RTC)'
+          content='AI analysis based on video streaming Real-Time Communications (RTC) technology, processed on-site on Edge AI devices, do not storage any data'
           className='ml-[243px] w-[635px]'
         />
         <BoxContentComponent
@@ -39,8 +39,8 @@ const Components = memo(() => {
         />
         <BoxContentComponent
           icon={images.icon.rtc}
-          title='Real-Time Communication (RTC)'
-          content='AI analysis based on video streaming Real-Time Communications (RTC) technology, processed on-site on Edge AI devices, do not storage any data'
+          title='Real-time Analytics and Reports'
+          content='Continuously monitors data to generate detailed, real-time reports, helping you make informed, data-driven decisions quickly'
           className='w-[751px]'
         />
       </div>

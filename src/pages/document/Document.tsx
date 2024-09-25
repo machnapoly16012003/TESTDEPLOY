@@ -3,7 +3,7 @@ import video from '~/assets/video/document_2409.mp4'
 export default function Document() {
   return (
     <React.Fragment>
-      <div className='relative h-screen w-full'>
+      <div className='relative h-screen w-full translate-y-5'>
         <video
           preload='true'
           autoPlay

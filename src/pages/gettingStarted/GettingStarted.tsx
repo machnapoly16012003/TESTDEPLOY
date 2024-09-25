@@ -40,7 +40,11 @@ const GettingStarted = memo(() => {
             alt='gt_earth_4'
             className='translateY-5s absolute left-[285px] top-[-25px] z-10'
           />
-          <img src={images.gettingStarted.gt_earth_5} alt='gt_earth_5' className='absolute bottom-12 right-44 z-10' />
+          <img
+            src={images.gettingStarted.gt_earth_5}
+            alt='gt_earth_5'
+            className='translateY-8s absolute bottom-12 right-44 z-10'
+          />
         </div>
 
         <img src={images.gettingStarted.gt_earth_1} alt='gt_earth_1' className='absolute left-0 top-40' />
@@ -52,7 +56,7 @@ const GettingStarted = memo(() => {
         <img
           src={images.gettingStarted.gt_earth_3}
           alt='gt_earth_3'
-          className='absolute bottom-60 left-1/2 -translate-x-1/2 transform'
+          className='translateY-4s absolute bottom-60 left-1/2 -translate-x-1/2 transform'
         />
         <img src={images.gettingStarted.gt_earth_6} alt='gt_earth_6' className='absolute -bottom-10 -left-5' />
       </div>
