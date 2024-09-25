@@ -1,144 +1,82 @@
 import classNames from 'classnames'
-import { memo } from 'react'
-import { useLocation } from 'react-router-dom'
+import { FC, memo } from 'react'
+import { FaPhoneVolume } from 'react-icons/fa6'
+import { MdEmail } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 import images from '~/assets'
-import logo from '~/assets/logo/logo-fi-ai.png'
-// import images from '~/assets'
 
 interface IFooterProps {}
 
-// const ProductFooter = [
-//   {
-//     title: 'Health',
-//     key: 'health'
-//   },
-//   {
-//     title: 'Cosmetics',
-//     key: 'cosmetics'
-//   },
-//   {
-//     title: 'Fashion',
-//     key: 'fasion'
-//   },
-//   {
-//     title: 'Food',
-//     key: 'food'
-//   },
-//   {
-//     title: 'Digital Products',
-//     key: 'digital-products'
-//   }
-// ]
-
-// const HelpFooter = [
-//   {
-//     title: 'Customer Service',
-//     key: 'customer-service'
-//   },
-//   {
-//     title: 'My Account',
-//     key: 'my-account'
-//   },
-//   {
-//     title: 'GDPR & CCPA Compliance Agreement',
-//     key: 'legal-privacy'
-//   },
-//   {
-//     title: 'Privacy Policy',
-//     key: 'gift-cards'
-//   },
-//   {
-//     title: 'Service Level Agreement',
-//     key: 'do-not-sell'
-//   },
-//   {
-//     title: 'Support Policy',
-//     key: 'our-commitment'
-//   },
-//   {
-//     title: 'Terms & Conditions',
-//     key: 'report-scan'
-//   },
-//   {
-//     title: 'WEEE Compliance',
-//     key: 'cookies-notice'
-//   }
-// ]
-
-// const listIcon = [
-//   {
-//     icon: images.icon.icon_instagram,
-//     key: 'instagram'
-//   },
-//   {
-//     icon: images.icon.icon_facebook,
-//     key: 'facebook'
-//   },
-//   {
-//     icon: images.icon.icon_social,
-//     key: 'social'
-//   }
-// ]
-
-const Footer: React.FunctionComponent<IFooterProps> = memo(() => {
-  const location = useLocation()
-  const isOnPageDocument = location.pathname === '/document'
-  console.log('isOnPageDocument: ', isOnPageDocument)
+const Footer: FC<IFooterProps> = memo(() => {
   return (
-    <div
-      className={classNames(
-        'relative z-50 gap-[24px] rounded-b-none bg-[#0D0D0D] p-[32px] px-[40px]',
-        isOnPageDocument ? '' : 'rounded-t-[44px]'
-      )}
-    >
-      <div className='flex items-center gap-2 border-b border-white border-opacity-70 pb-[20px]'>
-        <div className='h-[34px] w-[34px]'>
-          <img src={logo} alt='logo' className='h-[100%] w-[100%]' />
-        </div>
-        <div className='font-bold text-[white]'>Fi Ai</div>
-      </div>
-      <div className='mt-[20px] flex flex-col justify-between gap-8 md:flex-row'>
-        {/* <div className='flex flex-1 flex-col gap-2'>
-          <div className='font-bold text-[white]'>Product</div>
-          {ProductFooter.map((item) => (
-            <div key={item.key}>
-              <div className='text-[14px] font-light text-[white] opacity-70'>{item.title}</div>
+    <div className={classNames('relative z-50 gap-[24px] rounded-b-none rounded-t-3xl bg-[#0D0D0D] px-5 py-10')}>
+      <div className='grid grid-cols-2 gap-10 px-10'>
+        <div className='col-span-1'>
+          <div className='flex w-[70%] items-center gap-2 border-b border-white/[.44] pb-10'>
+            <div className='size-10 flex-shrink-0'>
+              <img src={images.logo.logo_fi} alt='logo' className='h-full w-full' />
             </div>
-          ))}
-        </div>
-        <div className='flex flex-1 flex-col gap-2'>
-          <div className='font-bold text-[white]'>Help</div>
-          {HelpFooter.map((item) => (
-            <div className='' key={item.key}>
-              <div className='text-[14px] font-light text-[white] opacity-70'>{item.title}</div>
-            </div>
-          ))}
-        </div> */}
-        <div className='flex flex-1 flex-col gap-2'>
-          <div className='font-bold text-[white]'>Contact Us</div>
-          <div className='text-[14px] font-light text-[white] opacity-70'>+358 9 2316 1426</div>
-          <div className='text-[14px] font-light text-[white] opacity-70'>contact@fi.ai</div>
-        </div>
-      </div>
-      <div className='mt-[20px] md:mt-[50px]'>
-        <img src={images.image.bg_footer} alt='' className='mx-auto' />
-      </div>
-
-      <div className='h-[1px] w-full space-y-8 bg-[#616161]' />
-
-      <div className='flex items-center justify-between'>
-        <p className='text-[]'></p>
-      </div>
-      {/* <div className='flex items-center justify-end gap-2 rounded-full'>
-        {listIcon?.map((item) => (
-          <div
-            className='flex h-[40px] w-[40px] items-center justify-center rounded-full p-[10px]'
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-          >
-            <img src={item.icon} alt={item.key} className='h-[24px] w-[24px]' />
+            <p className='text-[20px]/[30px] font-semibold text-white'>Fi Ai</p>
           </div>
-        ))}
-      </div> */}
+          <div className='mt-10 flex flex-1 flex-col gap-4'>
+            <p className='text-[16px]/[24px] font-semibold text-white'>Contact Us</p>
+            <div className='flex items-center gap-3'>
+              <FaPhoneVolume className='size-5' color='white' />
+              <p className='text-[16px]/[24px] text-white'>Phone number: +358 9 2316 1426 </p>
+            </div>
+            <div className='flex items-center gap-3'>
+              <MdEmail className='size-5' color='white' />
+              <p className='text-[16px]/[24px] text-white'>Mail: chatbot@gmail.com</p>
+            </div>
+          </div>
+
+          <div className='mt-10 flex flex-1 flex-col gap-5'>
+            <p className='text-[16px]/[24px] font-semibold text-white'>Our Sponsor:</p>
+            <div className='flex items-center gap-3'>
+              <Link to=''>
+                <img src={images.logo.amazon} alt='amazon' />
+              </Link>
+              <Link to=''>
+                <img src={images.logo.amplitude} alt='amplitude' />
+              </Link>
+              <Link to=''>
+                <img src={images.logo.confluent} alt='confluent' />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className='relative col-span-1 w-full'>
+          <div className='mx-auto h-[500px] w-fit overflow-hidden'>
+            <img src={images.bg.bg_footer} alt='bg-footer' className='w-full' />
+          </div>
+
+          <div className='bg-box-input absolute bottom-0 left-1/2 flex min-w-[536px] max-w-[536px] -translate-x-1/2 transform items-center rounded-2xl p-2 pl-4 backdrop-blur-[80px]'>
+            <input
+              type='text'
+              placeholder='Email, Phone number or Telegram ID'
+              className='h-12 w-full text-[16px] text-white'
+            />
+            <button className='h-12 w-[112px] flex-shrink-0 rounded-[8px] bg-[#B84EFF] font-semibold uppercase text-white'>
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className=''>
+        <div className='w-full md:mt-[50px]'>
+          <img src={images.bg.bg_text_footer} alt='bg-text-footer' className='mx-auto h-auto w-full' />
+        </div>
+
+        <div className='bg-ln-line-footer border: 1px solid; mb-10 mt-10 h-[2px] w-full' />
+
+        <div className='flex items-center justify-between text-white'>
+          <p className='text-[14px]/[19.6px]'>Terms of Service</p>
+          <p className='text-[14px]/[19.6px]'>© 2024 AI Chatbot, Inc. All rights reserved</p>
+          <p className='text-[14px]/[19.6px]'>Privacy Policy</p>
+        </div>
+      </div>
     </div>
   )
 })

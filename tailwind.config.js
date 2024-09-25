@@ -129,6 +129,7 @@ export default {
         unpleash: "url('/src/assets/images/unpleash.png')",
         'getting-started': "url('/src/assets/bg/bg-getting-started.png')",
         'web-summit': "url('/src/assets/bg/bg-web-summit.png')",
+        'box-input': "url('/src/assets/bg/bg-box-input.png')",
         // linear
         'primary-gradient': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-grey-to-b': 'linear-gradient(0deg, #F2F3F5 0%, rgba(242, 243, 245, 0) 105.07%)',
@@ -182,7 +183,8 @@ export default {
         'ln-pink-2': 'linear-gradient(128.63deg, #F9AB8F 11.01%, #FF52E3 95%)',
         'ln-pink-blue': 'linear-gradient(135deg, #FFACC6 2.88%, #B6E0F5 100%)',
         'ln-yellow-red': 'linear-gradient(128.63deg, #EAFF80 11.01%, #FF4A7A 95%)',
-        'ln-text-getting': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)'
+        'ln-text-getting': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
+        'ln-line-footer': 'linear-gradient(180deg, rgba(205, 131, 255, 0.2) 0.45%, rgba(205, 131, 255, 0) 93.86%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'

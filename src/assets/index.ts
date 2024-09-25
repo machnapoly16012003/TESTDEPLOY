@@ -2,6 +2,9 @@ import logo_e_commerce from '~/assets/logo/logo-ecom-green.svg'
 import logo_white from '~/assets/logo/logo-ecom-white.svg'
 import logo_metanode from '~/assets/logo/logo-metanode.png'
 import logo_fi from '~/assets/logo/logo-fi-ai.png'
+import amazon from '~/assets/logo/amazon.png'
+import amplitude from '~/assets/logo/amplitude.png'
+import confluent from '~/assets/logo/confluent.png'
 
 import china from '~/assets/flag/china.png'
 import czech_republic from '~/assets/flag/czech-republic.png'
@@ -39,8 +42,9 @@ import customerReact from '~/assets/images/customerReact.png'
 
 import bg_vistor_card from '~/assets/bg/bg-vistor-card.png'
 import gradient_box from '~/assets/bg/gradient-box.png'
-import bg_footer from '~/assets/bg/Ai store manager fi.ai.png'
 import bg_web_summit from '~/assets/bg/bg-web-summit.png'
+import bg_footer from '~/assets/bg/bg-footer.png'
+import bg_text_footer from '~/assets/bg/bg-text-footer.png'
 
 import happy_green from '~/assets/icons/happy-green.svg'
 import unhappy_pink from '~/assets/icons/unhappy-pink.svg'
@@ -70,7 +74,7 @@ import earth_line from '~/assets/images/earth-line.png'
 import earth_line_big from '~/assets/images/earth-line-big.png'
 
 const images = {
-  logo: { logo_e_commerce, logo_white, logo_metanode, logo_fi },
+  logo: { logo_e_commerce, logo_white, logo_metanode, logo_fi, amazon, amplitude, confluent },
   flag: { china, czech_republic, france, indonesia, italy, japan, korea, spain, united_kingdom, vietnam },
   image: {
     current_view_top,
@@ -95,10 +99,9 @@ const images = {
     user7,
     user8,
     user9,
-    bg_vistor_card,
-    bg_footer
+    bg_vistor_card
   },
-  bg: { bg_vistor_card, gradient_box, bg_web_summit },
+  bg: { bg_vistor_card, bg_footer, gradient_box, bg_web_summit, bg_text_footer },
   icon: {
     happy_green,
     unhappy_pink,
