@@ -43,6 +43,7 @@ import customerReact from '~/assets/images/customerReact.png'
 import bg_vistor_card from '~/assets/bg/bg-vistor-card.png'
 import gradient_box from '~/assets/bg/gradient-box.png'
 import bg_web_summit from '~/assets/bg/bg-web-summit.png'
+import bg_web_summit_sm from '~/assets/bg/bg-web-summit-sm.png'
 import bg_footer from '~/assets/bg/bg-footer.png'
 import bg_text_footer from '~/assets/bg/bg-text-footer.png'
 
@@ -101,7 +102,7 @@ const images = {
     user9,
     bg_vistor_card
   },
-  bg: { bg_vistor_card, bg_footer, gradient_box, bg_web_summit, bg_text_footer },
+  bg: { bg_vistor_card, bg_footer, gradient_box, bg_web_summit, bg_text_footer, bg_web_summit_sm },
   icon: {
     happy_green,
     unhappy_pink,

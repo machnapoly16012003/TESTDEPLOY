@@ -196,11 +196,6 @@
   background-clip: text;
 }
 
-.text-gradien-web-summit {
-  background: linear-gradient(276.24deg, rgba(193, 92, 255, 0) 59.15%, #c15cff 105.51%),
-    linear-gradient(0deg, #0d0d0d, #0d0d0d);
-}
-
 @layer utilities {
   .animate-spin-slow {
     @apply animate-spin;
