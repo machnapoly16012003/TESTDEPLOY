@@ -1,7 +1,6 @@
-import { memo, useEffect } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa6'
-import { TbLockCancel } from 'react-icons/tb'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import images from '~/assets'
 import {
   NavigationMenu,
@@ -9,19 +8,21 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger
 } from '~/components/navigationMenu'
+import { PATH_PUBLIC_APP } from '~/constants/paths'
 
 interface HeaderProps {}
 
 const Header: React.FunctionComponent<HeaderProps> = memo(() => {
-  // const [isMenuOpen, setMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const [isMenuOpen, setMenuOpen] = useState(false)
 
-  // const toggleMenu = () => {
-  //   setMenuOpen(!isMenuOpen)
-  // }
-
-  const handleAlert = () => {
-    alert('you do not have administrative rights, please contact the administrator.')
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen)
   }
+
+  // const handleAlert = () => {
+  //   alert('you do not have administrative rights, please contact the administrator.')
+  // }
   useEffect(() => {
     window.addEventListener('scroll', function () {
       const header = document.querySelector('header')
@@ -35,7 +36,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
   }, [])
 
   return (
-    <header className='shadow-md fixed left-0 top-0 z-[9999] w-[100%] bg-white font-poppins'>
+    <header className='shadow-md fixed left-0 top-0 z-[9999] w-full bg-white'>
       <div className='header_desktop hidden h-[80px] lg:block'>
         <div className='container-wrapper mx-auto flex h-full items-center justify-between'>
           <div className='flex items-center gap-10'>
@@ -45,7 +46,13 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => window.location.href = 'https://pre.fi.ai/'} className='relative'>
+                  <NavigationMenuTrigger
+                    onClick={() => {
+                      // (window.location.href = 'https://pre.fi.ai/')
+                      navigate(PATH_PUBLIC_APP.gettingStarted)
+                    }}
+                    className='relative'
+                  >
                     Getting started
                     {/* <TbLockCancel className='absolute left-[0px] top-[0px] text-[0.7em]' /> */}
                   </NavigationMenuTrigger>
@@ -79,7 +86,13 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger onClick={() => document.querySelector('#ai-work')?.scrollIntoView({ block: "start", behavior: 'smooth' })} className='relative'>
+                  <NavigationMenuTrigger
+                    onClick={() =>
+                      // document.querySelector('#ai-work')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+                      navigate(PATH_PUBLIC_APP.components)
+                    }
+                    className='relative'
+                  >
                     Components
                     {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
                   </NavigationMenuTrigger>
@@ -94,8 +107,14 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                   </NavigationMenuContent> */}
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                <NavigationMenuTrigger onClick={() => document.querySelector('#in-store')?.scrollIntoView({ block: "start", behavior: 'smooth' })} className='relative'>
-                Documentation
+                  <NavigationMenuTrigger
+                    onClick={
+                      () => navigate(PATH_PUBLIC_APP.document)
+                      // document.querySelector('#in-store')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+                    }
+                    className='relative'
+                  >
+                    Documentation
                     {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
                   </NavigationMenuTrigger>
                   {/* <Link to=''>
@@ -125,24 +144,33 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
       </div>
 
       <div className='flex items-center justify-between bg-gray-100 p-4 lg:hidden'>
-        <button onClick={handleAlert} className='relative rounded-[50%] bg-white p-[16px] text-2xl'>
+        <button onClick={toggleMenu} className='relative rounded-[50%] bg-white p-[16px] text-2xl'>
           <FaBars className='relative z-10' />
-          <TbLockCancel className='absolute left-[0px] top-[3px] text-[0.7em]' />
+          {/* <TbLockCancel className='absolute left-[0px] top-[3px] text-[0.7em]' /> */}
         </button>
         {/* <ButtonPrimary>
           <Link to='/#' className='' onClick={handleAlert}>
             SIGN IN
           </Link>
         </ButtonPrimary> */}
-        {/* {isMenuOpen && (
+        {isMenuOpen && (
           <div className='shadow-lg absolute left-10 top-16 z-10 rounded-md bg-white p-8'>
             <ul className='space-y-2'>
-              <li className='cursor-pointer hover:text-blue-500'>Home</li>
-              <li className='cursor-pointer hover:text-blue-500'>About</li>
-              <li className='cursor-pointer hover:text-blue-500'>Contact</li>
+              <li
+                className='cursor-pointer hover:text-blue-500'
+                onClick={() => navigate(PATH_PUBLIC_APP.gettingStarted)}
+              >
+                Getting started
+              </li>
+              <li className='cursor-pointer hover:text-blue-500' onClick={() => navigate(PATH_PUBLIC_APP.components)}>
+                Components
+              </li>
+              <li className='cursor-pointer hover:text-blue-500' onClick={() => navigate(PATH_PUBLIC_APP.document)}>
+                Documentation
+              </li>
             </ul>
           </div>
-        )} */}
+        )}
       </div>
     </header>
   )

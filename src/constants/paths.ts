@@ -10,5 +10,8 @@ export const PATH_ERROR = {
 
 export const PATH_PUBLIC_APP = {
   home: '/',
-  analysis: '/analysis'
+  analysis: '/analysis',
+  document: '/document',
+  gettingStarted: '/getting-started',
+  components: '/components'
 }

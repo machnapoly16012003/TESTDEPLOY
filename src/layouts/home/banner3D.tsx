@@ -16,7 +16,7 @@ interface ModelProps {
 
 const MyModel = ({ model, rotationY, scale, position }: ModelProps) => {
   const modelRef = useRef<THREE.Object3D>(null)
-  const modelUrl = '/models/' + model?.name
+  const modelUrl = `/models/${model?.name}`
   const { scene, animations } = useGLTF(modelUrl)
 
   scene.children[0].children[0].children[0].children[0].children[4].visible = false

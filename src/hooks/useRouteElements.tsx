@@ -3,11 +3,11 @@ import { Navigate, useRoutes } from 'react-router-dom'
 
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { BaseLayout } from '~/layouts/baseLayout'
-
-// import { Analysis } from '~/pages/analysis'
-
+import { Components } from '~/pages/components'
+import { Document } from '~/pages/document'
+import { GettingStarted } from '~/pages/gettingStarted'
 import { Home } from '~/pages/home'
-import Document from '~/pages/Document'
+// import { Analysis } from '~/pages/analysis'
 
 function useRouteElements() {
   const removeSlash = useCallback((path: string) => (path.startsWith('/') ? path.slice(1) : path), [])
@@ -28,8 +28,16 @@ function useRouteElements() {
             element: <Home />
           },
           {
-            path: '/document',
+            path: removeSlash(PATH_PUBLIC_APP.document),
             element: <Document />
+          },
+          {
+            path: removeSlash(PATH_PUBLIC_APP.gettingStarted),
+            element: <GettingStarted />
+          },
+          {
+            path: removeSlash(PATH_PUBLIC_APP.components),
+            element: <Components />
           }
         ]
       }

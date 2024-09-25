@@ -81,11 +81,16 @@ interface IFooterProps {}
 // ]
 
 const Footer: React.FunctionComponent<IFooterProps> = memo(() => {
-  const location = useLocation();
-  const isOnPageDocument = location.pathname === '/document';
-  console.log("isOnPageDocument: ", isOnPageDocument)
+  const location = useLocation()
+  const isOnPageDocument = location.pathname === '/document'
+  console.log('isOnPageDocument: ', isOnPageDocument)
   return (
-    <div className={classNames("relative z-50 gap-[24px] rounded-b-none bg-[#0D0D0D] p-[32px] px-[40px]", isOnPageDocument ? "" : "rounded-t-[44px]")}>
+    <div
+      className={classNames(
+        'relative z-50 gap-[24px] rounded-b-none bg-[#0D0D0D] p-[32px] px-[40px]',
+        isOnPageDocument ? '' : 'rounded-t-[44px]'
+      )}
+    >
       <div className='flex items-center gap-2 border-b border-white border-opacity-70 pb-[20px]'>
         <div className='h-[34px] w-[34px]'>
           <img src={logo} alt='logo' className='h-[100%] w-[100%]' />
@@ -116,7 +121,7 @@ const Footer: React.FunctionComponent<IFooterProps> = memo(() => {
         </div>
       </div>
       <div className='mt-[20px] md:mt-[50px]'>
-        <img src={images.image.bg_footer} alt='' />
+        <img src={images.image.bg_footer} alt='' className='mx-auto' />
       </div>
       {/* <div className='flex items-center justify-end gap-2 rounded-full'>
         {listIcon?.map((item) => (

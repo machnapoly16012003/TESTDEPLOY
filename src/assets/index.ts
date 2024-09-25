@@ -38,6 +38,7 @@ import user9 from '~/assets/images/use9.png'
 import customerReact from '~/assets/images/customerReact.png'
 
 import bg_vistor_card from '~/assets/bg/bg-vistor-card.png'
+import gradient_box from '~/assets/bg/gradient-box.png'
 import bg_footer from '~/assets/bg/Ai store manager fi.ai.png'
 
 import happy_green from '~/assets/icons/happy-green.svg'
@@ -49,6 +50,23 @@ import compliance from '~/assets/icons/compliance.png'
 import icon_instagram from '~/assets/icons/instagram.svg'
 import icon_facebook from '~/assets/icons/facebook.svg'
 import icon_social from '~/assets/icons/social.svg'
+import your_path from '~/assets/icons/your-path.svg'
+import hardware_solutions from '~/assets/icons/hardware-solutions.svg'
+import ai_package from '~/assets/icons/ai-package.svg'
+import ai_base from '~/assets/icons/ai-base-icon.svg'
+import ai_camera from '~/assets/icons/ai-camera-icon.svg'
+import ai_data from '~/assets/icons/ai-data-icon.svg'
+import rtc from '~/assets/icons/rtc-icon.svg'
+import software from '~/assets/icons/software-icon.svg'
+
+import gt_earth_1 from '~/assets/images/gt-earth-1.png'
+import gt_earth_2 from '~/assets/images/gt-earth-2.png'
+import gt_earth_3 from '~/assets/images/gt-earth-3.png'
+import gt_earth_4 from '~/assets/images/gt-earth-4.png'
+import gt_earth_5 from '~/assets/images/gt-earth-5.png'
+import gt_earth_6 from '~/assets/images/gt-earth-6.png'
+import earth_line from '~/assets/images/earth-line.png'
+import earth_line_big from '~/assets/images/earth-line-big.png'
 
 const images = {
   logo: { logo_e_commerce, logo_white, logo_metanode, logo_fi },
@@ -79,8 +97,28 @@ const images = {
     bg_vistor_card,
     bg_footer
   },
-  bg: { bg_vistor_card },
-  icon: { happy_green, unhappy_pink, unhappy_vistor, learning, plugplay, compliance, icon_instagram, icon_facebook, icon_social }
+  bg: { bg_vistor_card, gradient_box },
+  icon: {
+    happy_green,
+    unhappy_pink,
+    unhappy_vistor,
+    learning,
+    plugplay,
+    compliance,
+    icon_instagram,
+    icon_facebook,
+    icon_social,
+    your_path,
+    hardware_solutions,
+    ai_package,
+    ai_base,
+    ai_camera,
+    ai_data,
+    rtc,
+    software
+  },
+  gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
+  componets: { earth_line_big }
 }
 
 export default images

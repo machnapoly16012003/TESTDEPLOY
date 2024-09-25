@@ -126,6 +126,7 @@ export default {
         'earth-2': "url('/src/assets/bg/bg-earth-2.png')",
         instore: "url('/src/assets/bg/bg-instore.png')",
         unpleash: "url('/src/assets/images/unpleash.png')",
+        'getting-started': "url('/src/assets/bg/bg-getting-started.png')",
         // linear
         'primary-gradient': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-grey-to-b': 'linear-gradient(0deg, #F2F3F5 0%, rgba(242, 243, 245, 0) 105.07%)',
@@ -178,7 +179,11 @@ export default {
         'ln-blue-yellow': 'linear-gradient(128.63deg, #00D1FF 11.01%, #FFEC42 95%, #FFE600 95%)',
         'ln-pink-2': 'linear-gradient(128.63deg, #F9AB8F 11.01%, #FF52E3 95%)',
         'ln-pink-blue': 'linear-gradient(135deg, #FFACC6 2.88%, #B6E0F5 100%)',
-        'ln-yellow-red': 'linear-gradient(128.63deg, #EAFF80 11.01%, #FF4A7A 95%)'
+        'ln-yellow-red': 'linear-gradient(128.63deg, #EAFF80 11.01%, #FF4A7A 95%)',
+        'ln-text-getting': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)'
+      },
+      borderColor: {
+        'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'
       }
     },
     screens: {
@@ -210,7 +215,8 @@ export default {
       's-17': '3px 3px 4px 0px #00000040 inset',
       's-18': '0px 4px 64px 0px #0000001A',
       's-19': '0px 0px 20px 0px #0000001A',
-      's-20': '0px 4.23px 33.85px 0px #0000001A'
+      's-20': '0px 4.23px 33.85px 0px #0000001A',
+      's-21': '10px 13px 24.5px 0px #00000040'
     }
   },
   plugins: [

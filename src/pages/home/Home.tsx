@@ -56,7 +56,10 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
           />
         </div>
       </div>
-      <div id="ai-work" className='mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden bg-instore xs:bg-[length:640px_100%] sm:bg-cover'>
+      <div
+        id='ai-work'
+        className='mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden bg-instore xs:bg-[length:640px_100%] sm:bg-cover'
+      >
         <InStore />
       </div>
       <CustomerReaction />
