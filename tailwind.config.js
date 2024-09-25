@@ -32,6 +32,7 @@ export default {
       },
       colors: {
         blackMain: '#1A1A1A',
+        blackDark: '#0D0D0D',
         // gray
         grey100: '#FCFCFC',
         grey200: '#F2F2F2',
@@ -127,6 +128,7 @@ export default {
         instore: "url('/src/assets/bg/bg-instore.png')",
         unpleash: "url('/src/assets/images/unpleash.png')",
         'getting-started': "url('/src/assets/bg/bg-getting-started.png')",
+        'web-summit': "url('/src/assets/bg/bg-web-summit.png')",
         // linear
         'primary-gradient': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-grey-to-b': 'linear-gradient(0deg, #F2F3F5 0%, rgba(242, 243, 245, 0) 105.07%)',

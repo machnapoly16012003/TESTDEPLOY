@@ -1,5 +1,5 @@
 import React from 'react'
-import video from '~/assets/video/revolution_1280p.mp4'
+import video from '~/assets/video/document_2409.mp4'
 export default function Document() {
   return (
     <React.Fragment>

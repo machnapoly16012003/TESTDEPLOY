@@ -40,6 +40,7 @@ import customerReact from '~/assets/images/customerReact.png'
 import bg_vistor_card from '~/assets/bg/bg-vistor-card.png'
 import gradient_box from '~/assets/bg/gradient-box.png'
 import bg_footer from '~/assets/bg/Ai store manager fi.ai.png'
+import bg_web_summit from '~/assets/bg/bg-web-summit.png'
 
 import happy_green from '~/assets/icons/happy-green.svg'
 import unhappy_pink from '~/assets/icons/unhappy-pink.svg'
@@ -97,7 +98,7 @@ const images = {
     bg_vistor_card,
     bg_footer
   },
-  bg: { bg_vistor_card, gradient_box },
+  bg: { bg_vistor_card, gradient_box, bg_web_summit },
   icon: {
     happy_green,
     unhappy_pink,

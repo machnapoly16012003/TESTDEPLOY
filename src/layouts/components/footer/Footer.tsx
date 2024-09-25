@@ -123,6 +123,12 @@ const Footer: React.FunctionComponent<IFooterProps> = memo(() => {
       <div className='mt-[20px] md:mt-[50px]'>
         <img src={images.image.bg_footer} alt='' className='mx-auto' />
       </div>
+
+      <div className='h-[1px] w-full space-y-8 bg-[#616161]' />
+
+      <div className='flex items-center justify-between'>
+        <p className='text-[]'></p>
+      </div>
       {/* <div className='flex items-center justify-end gap-2 rounded-full'>
         {listIcon?.map((item) => (
           <div

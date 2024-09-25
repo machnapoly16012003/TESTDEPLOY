@@ -188,6 +188,14 @@
   gap: 5px;
 }
 
+.text-gradien-web-summit {
+  width: fit-content;
+  background: linear-gradient(276.24deg, rgba(193, 92, 255, 0) 59.15%, #c15cff 105.51%),
+    linear-gradient(0deg, #0d0d0d, #0d0d0d);
+  color: transparent;
+  background-clip: text;
+}
+
 @layer utilities {
   .animate-spin-slow {
     @apply animate-spin;

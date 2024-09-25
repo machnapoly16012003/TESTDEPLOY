@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import { AutoplayVideo } from '~/components/autoplayVideo'
 import Banner3D from '~/layouts/home/banner3D'
-import { InStore, ListenToOurCustomer } from '~/layouts/home'
+import { InStore, ListenToOurCustomer, WebSummit } from '~/layouts/home'
 import CustomerReaction from '~/layouts/home/CustomerReaction'
 import InStoreExperienceToday from '~/layouts/home/InStoreExperienceToday'
 import Unleash from '~/layouts/home/Unleash'
@@ -62,6 +62,7 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       >
         <InStore />
       </div>
+      <WebSummit />
       <CustomerReaction />
       <ListenToOurCustomer />
       <InStoreExperienceToday />
