@@ -8,6 +8,7 @@ export const listProducts: IProduct[] = [
       createdAt: '1725941178',
       id: '35',
       params: {
+        type: '4C',
         activateTime: '0',
         boostTime: '0',
         brandName: 'Acid',
@@ -47,6 +48,7 @@ export const listProducts: IProduct[] = [
       createdAt: '1725941178',
       id: '35',
       params: {
+        type: '4A',
         activateTime: '0',
         boostTime: '0',
         brandName: 'Acid',
@@ -72,7 +74,7 @@ export const listProducts: IProduct[] = [
     variants: [
       {
         priceOptions: {
-          price: '990000000',
+          price: '1250000000',
           subscriptionFee: '50000000',
           quantity: '100'
         },
@@ -86,6 +88,7 @@ export const listProducts: IProduct[] = [
       createdAt: '1725941178',
       id: '35',
       params: {
+        type: '4S',
         activateTime: '0',
         boostTime: '0',
         brandName: 'Acid',
@@ -111,7 +114,7 @@ export const listProducts: IProduct[] = [
     variants: [
       {
         priceOptions: {
-          price: '990000000',
+          price: '1789000000',
           subscriptionFee: '50000000',
           quantity: '100'
         },
@@ -125,6 +128,7 @@ export const listProducts: IProduct[] = [
       createdAt: '1725941178',
       id: '35',
       params: {
+        type: '8C',
         activateTime: '0',
         boostTime: '0',
         brandName: 'Acid',
@@ -150,7 +154,7 @@ export const listProducts: IProduct[] = [
     variants: [
       {
         priceOptions: {
-          price: '990000000',
+          price: '1810000000',
           subscriptionFee: '50000000',
           quantity: '100'
         },
@@ -164,6 +168,7 @@ export const listProducts: IProduct[] = [
       createdAt: '1725941178',
       id: '35',
       params: {
+        type: '12C',
         activateTime: '0',
         boostTime: '0',
         brandName: 'Acid',
@@ -203,6 +208,7 @@ export const listProducts: IProduct[] = [
       createdAt: '1725941178',
       id: '35',
       params: {
+        type: '24C',
         activateTime: '0',
         boostTime: '0',
         brandName: 'Acid',

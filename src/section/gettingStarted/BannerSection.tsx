@@ -1,15 +1,17 @@
-import { memo, useCallback, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FaPlay } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import { Canvas } from '@react-three/fiber'
 import { IProduct, IProductVariant } from '~/@types/models'
 import { ProductCardBanner } from '~/components/feature/productCardBanner'
 import { SliderPagination } from '~/components/feature/sliderPagination'
 import { Button } from '~/components/shared/button'
 import { ArrowLeftIcon, ArrowRightIcon, ShareIcon } from '~/components/shared/icon'
 import { IconButton } from '~/components/shared/iconButton'
+import { Model3D } from '~/components/shared/model3D'
 import { Skeleton } from '~/components/shared/skeleton'
 import useResponsive from '~/hooks/useResponsive'
 import { formatDate, formatLocaleString } from '~/utils/format'
@@ -31,6 +33,9 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
   const smDown = useResponsive('down', 'sm', 'sm')
 
   const [activeSlide, setActiveSlide] = useState<number>(0)
+  const [rotationY, setRotationY] = useState(0)
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024)
 
   const productQuantity = useMemo(
     () => variants.reduce((total: number, variant: IProductVariant) => total + +variant.priceOptions.quantity, 0),
@@ -56,6 +61,37 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
   const handleSlideChange = useCallback(() => {
     if (swiperRef.current && swiperRef.current.swiper) setActiveSlide(swiperRef.current.swiper.realIndex)
   }, [swiperRef])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      if (!isMobileOrTablet && scrollY > 2780 && scrollY < 2950) {
+        setRotationY(scrollY * -0.0085)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isMobileOrTablet])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobileOrTablet = window.innerWidth <= 1024
+      const isDesktop = window.innerWidth > 1024 && window.innerWidth < 1920
+      setIsMobileOrTablet(isMobileOrTablet)
+      setIsDesktop(isDesktop)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <section className='bg-ln-gray 2xs:h-[844px] 3xl:[900px] relative overflow-hidden border-b-[3px] border-solid border-[#FFFFFF52] xs:h-[800px] sm:h-[810px]'>

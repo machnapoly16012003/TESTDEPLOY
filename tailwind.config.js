@@ -131,6 +131,7 @@ export default {
         'web-summit': "url('/src/assets/bg/bg-web-summit.png')",
         'box-input': "url('/src/assets/bg/bg-box-input.png')",
         // linear
+        'ln-gray': 'linear-gradient(251.23deg, #F2F3F5 2.26%, #F6F6F7 98.14%)',
         'primary-gradient': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-grey-to-b': 'linear-gradient(0deg, #F2F3F5 0%, rgba(242, 243, 245, 0) 105.07%)',
         'ln-white': 'linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%)',
@@ -187,7 +188,8 @@ export default {
         'ln-line-footer': 'linear-gradient(180deg, rgba(205, 131, 255, 0.2) 0.45%, rgba(205, 131, 255, 0) 93.86%)',
         'ln-text-product': 'linear-gradient(126deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-text-product-detail':
-          'linear-gradient(180deg, rgba(173, 173, 173, 0) 0%, rgba(217, 217, 217, 0.4) 50%, rgba(173, 173, 173, 0) 100%)'
+          'linear-gradient(180deg, rgba(173, 173, 173, 0) 0%, rgba(217, 217, 217, 0.4) 50%, rgba(173, 173, 173, 0) 100%)',
+        'ln-product-card': 'linear-gradient(180deg, #2B2680 0%, #19174C 100%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'
@@ -250,7 +252,7 @@ export default {
             color: 'transparent'
           },
           '.rp-title-section': {
-            '@apply text-[52px]/[36px] font-semibold text-black': {}
+            '@apply xs:text-[32px]/[36px] md:text-[52px]/[52px] font-semibold text-black': {}
           }
         },
         ['responsive', 'hover']

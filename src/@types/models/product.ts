@@ -7,6 +7,7 @@ export interface IProduct {
 export interface IProductParam {
   id: string
   params: {
+    type: string
     name: string
     categoryID: string
     description: string

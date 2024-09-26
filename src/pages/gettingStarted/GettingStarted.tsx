@@ -6,7 +6,7 @@ const GettingStarted = memo(() => {
   const { isLoading, listProducts } = useAppSelector((s) => s.product)
 
   return (
-    <section className='relative h-auto bg-[#F2F5FF]'>
+    <section className='relative h-auto'>
       <BannerSection
         isLoading={isLoading}
         product={listProducts[0]}

@@ -4,7 +4,9 @@ const breakpoints: Record<string, number> = {
   sm: 640,
   md: 768,
   lg: 1024,
-  xl: 1280
+  xl: 1280,
+  '3xl': 1600,
+  '4xl': 1900
 }
 
 export default function useResponsive(

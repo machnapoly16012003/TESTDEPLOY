@@ -1,3 +1,5 @@
 export { default as ShareIcon } from './ShareIcon'
 export { default as ArrowLeftIcon } from './ArrowLeftIcon'
 export { default as ArrowRightIcon } from './ArrowRightIcon'
+export { default as ChevronLeft } from './ChevronLeft'
+export { default as ChevronRight } from './ChevronRight'

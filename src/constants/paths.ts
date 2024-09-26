@@ -13,5 +13,12 @@ export const PATH_PUBLIC_APP = {
   analysis: '/analysis',
   document: '/document',
   gettingStarted: '/getting-started',
-  components: '/components'
+  components: '/components',
+  product: {
+    detail: '/product/:id'
+  },
+  checkout: {
+    root: '/checkout',
+    complete: '/checkout/complete'
+  }
 }
