@@ -70,7 +70,7 @@ const Button = memo(
                             : variant === 'red'
                               ? 'bg-redMain text-white'
                               : 'bg-white'
-          } ${variant === 'outline-linear' && 'rounded-md'} ${(variant === 'blue' || variant === 'green') && 'rounded-xl'} ${disabled ? '!border-none !bg-[#dcdcdd] !text-white' : ''} rounded-3xl text-[20px] ${shadow ? 'shadow-button' : ''} ${className} ${!disabled && variant !== 'outline-linear' && 'hover:shadow-avatar'} transition-all duration-200 ease-in-out ${variant === 'outline-linear' && 'hover:bg-white/[.95]'} `}
+          } ${variant === 'outline-linear' && 'rounded-md'} ${(variant === 'blue' || variant === 'green') && 'rounded-xl'} ${disabled ? '!border-none !bg-[#dcdcdd] !text-white' : ''} rounded-3xl xs:text-[18px] md:text-[20px] ${shadow ? 'shadow-button' : ''} ${className} ${!disabled && variant !== 'outline-linear' && 'hover:shadow-avatar'} transition-all duration-200 ease-in-out ${variant === 'outline-linear' && 'hover:bg-white/[.95]'} `}
           onClick={onClick}
         >
           {iconLeft && iconLeft}

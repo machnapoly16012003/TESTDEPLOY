@@ -167,7 +167,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
 
       <div className='2xs:bottom-20 2xs:left-[5%] 2xs:gap-3 absolute z-50 flex flex-col xs:bottom-24 xs:left-[4.5%] xs:gap-3 sm:bottom-20 sm:left-4 sm:gap-6 md:bottom-8 md:left-8 md:gap-6 lg:bottom-10 lg:left-10 lg:gap-5 xl:bottom-[37px] xl:left-[116px] xl:gap-6'>
         <div className='flex items-center gap-2'>
-          <Button className='2xs:h-[48px] 2xs:w-[173px] rounded-[27px] xs:h-[48px] xs:w-[173px] sm:h-[54px] sm:w-[184px]'>
+          <Button className='2xs:h-[48px] 2xs:w-[150px] rounded-[27px] xs:h-[48px] xs:w-[150px] sm:h-[54px] sm:w-[184px]'>
             Discover
           </Button>
           <button
@@ -183,7 +183,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
         </div>
 
         <div className='flex items-center gap-3'>
-          <p className='2xs:text-[10.24px] font-customRegular text-[#606060]/[.64] xs:text-[10.24px] sm:text-[16px]/[16.8px]'>
+          <p className='2xs:text-[10.24px] font-customRegular text-[#606060]/[.64] xs:text-[12px] sm:text-[16px]/[16.8px]'>
             Remain:{' '}
             <span className='font-medium text-blackDark'>
               {formatDate(+product.product.params.expiryTime, 'h:mm:ss')}
@@ -192,7 +192,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
           <svg width='6' height='6' viewBox='0 0 6 6' fill='none'>
             <circle opacity='0.44' cx='3' cy='3' r='3' fill='#0D0D0D' />
           </svg>
-          <p className='2xs:text-[10.24px] font-customRegular text-[#606060]/[.64] xs:text-[10.24px] sm:text-[16px]/[16.8px]'>
+          <p className='2xs:text-[10.24px] font-customRegular text-[#606060]/[.64] xs:text-[12px] sm:text-[16px]/[16.8px]'>
             Left: <span className='font-medium text-blackDark'>{productQuantity} items</span>
           </p>
         </div>
@@ -202,7 +202,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
         <p className='2xs:text-[16px] font-medium text-blackDark/[.44] xs:text-[16px] sm:text-[18px]/[18.9px]'>
           Discover our product
         </p>
-        <Link to={product.product.params.videoUrl}>
+        <Link to={product.product.params.videoUrl} className='cursor-pointer'>
           <IconButton size={smDown ? '28' : '32'} color='white' shadow>
             <FaPlay className='2xs:size-[8.5px] xs:size-[8.5px] sm:size-[10px]' />
           </IconButton>

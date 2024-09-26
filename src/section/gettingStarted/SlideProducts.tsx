@@ -1,10 +1,11 @@
-import { memo, useRef } from 'react'
-import { Navigation } from 'swiper/modules'
+import { memo, useCallback, useRef, useState } from 'react'
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ProductCard } from '~/components/feature/productCard'
 import { useAppSelector } from '~/redux/configStore'
 import './styles.scss'
 import { ChevronLeft, ChevronRight } from '~/components/shared/icon'
+import { SliderPaginationNumber } from '~/components/feature/sliderPagination'
 
 const SlideProducts = memo(() => {
   const swiperRef = useRef<any>(null)
@@ -13,11 +14,31 @@ const SlideProducts = memo(() => {
 
   const { listProducts } = useAppSelector((s) => s.product)
 
+  const [activeSlide, setActiveSlide] = useState<number>(0)
+
+  const handleGoToSlide = useCallback(
+    (index: number) => {
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slideToLoop(index)
+        setActiveSlide(index)
+      }
+    },
+    [swiperRef]
+  )
+
+  const handleSlideChange = useCallback(() => {
+    if (swiperRef.current && swiperRef.current.swiper) setActiveSlide(swiperRef.current.swiper.realIndex)
+  }, [swiperRef])
+
   return (
-    <section className='slide-products w-full overflow-hidden bg-white xs:mb-16 xs:mt-20 md:mb-36 md:mt-32 lg:mb-40'>
-      <div className='mb-10 flex w-full justify-between xs:flex-col xs:items-start xs:px-5 sm:flex-row md:items-center md:px-10 xl:px-20 3xl:px-[100px]'>
+    <section className='slide-products w-full overflow-hidden xs:mb-16 xs:mt-20 md:mb-36 md:mt-32 lg:mb-40'>
+      <div className='mb-10 flex w-full justify-between xs:flex-col xs:items-start xs:gap-5 xs:px-5 md:flex-col md:items-center md:gap-10 md:px-10 xl:flex-row xl:px-20 3xl:px-[100px]'>
         <h2 className='rp-title-section'>Finding Camera</h2>
-        <div>pagination</div>
+        <SliderPaginationNumber
+          activeIndex={activeSlide}
+          slideToGo={handleGoToSlide}
+          slideCount={listProducts.length}
+        />
       </div>
 
       <div className='xs:w-[900px] xs:px-5 md:w-auto md:translate-x-6 md:px-0 xl:translate-x-5 xl:px-12 3xl:translate-x-0'>
@@ -26,11 +47,22 @@ const SlideProducts = memo(() => {
           loop
           initialSlide={1}
           slidesPerView={3}
-          // spaceBetween={80}
-          modules={[Navigation]}
+          onSlideChange={handleSlideChange}
+          modules={[Pagination, Navigation]}
           navigation={{
             prevEl: prevRef.current ? prevRef.current : undefined,
             nextEl: nextRef.current ? nextRef.current : undefined
+          }}
+          onInit={(swiper) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            // eslint-disable-next-line no-param-reassign
+            swiper.params.navigation.prevEl = prevRef.current
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            // eslint-disable-next-line no-param-reassign
+            swiper.params.navigation.nextEl = nextRef.current
+            swiper.navigation.update()
           }}
           breakpoints={{
             640: {

@@ -59,7 +59,7 @@ const Footer: FC<IFooterProps> = memo(() => {
             <img src={images.bg.bg_footer} alt='bg-footer' className='w-full' />
           </div>
 
-          <div className='absolute left-1/2 flex max-w-[536px] -translate-x-1/2 transform items-center bg-box-input bg-cover bg-no-repeat object-cover object-center p-2 backdrop-blur-[80px] xs:bottom-7 xs:w-full xs:rounded-[10px] xs:pl-2 md:bottom-0 md:min-w-[536px] md:rounded-2xl md:pl-4'>
+          <div className='object- absolute left-1/2 flex max-w-[536px] -translate-x-1/2 transform items-center border border-solid border-[#b84eff] bg-box-input bg-cover bg-no-repeat object-center p-2 backdrop-blur-[80px] xs:bottom-7 xs:w-full xs:rounded-[10px] xs:pl-2 md:bottom-0 md:min-w-[536px] md:rounded-2xl md:pl-4'>
             <input
               type='text'
               placeholder='Email, Phone number or Telegram ID'
