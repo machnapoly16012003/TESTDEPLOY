@@ -7,7 +7,7 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger
-} from '~/components/navigationMenu'
+} from '~/components/shared/navigationMenu'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 
 interface HeaderProps {}

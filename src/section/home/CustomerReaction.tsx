@@ -3,7 +3,7 @@ import React, { memo, useState } from 'react'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import images from '~/assets'
-import ListBannerCustomerReaction from '~/components/ListBannerCustomerReaction'
+import ListBannerCustomerReaction from '~/components/feature/ListBannerCustomerReaction'
 
 const CustomerReaction = memo(() => {
   const [activeSlide, setActiveSlide] = useState(0)

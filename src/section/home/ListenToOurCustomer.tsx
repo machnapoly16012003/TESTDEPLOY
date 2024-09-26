@@ -4,7 +4,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import ListGridListen from '~/components/ListGridListen'
+import ListGridListen from '~/components/feature/ListGridListen'
 
 const ListenToOurCustomer = memo(() => {
   const [activeSlide, setActiveSlide] = useState(0)

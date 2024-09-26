@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import images from '~/assets'
-import { BoxContentComponent } from '~/components/boxContentComponent'
+import { BoxContentComponent } from '~/components/feature/boxContentComponent'
 
 const Components = memo(() => {
   return (

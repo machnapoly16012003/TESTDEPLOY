@@ -5,7 +5,7 @@ import { memo, Suspense, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as THREE from 'three'
 import bannerImage from '~/assets/bg/banner.png'
-import { ButtonPrimary } from '../../components/button'
+import { ButtonPrimary } from '../../components/shared/button'
 
 interface ModelProps {
   model: { name: string }

@@ -1,10 +1,9 @@
+import AOS from 'aos'
 import { useEffect } from 'react'
 import { Toaster } from 'react-hot-toast'
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import useRouteElements from '~/hooks/useRouteElements'
-import { Cursor } from './components/cursor'
+import { Cursor } from './components/shared/cursor'
 
 function App() {
   const routeElements = useRouteElements()

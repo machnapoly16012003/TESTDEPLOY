@@ -32,9 +32,9 @@ const AutoPlayVideo: React.FunctionComponent<IAutoPlayVideoProps> = ({ source, d
   return (
     <>
       {source ? (
-        <video ref={videoRef} className='w-full h-full' src={source} muted playsInline loop controls={isHasControls} />
+        <video ref={videoRef} className='h-full w-full' src={source} muted playsInline loop controls={isHasControls} />
       ) : (
-        <img src={defaultImage} className='w-full h-full max-h-[500px]' alt='Default' />
+        <img src={defaultImage} className='h-full max-h-[500px] w-full' alt='Default' />
       )}
     </>
   )

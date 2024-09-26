@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { AutoplayVideo } from '~/components/autoplayVideo'
+import { AutoplayVideo } from '~/components/shared/autoplayVideo'
 import {
   Banner3D,
   CustomerReaction,

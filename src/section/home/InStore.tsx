@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { memo, useEffect, useRef, useState } from 'react'
 import images from '~/assets'
-import { BoxContentInStore } from '~/components/boxContentInStore'
+import { BoxContentInStore } from '~/components/feature/boxContentInStore'
 
 const InStore = memo(() => {
   const reportRef = useRef<HTMLDivElement>(null)
