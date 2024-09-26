@@ -3,6 +3,7 @@ import { Navigate, useRoutes } from 'react-router-dom'
 
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { BaseLayout } from '~/layouts/baseLayout'
+import { SaleLayout } from '~/layouts/saleLayout'
 import { Components } from '~/pages/components'
 import { Document } from '~/pages/document'
 import { GettingStarted } from '~/pages/gettingStarted'
@@ -32,12 +33,18 @@ function useRouteElements() {
             element: <Document />
           },
           {
-            path: removeSlash(PATH_PUBLIC_APP.gettingStarted),
-            element: <GettingStarted />
-          },
-          {
             path: removeSlash(PATH_PUBLIC_APP.components),
             element: <Components />
+          }
+        ]
+      },
+      {
+        path: '',
+        element: <SaleLayout />,
+        children: [
+          {
+            path: removeSlash(PATH_PUBLIC_APP.gettingStarted),
+            element: <GettingStarted />
           }
         ]
       }

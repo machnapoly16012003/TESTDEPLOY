@@ -74,6 +74,13 @@ import gt_earth_6 from '~/assets/images/gt-earth-6.png'
 import earth_line from '~/assets/images/earth-line.png'
 import earth_line_big from '~/assets/images/earth-line-big.png'
 
+import camera4 from '~/assets/images/camera4.png'
+import camera4_chip from '~/assets/images/camera4-chip.png'
+import camera8 from '~/assets/images/camera8.png'
+import camera8_chip from '~/assets/images/camera8-chip.png'
+import camera12 from '~/assets/images/camera12.png'
+import camera16 from '~/assets/images/camera16.png'
+
 const images = {
   logo: { logo_e_commerce, logo_white, logo_metanode, logo_fi, amazon, amplitude, confluent },
   flag: { china, czech_republic, france, indonesia, italy, japan, korea, spain, united_kingdom, vietnam },
@@ -123,7 +130,15 @@ const images = {
     software
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
-  componets: { earth_line_big }
+  componets: { earth_line_big },
+  product: {
+    camera4,
+    camera4_chip,
+    camera8,
+    camera8_chip,
+    camera12,
+    camera16
+  }
 }
 
 export default images

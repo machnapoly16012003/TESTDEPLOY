@@ -1,17 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { isEmpty } from 'lodash'
 import { IProduct } from '~/@types/models'
+import { listProducts } from '~/assets/mock/product'
 import { LOCAL_STORAGE } from '~/constants/localStorage'
 import { getLocalStorage, setLocalStorage } from '~/utils/localStorage'
 
 interface IinitialState {
-  loading: boolean
+  isLoading: boolean
   listProducts: IProduct[]
 }
 
 const initialState: IinitialState = {
-  loading: false,
-  listProducts: getLocalStorage(LOCAL_STORAGE.LIST_PRODUCT) || []
+  isLoading: false,
+  listProducts: listProducts || []
 }
 
 const productSlice = createSlice({
@@ -21,14 +22,14 @@ const productSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getListProducts.pending, (state) => {
-        state.loading = true
+        state.isLoading = true
       })
       .addCase(getListProducts.fulfilled, (state, action) => {
-        state.loading = false
+        state.isLoading = false
         state.listProducts = action.payload === false ? [] : action.payload
       })
       .addCase(getListProducts.rejected, (state) => {
-        state.loading = false
+        state.isLoading = false
         state.listProducts = []
       })
   }

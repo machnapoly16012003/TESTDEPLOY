@@ -12,8 +12,8 @@ export const shortenString = (str?: string, maxLength = 10) => {
   return str.length > maxLength ? `${str.slice(0, sideLength)}...${str.slice(-sideLength)}` : str
 }
 
-export const formatLocaleString = (number) => {
-  const format = (_str) => _str.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+export const formatLocaleString = (number: number) => {
+  const format = (_str: string) => _str.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   const str = number + ''
   const idx = str.indexOf('/')
   return idx === -1 ? format(str) : `${format(str.slice(0, idx))}.${str.slice(idx + 1)}`

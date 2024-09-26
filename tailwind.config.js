@@ -184,7 +184,10 @@ export default {
         'ln-pink-blue': 'linear-gradient(135deg, #FFACC6 2.88%, #B6E0F5 100%)',
         'ln-yellow-red': 'linear-gradient(128.63deg, #EAFF80 11.01%, #FF4A7A 95%)',
         'ln-text-getting': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
-        'ln-line-footer': 'linear-gradient(180deg, rgba(205, 131, 255, 0.2) 0.45%, rgba(205, 131, 255, 0) 93.86%)'
+        'ln-line-footer': 'linear-gradient(180deg, rgba(205, 131, 255, 0.2) 0.45%, rgba(205, 131, 255, 0) 93.86%)',
+        'ln-text-product': 'linear-gradient(126deg, #11B0F2 7.58%, #F200F2 92.42%)',
+        'ln-text-product-detail':
+          'linear-gradient(180deg, rgba(173, 173, 173, 0) 0%, rgba(217, 217, 217, 0.4) 50%, rgba(173, 173, 173, 0) 100%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'
@@ -220,7 +223,9 @@ export default {
       's-18': '0px 4px 64px 0px #0000001A',
       's-19': '0px 0px 20px 0px #0000001A',
       's-20': '0px 4.23px 33.85px 0px #0000001A',
-      's-21': '10px 13px 24.5px 0px #00000040'
+      's-21': '10px 13px 24.5px 0px #00000040',
+      's-22': '0px 0px 80px 0px rgba(0, 0, 0, 0.05)',
+      's-23': '0px 0px 10px 0px #00000014'
     }
   },
   plugins: [

@@ -10,7 +10,9 @@ interface IFooterProps {}
 const Footer: FC<IFooterProps> = memo(() => {
   return (
     <div
-      className={classNames('relative z-50 gap-[24px] rounded-b-none rounded-t-3xl bg-[#0D0D0D] px-5 xs:py-5 md:py-10')}
+      className={classNames(
+        'relative z-50 gap-[24px] overflow-hidden rounded-b-none rounded-t-3xl bg-[#0D0D0D] px-5 xs:py-5 md:py-10'
+      )}
     >
       <div className='grid gap-10 xs:grid-cols-1 xs:px-0 md:grid-cols-1 md:px-10 xl:grid-cols-2'>
         <div className='col-span-1'>
