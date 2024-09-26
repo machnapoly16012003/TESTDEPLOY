@@ -1,30 +1,23 @@
-import classNames from 'classnames'
-import { memo, useCallback, useMemo, useRef, useState } from 'react'
-import toast from 'react-hot-toast'
+import { memo, useCallback, useRef, useState } from 'react'
+import { FaArrowLeftLong, FaArrowRightLong, FaPlay } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'
-import { FaPlay, FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { IProductVariant, ProductInfo } from '~/@types/models'
-import images from '~/assets'
+import { IProduct } from '~/@types/models'
 import { Button } from '~/components/button'
 import { IconButton } from '~/components/iconButton'
 import { ShoppingBagIcon } from '~/components/icons'
 import { ProductCardBanner } from '~/components/productCardBanner'
 import { Skeleton } from '~/components/skeleton'
 import { SliderPagination } from '~/components/sliderPagination'
-import useDialog from '~/hooks/useDialog'
-import useLocales from '~/hooks/useLocales'
 import useResponsive from '~/hooks/useResponsive'
-import { useAppSelector } from '~/redux/configStore'
-import { CartDialog } from '~/sections/cart'
 import { hexToUtf8 } from '~/utils/convert'
 import { formatDate } from '~/utils/format'
 
 type BannerSectionProps = {
   isLoading: boolean
-  product: ProductInfo
+  product: IProduct
   purchases: string[]
   trend: string[]
 }
@@ -34,37 +27,9 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
   const prevRef = useRef<HTMLButtonElement>(null)
   const nextRef = useRef<HTMLButtonElement>(null)
 
-  const { cart } = useAppSelector((s) => s.cart)
-
-  const { product: productInfo, variants } = product || {}
-
-  const { trans } = useLocales()
-
-  const productQuantity = useMemo(
-    () => variants.reduce((total: number, variant: IProductVariant) => total + +variant.priceOptions.quantity, 0),
-    [variants]
-  )
-
-  const listImages = useMemo(
-    () => productInfo?.params.images.slice(1) || productInfo?.params?.images || [],
-    [productInfo?.params?.images]
-  )
-
   const smDown = useResponsive('down', 'sm', 'sm')
-  const { isOpen, setIsOpen, handleOpen } = useDialog()
 
   const [activeSlide, setActiveSlide] = useState<number>(0)
-  const [isSucces, setIsSucces] = useState<boolean>(false)
-
-  const handleAddToCart = useCallback(() => {
-    if (+productQuantity > 0) {
-      handleOpen()
-      setIsSucces(true)
-      setTimeout(() => setIsSucces(false), 1500)
-    } else {
-      toast.error('Product is out of stock!')
-    }
-  }, [product, cart])
 
   const handleGoToSlide = useCallback(
     (index: number) => {
@@ -154,17 +119,8 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
 
       <div className='2xs:bottom-20 2xs:left-[5%] 2xs:gap-3 absolute z-50 flex flex-col xs:bottom-20 xs:left-[5%] xs:gap-3 sm:bottom-20 sm:left-4 sm:gap-6 md:bottom-8 md:left-8 md:gap-6 lg:bottom-10 lg:left-10 lg:gap-5 xl:bottom-[37px] xl:left-[116px] xl:gap-6'>
         <div className='flex items-center gap-4'>
-          <Button
-            onClick={() => {
-              if (+productQuantity > 0) {
-                handleOpen()
-              } else {
-                toast.error('Product is out of stock!')
-              }
-            }}
-            className='2xs:h-[48px] 2xs:w-[173px] rounded-[27px] xs:h-[48px] xs:w-[173px] sm:h-[54px] sm:w-[200px]'
-          >
-            {trans('button.buy-now')}
+          <Button className='2xs:h-[48px] 2xs:w-[173px] rounded-[27px] xs:h-[48px] xs:w-[173px] sm:h-[54px] sm:w-[200px]'>
+            Discover
           </Button>
           <button
             className={`2xs:size-[48px] p-[2px] xs:size-[48px] sm:size-[54px] ${isSucces ? 'bg-gradient-to-r from-greenMain to-blueMain' : 'bg-blackMain'} flex shrink-0 items-center justify-center rounded-full transition-colors duration-300 ease-in-out`}
@@ -216,7 +172,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
       {product && listImages?.length > 1 && (
         <div className='2xs:bottom-7 2xs:left-[15%] 2xs:gap-2 absolute z-10 flex -translate-x-1/2 transform items-center justify-center xs:bottom-7 xs:left-[15%] xs:gap-2 sm:bottom-3 sm:left-1/2 sm:gap-3 md:bottom-4 lg:bottom-4 xl:bottom-6'>
           <button ref={prevRef} onClick={() => swiperRef.current?.swiper.slidePrev()}>
-            <img src={images.icons.arrow_left} alt='arrow-left' className='2xs:size-6 xs:size-6 sm:size-8' />
+            <FaArrowLeftLong className='2xs:size-6 xs:size-6 sm:size-8' />
           </button>
           <SliderPagination
             gap='gap-3'
@@ -226,7 +182,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             slideCount={listImages?.length as number}
           />
           <button ref={nextRef} onClick={() => swiperRef.current?.swiper.slideNext()}>
-            <img src={images.icons.arrow_right} alt='arrow-right' className='2xs:size-6 xs:size-6 sm:size-8' />
+            <FaArrowRightLong className='2xs:size-6 xs:size-6 sm:size-8' />
           </button>
         </div>
       )}

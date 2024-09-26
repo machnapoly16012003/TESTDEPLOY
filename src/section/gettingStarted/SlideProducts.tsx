@@ -1,7 +1,14 @@
 import { memo } from 'react'
 
 const SlideProducts = memo(() => {
-  return <div>SlideProducts</div>
+  return (
+    <section className='w-full'>
+      <div className='flex w-full items-center justify-between'>
+        <h2 className='rp-title-section'>Finding Camera</h2>
+        <div>pagination</div>
+      </div>
+    </section>
+  )
 })
 
 export default SlideProducts

@@ -235,15 +235,21 @@ export default {
     }),
     require('tailwindcss-animate'),
     function ({ addUtilities }) {
-      addUtilities({
-        '.bg-clip-text': {
-          'background-clip': 'text',
-          '-webkit-background-clip': 'text'
+      addUtilities(
+        {
+          '.bg-clip-text': {
+            'background-clip': 'text',
+            '-webkit-background-clip': 'text'
+          },
+          '.text-transparent': {
+            color: 'transparent'
+          },
+          '.rp-title-section': {
+            '@apply text-[52px]/[36px] font-semibold text-black': {}
+          }
         },
-        '.text-transparent': {
-          color: 'transparent'
-        }
-      })
+        ['responsive', 'hover']
+      )
     }
   ]
 }

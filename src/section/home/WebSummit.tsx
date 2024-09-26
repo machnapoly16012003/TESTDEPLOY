@@ -16,7 +16,7 @@ const WebSummit = memo(() => {
       />
 
       <div className='absolute left-1/2 w-full -translate-x-1/2 transform space-y-2 text-center xs:bottom-[13%] xs:px-5 md:bottom-[8%] md:px-10 xl:bottom-[13%]'>
-        <h3 className='text-blackDark font-semibold xs:text-[36px]/[46px] sm:text-[36px]/[46px] md:text-[32px]/[42px] lg:text-[36px]/[46px] xl:text-[64px]/[76px]'>
+        <h3 className='font-semibold text-blackDark xs:text-[36px]/[46px] sm:text-[36px]/[46px] md:text-[32px]/[42px] lg:text-[36px]/[46px] xl:text-[64px]/[76px]'>
           Fi.Ai will be participating <br className='xs:hidden md:flex' />
           in the programme with
         </h3>
