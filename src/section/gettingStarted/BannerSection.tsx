@@ -1,9 +1,10 @@
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { memo, Suspense, useCallback, useMemo, useRef, useState } from 'react'
 import { FaPlay } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import { Environment, OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { IProduct, IProductVariant } from '~/@types/models'
 import { ProductCardBanner } from '~/components/feature/productCardBanner'
@@ -11,10 +12,10 @@ import { SliderPagination } from '~/components/feature/sliderPagination'
 import { Button } from '~/components/shared/button'
 import { ArrowLeftIcon, ArrowRightIcon, ShareIcon } from '~/components/shared/icon'
 import { IconButton } from '~/components/shared/iconButton'
-import { Model3D } from '~/components/shared/model3D'
 import { Skeleton } from '~/components/shared/skeleton'
 import useResponsive from '~/hooks/useResponsive'
 import { formatDate, formatLocaleString } from '~/utils/format'
+import { Model } from './Model'
 
 type BannerSectionProps = {
   isLoading: boolean
@@ -33,9 +34,6 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
   const smDown = useResponsive('down', 'sm', 'sm')
 
   const [activeSlide, setActiveSlide] = useState<number>(0)
-  const [rotationY, setRotationY] = useState(0)
-  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false)
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024)
 
   const productQuantity = useMemo(
     () => variants.reduce((total: number, variant: IProductVariant) => total + +variant.priceOptions.quantity, 0),
@@ -62,37 +60,6 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
     if (swiperRef.current && swiperRef.current.swiper) setActiveSlide(swiperRef.current.swiper.realIndex)
   }, [swiperRef])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      if (!isMobileOrTablet && scrollY > 2780 && scrollY < 2950) {
-        setRotationY(scrollY * -0.0085)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [isMobileOrTablet])
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobileOrTablet = window.innerWidth <= 1024
-      const isDesktop = window.innerWidth > 1024 && window.innerWidth < 1920
-      setIsMobileOrTablet(isMobileOrTablet)
-      setIsDesktop(isDesktop)
-    }
-
-    handleResize()
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
   return (
     <section className='bg-ln-gray 2xs:h-[844px] 3xl:[900px] relative overflow-hidden border-b-[3px] border-solid border-[#FFFFFF52] xs:h-[800px] sm:h-[810px]'>
       <h1 className='bg-ln-text-product-detail text-white/-[.68] 2xs:top-[280px] 2xs:text-[120px] absolute left-1/2 w-full -translate-x-1/2 transform text-nowrap text-center font-bold uppercase text-white xs:top-[280px] xs:text-[120px]/[110px] sm:top-[260px] sm:text-[180px]/[252px] md:text-[210px] lg:text-[210px]/[252px] xl:text-[210px] 3xl:top-[300px] 3xl:text-[240px]'>
@@ -113,15 +80,30 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
           }}
           onSlideChange={handleSlideChange}
         >
-          {listImages?.map((img, index: number) => (
-            <SwiperSlide key={`${img}-${index}`}>
-              <img
-                src={img}
-                alt='product-banner'
-                className='2xs:h-[438px] 2xs:w-[380px] mx-auto object-cover xs:h-[250px] xs:w-[380px] sm:h-[550px] md:h-[450px] lg:h-[450px] xl:h-[500px] 3xl:h-[650px]'
-              />
-            </SwiperSlide>
-          ))}
+          <SwiperSlide>
+            <div className='w-full'>
+              <Canvas className='mx-auto !h-[500px] !w-[700px]'>
+                <ambientLight />
+                <OrbitControls enableZoom={true} />
+                <Suspense fallback={null}>
+                  <Model />
+                </Suspense>
+                <Environment preset='sunset' />
+              </Canvas>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className='w-full'>
+              <Canvas className='mx-auto !h-[500px] !w-[700px]'>
+                <ambientLight />
+                <OrbitControls enableZoom={true} />
+                <Suspense fallback={null}>
+                  <Model />
+                </Suspense>
+                <Environment preset='sunset' />
+              </Canvas>
+            </div>
+          </SwiperSlide>
         </Swiper>
       </div>
 
@@ -223,7 +205,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             className='2xs:!size-[8px] xs:!size-[8px] sm:!size-[10px]'
             activeIndex={activeSlide}
             slideToGo={handleGoToSlide}
-            slideCount={listImages?.length as number}
+            slideCount={2}
           />
           <button ref={nextRef} onClick={() => swiperRef.current?.swiper.slideNext()}>
             <ArrowRightIcon className='2xs:size-6 xs:size-6 sm:size-8' />

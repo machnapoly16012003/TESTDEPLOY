@@ -3,7 +3,6 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ProductCard } from '~/components/feature/productCard'
 import { useAppSelector } from '~/redux/configStore'
-import './styles.scss'
 import { ChevronLeft, ChevronRight } from '~/components/shared/icon'
 import { SliderPaginationNumber } from '~/components/feature/sliderPagination'
 
