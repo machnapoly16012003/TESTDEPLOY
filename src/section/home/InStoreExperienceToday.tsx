@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react'
 import Lottie, { AnimationItem } from 'lottie-web'
-import Astronaut from '../../assets/astronaut.json'
+import React, { memo, useEffect, useRef } from 'react'
 import { GoArrowRight } from 'react-icons/go'
 import { Link } from 'react-router-dom'
+import Astronaut from '../../assets/astronaut.json'
 
-const InStoreExperienceToday = () => {
+const InStoreExperienceToday = memo(() => {
   const loadingRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<AnimationItem | null>(null)
 
@@ -55,10 +55,10 @@ const InStoreExperienceToday = () => {
           style={{
             background: 'linear-gradient(180deg, rgba(244, 247, 249, 0) 46.5%, rgba(12, 36, 162, 0.88) 100%)'
           }}
-        ></div>
+        />
       </div>
     </React.Fragment>
   )
-}
+})
 
-export default React.memo(InStoreExperienceToday)
+export default InStoreExperienceToday

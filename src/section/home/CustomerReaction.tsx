@@ -1,13 +1,11 @@
 import classNames from 'classnames'
-import React, { useState } from 'react'
-import 'swiper/css'
-import 'swiper/css/pagination'
+import React, { memo, useState } from 'react'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import images from '~/assets'
 import ListBannerCustomerReaction from '~/components/ListBannerCustomerReaction'
 
-const CustomerReaction = () => {
+const CustomerReaction = memo(() => {
   const [activeSlide, setActiveSlide] = useState(0)
 
   return (
@@ -76,6 +74,6 @@ const CustomerReaction = () => {
       </div>
     </React.Fragment>
   )
-}
+})
 
 export default CustomerReaction

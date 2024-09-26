@@ -1,13 +1,16 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { AutoplayVideo } from '~/components/autoplayVideo'
-import Banner3D from '~/layouts/home/banner3D'
-import { InStore, ListenToOurCustomer, WebSummit } from '~/layouts/home'
-import CustomerReaction from '~/layouts/home/CustomerReaction'
-import InStoreExperienceToday from '~/layouts/home/InStoreExperienceToday'
-import Unleash from '~/layouts/home/Unleash'
-interface IHomePageProps {}
+import {
+  Banner3D,
+  CustomerReaction,
+  InStore,
+  InStoreExperienceToday,
+  ListenToOurCustomer,
+  Unleash,
+  WebSummit
+} from '~/section/home'
 
-const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
+const Home = memo(() => {
   return (
     <div className='h-auto bg-[#F4F7F9]'>
       <Banner3D />
@@ -30,7 +33,7 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
           <h1 className='title-wrap mt-[100px] text-center font-semibold capitalize md:text-[64px] md:leading-[90px]'>
             Interaction in nature language
           </h1>
-          <div className='container-wrapper flex hidden flex-col gap-10 md:block'>
+          <div className='container-wrapper hidden md:block'>
             <AutoplayVideo source='https://img.m.pro/siteC1.mp4' defaultImage='https://via.placeholder.com/1920x1080' />
           </div>
           <div className='block md:hidden'>
@@ -43,7 +46,7 @@ const Home: React.FunctionComponent<IHomePageProps> = memo(() => {
       </div>
       <Unleash />
       <div data-aos='fade-up' className='mt-[300px] md:mt-[40px]'>
-        <div className='container-wrapper flex hidden flex-col gap-10 md:block'>
+        <div className='container-wrapper hidden md:block'>
           <AutoplayVideo
             source='https://img.m.pro/fiai-banner-3d.mp4'
             defaultImage='https://via.placeholder.com/1920x1080'

@@ -1,0 +1,237 @@
+import classNames from 'classnames'
+import { memo, useCallback, useMemo, useRef, useState } from 'react'
+import toast from 'react-hot-toast'
+import { Link } from 'react-router-dom'
+import { Navigation } from 'swiper/modules'
+import { FaPlay, FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { IProductVariant, ProductInfo } from '~/@types/models'
+import images from '~/assets'
+import { Button } from '~/components/button'
+import { IconButton } from '~/components/iconButton'
+import { ShoppingBagIcon } from '~/components/icons'
+import { ProductCardBanner } from '~/components/productCardBanner'
+import { Skeleton } from '~/components/skeleton'
+import { SliderPagination } from '~/components/sliderPagination'
+import useDialog from '~/hooks/useDialog'
+import useLocales from '~/hooks/useLocales'
+import useResponsive from '~/hooks/useResponsive'
+import { useAppSelector } from '~/redux/configStore'
+import { CartDialog } from '~/sections/cart'
+import { hexToUtf8 } from '~/utils/convert'
+import { formatDate } from '~/utils/format'
+
+type BannerSectionProps = {
+  isLoading: boolean
+  product: ProductInfo
+  purchases: string[]
+  trend: string[]
+}
+
+const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSectionProps) => {
+  const swiperRef = useRef<any>(null)
+  const prevRef = useRef<HTMLButtonElement>(null)
+  const nextRef = useRef<HTMLButtonElement>(null)
+
+  const { cart } = useAppSelector((s) => s.cart)
+
+  const { product: productInfo, variants } = product || {}
+
+  const { trans } = useLocales()
+
+  const productQuantity = useMemo(
+    () => variants.reduce((total: number, variant: IProductVariant) => total + +variant.priceOptions.quantity, 0),
+    [variants]
+  )
+
+  const listImages = useMemo(
+    () => productInfo?.params.images.slice(1) || productInfo?.params?.images || [],
+    [productInfo?.params?.images]
+  )
+
+  const smDown = useResponsive('down', 'sm', 'sm')
+  const { isOpen, setIsOpen, handleOpen } = useDialog()
+
+  const [activeSlide, setActiveSlide] = useState<number>(0)
+  const [isSucces, setIsSucces] = useState<boolean>(false)
+
+  const handleAddToCart = useCallback(() => {
+    if (+productQuantity > 0) {
+      handleOpen()
+      setIsSucces(true)
+      setTimeout(() => setIsSucces(false), 1500)
+    } else {
+      toast.error('Product is out of stock!')
+    }
+  }, [product, cart])
+
+  const handleGoToSlide = useCallback(
+    (index: number) => {
+      const activeIndex = index === 3 ? 0 : index === 4 ? 1 : index === 5 ? 2 : index
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slideToLoop(activeIndex === 0 ? 3 : activeIndex)
+      }
+      setActiveSlide(activeIndex)
+    },
+    [swiperRef]
+  )
+
+  const handleSlideChange = useCallback(() => {
+    if (swiperRef.current && swiperRef.current.swiper) setActiveSlide(swiperRef.current.swiper.realIndex)
+  }, [swiperRef])
+
+  return (
+    <section className='bg-ln-gray 2xs:h-[844px] relative overflow-hidden border-b-[3px] border-solid border-[#FFFFFF52] xs:h-[844px] sm:h-[810px]'>
+      <h1 className='text-white/-[.68] 2xs:top-[280px] 2xs:text-[120px] absolute left-1/2 -translate-x-1/2 transform font-customBold text-white xs:top-[280px] xs:text-[120px] sm:top-[260px] sm:text-[180px]/[252px] md:text-[240px]/[252px] lg:text-[200px]/[252px] xl:text-[240px]/[252px]'>
+        WONDERFUL
+      </h1>
+
+      <div className='2xs:mt-[180px] relative xs:mt-[180px] sm:mt-24 md:mt-24 lg:mt-20 xl:mt-10'>
+        <Swiper
+          ref={swiperRef}
+          loop
+          grabCursor
+          slidesPerView={1}
+          initialSlide={0}
+          modules={[Navigation]}
+          navigation={{
+            prevEl: prevRef.current ? prevRef.current : undefined,
+            nextEl: nextRef.current ? nextRef.current : undefined
+          }}
+          onSlideChange={handleSlideChange}
+        >
+          {listImages?.map((img, index: number) => (
+            <SwiperSlide key={`${img}-${index}`}>
+              <img
+                src={hexToUtf8(img)}
+                alt='product-banner'
+                className='2xs:h-[438px] 2xs:w-[380px] mx-auto object-cover xs:h-[438px] xs:w-[380px] sm:h-[550px] md:h-[620px] lg:h-[650px] xl:h-[700px]'
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <div className='shadow-4xl 2xs:left-1 2xs:top-[240px] 2xs:h-[44px] 2xs:w-fit 2xs:rounded-lg 2xs:px-3 absolute z-20 flex items-center gap-3 bg-white/[.44] backdrop-blur-2xl xs:left-1 xs:top-[240px] xs:h-[44px] xs:w-fit xs:rounded-lg xs:px-3 sm:left-0 sm:top-[154px] sm:h-[88px] sm:scale-[80%] sm:rounded-3xl sm:p-5 md:left-10 md:top-44 md:rounded-3xl lg:left-16 lg:top-40 lg:rounded-2xl xl:left-[190px] xl:top-[154px] xl:min-w-[377px] xl:rounded-3xl'>
+        <div className='2xs:-space-x-[10px] flex xs:-space-x-[10px] sm:-space-x-[18px]'>
+          {[
+            'https://images.unsplash.com/photo-1712068944618-21bbd010c8ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D',
+            'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+            'https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIyfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D',
+            'https://images.unsplash.com/flagged/photo-1572129063552-570d721b9d5e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDMwfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D',
+            'https://images.unsplash.com/photo-1725198639399-fb5fa2386267?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQzfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D'
+          ].map((src, index: number) => (
+            <img
+              key={index}
+              src={src}
+              alt='Image Description'
+              className='shadow-avatar 2xs:size-7 inline-block shrink-0 rounded-full border-[2px] border-solid border-white object-cover object-center ring-white xs:size-7 sm:size-12'
+            />
+          ))}
+        </div>
+        {isLoading ? (
+          <Skeleton className='2xs:!w-[118px] !h-[18.9px] rounded-sm xs:!w-[118px] sm:!w-[118px] md:!w-[118px] lg:!w-[118px] xl:!w-[140px]' />
+        ) : (
+          <p className='2xs:text-[12px] text-nowrap font-customBold capitalize leading-[18.9px] xs:text-[12px] sm:text-[18px]'>
+            +{trend?.length} {trans('product.detail.purchasing')}
+          </p>
+        )}
+      </div>
+
+      <div className='2xs:right-4 2xs:top-[10%] absolute z-50 mb-10 xs:right-4 xs:top-[10%] sm:right-5 sm:top-16 md:right-5 md:top-20 lg:right-5 lg:top-24 xl:right-[110px] xl:top-[135px]'>
+        {isLoading ? (
+          <Skeleton className='2xs:mb-1 !h-[76px] xs:mb-1 sm:mb-3' />
+        ) : (
+          <p className='2xs:mb-1 2xs:text-[48px]/[50.4px] font-customBold xs:mb-1 xs:text-[48px]/[50.4px] sm:mb-1 sm:text-[60px]/[64px] md:text-[66px]/[70px] lg:text-[72px]/[75.6px] xl:text-[72px]/[75.6px]'>
+            {purchases?.length}+
+          </p>
+        )}
+        <p className='2xs:text-[13.67px] font-customMedium capitalize leading-[21px] text-blackMain/[.68] xs:text-[13.67px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[20px]'>
+          {trans('product.detail.purchases-in-your-country')}
+        </p>
+      </div>
+
+      <div className='2xs:bottom-20 2xs:left-[5%] 2xs:gap-3 absolute z-50 flex flex-col xs:bottom-20 xs:left-[5%] xs:gap-3 sm:bottom-20 sm:left-4 sm:gap-6 md:bottom-8 md:left-8 md:gap-6 lg:bottom-10 lg:left-10 lg:gap-5 xl:bottom-[37px] xl:left-[116px] xl:gap-6'>
+        <div className='flex items-center gap-4'>
+          <Button
+            onClick={() => {
+              if (+productQuantity > 0) {
+                handleOpen()
+              } else {
+                toast.error('Product is out of stock!')
+              }
+            }}
+            className='2xs:h-[48px] 2xs:w-[173px] rounded-[27px] xs:h-[48px] xs:w-[173px] sm:h-[54px] sm:w-[200px]'
+          >
+            {trans('button.buy-now')}
+          </Button>
+          <button
+            className={`2xs:size-[48px] p-[2px] xs:size-[48px] sm:size-[54px] ${isSucces ? 'bg-gradient-to-r from-greenMain to-blueMain' : 'bg-blackMain'} flex shrink-0 items-center justify-center rounded-full transition-colors duration-300 ease-in-out`}
+            onClick={handleAddToCart}
+          >
+            <div className='flex size-full shrink-0 items-center justify-center rounded-full bg-[#f5f5f6]'>
+              <ShoppingBagIcon
+                color={isSucces ? 'linear' : '#0D0D0D'}
+                className='2xs:size-5 transition-colors duration-150 ease-in-out xs:size-5 sm:size-6'
+              />
+            </div>
+          </button>
+        </div>
+
+        <div className='flex items-center gap-3'>
+          <p className='2xs:text-[10.24px] font-customRegular text-blackMain/[.64] xs:text-[10.24px] sm:text-[16px]/[16.8px]'>
+            {trans('product.remain')}:{' '}
+            <span className='font-customMedium text-blackMain'>
+              {formatDate(+product.product.params.expiryTime, 'h:mm:ss')}
+            </span>
+          </p>
+          <svg width='6' height='6' viewBox='0 0 6 6' fill='none'>
+            <circle opacity='0.44' cx='3' cy='3' r='3' fill='#0D0D0D' />
+          </svg>
+          <p className='2xs:text-[10.24px] font-customRegular text-blackMain/[.64] xs:text-[10.24px] sm:text-[16px]/[16.8px]'>
+            {trans('product.left')}:{' '}
+            <span className='font-customMedium text-blackMain'>
+              {productQuantity} {trans('product.items')}
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div className='2xs:bottom-6 2xs:right-[4%] absolute flex items-center gap-4 xs:bottom-6 xs:right-[4%] sm:bottom-10 sm:right-5 md:bottom-8 md:right-8 lg:bottom-10 lg:right-10 xl:bottom-[35px] xl:right-[118px]'>
+        <p className='2xs:text-[16px] font-customMedium text-blackMain/[.44] xs:text-[16px] sm:text-[18px]/[18.9px]'>
+          {trans('product.detail.discover-our-product')}
+        </p>
+        <Link to={product.product.params.videoUrl}>
+          <IconButton size={smDown ? '28' : '32'} color='white' shadow>
+            <FaPlay className='2xs:size-[8.5px] xs:size-[8.5px] sm:size-[10px]' />
+          </IconButton>
+        </Link>
+      </div>
+
+      <div className='2xs:bottom-[250px] 2xs:right-4 absolute z-50 xs:bottom-[250px] xs:right-4 sm:-right-5 sm:bottom-64 sm:scale-[80%] md:bottom-48 md:right-10 md:scale-100 lg:bottom-48 lg:right-20 xl:bottom-[118px] xl:right-[177px]'>
+        <ProductCardBanner product={product} />
+      </div>
+
+      {product && listImages?.length > 1 && (
+        <div className='2xs:bottom-7 2xs:left-[15%] 2xs:gap-2 absolute z-10 flex -translate-x-1/2 transform items-center justify-center xs:bottom-7 xs:left-[15%] xs:gap-2 sm:bottom-3 sm:left-1/2 sm:gap-3 md:bottom-4 lg:bottom-4 xl:bottom-6'>
+          <button ref={prevRef} onClick={() => swiperRef.current?.swiper.slidePrev()}>
+            <img src={images.icons.arrow_left} alt='arrow-left' className='2xs:size-6 xs:size-6 sm:size-8' />
+          </button>
+          <SliderPagination
+            gap='gap-3'
+            className='2xs:!size-[8px] xs:!size-[8px] sm:!size-[10px]'
+            activeIndex={activeSlide}
+            slideToGo={handleGoToSlide}
+            slideCount={listImages?.length as number}
+          />
+          <button ref={nextRef} onClick={() => swiperRef.current?.swiper.slideNext()}>
+            <img src={images.icons.arrow_right} alt='arrow-right' className='2xs:size-6 xs:size-6 sm:size-8' />
+          </button>
+        </div>
+      )}
+    </section>
+  )
+})
+
+export default BannerSection

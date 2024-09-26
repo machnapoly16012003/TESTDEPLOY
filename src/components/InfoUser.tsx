@@ -10,6 +10,7 @@ interface Props {
   role?: ReactNode
   isActive: boolean
 }
+
 const InfoUser = (props: Props) => {
   const { className, name, des, role, avatar, isActive } = props
   return (

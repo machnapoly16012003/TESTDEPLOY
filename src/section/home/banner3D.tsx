@@ -1,11 +1,11 @@
 import { Stage, useAnimations, useGLTF } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Suspense, useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
+import { memo, Suspense, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as THREE from 'three'
-import { ButtonPrimary } from '../../components/button'
 import bannerImage from '~/assets/bg/banner.png'
-import classNames from 'classnames'
+import { ButtonPrimary } from '../../components/button'
 
 interface ModelProps {
   model: { name: string }
@@ -40,7 +40,7 @@ const MyModel = ({ model, rotationY, scale, position }: ModelProps) => {
   return <primitive ref={modelRef} object={scene} dispose={null} />
 }
 
-const Banner3D = () => {
+const Banner3D = memo(() => {
   const [rotationY, setRotationY] = useState(0)
   const [opacity, setOpacity] = useState(1)
   const [rotation, setRotation] = useState(0)
@@ -183,6 +183,6 @@ const Banner3D = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Banner3D

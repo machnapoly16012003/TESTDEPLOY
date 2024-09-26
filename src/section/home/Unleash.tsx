@@ -1,6 +1,6 @@
 import { useAnimations, useGLTF } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { GoArrowRight } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 import * as THREE from 'three'
@@ -13,7 +13,7 @@ interface ModelProps {
   position: [number, number, number]
 }
 
-const MyModel = ({ model, rotationY, scale, position }: ModelProps) => {
+const MyModel = memo(({ model, rotationY, scale, position }: ModelProps) => {
   const modelRef = useRef<THREE.Object3D>(null)
   const modelUrl = '/models/' + model?.name
   const { scene, animations } = useGLTF(modelUrl)
@@ -35,9 +35,9 @@ const MyModel = ({ model, rotationY, scale, position }: ModelProps) => {
   }, [names, actions])
 
   return <primitive ref={modelRef} object={scene} />
-}
+})
 
-const Unleash = () => {
+const Unleash = memo(() => {
   const [rotationY, setRotationY] = useState(0)
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024)
@@ -138,6 +138,6 @@ const Unleash = () => {
       </div>
     </div>
   )
-}
+})
 
 export default Unleash

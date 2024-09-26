@@ -12,6 +12,7 @@ interface IItemBannerCustomerReaction {
   classWrapContent: string
   duration: number
 }
+
 const ItemBannerCustomerReaction = ({
   img,
   content,

@@ -155,7 +155,7 @@ type ListGridListenProps = {
   active: number
 }
 
-const ListGridListen = ({active} : ListGridListenProps) => {
+const ListGridListen = ({ active }: ListGridListenProps) => {
   return (
     <React.Fragment>
       <div className={classNames('block w-full items-center justify-center py-[60px]', 'lg:flex lg:py-[100px]')}>
