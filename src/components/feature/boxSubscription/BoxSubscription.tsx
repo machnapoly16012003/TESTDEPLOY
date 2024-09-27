@@ -40,7 +40,9 @@ const BoxSubscription: FC<IBoxSubscription> = memo(({ subscription, isSelected, 
 
       <div className='flex flex-1 flex-col items-center justify-center space-y-4'>
         <p className='text-[32px]/[22px] font-semibold text-[#834CFF]'>${subscription.subscription}</p>
-        <p className='text-[12px]/[14px] font-normal text-[#818EA1E0]'>Cancel anytime</p>
+        <p className='font-normal text-[#818EA1E0] xs:text-[12px]/[14px] md:text-[14px]/[16px] xl:text-[12px]/[14px]'>
+          Cancel anytime
+        </p>
       </div>
 
       <button

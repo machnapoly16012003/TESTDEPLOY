@@ -1,0 +1,16 @@
+.product-subscription {
+  .swiper {
+    .swiper-wrapper {
+      .swiper-slide {
+        margin-top: 40px;
+        transition: all 0.5s ease-in-out;
+      }
+      .swiper-slide-next {
+        margin-top: 0px;
+        .card-share {
+          transition: all 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
