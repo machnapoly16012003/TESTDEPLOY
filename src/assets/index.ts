@@ -64,6 +64,12 @@ import ai_camera from '~/assets/icons/ai-camera-icon.svg'
 import ai_data from '~/assets/icons/ai-data-icon.svg'
 import rtc from '~/assets/icons/rtc-icon.svg'
 import software from '~/assets/icons/software-icon.svg'
+import HD from '~/assets/icons/HD.svg'
+import ai from '~/assets/icons/ai.svg'
+import motion from '~/assets/icons/motion.svg'
+import real_time from '~/assets/icons/real-time.svg'
+import weather from '~/assets/icons/weather.svg'
+import remote from '~/assets/icons/remote.svg'
 
 import gt_earth_1 from '~/assets/images/gt-earth-1.png'
 import gt_earth_2 from '~/assets/images/gt-earth-2.png'
@@ -127,7 +133,13 @@ const images = {
     ai_camera,
     ai_data,
     rtc,
-    software
+    software,
+    HD,
+    ai,
+    remote,
+    motion,
+    weather,
+    real_time
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
   componets: { earth_line_big },

@@ -15,7 +15,10 @@ export const PATH_PUBLIC_APP = {
   gettingStarted: '/getting-started',
   components: '/components',
   product: {
-    detail: '/product/:id'
+    root: '/product',
+    list: '/products',
+    detail: '/product/:id',
+    subscription: '/product/subscription/:id'
   },
   checkout: {
     root: '/checkout',

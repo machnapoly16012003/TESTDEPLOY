@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa6'
 import { Link, useNavigate } from 'react-router-dom'
 import images from '~/assets'
@@ -16,13 +16,14 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
   const navigate = useNavigate()
   const [isMenuOpen, setMenuOpen] = useState(false)
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setMenuOpen(!isMenuOpen)
-  }
+  }, [isMenuOpen])
 
   // const handleAlert = () => {
   //   alert('you do not have administrative rights, please contact the administrator.')
   // }
+
   useEffect(() => {
     window.addEventListener('scroll', function () {
       const header = document.querySelector('header')

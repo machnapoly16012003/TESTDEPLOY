@@ -3,7 +3,7 @@ import video from '~/assets/video/document_2409.mp4'
 export default function Document() {
   return (
     <React.Fragment>
-      <div className='relative h-screen w-full translate-y-5'>
+      <div className='relative w-full translate-y-5 xs:h-[150vh] sm:h-screen'>
         <video
           preload='true'
           autoPlay
@@ -20,7 +20,7 @@ export default function Document() {
         </video>
         <div className='container absolute inset-0 z-50 flex w-full flex-col items-center justify-center gap-5 text-center text-white'>
           <h2 className='text-[30px] font-semibold capitalize md:text-[64px]'>Getting Started with AI Services</h2>
-          <p className='text-sm font-medium md:text-base'>
+          <p className='text-sm font-medium xs:text-justify md:text-base'>
             Welcome to our AI platform! Follow these simple steps to begin using AI to power your business or personal
             projects. <br />
             To start, choose your path: if you’ve already received a consultation, proceed to register for our services;

@@ -3,11 +3,14 @@ import { Navigate, useRoutes } from 'react-router-dom'
 
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { BaseLayout } from '~/layouts/baseLayout'
+import { HeaderLayout } from '~/layouts/headerLayout'
 import { SaleLayout } from '~/layouts/saleLayout'
+import { Checkout, CheckoutComplete } from '~/pages/checkout'
 import { Components } from '~/pages/components'
 import { Document } from '~/pages/document'
 import { GettingStarted } from '~/pages/gettingStarted'
 import { Home } from '~/pages/home'
+import { ProductDetail, ProductSubscription } from '~/pages/product'
 // import { Analysis } from '~/pages/analysis'
 
 function useRouteElements() {
@@ -45,6 +48,28 @@ function useRouteElements() {
           {
             path: removeSlash(PATH_PUBLIC_APP.gettingStarted),
             element: <GettingStarted />
+          }
+        ]
+      },
+      {
+        path: '',
+        element: <HeaderLayout />,
+        children: [
+          {
+            path: removeSlash(PATH_PUBLIC_APP.product.detail),
+            element: <ProductDetail />
+          },
+          {
+            path: removeSlash(PATH_PUBLIC_APP.product.subscription),
+            element: <ProductSubscription />
+          },
+          {
+            path: removeSlash(PATH_PUBLIC_APP.checkout.root),
+            element: <Checkout />
+          },
+          {
+            path: removeSlash(PATH_PUBLIC_APP.checkout.complete),
+            element: <CheckoutComplete />
           }
         ]
       }

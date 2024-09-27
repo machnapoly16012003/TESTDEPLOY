@@ -66,7 +66,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
         Truly <br className='xs:block sm:block md:hidden' /> smart
       </h1>
 
-      <div className='2xs:mt-[180px] relative xs:mt-[265px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-36 3xl:mt-[90px]'>
+      <div className='2xs:mt-[180px] relative xs:mt-[200px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-36 3xl:mt-[90px]'>
         <Swiper
           ref={swiperRef}
           loop
@@ -81,7 +81,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
           onSlideChange={handleSlideChange}
         >
           <SwiperSlide>
-            <div className='mx-auto !h-[500px] !w-[800px]'>
+            <div className='mx-auto xs:!h-[500px] xs:!w-full md:!h-[500px] md:!w-[800px] xl:!h-[500px] xl:!w-[800px]'>
               <Canvas>
                 <ambientLight />
                 <OrbitControls />
@@ -92,7 +92,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
           </SwiperSlide>
           <SwiperSlide>
             <div className='w-full'>
-              <Canvas className='mx-auto !h-[500px] !w-[800px]'>
+              <Canvas className='mx-auto xl:!h-[500px] xl:!w-[800px]'>
                 <ambientLight />
                 <OrbitControls enableZoom={true} />
                 <Suspense fallback={null}>

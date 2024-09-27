@@ -1,6 +1,15 @@
 import { IProduct } from '~/@types/models'
 import images from '..'
 
+export const listAdvantages = [
+  { id: 1, icon: images.icon.HD, title: 'HD Resolution, <br /> 360 Degree' },
+  { id: 2, icon: images.icon.motion, title: 'Motion <br /> Detection' },
+  { id: 3, icon: images.icon.weather, title: 'Weatherproof <br /> Design' },
+  { id: 4, icon: images.icon.real_time, title: 'Real-Time <br /> Alerts & Analytics' },
+  { id: 5, icon: images.icon.ai, title: 'Cloud Storage <br /> with AI Sorting' },
+  { id: 6, icon: images.icon.remote, title: 'Remote Multi-Site <br /> Management' }
+]
+
 export const listProducts: IProduct[] = [
   {
     attributes: [[]],

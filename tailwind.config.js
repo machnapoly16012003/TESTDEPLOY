@@ -227,7 +227,8 @@ export default {
       's-20': '0px 4.23px 33.85px 0px #0000001A',
       's-21': '10px 13px 24.5px 0px #00000040',
       's-22': '0px 0px 80px 0px rgba(0, 0, 0, 0.05)',
-      's-23': '0px 0px 10px 0px #00000014'
+      's-23': '0px 0px 10px 0px #00000014',
+      's-24': '0px 0px 8px 0px #00000014'
     }
   },
   plugins: [

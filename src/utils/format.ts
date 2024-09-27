@@ -33,6 +33,17 @@ export function formatNumber(num: number): string {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
 
+export function checkNumbersInString(input: string): boolean {
+  // Sử dụng biểu thức chính quy để tìm tất cả các chuỗi số
+  const numbers = input.match(/\d+/g)
+
+  // Nếu không có số nào trong chuỗi, trả về false
+  if (!numbers) return false
+
+  // Kiểm tra tất cả các số có nhỏ hơn 10 không
+  return numbers.every((num) => parseInt(num, 10) < 10)
+}
+
 export const seedPhraseToString = (list) => {
   const rules = {
     1: 'A',

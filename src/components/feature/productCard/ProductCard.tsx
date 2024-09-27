@@ -1,6 +1,8 @@
 import { FC, memo } from 'react'
 import { FaPlus } from 'react-icons/fa6'
+import { useNavigate } from 'react-router-dom'
 import { IProduct } from '~/@types/models'
+import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { formatLocaleString } from '~/utils/format'
 
 interface IProductCard {
@@ -10,8 +12,10 @@ interface IProductCard {
 const ProductCard: FC<IProductCard> = memo(({ product }) => {
   const { product: productInfor, variants } = product || {}
 
+  const navigate = useNavigate()
+
   return (
-    <div className='product-card hover:bg-ln-product-card group relative flex translate-y-10 flex-col bg-transparent transition-all duration-300 ease-in-out hover:scale-100 xs:h-[360px] xs:w-[245px] xs:translate-y-10 xs:scale-100 xs:rounded-[18px] xs:px-[22px] xs:py-[24px] xs:hover:-translate-y-0 md:h-[589px] md:w-[400px] md:translate-y-10 md:scale-90 md:rounded-[32px] md:px-9 md:py-10 md:hover:-translate-y-0 xl:scale-[90%] 3xl:scale-95 4xl:scale-90'>
+    <div className='product-card group relative flex translate-y-10 flex-col bg-transparent transition-all duration-300 ease-in-out hover:scale-100 hover:bg-ln-product-card xs:h-[360px] xs:w-[245px] xs:translate-y-10 xs:scale-100 xs:rounded-[18px] xs:px-[22px] xs:py-[24px] xs:hover:-translate-y-0 md:h-[589px] md:w-[400px] md:translate-y-10 md:scale-90 md:rounded-[32px] md:px-9 md:py-10 md:hover:-translate-y-0 xl:scale-[90%] 3xl:scale-95 4xl:scale-90'>
       <p className='font-semibold text-black group-hover:text-white xs:text-[16px]/[24px] md:text-[24px]/[36px]'>
         {productInfor.params.name}
       </p>
@@ -43,7 +47,10 @@ const ProductCard: FC<IProductCard> = memo(({ product }) => {
           </p>
         </div>
 
-        <button className='group-hover:bg-ln-text-product flex items-center justify-center rounded-xl bg-transparent xs:size-[42px] md:size-[68px]'>
+        <button
+          onClick={() => navigate(`${PATH_PUBLIC_APP.product.root}/${productInfor.id}`)}
+          className='flex items-center justify-center rounded-xl bg-transparent group-hover:bg-ln-text-product xs:size-[42px] md:size-[68px]'
+        >
           <FaPlus className='xs:size-4 md:size-6' color='white' />
         </button>
       </div>
