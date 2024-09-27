@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import { memo, useMemo, useState } from 'react'
-import { FaPlus } from 'react-icons/fa6'
+import { memo, useMemo, useRef, useState } from 'react'
+import { FaPause, FaPlay, FaPlus } from 'react-icons/fa6'
 import { useNavigate, useParams } from 'react-router-dom'
 import { listAdvantages } from '~/assets/mock/product'
 import { ArrowLeftIcon } from '~/components/shared/icon'
@@ -11,6 +11,8 @@ import { checkNumbersInString, formatLocaleString } from '~/utils/format'
 const tabs = ['purchase', 'hire']
 
 const ProductDetail = memo(() => {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
   const navigate = useNavigate()
 
   const { id: productId } = useParams()
@@ -22,9 +24,10 @@ const ProductDetail = memo(() => {
   const { product: productInfor, variants } = productDetail || {}
 
   const [tabActive, setTabActive] = useState<string>(tabs[1])
+  const [playVideo, setPlayVideo] = useState<boolean>(false)
 
   return (
-    <section className='flex min-h-[100vh]'>
+    <section className='flex min-h-[100vh] bg-[#fafdff]'>
       <div className='shadow-s-24 flex min-h-[100vh] w-[37.5%] flex-col bg-ln-product-card pb-[56px] pl-[100px] pr-10 pt-40 xl:!pt-[120px] 3xl:!pt-[100px]'>
         <div className='z-20 flex h-[115px] w-full items-end justify-between'>
           <p className='font-semibold uppercase text-white xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[350px] 3xl:!text-[32px]/[40px]'>
@@ -58,13 +61,45 @@ const ProductDetail = memo(() => {
         </div>
 
         <div className='relative flex-1 xl:!min-h-[300px]'>
+          <div className='ml-auto mt-5 flex w-fit flex-col items-center justify-center gap-2'>
+            <div className='group relative z-50'>
+              <video
+                ref={videoRef}
+                className='size-[60px] rounded-[10px] border border-solid border-[#E5E5EACC]/[.8] object-cover object-center'
+                src={productInfor?.params.videoUrl}
+                muted
+                loop
+              />
+              <button
+                onClick={() => {
+                  if (playVideo) {
+                    setPlayVideo(false)
+                    videoRef.current?.pause()
+                  } else {
+                    setPlayVideo(true)
+                    videoRef.current?.play()
+                  }
+                }}
+                className='absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform transition duration-200 ease-in-out group-hover:block'
+              >
+                {playVideo ? (
+                  <FaPause color='white' className='opacity-90' />
+                ) : (
+                  <FaPlay color='white' className='opacity-90' />
+                )}
+              </button>
+            </div>
+
+            <p className='text-center text-[12px]/[17px] font-medium text-white'>Review</p>
+          </div>
+
           <p className='absolute font-bold tracking-tight text-white text-white/[.12] xl:!top-[8%] xl:!text-[220px]/[180px] 3xl:!text-[280px]/[200px]'>
             {productInfor?.params.type}
           </p>
           <div
             className={classNames(
               checkNumbersInString(productInfor?.params.type as string)
-                ? 'xl:!top-5 3xl:!top-[22%]'
+                ? 'xl:!top-[14%] 3xl:!top-[22%]'
                 : 'xl:!top-1 3xl:!top-[15%]',
               'absolute xl:!left-14 xl:!w-[480px] 3xl:!left-14 3xl:!w-[680px]'
             )}

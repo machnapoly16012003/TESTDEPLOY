@@ -1,5 +1,6 @@
 import { IProduct } from '~/@types/models'
 import images from '..'
+import videoUrl from '../video/4cam.mp4'
 
 export const listAdvantages = [
   { id: 1, icon: images.icon.HD, title: 'HD Resolution, <br /> 360 Degree' },
@@ -34,7 +35,7 @@ export const listProducts: IProduct[] = [
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
-        videoUrl: 'https://drive.google.com/file/d/1uw-HRUjaQNGthUnYGbJfkxzdHLiXwauK/view?usp=sharing',
+        videoUrl: videoUrl,
         warranty:
           'Elevate your essence with Vamp one perfume bottle an embodiment of refined masculinity and timeless sophistication.'
       },
@@ -74,7 +75,7 @@ export const listProducts: IProduct[] = [
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
-        videoUrl: 'https://drive.google.com/file/d/1uw-HRUjaQNGthUnYGbJfkxzdHLiXwauK/view?usp=sharing',
+        videoUrl: videoUrl,
         warranty:
           'Elevate your essence with Vamp one perfume bottle an embodiment of refined masculinity and timeless sophistication.'
       },
@@ -114,7 +115,7 @@ export const listProducts: IProduct[] = [
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
-        videoUrl: 'https://drive.google.com/file/d/1uw-HRUjaQNGthUnYGbJfkxzdHLiXwauK/view?usp=sharing',
+        videoUrl: videoUrl,
         warranty:
           'Elevate your essence with Vamp one perfume bottle an embodiment of refined masculinity and timeless sophistication.'
       },
@@ -154,7 +155,7 @@ export const listProducts: IProduct[] = [
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
-        videoUrl: 'https://drive.google.com/file/d/1uw-HRUjaQNGthUnYGbJfkxzdHLiXwauK/view?usp=sharing',
+        videoUrl: videoUrl,
         warranty:
           'Elevate your essence with Vamp one perfume bottle an embodiment of refined masculinity and timeless sophistication.'
       },
@@ -194,7 +195,7 @@ export const listProducts: IProduct[] = [
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
-        videoUrl: 'https://drive.google.com/file/d/1uw-HRUjaQNGthUnYGbJfkxzdHLiXwauK/view?usp=sharing',
+        videoUrl: videoUrl,
         warranty:
           'Elevate your essence with Vamp one perfume bottle an embodiment of refined masculinity and timeless sophistication.'
       },
@@ -234,7 +235,7 @@ export const listProducts: IProduct[] = [
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
-        videoUrl: 'https://drive.google.com/file/d/1uw-HRUjaQNGthUnYGbJfkxzdHLiXwauK/view?usp=sharing',
+        videoUrl: videoUrl,
         warranty:
           'Elevate your essence with Vamp one perfume bottle an embodiment of refined masculinity and timeless sophistication.'
       },

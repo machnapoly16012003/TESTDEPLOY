@@ -21,7 +21,7 @@ export const PATH_PUBLIC_APP = {
     subscription: '/product/subscription/:id'
   },
   checkout: {
-    root: '/checkout',
+    root: '/checkout/:id',
     complete: '/checkout/complete'
   }
 }

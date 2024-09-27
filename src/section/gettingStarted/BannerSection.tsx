@@ -1,4 +1,4 @@
-import { memo, Suspense, useCallback, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { FaPlay } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { Navigation } from 'swiper/modules'

@@ -130,6 +130,7 @@ export default {
         'getting-started': "url('/src/assets/bg/bg-getting-started.png')",
         'web-summit': "url('/src/assets/bg/bg-web-summit.png')",
         'box-input': "url('/src/assets/bg/bg-box-input.png')",
+        'box-subscription': "url('/src/assets/bg/bg-subscription.png')",
         // linear
         'ln-gray': 'linear-gradient(251.23deg, #F2F3F5 2.26%, #F6F6F7 98.14%)',
         'primary-gradient': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
@@ -189,7 +190,12 @@ export default {
         'ln-text-product': 'linear-gradient(126deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-text-product-detail':
           'linear-gradient(180deg, rgba(173, 173, 173, 0) 0%, rgba(217, 217, 217, 0.4) 50%, rgba(173, 173, 173, 0) 100%)',
-        'ln-product-card': 'linear-gradient(180deg, #2B2680 0%, #19174C 100%)'
+        'ln-product-card': 'linear-gradient(180deg, #2B2680 0%, #19174C 100%)',
+        'ln-line-sub-card':
+          'linear-gradient(90deg, rgba(229, 229, 234, 0) 0%, #E5E5EA 50%, rgba(229, 229, 234, 0) 100%)',
+        'ln-line-sub-card-inactive':
+          'linear-gradient(90deg, rgba(131, 76, 255, 0) 0%, #834CFF 50%, rgba(131, 76, 255, 0) 100%)',
+        'ln-box-sub-card': 'linear-gradient(93.33deg, rgba(17, 176, 242, 0.1) -1.77%, rgba(242, 0, 242, 0.1) 106.44%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'
