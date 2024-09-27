@@ -61,8 +61,8 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
   }, [swiperRef])
 
   return (
-    <section className='bg-ln-gray 2xs:h-[844px] 3xl:[900px] relative overflow-hidden border-b-[3px] border-solid border-[#FFFFFF52] xs:h-[800px] sm:h-[810px]'>
-      <h1 className='bg-ln-text-product-detail text-white/-[.68] 2xs:top-[280px] 2xs:text-[120px] absolute left-1/2 w-full -translate-x-1/2 transform text-nowrap text-center font-bold uppercase text-white xs:top-[280px] xs:text-[120px]/[110px] sm:top-[260px] sm:text-[180px]/[252px] md:text-[210px] lg:text-[210px]/[252px] xl:text-[210px] 3xl:top-[300px] 3xl:text-[240px]'>
+    <section className='2xs:h-[844px] 3xl:[900px] relative overflow-hidden border-b-[3px] border-solid border-[#FFFFFF52] bg-ln-gray xs:h-[800px] sm:h-[810px]'>
+      <h1 className='text-white/-[.68] 2xs:top-[280px] 2xs:text-[120px] absolute left-1/2 w-full -translate-x-1/2 transform text-nowrap bg-ln-text-product-detail text-center font-bold uppercase text-white xs:top-[280px] xs:text-[120px]/[110px] sm:top-[260px] sm:text-[180px]/[252px] md:text-[210px] lg:text-[210px]/[252px] xl:text-[210px] 3xl:top-[300px] 3xl:text-[240px]'>
         Truly <br className='xs:block sm:block md:hidden' /> smart
       </h1>
 
@@ -70,9 +70,9 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
         <Swiper
           ref={swiperRef}
           loop
-          grabCursor
           slidesPerView={1}
           initialSlide={0}
+          allowTouchMove={false}
           modules={[Navigation]}
           navigation={{
             prevEl: prevRef.current ? prevRef.current : undefined,
@@ -81,20 +81,18 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
           onSlideChange={handleSlideChange}
         >
           <SwiperSlide>
-            <div className='w-full'>
-              <Canvas className='mx-auto !h-[500px] !w-[700px]'>
+            <div className='mx-auto !h-[500px] !w-[800px]'>
+              <Canvas>
                 <ambientLight />
-                <OrbitControls enableZoom={true} />
-                <Suspense fallback={null}>
-                  <Model />
-                </Suspense>
+                <OrbitControls />
+                <Model />
                 <Environment preset='sunset' />
               </Canvas>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className='w-full'>
-              <Canvas className='mx-auto !h-[500px] !w-[700px]'>
+              <Canvas className='mx-auto !h-[500px] !w-[800px]'>
                 <ambientLight />
                 <OrbitControls enableZoom={true} />
                 <Suspense fallback={null}>
@@ -107,7 +105,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
         </Swiper>
       </div>
 
-      <div className='shadow-s-22 2xs:left-1 2xs:top-[240px] 2xs:h-[44px] 2xs:w-fit 2xs:rounded-lg 2xs:px-3 absolute z-20 flex items-center justify-center gap-3 bg-white/[.44] backdrop-blur-2xl transition-all duration-200 ease-in-out xs:left-0 xs:top-[15%] xs:h-[76px] xs:w-fit xs:flex-col xs:rounded-xl xs:rounded-bl-none xs:rounded-tl-none xs:px-4 sm:left-0 sm:top-[154px] sm:h-[88px] sm:scale-[80%] sm:flex-row sm:rounded-3xl sm:p-5 md:left-5 md:top-40 md:rounded-3xl lg:left-16 lg:top-40 lg:rounded-2xl xl:left-[190px] xl:top-[154px] xl:min-w-[388px] xl:gap-5 xl:rounded-3xl 3xl:h-[100px] 3xl:min-w-[400px] 3xl:scale-105'>
+      <div className='2xs:left-1 2xs:top-[240px] 2xs:h-[44px] 2xs:w-fit 2xs:rounded-lg 2xs:px-3 absolute z-20 flex items-center justify-center gap-3 bg-white/[.44] shadow-s-22 backdrop-blur-2xl transition-all duration-200 ease-in-out xs:left-0 xs:top-[15%] xs:h-[76px] xs:w-fit xs:flex-col xs:rounded-xl xs:rounded-bl-none xs:rounded-tl-none xs:px-4 sm:left-0 sm:top-[154px] sm:h-[88px] sm:scale-[80%] sm:flex-row sm:rounded-3xl sm:p-5 md:left-5 md:top-40 md:rounded-3xl lg:left-16 lg:top-40 lg:rounded-2xl xl:left-[190px] xl:top-[154px] xl:min-w-[388px] xl:gap-5 xl:rounded-3xl 3xl:h-[100px] 3xl:min-w-[400px] 3xl:scale-105'>
         <div className='2xs:-space-x-[10px] flex xs:-space-x-[10px] sm:-space-x-[18px]'>
           {[
             'https://images.unsplash.com/photo-1712068944618-21bbd010c8ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D',

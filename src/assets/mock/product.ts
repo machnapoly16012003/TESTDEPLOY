@@ -6,7 +6,7 @@ export const listProducts: IProduct[] = [
     attributes: [[]],
     product: {
       createdAt: '1725941178',
-      id: '35',
+      id: '1',
       params: {
         type: '4C',
         activateTime: '0',
@@ -46,7 +46,7 @@ export const listProducts: IProduct[] = [
     attributes: [[]],
     product: {
       createdAt: '1725941178',
-      id: '35',
+      id: '2',
       params: {
         type: '4A',
         activateTime: '0',
@@ -86,7 +86,7 @@ export const listProducts: IProduct[] = [
     attributes: [[]],
     product: {
       createdAt: '1725941178',
-      id: '35',
+      id: '3',
       params: {
         type: '4S',
         activateTime: '0',
@@ -126,7 +126,7 @@ export const listProducts: IProduct[] = [
     attributes: [[]],
     product: {
       createdAt: '1725941178',
-      id: '35',
+      id: '4',
       params: {
         type: '8C',
         activateTime: '0',
@@ -166,7 +166,7 @@ export const listProducts: IProduct[] = [
     attributes: [[]],
     product: {
       createdAt: '1725941178',
-      id: '35',
+      id: '5',
       params: {
         type: '12C',
         activateTime: '0',
@@ -206,7 +206,7 @@ export const listProducts: IProduct[] = [
     attributes: [[]],
     product: {
       createdAt: '1725941178',
-      id: '35',
+      id: '6',
       params: {
         type: '24C',
         activateTime: '0',
