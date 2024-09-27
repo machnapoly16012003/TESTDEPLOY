@@ -41,7 +41,7 @@ export function checkNumbersInString(input: string): boolean {
   if (!numbers) return false
 
   // Kiểm tra tất cả các số có nhỏ hơn 10 không
-  return numbers.every((num) => parseInt(num, 10) < 10)
+  return numbers.every((num) => parseInt(num, 6) < 6)
 }
 
 export const seedPhraseToString = (list) => {

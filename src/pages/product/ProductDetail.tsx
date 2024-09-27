@@ -64,9 +64,9 @@ const ProductDetail = memo(() => {
           <div
             className={classNames(
               checkNumbersInString(productInfor?.params.type as string)
-                ? 'xl:!top-5 3xl:!top-[12%]'
-                : 'xl:!top-0 3xl:!top-[12%]',
-              'absolute xl:!left-10 xl:!w-[500px] 3xl:!left-14 3xl:!w-[680px]'
+                ? 'xl:!top-5 3xl:!top-[22%]'
+                : 'xl:!top-1 3xl:!top-[15%]',
+              'absolute xl:!left-14 xl:!w-[480px] 3xl:!left-14 3xl:!w-[680px]'
             )}
           >
             <img src={productInfor?.params.images[1]} alt={productInfor?.params.name} className='h-auto w-full' />
