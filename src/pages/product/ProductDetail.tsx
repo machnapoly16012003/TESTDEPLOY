@@ -23,17 +23,17 @@ const ProductDetail = memo(() => {
 
   const { product: productInfor, variants } = productDetail || {}
 
-  const [tabActive, setTabActive] = useState<string>(tabs[1])
+  const [tabActive, setTabActive] = useState<string>(tabs[0])
   const [playVideo, setPlayVideo] = useState<boolean>(false)
 
   return (
     <section className='flex bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
-      <div className='shadow-s-24 flex flex-col bg-ln-product-card xs:min-h-[844px] xs:w-full xs:px-6 xs:pb-[100px] xs:pt-40 md:min-h-[1000px] md:px-20 md:pb-[56px] md:pt-32 xl:min-h-[100vh] xl:w-[37.5%] xl:!pt-[120px] 3xl:!pt-[100px]'>
+      <div className='flex flex-col bg-ln-product-card shadow-s-24 xs:min-h-[844px] xs:w-full xs:px-6 xs:pb-[100px] xs:pt-40 md:min-h-[1000px] md:px-20 md:pb-[56px] md:pt-32 xl:!min-h-[810px] xl:w-[37.5%] xl:!pt-[120px] 3xl:!min-h-[1000px] 3xl:!pt-[100px]'>
         <div className='z-20 flex w-full items-end justify-between xs:h-[138px] md:h-[138px] xl:h-[115px]'>
           <p className='font-semibold uppercase text-white xs:!w-[280px] xs:!text-[36px]/[46px] md:!w-[280px] md:!text-[36px]/[46px] xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[350px] 3xl:!text-[32px]/[40px]'>
             {productInfor?.params.name}
           </p>
-          <div className='relative items-center xs:hidden md:hidden xl:flex'>
+          <div className='relative items-center xs:hidden md:hidden xl:flex 3xl:mb-1'>
             {tabs.map((tab) => (
               <button
                 className={classNames(tab === tabs[0] ? 'w-[114px]' : 'w-fit', 'text-left')}
@@ -61,7 +61,7 @@ const ProductDetail = memo(() => {
         </div>
 
         <div className='relative flex-1 xl:!min-h-[300px]'>
-          <div className='ml-auto mt-5 flex w-fit flex-col items-center justify-center xs:-translate-y-[78px] xs:gap-2 md:-translate-y-[120px] md:gap-3 xl:translate-y-0 xl:gap-2'>
+          <div className='relative z-[100] ml-auto mt-5 flex w-fit flex-col items-center justify-center xs:-translate-y-[78px] xs:gap-2 md:-translate-y-[120px] md:gap-3 xl:translate-y-0 xl:gap-2'>
             <div className='group relative z-50'>
               <video
                 ref={videoRef}
@@ -100,7 +100,7 @@ const ProductDetail = memo(() => {
               checkNumbersInString10(productInfor?.params.type as string)
                 ? 'xs:-left-2 xs:!text-[260px]/[260px]'
                 : 'xs:left-4 xs:!text-[185px]/[200px]',
-              'absolute font-bold tracking-tight text-white text-white/[.12] xs:top-5 md:-top-3 md:!text-[300px]/[280px] xl:!top-[8%] xl:!text-[220px]/[180px] 3xl:!text-[280px]/[200px]'
+              'absolute font-bold tracking-tight text-white text-white/[.12] xs:top-5 md:-top-3 md:!text-[300px]/[280px] xl:!top-[8%] xl:!text-[220px]/[180px] 3xl:!top-[10%] 3xl:!text-[280px]/[200px]'
             )}
           >
             {productInfor?.params.type}
@@ -108,9 +108,9 @@ const ProductDetail = memo(() => {
           <div
             className={classNames(
               checkNumbersInString(productInfor?.params.type as string)
-                ? 'xs:top-1/4 md:top-1/4 xl:!top-[14%] 3xl:!top-[22%]'
-                : 'xs:top-[18%] md:top-[20%] xl:!top-1 3xl:!top-[15%]',
-              'absolute xs:-left-4 xs:!w-[110%] md:left-1/2 md:!w-[100%] md:-translate-x-1/2 md:transform xl:!left-14 xl:!w-[480px] xl:translate-x-0 3xl:!left-14 3xl:!w-[680px]'
+                ? 'xs:top-1/4 md:top-1/4 xl:!top-[22%] 3xl:!top-[26%]'
+                : 'xs:top-[18%] md:top-[20%] xl:!top-[20%] 3xl:!top-[20%]',
+              'absolute xs:-left-4 xs:!w-[110%] md:left-1/2 md:!w-[100%] md:-translate-x-1/2 md:transform xl:!left-[64px] xl:!w-[500px] xl:translate-x-0 3xl:!left-8 3xl:!w-[680px]'
             )}
           >
             <img src={productInfor?.params.images[1]} alt={productInfor?.params.name} className='h-auto w-full' />
@@ -139,7 +139,7 @@ const ProductDetail = memo(() => {
                 navigate(`${PATH_PUBLIC_APP.product.root}/subscription/${productInfor?.id}`)
               }
             }}
-            className='shadow-s-25 flex items-center justify-center bg-ln-text-product transition duration-200 ease-in-out hover:scale-105 xs:gap-3 xs:rounded-[8px] xs:p-[17px] md:gap-4 md:rounded-xl md:p-[22px]'
+            className='flex items-center justify-center bg-ln-text-product shadow-s-25 transition duration-200 ease-in-out hover:scale-105 xs:gap-3 xs:rounded-[8px] xs:p-[17px] md:gap-4 md:rounded-xl md:p-[22px]'
           >
             <FaPlus className='xs:size-[18px] md:size-6' color='white' />
             <p className='font-semibold text-white xs:text-[16px]/[16px] md:text-[20px]/[20px]'>
@@ -149,7 +149,7 @@ const ProductDetail = memo(() => {
         </div>
       </div>
 
-      <div className='h-full xs:min-h-[780px] xs:w-full xs:px-6 xs:py-8 md:px-10 md:py-14 xl:!block xl:min-h-[100vh] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[190px] xl:pr-[100px] 3xl:!flex 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
+      <div className='h-full xs:min-h-[780px] xs:w-full xs:px-6 xs:py-8 md:px-10 md:py-14 xl:!block xl:!min-h-[810px] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[190px] xl:pr-[100px] 3xl:!flex 3xl:!min-h-[1000px] 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
         <button className='mb-12 items-center gap-4 xs:hidden md:hidden xl:flex' onClick={() => window.history.back()}>
           <ArrowLeftIcon className='opacity-[.44]' />
           <p className='text-[16px]/[16px] text-black/[.72]'>Back</p>

@@ -1,0 +1,92 @@
+import { memo } from 'react'
+import { Controller, useFormContext } from 'react-hook-form'
+
+interface TextareaFieldProps {
+  name: string
+  label?: string
+  rows?: number
+  rules?: Partial<Record<string, unknown>>
+  defaultValue?: string
+  disabled?: boolean
+  placeholder?: string
+  width?: string
+  fullWidth?: boolean
+  className?: string | null
+  helperText?: string
+  classNameLabel?: string
+  required?: boolean
+  variant?: 'outline' | 'container'
+}
+
+const TextareaField = memo(
+  ({
+    name,
+    label = '',
+    rows = 4,
+    rules = {},
+    defaultValue = '',
+    placeholder = '',
+    width,
+    disabled = false,
+    fullWidth = false,
+    className = null,
+    required = false,
+    variant = 'outline',
+    helperText,
+    classNameLabel
+  }: TextareaFieldProps) => {
+    const { control } = useFormContext()
+
+    return (
+      <Controller
+        control={control}
+        name={name}
+        rules={rules}
+        defaultValue={defaultValue}
+        render={({ field, fieldState }) => (
+          <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
+            <div className='flex flex-col 2xs:gap-2 xs:gap-2 sm:gap-3'>
+              <label
+                htmlFor={name}
+                className={`font-customSemiBold capitalize 2xs:text-[18px] xs:text-[18px] sm:text-[20px] ${disabled && 'text-blackMain/[.32]'} ${classNameLabel}`}
+              >
+                {label}
+              </label>
+              <textarea
+                {...field}
+                id={name}
+                rows={rows}
+                required={required}
+                disabled={disabled}
+                placeholder={placeholder}
+                className={`w-full ${variant === 'outline' ? 'border-[1px] border-solid border-blackMain/[.22] px-5 py-2 2xs:rounded-[16px] xs:rounded-[26px] sm:rounded-[26px] md:rounded-[26px] lg:rounded-[26px]' : 'rounded-lg bg-greyLight px-5 py-2'} ${
+                  disabled
+                    ? 'bg-blackMain/[.03]'
+                    : variant === 'outline'
+                      ? 'hover:ring-[1.5px] hover:ring-blackMain/[.30] focus:ring-[1.5px] focus:ring-blackMain/[.30]'
+                      : 'hover:bg-blackMain/[.05] focus:bg-blackMain/[.05]'
+                } transition-colors duration-300 ease-in-out ${className}`}
+                onChange={(e) => {
+                  const value = e.target.value.trimStart()
+                  field.onChange(value)
+                }}
+              />
+            </div>
+            {helperText && (
+              <div className='min-h-[18px]'>
+                <p className='ml-2 text-gray-400 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>{helperText}</p>
+              </div>
+            )}
+            <div className='min-h-[18px]'>
+              <p className='ml-2 text-red-500 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>
+                {fieldState.error && fieldState.error.message}
+              </p>
+            </div>
+          </div>
+        )}
+      />
+    )
+  }
+)
+
+export default TextareaField

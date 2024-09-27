@@ -8,5 +8,5 @@ export type QueryConfig = {
 }
 
 export interface ListConfig {
-  creaetProductType?: 'product' | 'product-sale'
+  subscription?: string
 }

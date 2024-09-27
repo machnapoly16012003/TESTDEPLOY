@@ -1,16 +1,18 @@
 import classNames from 'classnames'
 import { memo, useCallback, useMemo, useRef, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import toast from 'react-hot-toast'
+import { RiInformation2Fill } from 'react-icons/ri'
+import { createSearchParams, Link, useNavigate, useParams } from 'react-router-dom'
+import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { BoxSubscription } from '~/components/feature/boxSubscription'
+import { SliderPagination } from '~/components/feature/sliderPagination'
 import { ArrowLeftIcon } from '~/components/shared/icon'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { useAppSelector } from '~/redux/configStore'
 import { checkNumbersInString10, formatLocaleString } from '~/utils/format'
 import './styles.scss'
-import { SliderPagination } from '~/components/feature/sliderPagination'
-import { Pagination } from 'swiper/modules'
 
 const ProductSubscription = memo(() => {
   const swiperRef = useRef<any>(null)
@@ -51,6 +53,19 @@ const ProductSubscription = memo(() => {
   const handleSlideChange = useCallback(() => {
     if (swiperRef.current && swiperRef.current.swiper) setActiveSlide(swiperRef.current.swiper.realIndex)
   }, [swiperRef])
+
+  const handleCheckout = useCallback(() => {
+    if (subSelected === 0)
+      return toast('Please select subscription!', {
+        icon: <RiInformation2Fill color='#5495FC' />
+      })
+    navigate({
+      pathname: `${PATH_PUBLIC_APP.checkout.root}/${productInfor?.id}`,
+      search: createSearchParams({
+        subscription: subSelected.toString()
+      }).toString()
+    })
+  }, [subSelected])
 
   return (
     <section className='product-subscription flex min-h-[100vh] bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
@@ -97,7 +112,7 @@ const ProductSubscription = memo(() => {
             </Swiper>
           </div>
         </div>
-        <div className='absolute left-1/2 z-[100] mx-auto w-fit -translate-x-1/2 -translate-y-16 transform'>
+        <div className='absolute left-1/2 z-[100] mx-auto w-fit -translate-x-1/2 -translate-y-16 transform xs:block md:hidden'>
           <SliderPagination
             activeIndex={activeSlide === 3 ? 0 : activeSlide === 4 ? 1 : activeSlide === 5 ? 2 : activeSlide}
             slideToGo={handleGoToSlide}
@@ -119,7 +134,7 @@ const ProductSubscription = memo(() => {
         </Link>
       </div>
 
-      <div className='shadow-s-24 flex flex-col bg-ln-product-card xs:min-h-[888px] xs:w-full xs:px-6 xs:pb-16 xs:pt-[100px] md:min-h-[1000px] md:w-full md:px-20 md:pb-16 md:pt-[100px] xl:min-h-[100vh] xl:w-[37.5%] xl:px-[100px] xl:!pt-[120px] xl:pb-10 3xl:!pt-[100px]'>
+      <div className='flex flex-col bg-ln-product-card shadow-s-24 xs:min-h-[888px] xs:w-full xs:px-6 xs:pb-16 xs:pt-[100px] md:min-h-[1000px] md:w-full md:px-20 md:pb-16 md:pt-[100px] xl:min-h-[100vh] xl:w-[37.5%] xl:px-[100px] xl:!pt-[120px] xl:pb-10 3xl:!pt-[100px]'>
         <p className='font-semibold uppercase text-white xs:!w-[80%] xs:!text-[36px]/[46px] md:!w-[260px] md:!text-[36px]/[46px] xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[350px] 3xl:!text-[32px]/[40px]'>
           {productInfor?.params.name}
         </p>
@@ -130,7 +145,7 @@ const ProductSubscription = memo(() => {
           </p>
           <div
             className={classNames(
-              checkNumbersInString10(productInfor?.params.type as string) ? 'mt-16' : 'mt-12',
+              checkNumbersInString10(productInfor?.params.type as string) ? 'mt-[50px]' : 'mt-12',
               'absolute left-1/2 z-20 -translate-x-1/2 xs:!w-[115%] md:!w-[100%] xl:!w-[130%] 3xl:!w-[110%]'
             )}
           >
@@ -159,9 +174,7 @@ const ProductSubscription = memo(() => {
           </div>
 
           <button
-            onClick={() => {
-              navigate(`${PATH_PUBLIC_APP.checkout.root}/${productInfor?.id}`)
-            }}
+            onClick={handleCheckout}
             className='flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] transition duration-200 ease-in-out hover:scale-105'
           >
             <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[26px]/[30px] xl:text-[20px]/[20px]'>

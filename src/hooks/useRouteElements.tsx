@@ -64,7 +64,7 @@ function useRouteElements() {
             element: <ProductSubscription />
           },
           {
-            path: removeSlash(PATH_PUBLIC_APP.checkout.root),
+            path: removeSlash(PATH_PUBLIC_APP.checkout.checkout),
             element: <Checkout />
           },
           {
