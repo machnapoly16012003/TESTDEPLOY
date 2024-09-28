@@ -30,8 +30,8 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
   return (
     <header
       className={classNames(
-        pathname !== PATH_PUBLIC_APP.gettingStarted && 'shadow-header bg-white/[.12] backdrop-blur-xl',
-        scrolledTo100 ? 'shadow-header bg-white/[.12] backdrop-blur-xl' : 'bg-transparent',
+        pathname !== PATH_PUBLIC_APP.gettingStarted && 'shadow-s-26 bg-white/[.12] backdrop-blur-xl',
+        scrolledTo100 ? 'shadow-s-26 bg-white/[.12] backdrop-blur-xl' : 'bg-transparent',
         `top-02xs:gap-3 2xs:p-4 2xs:px-3 fixed z-[500] flex max-h-[80px] w-full items-center justify-between transition-colors duration-300 ease-in-out xs:gap-3 xs:p-4 xs:px-3 sm:gap-4 sm:p-4 md:gap-5 xl:px-[100px]`
       )}
     >
@@ -42,7 +42,7 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
         </div>
       </Link>
 
-      {pathname.split('/')[1] !== PATH_PUBLIC_APP.checkout.root && (
+      {pathname.split('/')[1] !== 'checkout' && (
         <div className='flex items-center gap-5'>
           <p className='text-[16px]/[16.8px] font-semibold'>Log In</p>
           <Button variant='linear' className='h-[48px] w-[98px]' classNameText='text-[16px]/[16.8px] text-white'>

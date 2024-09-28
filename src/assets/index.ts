@@ -70,6 +70,8 @@ import motion from '~/assets/icons/motion.svg'
 import real_time from '~/assets/icons/real-time.svg'
 import weather from '~/assets/icons/weather.svg'
 import remote from '~/assets/icons/remote.svg'
+import lock from '~/assets/icons/lock.svg'
+import subscription from '~/assets/icons/subscription.png'
 
 import gt_earth_1 from '~/assets/images/gt-earth-1.png'
 import gt_earth_2 from '~/assets/images/gt-earth-2.png'
@@ -139,7 +141,9 @@ const images = {
     remote,
     motion,
     weather,
-    real_time
+    real_time,
+    subscription,
+    lock
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
   componets: { earth_line_big },

@@ -26,7 +26,7 @@ export const roundNumber = (_number, decimal = 4) => {
 }
 
 export const formatPrice = (number: number, fix?: number) => {
-  return fix ? (number / 1000000).toFixed(fix) : number / 1000000
+  return (number / 1000000).toFixed(fix ? fix : 0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
 
 export function formatNumber(num: number): string {

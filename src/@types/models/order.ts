@@ -8,13 +8,6 @@ export interface ShippingForm {
   phone: string
   addressDetail: string
   postalCode?: string
-  paymentMethod: string
-  storeId: string
-  cardNumber: string
-  expirationDate: string
-  cvv: string
-  nameOnCard: string
-  walletId: string
 }
 
 export interface PaymentForm {

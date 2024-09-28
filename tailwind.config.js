@@ -235,7 +235,8 @@ export default {
       's-22': '0px 0px 80px 0px rgba(0, 0, 0, 0.05)',
       's-23': '0px 0px 10px 0px #00000014',
       's-24': '0px 0px 8px 0px #00000014',
-      's-25': '0px 0px 6.12px 0px #00000014'
+      's-25': '0px 0px 6.12px 0px #00000014',
+      's-26': '0px -4px 4px 0px #00000040'
     }
   },
   plugins: [
@@ -261,6 +262,19 @@ export default {
           },
           '.rp-title-section': {
             '@apply xs:text-[32px]/[36px] md:text-[52px]/[52px] font-semibold text-black': {}
+          },
+          '.rp-img-item-checkout': {
+            '@apply flex size-[104px] flex-shrink-0 items-center justify-center rounded-[8px] border border-solid border-[#DBDDE3] p-1':
+              {}
+          },
+          '.rp-title-item-checkout': {
+            '@apply text-[16px]/[24px] font-medium capitalize': {}
+          },
+          '.rp-price-item-checkout': {
+            '@apply text-[16px]/[24px] font-semibold capitalize': {}
+          },
+          '.rp-box-content-item-checkout': {
+            '@apply flex flex-col justify-between py-[6px] xl:min-h-[104px]': {}
           }
         },
         ['responsive', 'hover']

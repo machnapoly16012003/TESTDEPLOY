@@ -3,8 +3,8 @@ import clsx from 'clsx'
 import { memo, useEffect, useMemo, useState } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 import { OptionSelect } from '~/@types/common'
-import images from '~/assets'
-import { CheckIcon } from '../icons'
+import { CheckIcon, ChevronDown } from '../icon'
+import classNames from 'classnames'
 
 interface SelectFieldProps {
   name: string
@@ -21,7 +21,6 @@ interface SelectFieldProps {
   placeholder?: string
   value?: OptionSelect
   variant?: 'outline' | 'container'
-  size?: 'small' | 'medium'
 }
 
 const SelectField = memo(
@@ -32,13 +31,13 @@ const SelectField = memo(
     options = [],
     width,
     disabled = false,
+    required = false,
     fullWidth = false,
     helperText,
     placeholder,
     value,
     classNameLabel = null,
-    variant = 'outline',
-    size = 'medium'
+    variant = 'outline'
   }: SelectFieldProps) => {
     const { control } = useFormContext()
 
@@ -68,13 +67,17 @@ const SelectField = memo(
         render={({ field, fieldState }) => {
           return (
             <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
-              <div className='flex flex-col 2xs:gap-2 xs:gap-2 sm:gap-3'>
+              <div className='flex flex-col gap-2'>
                 {label && (
                   <label
                     htmlFor={name}
-                    className={`${size === 'small' ? 'text-[16px]' : '2xs:text-[18px] xs:text-[18px] sm:text-[20px]'} font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'} ${classNameLabel}`}
+                    className={classNames(
+                      classNameLabel,
+                      disabled ? 'text-black/[.32]' : 'text-black',
+                      `text-[16px]/[24px] font-semibold capitalize`
+                    )}
                   >
-                    {label}
+                    {label} {required && <span className='text-[#E23710]'>*</span>}
                   </label>
                 )}
 
@@ -94,29 +97,27 @@ const SelectField = memo(
                       placeholder={placeholder}
                       onChange={(event) => setQuery(event.target.value)}
                       displayValue={(option: OptionSelect) => option?.label}
-                      className={`relative w-full ${size === 'small' ? 'h-[48px]' : '2xs:h-11 xs:h-11 sm:h-[52px]'} shadow-sm py-1.5 pl-5 pr-10 ${
-                        variant === 'outline'
-                          ? `${
-                              disabled ? 'bg-blackMain/[.03]' : 'bg-white'
-                            } rounded-[30px] border-[1px] border-solid border-blackMain/[.22]`
-                          : `${disabled ? 'bg-blackMain/[.03]' : 'bg-greyLight'} rounded-lg`
-                      } focus:outline-none ${
-                        variant === 'outline'
-                          ? `focus:ring-[1.5px] focus:ring-blackMain/[.30] ${
-                              disabled ? '' : 'hover:ring-[1.5px] hover:ring-blackMain/[.30]'
-                            } 2xs:rounded-[30px] xs:rounded-[30px] sm:rounded-[32px]`
-                          : `focus:bg-blackMain/[.05] ${disabled ? '' : 'hover:bg-blackMain/[.05]'} rounded-[8px]`
-                      }`}
+                      className={classNames(
+                        'shadow-sm relative w-full rounded-[8px] border border-solid pl-4 pr-10 pt-[2px] focus:outline-none xs:h-11 md:h-12',
+                        disabled
+                          ? 'bg-black/[.03]'
+                          : variant === 'outline'
+                            ? 'border-[#DBDDE3] pb-[2px] hover:ring-[0.8px] hover:ring-black/[.2] focus:ring-[0.8px] focus:ring-black/[.2]'
+                            : 'border-greyLight bg-greyLight hover:bg-black/[.05] focus:bg-black/[.05]'
+                      )}
                     />
-                    <ComboboxButton disabled={disabled} className='group absolute inset-y-0 right-0 px-2.5'>
-                      <img src={images.icons.chevron_bot} alt='icon-arrow' />
+                    <ComboboxButton
+                      disabled={disabled}
+                      className={classNames(disabled && 'opacity-20', 'group absolute inset-y-0 right-0 px-2.5')}
+                    >
+                      <ChevronDown />
                     </ComboboxButton>
                   </div>
                   {options?.length > 0 && (
                     <ComboboxOptions
                       anchor='bottom'
                       className={clsx(
-                        'shadow-lg mt-2 !max-h-[200px] w-[var(--input-width)] overflow-auto rounded-lg bg-white p-1 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm',
+                        'shadow-lg mt-2 !max-h-[200px] w-[var(--input-width)] overflow-auto rounded-[8px] bg-white p-1 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm',
                         'scroll-bar-small transition duration-200 ease-in-out'
                       )}
                     >
@@ -124,7 +125,7 @@ const SelectField = memo(
                         <ComboboxOption
                           key={option.value}
                           value={option}
-                          className='group flex cursor-default select-none items-center gap-2 rounded-md px-3 py-1.5 data-[focus]:bg-black/5'
+                          className='group flex cursor-default select-none items-center gap-2 rounded-[6px] px-3 py-1.5 data-[focus]:bg-black/5'
                         >
                           <CheckIcon className='invisible size-4 fill-black group-data-[selected]:visible' />
                           <div className='text-sm/6 text-black'>{option.label}</div>
@@ -137,11 +138,11 @@ const SelectField = memo(
 
               {helperText && (
                 <div className='min-h-[18px]'>
-                  <p className='ml-2 text-gray-400 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>{helperText}</p>
+                  <p className='2xs:text-[13px] ml-2 text-gray-400 xs:text-[13px] sm:text-[14px]'>{helperText}</p>
                 </div>
               )}
               <div className='min-h-[18px]'>
-                <p className='ml-2 text-red-500 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>
+                <p className='2xs:text-[13px] ml-2 text-red-500 xs:text-[13px] sm:text-[14px]'>
                   {fieldState.error && fieldState.error.message}
                 </p>
               </div>

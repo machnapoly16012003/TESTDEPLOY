@@ -27,7 +27,10 @@ function useValidationForm() {
       .required(VALIDATION_CONTENT.REQUIRED('phone number'))
       .matches(/^\d+$/, 'Phone number must contain only digits.')
       .matches(/^((0|\+84)(3|5|7|8|9))[0-9]{8}$/, 'Phone number is invalid.'),
-    addressDetail: yup.string().required(VALIDATION_CONTENT.REQUIRED('address detail')),
+    addressDetail: yup.string().required(VALIDATION_CONTENT.REQUIRED('address detail'))
+  })
+
+  const paymentFrom = yup.object({
     paymentMethod: yup.string().required(VALIDATION_CONTENT.SELECT('payment method')),
     storeId: yup.string().required(VALIDATION_CONTENT.REQUIRED('store id')),
     cardNumber: yup.string().required(VALIDATION_CONTENT.REQUIRED('card number')).length(16, 'Invalid card number'),
@@ -59,7 +62,7 @@ function useValidationForm() {
     walletId: yup.string().required(VALIDATION_CONTENT.SELECT('wallet'))
   })
 
-  const paymentFrom = yup.object({
+  const registerFrom = yup.object({
     fullName: yup
       .string()
       .required(VALIDATION_CONTENT.REQUIRED('user name'))
@@ -76,7 +79,8 @@ function useValidationForm() {
 
   return {
     shippingFrom,
-    paymentFrom
+    paymentFrom,
+    registerFrom
   }
 }
 

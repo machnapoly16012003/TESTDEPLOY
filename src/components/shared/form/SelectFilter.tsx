@@ -2,8 +2,7 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } fro
 import classNames from 'classnames'
 import { Dispatch, Fragment, memo, ReactNode, SetStateAction } from 'react'
 import { OptionSelect } from '~/@types/common'
-import { CheckIcon, ChevronDown, CloseIcon, SortIcon } from '~/components/icons'
-import useLocales from '~/hooks/useLocales'
+import { ChevronDown, CloseIcon, SortIcon } from '../icon'
 
 type SelectFilterProps = {
   label?: string
@@ -11,7 +10,6 @@ type SelectFilterProps = {
   className?: string
   fullWidth?: boolean
   isSortBy?: boolean
-  isLangs?: boolean
   hideClear?: boolean
   isTransparent?: boolean
   isSelectQuantity?: boolean
@@ -25,7 +23,6 @@ type SelectFilterProps = {
 
 const SelectFilter = memo(
   ({
-    isLangs,
     label,
     className,
     anchor = false,
@@ -41,14 +38,12 @@ const SelectFilter = memo(
     maxHeight,
     handleUpdateCartItem
   }: SelectFilterProps) => {
-    const { onChangeLang } = useLocales()
-
     return (
       <Listbox value={selected} onChange={setSelected}>
         {({ open }) => (
           <div className={`relative ${fullWidth ? '2xs:w-full xs:w-full' : ''}`}>
             <ListboxButton
-              className={`relative min-h-10 rounded-lg 2xs:min-w-[130px] xs:min-w-[130px] sm:min-w-[180px] ${isTransparent || isSelectQuantity ? 'bg-transparent' : 'shadow-sm bg-white ring-1 ring-inset ring-blackMain/[.22] hover:ring-[1.2px] hover:ring-blackMain/[.30] focus:ring-[1px] focus:ring-blackMain/[.30]'} ${isSelectQuantity ? 'pl-0' : 'pl-3'} py-1.5 text-left transition-colors duration-300 ease-in-out xs:pr-8 sm:pr-12 ${className}`}
+              className={`2xs:min-w-[130px] relative min-h-10 rounded-lg xs:min-w-[130px] sm:min-w-[180px] ${isTransparent || isSelectQuantity ? 'bg-transparent' : 'shadow-sm bg-white ring-1 ring-inset ring-blackMain/[.22] hover:ring-[1.2px] hover:ring-blackMain/[.30] focus:ring-[1px] focus:ring-blackMain/[.30]'} ${isSelectQuantity ? 'pl-0' : 'pl-3'} py-1.5 text-left transition-colors duration-300 ease-in-out xs:pr-8 sm:pr-12 ${className}`}
             >
               <div className='flex items-center gap-2'>
                 {leftIcon && leftIcon}
@@ -107,7 +102,7 @@ const SelectFilter = memo(
             >
               <ListboxOptions
                 anchor={anchor && 'bottom'}
-                className={`absolute mt-1 !w-[var(--button-width)] overflow-auto ${maxHeight ? maxHeight : 'max-h-56'} scroll-bar-xs w-full overflow-auto rounded-lg bg-white/[.56] px-3 pb-[14px] pt-3 shadow-avatar backdrop-blur-2xl`}
+                className={`absolute mt-1 !w-[var(--button-width)] overflow-auto ${maxHeight ? maxHeight : 'max-h-56'} scroll-bar-xs shadow-avatar w-full overflow-auto rounded-lg bg-white/[.56] px-3 pb-[14px] pt-3 backdrop-blur-2xl`}
               >
                 {options.map((option, index) => (
                   <ListboxOption
@@ -119,7 +114,6 @@ const SelectFilter = memo(
                       `flex cursor-pointer select-none items-center justify-between border-0 border-solid border-[#2F373C]/[.12] px-2`
                     )}
                     onClick={() => {
-                      if (isLangs) onChangeLang(option.value)
                       handleUpdateCartItem && handleUpdateCartItem(option.value, 'capacities')
                     }}
                   >
@@ -128,7 +122,6 @@ const SelectFilter = memo(
                     >
                       {option.label}
                     </span>
-                    {selected.value === option.value && <CheckIcon className='size-6' />}
                   </ListboxOption>
                 ))}
               </ListboxOptions>

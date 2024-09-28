@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { FC, memo } from 'react'
 import { ISubscription } from '~/@types/models'
+import { formatPrice } from '~/utils/format'
 
 interface IBoxSubscription {
   subscription: ISubscription
@@ -14,9 +15,9 @@ const BoxSubscription: FC<IBoxSubscription> = memo(({ subscription, isSelected, 
       onClick={() => handleSelect(subscription.id)}
       className={classNames(
         isSelected
-          ? 'bg-box-subscription border-transparent bg-cover bg-center bg-no-repeat'
+          ? 'border-transparent bg-box-subscription bg-cover bg-center bg-no-repeat'
           : 'border-[#e5e5ea] bg-transparent',
-        'shadow-s-24 relative flex h-[240px] w-[190px] flex-col items-center rounded-xl border-[1.5px] border-solid pb-5 pt-6 transition-all duration-100 ease-in-out'
+        'relative flex h-[240px] w-[190px] flex-col items-center rounded-xl border-[1.5px] border-solid pb-5 pt-6 shadow-s-24 transition-all duration-100 ease-in-out'
       )}
     >
       <div className='absolute right-[6px] top-[6px]'>
@@ -39,7 +40,7 @@ const BoxSubscription: FC<IBoxSubscription> = memo(({ subscription, isSelected, 
       />
 
       <div className='flex flex-1 flex-col items-center justify-center space-y-4'>
-        <p className='text-[32px]/[22px] font-semibold text-[#834CFF]'>${subscription.subscription}</p>
+        <p className='text-[32px]/[22px] font-semibold text-[#834CFF]'>${formatPrice(+subscription.subscription)}</p>
         <p className='font-normal text-[#818EA1E0] xs:text-[12px]/[14px] md:text-[14px]/[16px] xl:text-[12px]/[14px]'>
           Cancel anytime
         </p>
@@ -48,7 +49,7 @@ const BoxSubscription: FC<IBoxSubscription> = memo(({ subscription, isSelected, 
       <button
         className={classNames(
           isSelected ? 'bg-[#834CFF] text-white' : 'bg-[#834CFF]/[.1] text-[#834CFF]',
-          'shadow-s-24 h-6 w-[87px] rounded text-center text-[12px]/[14px] font-medium transition-colors duration-200 ease-in-out'
+          'h-6 w-[87px] rounded text-center text-[12px]/[14px] font-medium shadow-s-24 transition-colors duration-200 ease-in-out'
         )}
       >
         {subscription.save}

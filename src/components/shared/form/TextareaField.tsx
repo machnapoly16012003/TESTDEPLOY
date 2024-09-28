@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { memo } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
@@ -45,12 +46,16 @@ const TextareaField = memo(
         defaultValue={defaultValue}
         render={({ field, fieldState }) => (
           <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
-            <div className='flex flex-col 2xs:gap-2 xs:gap-2 sm:gap-3'>
+            <div className='flex flex-col gap-2'>
               <label
                 htmlFor={name}
-                className={`font-customSemiBold capitalize 2xs:text-[18px] xs:text-[18px] sm:text-[20px] ${disabled && 'text-blackMain/[.32]'} ${classNameLabel}`}
+                className={classNames(
+                  classNameLabel,
+                  disabled ? 'text-black/[.32]' : 'text-black',
+                  `text-[16px]/[24px] font-semibold capitalize`
+                )}
               >
-                {label}
+                {label} {required && <span className='text-[#E23710]'>*</span>}
               </label>
               <textarea
                 {...field}
@@ -59,13 +64,15 @@ const TextareaField = memo(
                 required={required}
                 disabled={disabled}
                 placeholder={placeholder}
-                className={`w-full ${variant === 'outline' ? 'border-[1px] border-solid border-blackMain/[.22] px-5 py-2 2xs:rounded-[16px] xs:rounded-[26px] sm:rounded-[26px] md:rounded-[26px] lg:rounded-[26px]' : 'rounded-lg bg-greyLight px-5 py-2'} ${
+                className={classNames(
+                  className,
+                  `w-full rounded-[8px] border border-solid px-4 py-2 transition-colors duration-300 ease-in-out`,
                   disabled
-                    ? 'bg-blackMain/[.03]'
+                    ? 'bg-black/[.03]'
                     : variant === 'outline'
-                      ? 'hover:ring-[1.5px] hover:ring-blackMain/[.30] focus:ring-[1.5px] focus:ring-blackMain/[.30]'
-                      : 'hover:bg-blackMain/[.05] focus:bg-blackMain/[.05]'
-                } transition-colors duration-300 ease-in-out ${className}`}
+                      ? 'border-[#DBDDE3] pb-[2px] hover:ring-[0.8px] hover:ring-black/[.2] focus:ring-[0.8px] focus:ring-black/[.2]'
+                      : 'border-greyLight bg-greyLight hover:bg-black/[.05] focus:bg-black/[.05]'
+                )}
                 onChange={(e) => {
                   const value = e.target.value.trimStart()
                   field.onChange(value)
@@ -74,11 +81,11 @@ const TextareaField = memo(
             </div>
             {helperText && (
               <div className='min-h-[18px]'>
-                <p className='ml-2 text-gray-400 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>{helperText}</p>
+                <p className='2xs:text-[13px] ml-2 text-gray-400 xs:text-[13px] sm:text-[14px]'>{helperText}</p>
               </div>
             )}
             <div className='min-h-[18px]'>
-              <p className='ml-2 text-red-500 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>
+              <p className='2xs:text-[13px] ml-2 text-red-500 xs:text-[13px] sm:text-[14px]'>
                 {fieldState.error && fieldState.error.message}
               </p>
             </div>

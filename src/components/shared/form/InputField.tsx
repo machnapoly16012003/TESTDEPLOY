@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { memo, ReactNode } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
@@ -52,12 +53,16 @@ const InputField = memo(
         render={({ field, fieldState }) => {
           return (
             <div className={`flex flex-col gap-1 ${fullWidth ? 'w-full' : 'w-[350px]'} ${width ? width : ''}`}>
-              <div className={`flex flex-col ${gap ? gap : '2xs:gap-2 xs:gap-2 sm:gap-3'}`}>
+              <div className={`flex flex-col ${gap ? gap : 'gap-2'}`}>
                 <label
                   htmlFor={name}
-                  className={`${size === 'small' ? 'text-[16px]' : 'xs:text-[18px] sm:text-[20px]'} font-customSemiBold capitalize ${disabled && 'text-blackMain/[.32]'} ${classNameLabel}`}
+                  className={classNames(
+                    classNameLabel,
+                    disabled ? 'text-black/[.32]' : 'text-black',
+                    `text-[16px]/[24px] font-semibold capitalize`
+                  )}
                 >
-                  {label}
+                  {label} {required && <span className='text-[#E23710]'>*</span>}
                 </label>
                 <div className='relative'>
                   <input
@@ -67,15 +72,15 @@ const InputField = memo(
                     required={required}
                     disabled={disabled}
                     placeholder={placeholder}
-                    className={`w-full ${size === 'small' ? 'h-[48px]' : '2xs:h-11 xs:h-11 sm:h-[52px]'} px-5 ${variant === 'outline-green' ? 'rounded-lg border-[1px] border-solid border-greenMain pb-[2px]' : variant === 'outline' ? 'border-[1px] border-solid border-blackMain/[.22] pb-[2px] 2xs:rounded-[30px] xs:rounded-[30px] sm:rounded-[32px]' : 'rounded-lg bg-greyLight'} ${
+                    className={classNames(
+                      className,
+                      `w-full rounded-[8px] border border-solid px-4 transition-colors duration-300 ease-in-out xs:h-11 sm:h-12`,
                       disabled
-                        ? 'bg-blackMain/[.03]'
-                        : variant === 'outline-green'
-                          ? 'hover:ring-[1.2px] hover:ring-greenMain focus:ring-[1.2px] focus:ring-greenMain'
-                          : variant === 'outline'
-                            ? 'hover:ring-[1.5px] hover:ring-blackMain/[.30] focus:ring-[1.5px] focus:ring-blackMain/[.30]'
-                            : 'hover:bg-blackMain/[.05] focus:bg-blackMain/[.05]'
-                    } transition-colors duration-300 ease-in-out ${className}`}
+                        ? 'bg-black/[.03]'
+                        : variant === 'outline'
+                          ? 'border-[#DBDDE3] pb-[2px] hover:ring-[0.8px] hover:ring-black/[.2] focus:ring-[0.8px] focus:ring-black/[.2]'
+                          : 'border-greyLight bg-greyLight hover:bg-black/[.05] focus:bg-black/[.05]'
+                    )}
                     onChange={(e) => {
                       let value = e.target.value
 
@@ -99,11 +104,11 @@ const InputField = memo(
               </div>
               {helperText && (
                 <div className='min-h-[18px]'>
-                  <p className='ml-2 text-gray-400 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>{helperText}</p>
+                  <p className='2xs:text-[13px] ml-2 text-gray-400 xs:text-[13px] sm:text-[14px]'>{helperText}</p>
                 </div>
               )}
               <div className='min-h-[18px]'>
-                <p className='ml-2 text-red-500 2xs:text-[13px] xs:text-[13px] sm:text-[14px]'>
+                <p className='2xs:text-[13px] ml-2 text-red-500 xs:text-[13px] sm:text-[14px]'>
                   {fieldState.error && fieldState.error.message}
                 </p>
               </div>
