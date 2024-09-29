@@ -5,6 +5,8 @@ import logo_fi from '~/assets/logo/logo-fi-ai.png'
 import amazon from '~/assets/logo/amazon.png'
 import amplitude from '~/assets/logo/amplitude.png'
 import confluent from '~/assets/logo/confluent.png'
+import gg_play from '~/assets/logo/gg-play.png'
+import app_store from '~/assets/logo/app-store.png'
 
 import china from '~/assets/flag/china.png'
 import czech_republic from '~/assets/flag/czech-republic.png'
@@ -91,7 +93,7 @@ import camera12 from '~/assets/images/camera12.png'
 import camera16 from '~/assets/images/camera16.png'
 
 const images = {
-  logo: { logo_e_commerce, logo_white, logo_metanode, logo_fi, amazon, amplitude, confluent },
+  logo: { logo_e_commerce, logo_white, logo_metanode, logo_fi, amazon, amplitude, confluent, gg_play, app_store },
   flag: { china, czech_republic, france, indonesia, italy, japan, korea, spain, united_kingdom, vietnam },
   image: {
     current_view_top,

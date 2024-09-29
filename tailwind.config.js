@@ -276,6 +276,9 @@ export default {
           },
           '.rp-box-content-item-checkout': {
             '@apply flex flex-col justify-between py-[6px] xl:min-h-[104px]': {}
+          },
+          '.rp-content-checkout-complete': {
+            '@apply text-[16px]/[28px] text-[#818EA1]': {}
           }
         },
         ['responsive', 'hover']
