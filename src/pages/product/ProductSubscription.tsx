@@ -168,7 +168,7 @@ const ProductSubscription = memo(() => {
                 Subscription
               </span>
               <span className='font-medium text-white xs:text-[16px]/[24px] md:text-[24px]/[32px] xl:text-[18px]/[24px]'>
-                ${subSelected === 0 ? 0 : formatLocaleString(Number(subscriptionSelected?.subscription))}.00
+                ${subSelected === 0 ? 0 : formatLocaleString(Number(subscriptionSelected?.subscription) / 10 ** 6)}.00
               </span>
             </div>
           </div>
@@ -181,7 +181,7 @@ const ProductSubscription = memo(() => {
               Pay $
               {formatLocaleString(
                 Number(variants?.[0].priceOptions.price) / 10 ** 6 +
-                  (subSelected === 0 ? 0 : Number(subscriptionSelected?.subscription))
+                  (subSelected === 0 ? 0 : Number(subscriptionSelected?.subscription) / 10 ** 6)
               )}
               .00
             </p>
