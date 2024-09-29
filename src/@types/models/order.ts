@@ -12,10 +12,10 @@ export interface ShippingForm {
 
 export interface PaymentForm {
   paymentMethod: string
-  storeId: string
   cardNumber: string
+  nameOnCard: string
   expirationDate: string
   cvv: string
-  nameOnCard: string
-  walletId: string
+  walletAddress: string
+  nameOnWallet?: string
 }

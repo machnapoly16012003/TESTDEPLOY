@@ -5,5 +5,6 @@ export const LOCAL_STORAGE = {
   HOME_DATA_OLD: 'home-data-old',
   DATA_KEY: 'data-key',
 
-  LIST_PRODUCT: 'list-products'
+  LIST_PRODUCTS: 'list-products',
+  LIST_ORDERS: 'list-orders'
 }

@@ -21,6 +21,9 @@ const ShippingInfoFrom = memo(
 
     const country = watch('country')
     const stateOrProvince = watch('stateOrProvince')
+    const city = watch('city')
+
+    console.log('city', city)
 
     const { countriesOptions, provincesOptions, listCity, citiesOptions } = useCountry({
       country,

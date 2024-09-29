@@ -23,6 +23,6 @@ export const PATH_PUBLIC_APP = {
   checkout: {
     root: '/checkout',
     checkout: '/checkout/:id',
-    complete: '/checkout/complete'
+    complete: '/checkout/complete/:id'
   }
 }

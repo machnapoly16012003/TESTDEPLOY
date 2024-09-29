@@ -32,7 +32,6 @@ function useValidationForm() {
 
   const paymentFrom = yup.object({
     paymentMethod: yup.string().required(VALIDATION_CONTENT.SELECT('payment method')),
-    storeId: yup.string().required(VALIDATION_CONTENT.REQUIRED('store id')),
     cardNumber: yup.string().required(VALIDATION_CONTENT.REQUIRED('card number')).length(16, 'Invalid card number'),
     expirationDate: yup
       .string()
@@ -58,8 +57,8 @@ function useValidationForm() {
       .matches(/^[0-9]{3,4}$/, 'Invalid CVV')
       .length(3, 'CVV has only 3 digits')
       .required(VALIDATION_CONTENT.REQUIRED('CVV')),
-    nameOnCard: yup.string().required(VALIDATION_CONTENT.SELECT('name on card')),
-    walletId: yup.string().required(VALIDATION_CONTENT.SELECT('wallet'))
+    nameOnCard: yup.string().required(VALIDATION_CONTENT.REQUIRED('name on card')),
+    walletAddress: yup.string().required(VALIDATION_CONTENT.REQUIRED('wallet address'))
   })
 
   const registerFrom = yup.object({

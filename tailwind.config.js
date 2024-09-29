@@ -195,7 +195,8 @@ export default {
           'linear-gradient(90deg, rgba(229, 229, 234, 0) 0%, #E5E5EA 50%, rgba(229, 229, 234, 0) 100%)',
         'ln-line-sub-card-inactive':
           'linear-gradient(90deg, rgba(131, 76, 255, 0) 0%, #834CFF 50%, rgba(131, 76, 255, 0) 100%)',
-        'ln-box-sub-card': 'linear-gradient(93.33deg, rgba(17, 176, 242, 0.1) -1.77%, rgba(242, 0, 242, 0.1) 106.44%)'
+        'ln-box-sub-card': 'linear-gradient(93.33deg, rgba(17, 176, 242, 0.1) -1.77%, rgba(242, 0, 242, 0.1) 106.44%)',
+        'ln-box-sub-card-border': 'linear-gradient(93.33deg, #11B0F2 -1.77%, #F200F2 106.44%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'

@@ -96,7 +96,7 @@ const InputField = memo(
                     }}
                   />
                   <div
-                    className={`absolute top-1/2 ${size === 'small' ? 'right-[20px]' : 'right-[25px]'} pointer-events-none -translate-y-1/2 transform`}
+                    className={`absolute top-1/2 ${size === 'small' ? 'right-[20px]' : 'right-4'} -translate-y-1/2 transform`}
                   >
                     {rightIcon}
                   </div>

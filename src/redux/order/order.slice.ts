@@ -1,36 +1,37 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { isEmpty } from 'lodash'
 import { IProduct } from '~/@types/models'
-import { listProducts } from '~/assets/mock/product'
 import { LOCAL_STORAGE } from '~/constants/localStorage'
 import { getLocalStorage, setLocalStorage } from '~/utils/localStorage'
 
 interface IinitialState {
   isLoading: boolean
-  listProducts: IProduct[]
+  listOrders: any[]
+  orderSuccess: any | null
 }
 
 const initialState: IinitialState = {
   isLoading: false,
-  listProducts: listProducts || []
+  listOrders: [],
+  orderSuccess: null
 }
 
 const productSlice = createSlice({
-  name: 'product',
+  name: 'order',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getListProducts.pending, (state) => {
+      .addCase(getListOrders.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(getListProducts.fulfilled, (state, action) => {
+      .addCase(getListOrders.fulfilled, (state, action) => {
         state.isLoading = false
-        state.listProducts = action.payload === false ? [] : action.payload
+        state.listOrders = action.payload === false ? [] : action.payload
       })
-      .addCase(getListProducts.rejected, (state) => {
+      .addCase(getListOrders.rejected, (state) => {
         state.isLoading = false
-        state.listProducts = []
+        state.listOrders = []
       })
   }
 })
@@ -40,14 +41,14 @@ const productReducer = productSlice.reducer
 
 export default productReducer
 
-export const getListProducts = createAsyncThunk('product/getListProducts', async () => {
+export const getListOrders = createAsyncThunk('product/getListOrders', async () => {
   try {
     const listProducts: IProduct[] = []
-    if (listProducts && !isEmpty(listProducts)) setLocalStorage(LOCAL_STORAGE.LIST_PRODUCTS, listProducts)
-    const storageData = getLocalStorage(LOCAL_STORAGE.LIST_PRODUCTS)
+    if (listProducts && !isEmpty(listProducts)) setLocalStorage(LOCAL_STORAGE.LIST_ORDERS, listProducts)
+    const storageData = getLocalStorage(LOCAL_STORAGE.LIST_ORDERS)
     return listProducts || storageData || []
   } catch (error) {
-    console.log('Error get list products:', error)
+    console.log('Error get list orders:', error)
     return false
   }
 })
