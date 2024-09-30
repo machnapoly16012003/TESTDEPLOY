@@ -11,10 +11,10 @@ export function Model(props) {
       <PerspectiveCamera
         makeDefault={true} // Đặt camera này làm camera chính
         far={3000} // Thay đổi giá trị far
-        near={0.1} // Thay đổi giá trị near
-        fov={70} // Thay đổi giá trị fov
-        position={[-10, 100, 450]} // Thay đổi vị trí camera
-        rotation={[0, 0.5, 0]} // Thay đổi góc quay camera
+        near={0.5} // Thay đổi giá trị near
+        fov={15} // Thay đổi giá trị fov
+        position={[-1000, 800, -1400]} // Thay đổi vị trí camera
+        rotation={[0, -400, 300]} // Thay đổi góc quay camera
         scale={[1, 1, 1]} // Thay đổi tỷ lệ camera
       />
       <spotLight
