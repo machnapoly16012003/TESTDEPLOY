@@ -15,7 +15,7 @@ const BoxGettingStarted: FC<IBoxGettingStarted> = memo(({ icon, title, content, 
       data-aos={'fade-up'}
       className={classNames(
         className,
-        'border-box-getting shadow-s-21 relative flex max-w-[272px] flex-col items-center justify-between rounded-2xl border-[2px] border-solid bg-white/[.40] px-4 pb-5 pt-6 backdrop-blur-sm'
+        'relative flex max-w-[272px] flex-col items-center justify-between rounded-2xl border-[2px] border-solid border-box-getting bg-white/[.40] px-4 pb-5 pt-6 shadow-s-21 backdrop-blur-sm'
       )}
     >
       {icon}

@@ -1,11 +1,13 @@
+import classNames from 'classnames'
 import React, { useState, useCallback } from 'react'
 
 interface OtpInputProps {
+  error?: string
   length: number
   onChangeOtp: (otp: string) => void
 }
 
-const OtpInput: React.FC<OtpInputProps> = ({ length, onChangeOtp }) => {
+const OtpInput: React.FC<OtpInputProps> = ({ error, length, onChangeOtp }) => {
   const [otp, setOtp] = useState<string[]>(new Array(length).fill(''))
 
   const handleChange = useCallback(
@@ -48,22 +50,28 @@ const OtpInput: React.FC<OtpInputProps> = ({ length, onChangeOtp }) => {
   )
 
   return (
-    <div className='flex items-center justify-center xs:gap-2 md:gap-5'>
-      {otp.map((data, index) => (
-        <input
-          key={index}
-          type='text'
-          maxLength={1}
-          value={data}
-          className='rounded-[8px] border-[1.5px] border-[#9291A5] text-center text-[16px] xs:size-[38px] md:size-12'
-          onChange={(e) => handleChange(e.target as HTMLInputElement, index)}
-          onKeyDown={(e) => {
-            if (e.key === 'Backspace') {
-              handleBackspace(e.target as HTMLInputElement, index)
-            }
-          }}
-        />
-      ))}
+    <div className='flex flex-col'>
+      <div className='flex items-center justify-center xs:gap-2 md:gap-5'>
+        {otp.map((data, index) => (
+          <input
+            key={index}
+            type='text'
+            maxLength={1}
+            value={data}
+            className={classNames(
+              error ? 'border-[#FF2D2D]' : 'border-[#9291A5]',
+              'rounded-[8px] border-[1.5px] text-center text-[16px] xs:size-[38px] md:size-12'
+            )}
+            onChange={(e) => handleChange(e.target as HTMLInputElement, index)}
+            onKeyDown={(e) => {
+              if (e.key === 'Backspace') {
+                handleBackspace(e.target as HTMLInputElement, index)
+              }
+            }}
+          />
+        ))}
+      </div>
+      {error && <p className='text-[14px]/[14.7px] text-[#FF2D2D]'>{error}</p>}
     </div>
   )
 }

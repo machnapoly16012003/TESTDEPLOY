@@ -129,8 +129,9 @@ export default {
         unpleash: "url('/src/assets/images/unpleash.png')",
         'getting-started': "url('/src/assets/bg/bg-getting-started.png')",
         'web-summit': "url('/src/assets/bg/bg-web-summit.png')",
-        'box-input': "url('/src/assets/bg/bg-box-input.png')",
+        'box-input': "url('/src/assets/bg/bg-input-footer.png')",
         'box-subscription': "url('/src/assets/bg/bg-subscription.png')",
+        'box-time-count': "url('/src/assets/bg/bg-time-count-down.png')",
         // linear
         'ln-gray': 'linear-gradient(251.23deg, #F2F3F5 2.26%, #F6F6F7 98.14%)',
         'primary-gradient': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
@@ -197,7 +198,9 @@ export default {
           'linear-gradient(90deg, rgba(131, 76, 255, 0) 0%, #834CFF 50%, rgba(131, 76, 255, 0) 100%)',
         'ln-box-sub-card': 'linear-gradient(93.33deg, rgba(17, 176, 242, 0.1) -1.77%, rgba(242, 0, 242, 0.1) 106.44%)',
         'ln-box-sub-card-border': 'linear-gradient(93.33deg, #11B0F2 -1.77%, #F200F2 106.44%)',
-        'ln-qr': 'linear-gradient(270deg, rgba(17, 176, 242, 0.2) 0%, rgba(242, 0, 242, 0.2) 100%)'
+        'ln-qr': 'linear-gradient(270deg, rgba(17, 176, 242, 0.2) 0%, rgba(242, 0, 242, 0.2) 100%)',
+        'ln-input': 'linear-gradient(126.38deg, rgba(17, 176, 242, 0.4) 7.58%, rgba(242, 0, 242, 0.4) 92.42%)',
+        'ln-button-footer': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'
@@ -238,7 +241,8 @@ export default {
       's-23': '0px 0px 10px 0px #00000014',
       's-24': '0px 0px 8px 0px #00000014',
       's-25': '0px 0px 6.12px 0px #00000014',
-      's-26': '0px -4px 4px 0px #00000040'
+      's-26': '0px -4px 4px 0px #00000040',
+      's-27': '0px 4px 4px 0px #00000040'
     }
   },
   plugins: [
