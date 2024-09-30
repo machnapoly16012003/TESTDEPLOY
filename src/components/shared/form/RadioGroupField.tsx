@@ -50,7 +50,7 @@ const RadioGroupField = memo(
                         className={classNames(
                           className,
                           field.value === option.value ? 'bg-ln-box-sub-card' : 'bg-transparent',
-                          `relative flex w-full items-center justify-between xs:h-[50px] xs:rounded-none xs:px-3 sm:rounded-[7px] md:h-[88px] md:px-5`
+                          `relative flex w-full items-center justify-between xs:h-[88px] xs:rounded-none xs:px-5 sm:rounded-[7px] md:h-[88px] md:px-5`
                         )}
                       >
                         {option.label}

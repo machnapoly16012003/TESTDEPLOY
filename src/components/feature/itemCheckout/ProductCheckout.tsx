@@ -9,7 +9,7 @@ interface IProductCheckoutProps {
 const ProductCheckout: FC<IProductCheckoutProps> = memo(({ product }) => {
   return (
     <div className='flex items-center gap-6'>
-      <div className='rp-img-item-checkout'>
+      <div className='border-[#DBDDE3] rp-img-item-checkout'>
         <img
           src={product.product.params.images?.[0]}
           alt={product.product.params.name}

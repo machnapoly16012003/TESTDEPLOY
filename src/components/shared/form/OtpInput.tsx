@@ -48,14 +48,14 @@ const OtpInput: React.FC<OtpInputProps> = ({ length, onChangeOtp }) => {
   )
 
   return (
-    <div>
+    <div className='flex items-center justify-center xs:gap-2 md:gap-5'>
       {otp.map((data, index) => (
         <input
           key={index}
           type='text'
           maxLength={1}
           value={data}
-          className='mr-5 size-12 rounded-[8px] border-[1.5px] border-[#9291A5] text-center text-[16px]'
+          className='rounded-[8px] border-[1.5px] border-[#9291A5] text-center text-[16px] xs:size-[38px] md:size-12'
           onChange={(e) => handleChange(e.target as HTMLInputElement, index)}
           onKeyDown={(e) => {
             if (e.key === 'Backspace') {

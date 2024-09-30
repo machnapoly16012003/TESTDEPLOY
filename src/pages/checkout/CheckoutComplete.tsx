@@ -53,10 +53,10 @@ const CheckoutComplete = memo(() => {
 
           <div className='my-6'>
             <p className='font-medium text-black'>
-              Username: <span className='rp-content-checkout-complete font-normal'>example24@gmail.com</span>
+              Username: <span className='font-normal rp-content-checkout-complete'>example24@gmail.com</span>
             </p>
             <p className='font-medium text-black'>
-              Temporary Password: <span className='rp-content-checkout-complete font-normal'>A1B2C3D4</span>
+              Temporary Password: <span className='font-normal rp-content-checkout-complete'>A1B2C3D4</span>
             </p>
           </div>
 
@@ -66,7 +66,7 @@ const CheckoutComplete = memo(() => {
         </div>
 
         <div className='mt-5 flex flex-col items-center justify-center gap-3'>
-          <p className='text-[16px]/[28px] font-medium text-[#0D0D0D]'>Download now</p>
+          <p className='text-[16px]/[28px] font-semibold text-[#0D0D0D]'>Download now</p>
 
           <div className='flex items-center gap-4'>
             <img src={images.logo.gg_play} alt='google play' />

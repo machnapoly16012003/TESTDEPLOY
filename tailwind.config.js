@@ -265,17 +265,17 @@ export default {
             '@apply xs:text-[32px]/[36px] md:text-[52px]/[52px] font-semibold text-black': {}
           },
           '.rp-img-item-checkout': {
-            '@apply flex size-[104px] flex-shrink-0 items-center justify-center rounded-[8px] border border-solid border-[#DBDDE3] p-1':
+            '@apply flex xs:size-[89px] md:size-[100px] xl:size-[104px] flex-shrink-0 items-center justify-center rounded-[8px] border border-solid p-1':
               {}
           },
           '.rp-title-item-checkout': {
-            '@apply text-[16px]/[24px] font-medium capitalize': {}
-          },
-          '.rp-price-item-checkout': {
             '@apply text-[16px]/[24px] font-semibold capitalize': {}
           },
+          '.rp-price-item-checkout': {
+            '@apply text-[16px]/[24px] font-bold capitalize': {}
+          },
           '.rp-box-content-item-checkout': {
-            '@apply flex flex-col justify-between py-[6px] xl:min-h-[104px]': {}
+            '@apply flex flex-col justify-between py-[6px] xs:min-h-[89px] md:min-h-[100px] xl:min-h-[104px]': {}
           },
           '.rp-content-checkout-complete': {
             '@apply text-[16px]/[28px] text-[#818EA1]': {}

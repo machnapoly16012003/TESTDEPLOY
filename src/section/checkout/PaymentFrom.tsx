@@ -43,30 +43,37 @@ const PaymentFrom: FC<IPaymentFromProps> = memo(({ onBack }) => {
             {
               value: 'credit-card',
               label: (
-                <div className='space-y-1'>
-                  <IoCardOutline className='xs:size-5 md:size-6' />
-                  <p className='font-semibold xs:text-[14px] md:text-[16px]/[24px]'>Credit Card</p>
+                <div className='xs:space-y-2 md:space-y-1'>
+                  <IoCardOutline className='size-6' />
+                  <p className='text-[16px]/[24px] font-semibold'>Credit Card</p>
                 </div>
               )
             },
             {
               value: 'wallet-address',
               label: (
-                <div className='space-y-1'>
-                  <IoWalletOutline className='xs:size-5 md:size-6' />
-                  <p className='font-semibold xs:text-[14px] md:text-[16px]/[24px]'>Wallet Address</p>
+                <div className='xs:space-y-2 md:space-y-1'>
+                  <IoWalletOutline className='size-6' />
+                  <p className='text-[16px]/[24px] font-semibold'>Wallet Address</p>
                 </div>
               )
             }
           ]}
         />
 
-        <div className='mt-8 space-y-2'>
+        <div className='space-y-2 xs:mt-4 md:mt-8'>
           {paymentMethod === 'credit-card' ? (
             <>
-              <InputField fullWidth name='cardNumber' label='Card Number' placeholder='Enter your card number' />
               <InputField
                 fullWidth
+                required
+                name='cardNumber'
+                label='Card Number'
+                placeholder='Enter your card number'
+              />
+              <InputField
+                fullWidth
+                required
                 name='nameOnCard'
                 label='Name On Card'
                 placeholder='Enter your name'
@@ -79,13 +86,14 @@ const PaymentFrom: FC<IPaymentFromProps> = memo(({ onBack }) => {
                       clearErrors('nameOnCard')
                     }}
                   >
-                    <CopyIcon color='#818EA1' />
+                    <CopyIcon color='#818EA1' className='xs:size-4 md:size-6' />
                   </button>
                 }
               />
               <div className='flex w-full items-start xs:gap-2 sm:gap-5'>
                 <InputField
                   fullWidth
+                  required
                   name='expirationDate'
                   label='Expiration Date'
                   placeholder='mm/yy'
@@ -98,12 +106,13 @@ const PaymentFrom: FC<IPaymentFromProps> = memo(({ onBack }) => {
                         clearErrors('expirationDate')
                       }}
                     >
-                      <CopyIcon color='#818EA1' />
+                      <CopyIcon color='#818EA1' className='xs:size-4 md:size-6' />
                     </button>
                   }
                 />
                 <InputField
                   fullWidth
+                  required
                   name='cvv'
                   label='CVV'
                   placeholder='XXX'
@@ -116,7 +125,7 @@ const PaymentFrom: FC<IPaymentFromProps> = memo(({ onBack }) => {
                         clearErrors('cvv')
                       }}
                     >
-                      <CopyIcon color='#818EA1' />
+                      <CopyIcon color='#818EA1' className='xs:size-4 md:size-6' />
                     </button>
                   }
                 />
@@ -139,7 +148,7 @@ const PaymentFrom: FC<IPaymentFromProps> = memo(({ onBack }) => {
                       clearErrors('walletAddress')
                     }}
                   >
-                    <CopyIcon color='#818EA1' />
+                    <CopyIcon color='#818EA1' className='xs:size-4 md:size-6' />
                   </button>
                 }
               />
@@ -151,7 +160,10 @@ const PaymentFrom: FC<IPaymentFromProps> = memo(({ onBack }) => {
 
       <button
         onClick={onBack}
-        className={classNames(paymentMethod === 'credit-card' ? 'mt-[90px]' : 'mt-[200px]', 'flex items-center gap-4')}
+        className={classNames(
+          paymentMethod === 'credit-card' ? 'mt-[90px]' : 'mt-[200px]',
+          'items-center gap-4 xs:hidden sm:hidden md:hidden lg:hidden xl:flex'
+        )}
       >
         <ArrowLeftIcon color='#818EA170' />
         <p className='text-[16px]/[16px] text-[#818EA1]'>Previous step</p>

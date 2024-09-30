@@ -52,7 +52,7 @@ const TextareaField = memo(
                 className={classNames(
                   classNameLabel,
                   disabled ? 'text-black/[.32]' : 'text-black',
-                  `text-[16px]/[24px] font-semibold capitalize`
+                  `font-semibold capitalize xs:text-[14px]/[21px] md:text-[16px]/[24px]`
                 )}
               >
                 {label} {required && <span className='text-[#E23710]'>*</span>}

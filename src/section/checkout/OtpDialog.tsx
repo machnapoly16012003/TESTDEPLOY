@@ -43,17 +43,18 @@ const OtpDialog: FC<OtpDialogProps> = memo(({ productId, open, setOpen }) => {
       open={open}
       setOpen={setOpen}
       zIndex='z-[700]'
-      className={classNames('h-fit !rounded-2xl bg-white/[.88] xs:w-full md:w-[670px]')}
+      className={classNames('h-fit !rounded-2xl bg-white/[.88] xs:w-full md:w-[600px] xl:w-[670px]')}
     >
-      <div className='relative flex h-full flex-col items-center justify-center gap-4 p-10 md:min-h-[362px]'>
+      <div className='relative flex h-full flex-col items-center justify-center gap-4 xs:p-8 md:min-h-[362px] md:p-10'>
         <div className='absolute right-4 top-4 cursor-pointer' onClick={() => setOpen(false)}>
           <CloseIcon className='size-4' color='#9291A5' />
         </div>
 
         <div>
           <img src={images.icon.otp} className='mx-auto xs:w-[80px] sm:w-[100px]' />
-          <p className='mt-5 text-center font-semibold text-[#1E1B39] xs:text-[16px]/[16.8px] md:text-[18px]/[22px]'>
-            Please enter your 6-digit authentication code from your email!
+
+          <p className='mt-5 text-center font-semibold text-[#1E1B39] xs:px-0 xs:text-[16px]/[18.6px] md:px-10 md:text-[18px]/[24px] xl:px-0'>
+            Please enter your 6-digit authentication code <span className='xs:hidden md:flex'>from your email!</span>
           </p>
 
           <div className='mb-4 mt-5'>

@@ -9,8 +9,8 @@ interface ISupscriptionCheckoutProps {
 
 const SupscriptionCheckout: FC<ISupscriptionCheckoutProps> = memo(({ subscription }) => {
   return (
-    <div className='flex items-center gap-6'>
-      <div className='rp-img-item-checkout'>
+    <div className='flex items-center xs:gap-[14px] md:gap-6'>
+      <div className='border-[#D9C8FF] rp-img-item-checkout'>
         <img
           src={images.icon.subscription}
           alt={subscription.title}
