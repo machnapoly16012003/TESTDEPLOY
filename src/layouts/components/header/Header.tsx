@@ -149,7 +149,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
       </div>
 
       <div className='flex items-center justify-between bg-gray-100 p-4 lg:hidden'>
-        <button onClick={toggleMenu} className='relative rounded-[50%] bg-white p-[16px] text-2xl'>
+        <button onClick={toggleMenu} className='relative rounded-[50%] bg-white text-2xl xs:p-[12px] md:p-[16px]'>
           <FaBars className='relative z-10' />
           {/* <TbLockCancel className='absolute left-[0px] top-[3px] text-[0.7em]' /> */}
         </button>
@@ -162,15 +162,30 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
           <div className='shadow-lg absolute left-10 top-16 z-10 rounded-md bg-white p-8'>
             <ul className='space-y-2'>
               <li
-                className='cursor-pointer hover:text-blue-500'
+                className={classNames(
+                  pathname === PATH_PUBLIC_APP.gettingStarted && 'rp-text-linear',
+                  'cursor-pointer hover:text-blue-500'
+                )}
                 onClick={() => navigate(PATH_PUBLIC_APP.gettingStarted)}
               >
                 Getting started
               </li>
-              <li className='cursor-pointer hover:text-blue-500' onClick={() => navigate(PATH_PUBLIC_APP.components)}>
+              <li
+                className={classNames(
+                  pathname === PATH_PUBLIC_APP.components && 'rp-text-linear',
+                  'cursor-pointer hover:text-blue-500'
+                )}
+                onClick={() => navigate(PATH_PUBLIC_APP.components)}
+              >
                 Components
               </li>
-              <li className='cursor-pointer hover:text-blue-500' onClick={() => navigate(PATH_PUBLIC_APP.document)}>
+              <li
+                className={classNames(
+                  pathname === PATH_PUBLIC_APP.document && 'rp-text-linear',
+                  'cursor-pointer hover:text-blue-500'
+                )}
+                onClick={() => navigate(PATH_PUBLIC_APP.document)}
+              >
                 Documentation
               </li>
             </ul>

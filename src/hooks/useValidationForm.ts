@@ -23,7 +23,7 @@ function useValidationForm() {
     phone: yup
       .string()
       .required(VALIDATION_CONTENT.REQUIRED('phone number'))
-      .matches(/^\d+$/, 'Phone number must contain only digits.'),
+      .matches(/^\+?\d+$/, 'Phone number must contain only digits.'),
     // phone: yup
     //   .string()
     //   .min(10, 'Phone number must be ten digits')
