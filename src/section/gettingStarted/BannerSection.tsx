@@ -66,7 +66,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
         Truly <br className='xs:block sm:block md:hidden' /> smart
       </h1>
 
-      <div className='2xs:mt-[180px] relative xs:mt-[200px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-36 3xl:mt-[120px]'>
+      <div className='2xs:mt-[180px] relative xs:mt-[200px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-44 3xl:mt-[140px]'>
         <Swiper
           ref={swiperRef}
           loop

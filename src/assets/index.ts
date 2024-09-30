@@ -45,6 +45,7 @@ import user9 from '~/assets/images/use9.png'
 import customerReact from '~/assets/images/customerReact.png'
 import QR from '~/assets/images/QR.png'
 import model_footer from '~/assets/images/model-footer.png'
+import shadow_product from '~/assets/images/shadow-product.png'
 
 import bg_vistor_card from '~/assets/bg/bg-vistor-card.png'
 import gradient_box from '~/assets/bg/gradient-box.png'
@@ -136,7 +137,8 @@ const images = {
     user9,
     bg_vistor_card,
     QR,
-    model_footer
+    model_footer,
+    shadow_product
   },
   bg: { bg_vistor_card, bg_footer, gradient_box, bg_web_summit, bg_text_footer, bg_web_summit_sm },
   icon: {

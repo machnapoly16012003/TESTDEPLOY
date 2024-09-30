@@ -111,11 +111,11 @@ const Footer: FC<IFooterProps> = memo(() => {
         <div className='mx-auto flex items-center justify-between gap-4 text-white xs:w-fit xs:flex-col md:w-full md:flex-row'>
           <p className='text-[14px]/[19.6px] xs:hidden md:flex'>Terms of Service</p>
           <p className='text-[14px]/[19.6px]'>© 2024 AI Chatbot, Inc. All rights reserved</p>
-          <p className='w-[113px] text-[14px]/[19.6px] xs:hidden md:flex'></p>
+          <p className='w-[113px] text-[14px]/[19.6px] xs:hidden md:flex'>Privacy Policy</p>
 
           <div className='w-full items-center justify-center xs:flex md:hidden'>
             <p className='text-[14px]/[19.6px]'>Terms of Service</p>
-            {/* <p className='text-[14px]/[19.6px]'>Privacy Policy</p> */}
+            <p className='text-[14px]/[19.6px]'>Privacy Policy</p>
           </div>
         </div>
       </div>

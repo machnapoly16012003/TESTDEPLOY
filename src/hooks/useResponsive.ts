@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const breakpoints: Record<string, number> = {
+  xs: 500,
   sm: 640,
   md: 768,
   lg: 1024,

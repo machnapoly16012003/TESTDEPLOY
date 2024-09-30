@@ -284,6 +284,9 @@ export default {
           },
           '.rp-content-checkout-complete': {
             '@apply xs:text-[14px]/[26px] md:text-[16px]/[28px] text-[#818EA1]': {}
+          },
+          '.rp-text-linear': {
+            '@apply bg-clip-text relative text-transparent font-medium bg-ln-text-getting': {}
           }
         },
         ['responsive', 'hover']

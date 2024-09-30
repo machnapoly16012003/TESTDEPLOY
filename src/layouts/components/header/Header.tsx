@@ -1,6 +1,7 @@
+import classNames from 'classnames'
 import { memo, useCallback, useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa6'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import images from '~/assets'
 import {
   NavigationMenu,
@@ -14,6 +15,9 @@ interface HeaderProps {}
 
 const Header: React.FunctionComponent<HeaderProps> = memo(() => {
   const navigate = useNavigate()
+
+  const { pathname } = useLocation()
+
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = useCallback(() => {
@@ -52,7 +56,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                       // (window.location.href = 'https://pre.fi.ai/')
                       navigate(PATH_PUBLIC_APP.gettingStarted)
                     }}
-                    className='relative'
+                    className={classNames(pathname === PATH_PUBLIC_APP.gettingStarted && 'rp-text-linear')}
                   >
                     Getting started
                     {/* <TbLockCancel className='absolute left-[0px] top-[0px] text-[0.7em]' /> */}
@@ -92,7 +96,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                       // document.querySelector('#ai-work')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
                       navigate(PATH_PUBLIC_APP.components)
                     }
-                    className='relative'
+                    className={classNames(pathname === PATH_PUBLIC_APP.components && 'rp-text-linear')}
                   >
                     Components
                     {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
@@ -113,7 +117,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                       () => navigate(PATH_PUBLIC_APP.document)
                       // document.querySelector('#in-store')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
                     }
-                    className='relative'
+                    className={classNames(pathname === PATH_PUBLIC_APP.document && 'rp-text-linear')}
                   >
                     Documentation
                     {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}

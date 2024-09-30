@@ -2,6 +2,7 @@ import { FC, memo } from 'react'
 import { FaPlus } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
 import { IProduct } from '~/@types/models'
+import images from '~/assets'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { formatLocaleString } from '~/utils/format'
 
@@ -29,6 +30,10 @@ const ProductCard: FC<IProductCard> = memo(({ product }) => {
             alt={product.product.params.name}
             className='mx-auto h-full w-full'
           />
+        </div>
+
+        <div className='absolute scale-90 group-hover:-bottom-10 group-hover:-right-10 group-hover:scale-100 xs:-bottom-5 xs:-right-8 xs:scale-75 md:-bottom-0 md:-right-0'>
+          <img src={images.image.shadow_product} alt='shadow product' />
         </div>
       </div>
       <div className='flex w-full items-end justify-between'>
