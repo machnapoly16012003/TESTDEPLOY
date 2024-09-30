@@ -78,7 +78,7 @@ const Checkout = memo(() => {
     <>
       <div className='flex items-start xs:flex-col md:flex-col xl:flex-row xl:gap-[86px]'>
         <section
-          className={`flex h-full w-full flex-1 flex-col py-20 xs:p-4 md:p-10 lg:pt-[116px] xl:min-h-[100vh] xl:pl-[100px] xl:pr-0 xl:pt-[116px]`}
+          className={`flex h-full w-full flex-1 flex-col py-20 xs:p-4 xs:pt-20 md:p-10 lg:pt-[116px] xl:min-h-[100vh] xl:pl-[100px] xl:pr-0 xl:pt-[116px]`}
         >
           <h6 className={`text-[32px]/[48px] font-bold capitalize`}>Checkout</h6>
 

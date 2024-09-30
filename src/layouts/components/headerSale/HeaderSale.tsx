@@ -50,7 +50,7 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
       )}
     >
       <div className='flex items-center xs:gap-2 md:gap-4'>
-        <div className='flex items-center justify-between bg-gray-100 lg:hidden'>
+        <div className='flex items-center justify-between rounded-[50%] bg-gray-100 lg:hidden'>
           <button onClick={toggleMenu} className='relative rounded-[50%] bg-white text-2xl xs:p-[12px] md:p-[16px]'>
             <FaBars className='relative z-10' />
           </button>
