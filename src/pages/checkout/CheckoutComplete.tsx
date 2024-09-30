@@ -1,15 +1,15 @@
-import { memo, useMemo } from 'react'
 import Lottie from 'lottie-react'
+import { memo, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { QueryConfig } from '~/@types/common'
 import { IProduct } from '~/@types/models'
+import images from '~/assets'
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { ProductCheckout, SupscriptionCheckout } from '~/components/feature/itemCheckout'
+import success from '~/constants/animation/success.json'
 import useQueryConfig from '~/hooks/useQueryConfig'
 import { useAppSelector } from '~/redux/configStore'
 import { formatPrice } from '~/utils/format'
-import success from '~/constants/animation/success.json'
-import images from '~/assets'
 
 const CheckoutComplete = memo(() => {
   const { id: productId } = useParams()
@@ -29,52 +29,63 @@ const CheckoutComplete = memo(() => {
   )
 
   return (
-    <div className='flex items-start md:flex-col lg:flex-col xl:flex-row xl:gap-[86px]'>
+    <div className='flex items-start xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row xl:gap-[86px]'>
       <section
-        className={`relative flex h-full w-full flex-1 flex-col py-20 xs:px-4 sm:px-4 md:order-2 md:px-10 lg:order-2 lg:px-10 xl:order-1 xl:min-h-[100vh] xl:pl-[100px] xl:pr-0 xl:pt-[116px]`}
+        className={`relative flex h-full w-full flex-1 flex-col py-20 xs:px-4 xs:pb-4 sm:px-4 md:px-10 md:pb-5 md:pt-[110px] lg:px-10 xl:min-h-[100vh] xl:pl-[100px] xl:pr-0 xl:pt-[116px]`}
       >
-        <Lottie animationData={success} className='absolute left-10 top-0 xs:w-[180px] md:w-[200px]' />
+        <Lottie
+          animationData={success}
+          className='absolute -translate-x-1/2 transform xs:-top-5 xs:left-1/2 xs:w-[180px] sm:left-1/2 md:-top-5 md:left-1/2 md:w-[200px] lg:left-1/2 xl:left-[54.5%] xl:top-0'
+        />
 
-        <h1 className='mb-3 mt-[100px] text-[40px]/[60px] font-bold'>Your payment is successful!</h1>
+        <div className='mx-auto text-center xs:mb-0 xl:mb-[70px]'>
+          <h1 className='mt-[100px] font-bold xs:text-[24px]/[36px] md:text-[34px]/[46px] xl:text-[40px]/[60px]'>
+            Payment successful!
+          </h1>
+          <p className='text-[#757575] xs:text-[14px]/[28px] md:text-[16px]/[28px]'>
+            Check your email for your order confirmation.
+          </p>
+        </div>
 
+        <div className='mt-5 flex-col items-center justify-center gap-3 xs:hidden sm:hidden md:hidden lg:flex xl:flex'>
+          <div className='flex gap-[73px] lg:flex-col lg:items-center xl:flex-row xl:items-start'>
+            <div>
+              <div className='lg:text-center xl:text-left'>
+                <h1 className='text-[64px]/[54px] font-bold'>Download</h1>
+                <h2 className='ml-[3px] text-nowrap text-[46px]/[46px] font-semibold text-[#11B0F2]'>OUR NEW APP!</h2>
+              </div>
+
+              <p className='mt-6 text-[16px]/[28px] text-[#818EA1]'>
+                We’ve generated an account for you to manage and track your purchase through our app. You can change
+                your password upon first login. Please find your login credentials below:
+              </p>
+            </div>
+
+            <div className='flex flex-col items-center gap-4'>
+              <div className='bg-ln-qr rounded-[14px] p-[4.5px]'>
+                <div className='rounded-[10px] bg-white p-3'>
+                  <div className='bg-ln-qr w-[188px] flex-shrink-0 rounded-[9px] p-[2px]'>
+                    <img src={images.image.QR} alt='QR' className='size-full rounded-[7.8px]' />
+                  </div>
+                </div>
+              </div>
+              <h5 className='text-[30px]/[28px] font-semibold'>Scan QR code</h5>
+            </div>
+          </div>
+
+          <div className='mt-11 flex items-center justify-between gap-4'>
+            <img src={images.logo.gg_play_black} alt='google play' className='lg:h-[50px] xl:h-[70px]' />
+            <img src={images.logo.app_store_black} alt='app store' className='lg:h-[50px] xl:h-[70px]' />
+          </div>
+        </div>
+      </section>
+
+      <section className='top-0 flex-col pt-[120px] xs:flex xs:w-full xs:gap-4 xs:bg-white xs:px-6 xs:py-8 sm:flex md:flex md:h-fit md:w-full md:gap-5 md:bg-white md:px-10 md:py-10 lg:flex lg:h-full lg:min-h-screen lg:w-[50%] lg:pt-24 xl:sticky xl:order-2 xl:min-h-[100vh] xl:w-fit xl:min-w-[625px] xl:gap-5 xl:bg-[#FCFDFF] xl:px-10 xl:py-10'>
         <div>
-          <p className='rp-content-checkout-complete'>Check your email for your order confirmation.</p>
           <p className='rp-content-checkout-complete'>Your order: C994747546746</p>
           <p className='rp-content-checkout-complete'>Order date: Dec 24 2024 at 3:40 PM GMT +2</p>
         </div>
 
-        <div className='my-4 h-[1px] w-[80%] bg-[#818EA1]' />
-
-        <div>
-          <p className='rp-content-checkout-complete'>
-            We’ve generated an account for you to manage and track your purchase through our app. Please find your login
-            credentials below:
-          </p>
-
-          <div className='my-6'>
-            <p className='font-medium text-black'>
-              Username: <span className='font-normal rp-content-checkout-complete'>example24@gmail.com</span>
-            </p>
-            <p className='font-medium text-black'>
-              Temporary Password: <span className='font-normal rp-content-checkout-complete'>A1B2C3D4</span>
-            </p>
-          </div>
-
-          <p className='rp-content-checkout-complete'>
-            You can change your password upon first login. Please download our app from{' '}
-          </p>
-        </div>
-
-        <div className='mt-5 flex flex-col items-center justify-center gap-3'>
-          <p className='text-[16px]/[28px] font-semibold text-[#0D0D0D]'>Download now</p>
-
-          <div className='flex items-center gap-4'>
-            <img src={images.logo.gg_play} alt='google play' />
-            <img src={images.logo.app_store} alt='app store' />
-          </div>
-        </div>
-      </section>
-      <section className='2xs:hidden top-0 min-w-[625px] flex-col gap-5 bg-[#FCFDFF] px-10 py-10 pt-[120px] xs:hidden sm:hidden md:flex md:h-fit md:w-full lg:flex lg:h-fit lg:w-full xl:sticky xl:order-2 xl:min-h-[100vh] xl:w-fit'>
         <h6 className='text-[20px]/[30px] font-bold capitalize'>Address</h6>
 
         <div>
@@ -83,8 +94,8 @@ const CheckoutComplete = memo(() => {
           <p className='rp-content-checkout-complete'>1234 Elm Street, Springfield, IL 62704, USA.</p>
         </div>
 
-        <h6 className='text-[20px]/[30px] font-bold capitalize'>Detail Information</h6>
-        <div className='mb-[30px] flex flex-1 flex-col gap-5'>
+        <h6 className='text-[20px]/[30px] font-bold capitalize xs:mt-10 md:mt-0'>Detail Information</h6>
+        <div className='mb-[30px] flex flex-1 flex-col xs:gap-6 md:gap-5 xl:gap-5'>
           {listProductCheckouts.map((product, index) => (
             <ProductCheckout key={`${product.product.id}-${index}`} product={product} />
           ))}
@@ -136,6 +147,44 @@ const CheckoutComplete = memo(() => {
           </div>
         </div>
       </section>
+
+      <div className='mt-5 flex-col items-center justify-center gap-3 px-6 pb-10 xs:flex sm:flex md:flex lg:hidden xl:hidden'>
+        <div className='flex items-start gap-[24px] xs:flex-col xs:items-center sm:items-center md:flex-col md:items-center lg:items-center xl:flex-row'>
+          <div className='xs:text-center sm:text-center md:text-center lg:text-center xl:text-left'>
+            <div>
+              <h1 className='text-[64px]/[54px] font-bold'>Download</h1>
+              <h2 className='ml-[3px] text-nowrap text-[46px]/[46px] font-semibold text-[#11B0F2]'>OUR NEW APP!</h2>
+            </div>
+
+            <p className='mt-6 text-left text-[16px]/[28px] text-[#818EA1]'>
+              We’ve generated an account for you to manage and track your purchase through our app. You can change your
+              password upon first login. Please find your login credentials below:
+            </p>
+          </div>
+
+          <div className='flex flex-col items-center gap-4'>
+            <div className='bg-ln-qr rounded-[14px] p-[4.5px] xs:order-2 sm:order-2 md:order-2 lg:order-2 xl:order-1'>
+              <div className='rounded-[10px] bg-white p-3'>
+                <div className='bg-ln-qr w-[188px] flex-shrink-0 rounded-[9px] p-[2px]'>
+                  <img src={images.image.QR} alt='QR' className='size-full rounded-[7.8px]' />
+                </div>
+              </div>
+            </div>
+            <h5 className='font-semibold xs:order-1 xs:text-[16px]/[28px] md:order-1 md:text-[24px]/[28px] lg:order-1 xl:order-2 xl:text-[30px]/[28px]'>
+              Scan QR code
+            </h5>
+          </div>
+        </div>
+
+        <div className='flex items-center justify-between gap-4 xs:mt-6 sm:mt-6 md:mt-6 lg:mt-6 xl:mt-11'>
+          <div className='xs:h-[48px] md:h-[60px] lg:h-[60px] xl:h-[70px]'>
+            <img src={images.logo.gg_play_black} alt='google play' className='h-full' />
+          </div>
+          <div className='xs:h-[48px] md:h-[60px] lg:h-[60px] xl:h-[70px]'>
+            <img src={images.logo.app_store_black} alt='google play' className='h-full' />
+          </div>
+        </div>
+      </div>
     </div>
   )
 })

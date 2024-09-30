@@ -7,6 +7,8 @@ import amplitude from '~/assets/logo/amplitude.png'
 import confluent from '~/assets/logo/confluent.png'
 import gg_play from '~/assets/logo/gg-play.png'
 import app_store from '~/assets/logo/app-store.png'
+import gg_play_black from '~/assets/logo/gg-play-black.png'
+import app_store_black from '~/assets/logo/app-store-black.png'
 
 import china from '~/assets/flag/china.png'
 import czech_republic from '~/assets/flag/czech-republic.png'
@@ -41,6 +43,7 @@ import user7 from '~/assets/images/use7.png'
 import user8 from '~/assets/images/use8.png'
 import user9 from '~/assets/images/use9.png'
 import customerReact from '~/assets/images/customerReact.png'
+import QR from '~/assets/images/QR.png'
 
 import bg_vistor_card from '~/assets/bg/bg-vistor-card.png'
 import gradient_box from '~/assets/bg/gradient-box.png'
@@ -93,7 +96,19 @@ import camera12 from '~/assets/images/camera12.png'
 import camera16 from '~/assets/images/camera16.png'
 
 const images = {
-  logo: { logo_e_commerce, logo_white, logo_metanode, logo_fi, amazon, amplitude, confluent, gg_play, app_store },
+  logo: {
+    logo_e_commerce,
+    logo_white,
+    logo_metanode,
+    logo_fi,
+    amazon,
+    amplitude,
+    confluent,
+    gg_play,
+    app_store,
+    gg_play_black,
+    app_store_black
+  },
   flag: { china, czech_republic, france, indonesia, italy, japan, korea, spain, united_kingdom, vietnam },
   image: {
     current_view_top,
@@ -118,7 +133,8 @@ const images = {
     user7,
     user8,
     user9,
-    bg_vistor_card
+    bg_vistor_card,
+    QR
   },
   bg: { bg_vistor_card, bg_footer, gradient_box, bg_web_summit, bg_text_footer, bg_web_summit_sm },
   icon: {
