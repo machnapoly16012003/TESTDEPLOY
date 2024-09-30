@@ -18,7 +18,7 @@ const Footer: FC<IFooterProps> = memo(() => {
     >
       <div className='grid gap-10 xs:grid-cols-1 xs:px-0 md:grid-cols-1 md:px-5 lg:px-5 xl:grid-cols-2 xl:px-10'>
         <div className='col-span-1'>
-          <div className='flex items-center gap-2 border-b border-white/[.44] pb-10 xs:w-full xl:w-[70%]'>
+          <div className='flex items-center gap-2 border-b border-white/[.44] pb-10 xs:w-full xl:w-[70%] 3xl:w-full'>
             <div className='size-10 flex-shrink-0'>
               <img src={images.logo.logo_fi} alt='logo' className='h-full w-full' />
             </div>
@@ -55,14 +55,14 @@ const Footer: FC<IFooterProps> = memo(() => {
             </div>
           </div>
 
-          <div className='mt-10 flex w-fit items-center gap-4 xs:flex-col sm:flex-col md:flex-row lg:flex-col xl:flex-row'>
+          <div className='mt-10 flex w-fit items-center gap-4 xs:flex-col sm:flex-col md:flex-row lg:flex-col xl:flex-row 3xl:gap-10'>
             <h1 className='w-full font-bold text-white xs:text-left xs:text-[28px]/[36px] md:text-[36px]/[54px]'>
               Unlock <br className='xs:hidden sm:hidden md:flex lg:hidden xl:flex' /> Your{' '}
               <br className='xs:hidden sm:hidden md:flex lg:hidden xl:flex' /> AI Savings!
             </h1>
 
             <div className='flex flex-col items-center justify-center gap-4'>
-              <p className='text-[14px]/[21px] text-white'>
+              <p className='text-[14px]/[21px] text-white xl:text-nowrap'>
                 Enter your email to unlock this exclusive discount and <br className='xs:hidden sm:hidden md:flex' />{' '}
                 power your business with cutting-edge AI technology.
               </p>
@@ -98,7 +98,7 @@ const Footer: FC<IFooterProps> = memo(() => {
       <img
         src={images.image.model_footer}
         alt='bg-footer'
-        className='absolute xs:hidden sm:hidden md:hidden md:w-[700px] lg:right-0 lg:top-7 lg:flex lg:w-[650px] xl:-right-3 xl:top-1 xl:flex xl:w-[860px]'
+        className='absolute xs:hidden sm:hidden md:hidden md:w-[700px] lg:right-0 lg:top-7 lg:flex lg:w-[650px] xl:-right-3 xl:top-1 xl:flex xl:w-[860px] 3xl:right-[2%] 3xl:w-[900px]'
       />
 
       <div className='w-full'>

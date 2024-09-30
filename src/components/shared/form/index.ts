@@ -1,5 +1,6 @@
 export { default as InputField } from './InputField'
 export { default as OtpInput } from './OtpInput'
+export { default as PhoneNumberField } from './PhoneNumberField'
 export { default as RadioGroupField } from './RadioGroupField'
 export { default as SelectField } from './SelectField'
 export { default as SelectFilter } from './SelectFilter'

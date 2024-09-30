@@ -1,6 +1,6 @@
 import { Dispatch, forwardRef, memo, SetStateAction, useImperativeHandle, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { InputField, SelectField, TextareaField } from '~/components/shared/form'
+import { InputField, PhoneNumberField, SelectField, TextareaField } from '~/components/shared/form'
 import useCountry from '~/hooks/useCountry'
 
 export interface IShippingInfoFromRef {
@@ -93,7 +93,14 @@ const ShippingInfoFrom = memo(
             <div className='w-full xs:hidden md:flex'>
               <InputField fullWidth required name={'postalCode'} label='ZIP code' placeholder='Enter ZIP code' />
             </div>
-            <InputField fullWidth required name={'phone'} label='Phone Number' placeholder='Enter your phone number' />
+            <PhoneNumberField
+              fullWidth
+              required
+              name={'phone'}
+              label='Phone Number'
+              placeholder='Enter your phone number'
+            />
+            {/* <InputField fullWidth required name={'phone'} label='Phone Number' placeholder='Enter your phone number' /> */}
           </div>
           <TextareaField
             fullWidth

@@ -67,7 +67,7 @@ const PhoneNumberField = memo(
                   {label} {required && <span className='text-[#E23710]'>*</span>}
                 </label>
                 <div className='relative'>
-                  <input
+                  <PhoneInput
                     {...field}
                     id={name}
                     type={type}
@@ -83,18 +83,9 @@ const PhoneNumberField = memo(
                           ? 'border-[#DBDDE3] pb-[2px] hover:ring-[0.8px] hover:ring-black/[.2] focus:ring-[0.8px] focus:ring-black/[.2]'
                           : 'border-greyLight bg-greyLight hover:bg-black/[.05] focus:bg-black/[.05]'
                     )}
-                    onChange={(e) => {
-                      let value = e.target.value
-
-                      if (name === 'cvv') {
-                        value = value.replace(/\D/g, '')
-                        if (value.length > 3) {
-                          value = value.slice(0, 3)
-                        }
-                        field.onChange(value)
-                      } else {
-                        field.onChange(value)
-                      }
+                    onChange={(value) => {
+                      let processedValue = value || ''
+                      field.onChange(processedValue)
                     }}
                   />
                   <div
