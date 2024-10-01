@@ -125,7 +125,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
                 <Environment preset='sunset' />
               </Canvas>
             </div>
-            <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
+            <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
               <Canvas>
                 <ambientLight />
                 <OrbitControls />
