@@ -2,7 +2,7 @@ import { PerspectiveCamera, useGLTF } from '@react-three/drei'
 import { useEffect } from 'react'
 import { WebGLRenderer } from 'three'
 
-export function ModelXS(props) {
+export function ModelXS2(props) {
   const { nodes, materials } = useGLTF('/models/4CAM_optimize.glb') as any
 
   const renderer = new WebGLRenderer()

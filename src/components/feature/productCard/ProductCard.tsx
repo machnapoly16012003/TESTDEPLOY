@@ -24,9 +24,9 @@ const ProductCard: FC<IProductCard> = memo(({ product, isActive, setIsHover }) =
       onMouseLeave={() => setIsHover(false)}
       className={classNames(
         isActive
-          ? 'scale-100 bg-ln-product-card xs:-translate-y-0 md:-translate-y-0'
-          : 'bg-transparent xs:scale-100 md:scale-90 xl:scale-90 3xl:scale-95 4xl:scale-90',
-        'group relative flex translate-y-10 flex-col transition-all duration-300 ease-in-out hover:scale-100 hover:bg-ln-product-card xs:h-[360px] xs:w-[245px] xs:translate-y-10 xs:rounded-[18px] xs:px-[22px] xs:py-[24px] xs:hover:-translate-y-0 md:h-[589px] md:w-[400px] md:translate-y-10 md:rounded-[32px] md:px-9 md:py-10 md:hover:-translate-y-0'
+          ? 'scale-100 bg-ln-product-card xs:-translate-y-0 md:!translate-y-0'
+          : 'bg-transparent xs:translate-y-10 xs:scale-100 md:translate-y-10 md:scale-90 xl:scale-90 3xl:scale-95 4xl:scale-90',
+        'group relative flex translate-y-10 flex-col transition-all duration-300 ease-in-out hover:scale-100 hover:bg-ln-product-card xs:h-[360px] xs:w-[245px] xs:rounded-[18px] xs:px-[22px] xs:py-[24px] xs:hover:-translate-y-0 md:h-[589px] md:w-[400px] md:rounded-[32px] md:px-9 md:py-10 md:hover:-translate-y-0'
       )}
     >
       <p

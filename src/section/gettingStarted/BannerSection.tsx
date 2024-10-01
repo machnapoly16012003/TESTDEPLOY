@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Environment, OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import classNames from 'classnames'
 import { IProduct, IProductVariant } from '~/@types/models'
 import { ProductCardBanner } from '~/components/feature/productCardBanner'
 import { SliderPagination } from '~/components/feature/sliderPagination'
@@ -13,13 +14,13 @@ import { Button } from '~/components/shared/button'
 import { ArrowLeftIcon, ArrowRightIcon, ShareIcon } from '~/components/shared/icon'
 import { IconButton } from '~/components/shared/iconButton'
 import { Skeleton } from '~/components/shared/skeleton'
+import useCheckGLB from '~/hooks/useCheckGLB'
 import useResponsive from '~/hooks/useResponsive'
 import { formatDate, formatLocaleString } from '~/utils/format'
 import { Model } from './Model'
 import { ModelMD } from './ModelMD'
 import { ModelXS } from './ModelXS'
-import useCheckGLB from '~/hooks/useCheckGLB'
-import classNames from 'classnames'
+import { ModelXS2 } from './ModelXS2'
 
 type BannerSectionProps = {
   isLoading: boolean
@@ -112,7 +113,16 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
                   </Canvas>
                 </div>
                 <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
-                  <Canvas>
+                  <Canvas
+                    camera={{
+                      far: 3000,
+                      fov: 65,
+                      near: 0.5,
+                      scale: [0.3, 0.3, 0.3],
+                      rotation: [0, 0.5, 0],
+                      position: [-450, 400, -480]
+                    }}
+                  >
                     <ambientLight />
                     <OrbitControls enableZoom={false} />
                     <ModelXS />
@@ -120,7 +130,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
                   </Canvas>
                 </div>
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className='xs:hidden sm:hidden md:hidden lg:hidden xl:flex'>
                 <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:block xl:!h-[500px] xl:!w-[800px] 3xl:block 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:block'>
                   <Canvas>
                     <ambientLight />
@@ -138,10 +148,19 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
                   </Canvas>
                 </div>
                 <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
-                  <Canvas>
+                  <Canvas
+                    camera={{
+                      far: 3000,
+                      fov: 65,
+                      near: 0.5,
+                      scale: [0.3, 0.3, 0.3],
+                      rotation: [0, 0.5, 0],
+                      position: [-450, 400, -480]
+                    }}
+                  >
                     <ambientLight />
                     <OrbitControls enableZoom={false} />
-                    <ModelXS />
+                    <ModelXS2 />
                     <Environment preset='sunset' />
                   </Canvas>
                 </div>
