@@ -4,9 +4,16 @@ import { Toaster } from 'react-hot-toast'
 
 import useRouteElements from '~/hooks/useRouteElements'
 import { Cursor } from './components/shared/cursor'
+import useCheckGLB from './hooks/useCheckGLB'
 
 function App() {
   const routeElements = useRouteElements()
+
+  const { isWebGLBAvailable } = useCheckGLB()
+
+  if (!isWebGLBAvailable()) {
+    alert('WebGL không được hỗ trợ trên thiết bị của bạn.')
+  }
 
   useEffect(() => {
     AOS.init({

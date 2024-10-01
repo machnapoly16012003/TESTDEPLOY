@@ -17,13 +17,13 @@ const ItemBannerCustomerReaction = ({
   img,
   content,
   className,
-  idx,
+  // idx,
   classIcon,
   classWrapContent,
   duration
 }: IItemBannerCustomerReaction) => {
-  const isOdd = idx % 2 === 0
-  console.log('isOdd', isOdd)
+  // const isOdd = idx % 2 === 0
+  // console.log('isOdd', isOdd)
   return (
     <React.Fragment>
       <div className={classNames('w-full', 'md:h-1/3')} data-aos={'fade-down'} data-aos-duration={duration}>
@@ -55,7 +55,7 @@ const ItemBannerCustomerReaction = ({
 
 const ListBannerCustomerReaction = () => {
   const handleCheackDurian = (index: number) => {
-    console.log('index', index)
+    // console.log('index', index)
     if (index === 0) {
       return 1000
     }

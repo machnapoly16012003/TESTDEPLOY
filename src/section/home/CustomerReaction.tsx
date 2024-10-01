@@ -35,7 +35,7 @@ const CustomerReaction = memo(() => {
         <div className={classNames('flex h-full w-full flex-col', 'md:w-1/2')}>
           <div className='my-3 flex w-full items-end gap-5'>
             {Array.from({ length: 3 }).map((_, i) => (
-              <>
+              <React.Fragment key={i}>
                 <div
                   className={classNames('block h-1 w-full rounded-full', 'md:h-2', {
                     'bg-black': i === activeSlide,
@@ -47,7 +47,7 @@ const CustomerReaction = memo(() => {
                     {i + 1}
                   </span>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
           <div className='h-full'>

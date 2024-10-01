@@ -18,6 +18,8 @@ import { formatDate, formatLocaleString } from '~/utils/format'
 import { Model } from './Model'
 import { ModelMD } from './ModelMD'
 import { ModelXS } from './ModelXS'
+import useCheckGLB from '~/hooks/useCheckGLB'
+import classNames from 'classnames'
 
 type BannerSectionProps = {
   isLoading: boolean
@@ -34,6 +36,8 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
   const nextRef = useRef<HTMLButtonElement>(null)
 
   const smDown = useResponsive('down', 'sm', 'sm')
+
+  const { isWebGLBAvailable } = useCheckGLB()
 
   const [activeSlide, setActiveSlide] = useState<number>(0)
 
@@ -68,7 +72,13 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
         Truly <br className='xs:block sm:block md:hidden' /> smart
       </h1>
 
-      <div className='2xs:mt-[180px] relative xs:mt-[200px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-44 3xl:mt-[140px]'>
+      <div
+        className={classNames(
+          isWebGLBAvailable()
+            ? '2xs:mt-[180px] relative xs:mt-[200px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-44 3xl:mt-[140px]'
+            : '2xs:mt-[180px] relative xs:mt-[265px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-36 3xl:mt-[90px]'
+        )}
+      >
         <Swiper
           ref={swiperRef}
           loop
@@ -82,58 +92,72 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
           }}
           onSlideChange={handleSlideChange}
         >
-          <SwiperSlide>
-            <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:block xl:!h-[500px] xl:!w-[800px] 3xl:block 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:block'>
-              <Canvas>
-                <ambientLight />
-                <OrbitControls enableZoom={false} />
-                <Model />
-                <Environment preset='sunset' />
-              </Canvas>
-            </div>
-            <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:block md:!h-[500px] md:!w-[800px] lg:block xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
-              <Canvas>
-                <ambientLight />
-                <OrbitControls enableZoom={false} />
-                <ModelMD />
-                <Environment preset='sunset' />
-              </Canvas>
-            </div>
-            <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
-              <Canvas>
-                <ambientLight />
-                <OrbitControls enableZoom={false} />
-                <ModelXS />
-                <Environment preset='sunset' />
-              </Canvas>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:block xl:!h-[500px] xl:!w-[800px] 3xl:block 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:block'>
-              <Canvas>
-                <ambientLight />
-                <OrbitControls enableZoom={false} />
-                <Model />
-                <Environment preset='sunset' />
-              </Canvas>
-            </div>
-            <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:block md:!h-[500px] md:!w-[800px] lg:block xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
-              <Canvas>
-                <ambientLight />
-                <OrbitControls enableZoom={false} />
-                <ModelMD />
-                <Environment preset='sunset' />
-              </Canvas>
-            </div>
-            <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
-              <Canvas>
-                <ambientLight />
-                <OrbitControls enableZoom={false} />
-                <ModelXS />
-                <Environment preset='sunset' />
-              </Canvas>
-            </div>
-          </SwiperSlide>
+          {isWebGLBAvailable() ? (
+            <>
+              <SwiperSlide>
+                <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:block xl:!h-[500px] xl:!w-[800px] 3xl:block 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:block'>
+                  <Canvas>
+                    <ambientLight />
+                    <OrbitControls enableZoom={false} />
+                    <Model />
+                    <Environment preset='sunset' />
+                  </Canvas>
+                </div>
+                <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:block md:!h-[500px] md:!w-[800px] lg:block xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
+                  <Canvas>
+                    <ambientLight />
+                    <OrbitControls enableZoom={false} />
+                    <ModelMD />
+                    <Environment preset='sunset' />
+                  </Canvas>
+                </div>
+                <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
+                  <Canvas>
+                    <ambientLight />
+                    <OrbitControls enableZoom={false} />
+                    <ModelXS />
+                    <Environment preset='sunset' />
+                  </Canvas>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:block xl:!h-[500px] xl:!w-[800px] 3xl:block 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:block'>
+                  <Canvas>
+                    <ambientLight />
+                    <OrbitControls enableZoom={false} />
+                    <Model />
+                    <Environment preset='sunset' />
+                  </Canvas>
+                </div>
+                <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:block md:!h-[500px] md:!w-[800px] lg:block xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
+                  <Canvas>
+                    <ambientLight />
+                    <OrbitControls enableZoom={false} />
+                    <ModelMD />
+                    <Environment preset='sunset' />
+                  </Canvas>
+                </div>
+                <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
+                  <Canvas>
+                    <ambientLight />
+                    <OrbitControls enableZoom={false} />
+                    <ModelXS />
+                    <Environment preset='sunset' />
+                  </Canvas>
+                </div>
+              </SwiperSlide>
+            </>
+          ) : (
+            listImages?.map((img, index: number) => (
+              <SwiperSlide key={`${img}-${index}`}>
+                <img
+                  src={img}
+                  alt='product-banner'
+                  className='2xs:h-[438px] 2xs:w-[380px] mx-auto object-cover xs:h-[250px] xs:w-[380px] sm:h-[550px] md:h-[450px] lg:h-[450px] xl:h-[500px] 3xl:h-[650px]'
+                />
+              </SwiperSlide>
+            ))
+          )}
         </Swiper>
       </div>
 

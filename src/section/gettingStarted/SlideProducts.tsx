@@ -41,7 +41,7 @@ const SlideProducts = memo(() => {
         />
       </div>
 
-      <div className='xs:w-[900px] xs:px-5 md:w-auto md:translate-x-6 md:px-0 xl:translate-x-5 xl:px-12 3xl:translate-x-0'>
+      <div className='xs:w-[900px] xs:px-5 md:w-auto md:translate-x-6 md:px-0 xl:translate-x-5 xl:px-12 3xl:translate-x-5'>
         <Swiper
           ref={swiperRef}
           loop
