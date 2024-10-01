@@ -70,14 +70,14 @@ const Footer: FC<IFooterProps> = memo(() => {
             </div>
           </div>
 
-          <div className='bg-ln-input shadow-s-27 max-w-[595px] rounded-[12px] p-1 backdrop-blur-[4px] xs:mt-5 md:mt-8'>
+          <div className='max-w-[595px] rounded-[12px] bg-ln-input p-1 shadow-s-27 backdrop-blur-[4px] xs:mt-5 md:mt-8'>
             <div className='flex items-center bg-[#919191]/[.8] p-2 backdrop-blur-[40px] xs:bottom-7 xs:w-full xs:rounded-[10px] xs:pl-2 md:bottom-0 md:min-w-[536px] md:rounded-[10px] md:pl-4'>
               <input
                 type='text'
                 placeholder='Email, Phone number or Telegram ID'
                 className='w-full text-white xs:h-[32px] xs:text-[10px] md:h-12 md:text-[16px]'
               />
-              <button className='bg-ln-button-footer flex-shrink-0 font-semibold uppercase text-white xs:h-[32px] xs:w-[74px] xs:rounded-[5.23px] xs:text-[10px] md:h-12 md:w-[135px] md:rounded-[8px] md:text-[16px]'>
+              <button className='flex-shrink-0 bg-ln-button-footer font-semibold uppercase text-white xs:h-[32px] xs:w-[74px] xs:rounded-[5.23px] xs:text-[10px] md:h-12 md:w-[135px] md:rounded-[8px] md:text-[16px]'>
                 Claim Offer
               </button>
             </div>
@@ -113,7 +113,7 @@ const Footer: FC<IFooterProps> = memo(() => {
           <p className='text-[14px]/[19.6px]'>© 2024 AI Chatbot, Inc. All rights reserved</p>
           <p className='w-[113px] text-[14px]/[19.6px] xs:hidden md:flex'>Privacy Policy</p>
 
-          <div className='w-full items-center justify-center xs:flex md:hidden'>
+          <div className='w-full items-center justify-between xs:flex md:hidden'>
             <p className='text-[14px]/[19.6px]'>Terms of Service</p>
             <p className='text-[14px]/[19.6px]'>Privacy Policy</p>
           </div>

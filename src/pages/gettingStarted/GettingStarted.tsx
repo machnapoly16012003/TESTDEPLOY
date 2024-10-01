@@ -1,9 +1,11 @@
-import { memo } from 'react'
+import { memo, useEffect } from 'react'
 import { useAppSelector } from '~/redux/configStore'
 import { BannerSection, SlideProducts } from '~/section/gettingStarted'
 
 const GettingStarted = memo(() => {
   const { isLoading, listProducts } = useAppSelector((s) => s.product)
+
+  useEffect(() => window.scrollTo(0, 0), [])
 
   return (
     <section className='relative h-auto bg-[#fafdff]'>

@@ -7,28 +7,27 @@ import { useEffect } from 'react'
 import { WebGLRenderer } from 'three'
 
 export function ModelMD(props) {
-  const { nodes, materials } = useGLTF('/models/4CAM.glb') as any
+  const { nodes, materials } = useGLTF('/models/4CAM_optimize.glb') as any
 
   const renderer = new WebGLRenderer()
 
+  // Append the renderer to the document body on mount
   useEffect(() => {
+    document.body.appendChild(renderer.domElement)
+
     const handleContextLost = () => {
-      renderer.setAnimationLoop(null) // Pause the animation
+      renderer.setAnimationLoop(null)
     }
 
-    // const handleContextRestored = () => {
-    //   renderer.setAnimationLoop(render_function); // Start the animation
-    // };
-
     const domElement = renderer.domElement
-
     domElement.addEventListener('webglcontextlost', handleContextLost)
-    // domElement.addEventListener('webglcontextrestored', handleContextRestored);
 
-    // Cleanup function to remove event listeners
+    // Cleanup function to remove event listeners and renderer DOM element
     return () => {
       domElement.removeEventListener('webglcontextlost', handleContextLost)
-      // domElement.removeEventListener('webglcontextrestored', handleContextRestored);
+      if (domElement.parentNode) {
+        domElement.parentNode.removeChild(domElement) // Check if the parent node exists
+      }
     }
   }, [renderer])
 
@@ -37,9 +36,9 @@ export function ModelMD(props) {
       <PerspectiveCamera
         makeDefault={true} // Đặt camera này làm camera chính
         far={3000} // Thay đổi giá trị far
-        near={0.5} // Thay đổi giá trị near
-        fov={38} // Thay đổi giá trị fov
-        position={[-450, 600, -750]} // Thay đổi vị trí camera
+        near={0.1} // Thay đổi giá trị near
+        fov={15} // Thay đổi giá trị fov
+        position={[-1250, 700, -1450]} // Thay đổi vị trí camera
         rotation={[0, 0.5, 0]} // Thay đổi góc quay camera
         scale={[1, 1, 1]} // Thay đổi tỷ lệ camera
       />
@@ -122,35 +121,7 @@ export function ModelMD(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.polySurface70_polySurface105?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface90_polySurface58?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.polySurface58_polySurface93?.geometry}
-        material={materials.pasted__blinn5SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface114?.geometry}
-        material={materials.pasted__blinn1SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface99_polySurface68?.geometry}
         material={materials.pasted__blinn5SG}
         rotation={[0, 0.068, 0]}
       />
@@ -159,13 +130,6 @@ export function ModelMD(props) {
         receiveShadow
         geometry={nodes.polySurface76_polySurface69?.geometry}
         material={materials.blinn3SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface110?.geometry}
-        material={materials.pasted__blinn5SG}
         rotation={[0, 0.068, 0]}
       />
       <mesh
@@ -180,237 +144,6 @@ export function ModelMD(props) {
         receiveShadow
         geometry={nodes.polySurface58_polySurface91?.geometry}
         material={materials.pasted__blinn4SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface86?.geometry}
-        material={materials.blinn6SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface95?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface96?.geometry}
-        material={materials.pasted__blinn1SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface98?.geometry}
-        material={materials.blinn3SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface104?.geometry}
-        material={materials.pasted__blinn5SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface103?.geometry}
-        material={materials.pasted__blinn1SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface72?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface100?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface102?.geometry}
-        material={materials.pasted__blinn4SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface87?.geometry}
-        material={materials.blinn3SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface101?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface113?.geometry}
-        material={materials.pasted__blinn4SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface73?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface77?.geometry}
-        material={materials.pasted__blinn5SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface112?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface89?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface115?.geometry}
-        material={materials.pasted__blinn5SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface82?.geometry}
-        material={materials.pasted__blinn5SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface92?.geometry}
-        material={materials.pasted__blinn1SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface81?.geometry}
-        material={materials.pasted__blinn1SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface85?.geometry}
-        material={materials.pasted__blinn1SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface78?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface108?.geometry}
-        material={materials.blinn6SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface80?.geometry}
-        material={materials.pasted__blinn4SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface109?.geometry}
-        material={materials.blinn3SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface70_polySurface111?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface94?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface84?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface68_polySurface97?.geometry}
-        material={materials.blinn6SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface74?.geometry}
-        material={materials.pasted__blinn1SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface88?.geometry}
-        material={materials.pasted__blinn5SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface58_polySurface83?.geometry}
-        material={materials.pasted__blinn2SG}
-        rotation={[0, 0.068, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.polySurface69_polySurface79?.geometry}
-        material={materials.pasted__blinn2SG}
         rotation={[0, 0.068, 0]}
       />
       <PerspectiveCamera
