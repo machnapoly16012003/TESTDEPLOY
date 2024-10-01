@@ -68,7 +68,7 @@ const ProductSubscription = memo(() => {
   }, [subSelected])
 
   return (
-    <section className='product-subscription flex min-h-[100vh] bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
+    <section className='product-subscription flex min-h-[100vh] overflow-hidden bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
       <div className='x h-full pb-[60px] xs:w-full xs:px-6 xs:pb-10 xs:pt-20 md:min-h-[700px] md:w-full md:px-24 md:pt-[100px] xl:!block xl:min-h-[100vh] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[100px] xl:pr-[184px] 3xl:!flex 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
         <button className='flex items-center xs:mb-8 xs:gap-3 md:mb-12 md:gap-4' onClick={() => window.history.back()}>
           <ArrowLeftIcon className='opacity-[.44] xs:size-6 md:size-8' />
@@ -89,7 +89,7 @@ const ProductSubscription = memo(() => {
         </div>
 
         <div className='relative mb-7 flex justify-center'>
-          <div className='z-10 ml-3 h-[300px] w-[640px] xs:flex md:hidden'>
+          <div className='over z-10 ml-3 h-[300px] w-[640px] xs:flex md:hidden'>
             <Swiper
               ref={swiperRef}
               loop

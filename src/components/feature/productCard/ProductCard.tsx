@@ -103,9 +103,9 @@ const ProductCard: FC<IProductCard> = memo(({ product, isActive, setIsHover }) =
 
         <button
           onClick={() => {
-            if (isActive) {
-              navigate(`${PATH_PUBLIC_APP.product.root}/${productInfor.id}`)
-            }
+            // if (isActive) {
+            navigate(`${PATH_PUBLIC_APP.product.root}/${productInfor.id}`)
+            // }
           }}
           className={classNames(
             isActive ? 'bg-ln-text-product' : 'bg-transparent',
