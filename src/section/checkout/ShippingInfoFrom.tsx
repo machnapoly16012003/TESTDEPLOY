@@ -100,7 +100,6 @@ const ShippingInfoFrom = memo(
               label='Phone Number'
               placeholder='Enter your phone number'
             />
-            {/* <InputField fullWidth required name={'phone'} label='Phone Number' placeholder='Enter your phone number' /> */}
           </div>
           <TextareaField
             fullWidth

@@ -39,7 +39,7 @@ const ItemBannerCustomerReaction = ({
           <div className={classNames('relative flex h-full flex-1 items-center rounded-[18px] p-4', classWrapContent)}>
             <p
               className={classNames(
-                'line-clamp-5 max-w-[300px] text-[12px]/[14px]',
+                'line-clamp-5 max-w-[300px] text-[12px]/[14px] md:line-clamp-4',
                 'leading-[1.3] md:max-w-[500px] md:text-[18px]'
               )}
             >

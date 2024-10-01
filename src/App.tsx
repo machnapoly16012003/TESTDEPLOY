@@ -39,11 +39,11 @@ function App() {
             style: {
               border: '0px solid #ffffff',
               color: '#ffffff',
-              background: 'linear-gradient(270deg, #5495FC 0%, #31D366 100%)'
+              background: 'linear-gradient(126deg, #11B0F2 7.58%, #F200F2 92.42%)'
             },
             iconTheme: {
               primary: '#ffffff',
-              secondary: '#60EC8E'
+              secondary: '#F200F2'
             }
           }
         }}

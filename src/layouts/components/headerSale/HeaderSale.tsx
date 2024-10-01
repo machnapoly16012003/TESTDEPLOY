@@ -30,9 +30,9 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (windowRef.current.scrollY >= 100 && !scrolledTo100) {
+      if (windowRef.current.scrollY >= 60 && !scrolledTo100) {
         setScrolledTo100(true)
-      } else if (windowRef.current.scrollY < 100 && scrolledTo100) {
+      } else if (windowRef.current.scrollY < 60 && scrolledTo100) {
         setScrolledTo100(false)
       }
     }
@@ -44,7 +44,7 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
   return (
     <header
       className={classNames(
-        pathname !== PATH_PUBLIC_APP.gettingStarted && 'bg-white/[.12] shadow-s-26 backdrop-blur-xl',
+        pathname !== PATH_PUBLIC_APP.gettingStarted && 'bg-white/[.6] shadow-s-26 backdrop-blur-xl',
         scrolledTo100 ? 'bg-white/[.12] shadow-s-26 backdrop-blur-xl' : 'bg-transparent',
         `top-02xs:gap-3 2xs:p-4 2xs:px-3 fixed z-[500] flex max-h-[80px] w-full items-center justify-between transition-colors duration-300 ease-in-out xs:gap-3 xs:p-4 xs:px-3 sm:gap-4 sm:p-4 md:gap-5 xl:px-[100px]`
       )}

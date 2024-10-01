@@ -15,11 +15,13 @@ import useQueryConfig from '~/hooks/useQueryConfig'
 import useValidationForm from '~/hooks/useValidationForm'
 import { useAppSelector } from '~/redux/configStore'
 import { OtpDialog, PaymentFrom, ShippingInfoFrom } from '~/section/checkout'
+import { IPaymentFromRef } from '~/section/checkout/PaymentFrom'
 import { IShippingInfoFromRef } from '~/section/checkout/ShippingInfoFrom'
 import { formatPrice } from '~/utils/format'
 
 const Checkout = memo(() => {
   const shippingRef = useRef<IShippingInfoFromRef>(null)
+  const paymnetRef = useRef<IPaymentFromRef>(null)
 
   const { id: productId } = useParams()
 
@@ -69,10 +71,15 @@ const Checkout = memo(() => {
     [shippingRef.current?.accepted]
   )
 
-  const handlePaymentFrom = useCallback((values: PaymentForm) => {
-    console.log('PaymentForm', values)
-    handleOpen()
-  }, [])
+  const handlePaymentFrom = useCallback(
+    (values: PaymentForm) => {
+      if (!paymnetRef.current?.autoPayment) return setErrMessage('Please tick to auto payment subscriptions!')
+      setErrMessage('')
+      console.log('PaymentForm', values)
+      handleOpen()
+    },
+    [paymnetRef.current?.autoPayment]
+  )
 
   return (
     <>
@@ -118,7 +125,12 @@ const Checkout = memo(() => {
             </AnimationPage>
             <AnimationPage isVisble={step === 2} className={step === 2 ? 'flex' : 'hidden'}>
               <FormProvider {...paymentForm}>
-                <PaymentFrom onBack={() => setStep(1)} />
+                <PaymentFrom
+                  ref={paymnetRef}
+                  onBack={() => setStep(1)}
+                  errMessage={errMessage}
+                  setErrMessage={setErrMessage}
+                />
               </FormProvider>
             </AnimationPage>
           </div>

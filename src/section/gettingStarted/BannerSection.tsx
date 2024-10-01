@@ -21,15 +21,17 @@ import { Model } from './Model'
 import { ModelMD } from './ModelMD'
 import { ModelXS } from './ModelXS'
 import { ModelXS2 } from './ModelXS2'
+import useCopy from '~/hooks/useCopy'
 
 type BannerSectionProps = {
   isLoading: boolean
   product: IProduct
   purchases: string[]
   trend: string[]
+  scrollToSection: () => void
 }
 
-const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSectionProps) => {
+const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSection }: BannerSectionProps) => {
   const { product: productInfo, variants } = product || {}
 
   const swiperRef = useRef<any>(null)
@@ -39,6 +41,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
   const smDown = useResponsive('down', 'sm', 'sm')
 
   const { isWebGLBAvailable } = useCheckGLB()
+  const { copyToClipboard } = useCopy()
 
   const [activeSlide, setActiveSlide] = useState<number>(0)
 
@@ -222,10 +225,16 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
 
       <div className='2xs:bottom-20 2xs:left-[5%] 2xs:gap-3 absolute z-50 flex flex-col xs:bottom-24 xs:left-[4.5%] xs:gap-3 sm:bottom-20 sm:left-4 sm:gap-6 md:bottom-8 md:left-8 md:gap-6 lg:bottom-10 lg:left-10 lg:gap-5 xl:bottom-[37px] xl:left-[116px] xl:gap-6'>
         <div className='flex items-center gap-2'>
-          <Button className='2xs:h-[48px] 2xs:w-[150px] rounded-[27px] xs:h-[48px] xs:w-[150px] sm:h-[54px] sm:w-[184px]'>
+          <Button
+            onClick={scrollToSection}
+            className='2xs:h-[48px] 2xs:w-[150px] rounded-[27px] xs:h-[48px] xs:w-[150px] sm:h-[54px] sm:w-[184px]'
+          >
             Discover
           </Button>
           <button
+            onClick={() => {
+              copyToClipboard(`${window.location.href}`)
+            }}
             className={`2xs:size-[48px] flex shrink-0 items-center justify-center rounded-full bg-blackMain p-[2px] transition-colors duration-300 ease-in-out xs:size-[48px] sm:size-[54px]`}
           >
             <div className='flex size-full shrink-0 items-center justify-center rounded-full bg-[#f5f5f6]'>

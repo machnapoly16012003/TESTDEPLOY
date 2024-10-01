@@ -114,6 +114,7 @@ const Unleash = memo(() => {
             src={imgUnleash}
             alt=''
             width='100%'
+            // className='xs:h-[200px] sm:h-[200px] md:h-[200px] lg:h-[200px] xl:h-[200px]'
             style={{ height: isMobileOrTablet ? '200px' : isDesktop ? '300px' : '450px' }}
           />
         </div>

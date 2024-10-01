@@ -5,6 +5,7 @@ import { RiInformation2Fill } from 'react-icons/ri'
 import { createSearchParams, Link, useNavigate, useParams } from 'react-router-dom'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { BoxSubscription } from '~/components/feature/boxSubscription'
 import { SliderPagination } from '~/components/feature/sliderPagination'

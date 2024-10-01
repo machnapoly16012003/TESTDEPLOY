@@ -21,7 +21,7 @@ const CustomerReaction = memo(() => {
           <div className='absolute left-0 top-[-15px]'>
             <p
               className={classNames(
-                'title-wrap max-w-[195px] font-semibold leading-[30px] md:text-[36px]/[40px]',
+                'title-wrap max-w-[195px] font-semibold leading-[30px] md:text-[34px]/[38px] xl:text-[36px]/[40px]',
                 'lg:max-w-[400px] lg:text-[64px]/[72px]'
               )}
             >

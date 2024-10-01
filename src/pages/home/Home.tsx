@@ -61,13 +61,14 @@ const Home = memo(() => {
       </div>
       <div
         id='ai-work'
-        className='mx-auto min-h-screen w-full max-w-[1440px] overflow-hidden bg-instore xs:bg-[length:640px_100%] sm:bg-cover'
+        className='mx-auto w-full max-w-[1440px] overflow-hidden bg-instore bg-no-repeat xs:bg-[length:640px_100%] sm:bg-cover md:min-h-[90vh] md:bg-cover xl:bg-cover'
       >
         <InStore />
       </div>
       <WebSummit />
       <CustomerReaction />
       <ListenToOurCustomer />
+      ``
       <InStoreExperienceToday />
     </div>
   )

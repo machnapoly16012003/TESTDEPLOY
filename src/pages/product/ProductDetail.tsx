@@ -1,9 +1,8 @@
 import classNames from 'classnames'
 import { memo, useMemo, useRef, useState } from 'react'
 import { FaPause, FaPlay, FaPlus } from 'react-icons/fa6'
-import { createSearchParams, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { listAdvantages } from '~/assets/mock/product'
-import { listSubscriptions } from '~/assets/mock/subscription'
 import { ArrowLeftIcon } from '~/components/shared/icon'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { useAppSelector } from '~/redux/configStore'
@@ -136,16 +135,7 @@ const ProductDetail = memo(() => {
 
           <button
             onClick={() => {
-              if (tabActive === tabs[1]) {
-                navigate(`${PATH_PUBLIC_APP.product.root}/subscription/${productInfor?.id}`)
-              } else {
-                navigate({
-                  pathname: `${PATH_PUBLIC_APP.checkout.root}/${productInfor?.id}`,
-                  search: createSearchParams({
-                    subscription: listSubscriptions[0].id.toString()
-                  }).toString()
-                })
-              }
+              navigate(`${PATH_PUBLIC_APP.product.root}/subscription/${productInfor?.id}`)
             }}
             className='flex items-center justify-center bg-ln-text-product shadow-s-25 transition duration-200 ease-in-out hover:scale-105 xs:gap-3 xs:rounded-[8px] xs:p-[17px] md:gap-4 md:rounded-xl md:p-[22px]'
           >

@@ -42,11 +42,11 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
 
   return (
     <header className='shadow-md fixed left-0 top-0 z-[9999] w-full bg-white'>
-      <div className='header_desktop hidden h-[80px] lg:block'>
+      <div className='header_desktop block h-[80px]'>
         <div className='container-wrapper mx-auto flex h-full items-center justify-between'>
-          <div className='flex items-center gap-10'>
+          <div className='hidden-scroll flex items-center overflow-x-auto xs:gap-2 md:gap-10'>
             <Link to='/' className='text-lg font-bold text-gray-800'>
-              <img src={images.logo.logo_fi} alt='logo-fiai' className='w-[50px]' />
+              <img src={images.logo.logo_fi} alt='logo-fiai' className='w-[50px] xs:w-10' />
             </Link>
             <NavigationMenu>
               <NavigationMenuList>
@@ -148,7 +148,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
         </div>
       </div>
 
-      <div className='flex items-center justify-between bg-gray-100 p-4 lg:hidden'>
+      <div className='hidden items-center justify-between bg-gray-100 p-4'>
         <button onClick={toggleMenu} className='relative rounded-[50%] bg-white text-2xl xs:p-[12px] md:p-[16px]'>
           <FaBars className='relative z-10' />
           {/* <TbLockCancel className='absolute left-[0px] top-[3px] text-[0.7em]' /> */}
