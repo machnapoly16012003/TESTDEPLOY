@@ -86,7 +86,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:block xl:!h-[500px] xl:!w-[800px] 3xl:block 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:block'>
               <Canvas>
                 <ambientLight />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} />
                 <Model />
                 <Environment preset='sunset' />
               </Canvas>
@@ -94,7 +94,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:block md:!h-[500px] md:!w-[800px] lg:block xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
               <Canvas>
                 <ambientLight />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} />
                 <ModelMD />
                 <Environment preset='sunset' />
               </Canvas>
@@ -102,7 +102,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
               <Canvas>
                 <ambientLight />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} />
                 <ModelXS />
                 <Environment preset='sunset' />
               </Canvas>
@@ -112,7 +112,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:block xl:!h-[500px] xl:!w-[800px] 3xl:block 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:block'>
               <Canvas>
                 <ambientLight />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} />
                 <Model />
                 <Environment preset='sunset' />
               </Canvas>
@@ -120,7 +120,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             <div className='mx-auto xs:hidden xs:!h-[500px] xs:!w-full sm:hidden md:block md:!h-[500px] md:!w-[800px] lg:block xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
               <Canvas>
                 <ambientLight />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} />
                 <ModelMD />
                 <Environment preset='sunset' />
               </Canvas>
@@ -128,7 +128,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product }: BannerSect
             <div className='mx-auto xs:block xs:!h-[500px] xs:!w-full sm:block md:hidden md:!h-[500px] md:!w-[800px] lg:hidden xl:hidden xl:!h-[500px] xl:!w-[800px] 3xl:hidden 3xl:!h-[600px] 3xl:!w-[1200px] 4xl:hidden'>
               <Canvas>
                 <ambientLight />
-                <OrbitControls />
+                <OrbitControls enableZoom={false} />
                 <ModelXS />
                 <Environment preset='sunset' />
               </Canvas>

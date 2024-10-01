@@ -1,10 +1,10 @@
 import { memo, useCallback, useRef, useState } from 'react'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { ProductCard } from '~/components/feature/productCard'
-import { useAppSelector } from '~/redux/configStore'
-import { ChevronLeft, ChevronRight } from '~/components/shared/icon'
 import { SliderPaginationNumber } from '~/components/feature/sliderPagination'
+import { ChevronLeft, ChevronRight } from '~/components/shared/icon'
+import { useAppSelector } from '~/redux/configStore'
 
 const SlideProducts = memo(() => {
   const swiperRef = useRef<any>(null)
@@ -13,6 +13,7 @@ const SlideProducts = memo(() => {
 
   const { listProducts } = useAppSelector((s) => s.product)
 
+  const [isHover, setIsHover] = useState<boolean>(false)
   const [activeSlide, setActiveSlide] = useState<number>(0)
 
   const handleGoToSlide = useCallback(
@@ -44,10 +45,14 @@ const SlideProducts = memo(() => {
         <Swiper
           ref={swiperRef}
           loop
-          initialSlide={1}
+          initialSlide={0}
           slidesPerView={3}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false
+          }}
           onSlideChange={handleSlideChange}
-          modules={[Pagination, Navigation]}
+          modules={[Autoplay, Pagination, Navigation]}
           navigation={{
             prevEl: prevRef.current ? prevRef.current : undefined,
             nextEl: nextRef.current ? nextRef.current : undefined
@@ -77,14 +82,14 @@ const SlideProducts = memo(() => {
               slidesPerView: 4
             },
             1900: {
-              slidesPerView: 5
+              slidesPerView: 4
             }
           }}
         >
           {listProducts.map((product, index) => {
             return (
               <SwiperSlide key={`${product.product.id}-${index}`} className='xs:h-[400px] md:h-[600px]'>
-                <ProductCard product={product} />
+                <ProductCard product={product} isActive={activeSlide === index && !isHover} setIsHover={setIsHover} />
               </SwiperSlide>
             )
           })}
