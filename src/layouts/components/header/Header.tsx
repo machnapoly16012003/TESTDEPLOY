@@ -46,7 +46,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
         <div className='container-wrapper mx-auto flex h-full items-center justify-between'>
           <div className='hidden-scroll flex items-center overflow-x-auto xs:gap-2 md:gap-10'>
             <Link to='/' className='text-lg font-bold text-gray-800'>
-              <img src={images.logo.logo_fi} alt='logo-fiai' className='w-[50px] xs:w-10' />
+              <img src={images.logo.logo_fi} alt='logo-fiai' className='w-[50px] xs:w-10 xs:min-w-[40px]' />
             </Link>
             <NavigationMenu>
               <NavigationMenuList>

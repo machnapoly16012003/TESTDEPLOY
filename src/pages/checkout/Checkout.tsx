@@ -6,10 +6,11 @@ import { useParams } from 'react-router-dom'
 
 import { QueryConfig } from '~/@types/common'
 import { IProduct, PaymentForm, ShippingForm } from '~/@types/models'
+import images from '~/assets'
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { ProductCheckout, SupscriptionCheckout } from '~/components/feature/itemCheckout'
 import { AnimationPage } from '~/components/shared/animation'
-import { ArrowLeftIcon } from '~/components/shared/icon'
+import { ArrowLeftIcon, CopyIcon } from '~/components/shared/icon'
 import useDialog from '~/hooks/useDialog'
 import useQueryConfig from '~/hooks/useQueryConfig'
 import useValidationForm from '~/hooks/useValidationForm'
@@ -31,8 +32,6 @@ const Checkout = memo(() => {
   const { isOpen, setIsOpen, handleOpen } = useDialog()
   const { shippingFrom, paymentFrom } = useValidationForm()
 
-  // const [refCode, setRefCode] = useState<string>('')
-
   const shippingForm = useForm<ShippingForm>({
     resolver: yupResolver(shippingFrom),
     mode: 'onBlur'
@@ -49,6 +48,7 @@ const Checkout = memo(() => {
   const { handleSubmit } = paymentForm
 
   const [step, setStep] = useState<number>(1)
+  const [refCode, setRefCode] = useState<string>('')
   const [errMessage, setErrMessage] = useState<string>('')
 
   const listProductCheckouts = useMemo(
@@ -89,7 +89,7 @@ const Checkout = memo(() => {
         >
           <h6 className={`text-[32px]/[48px] font-bold capitalize`}>Checkout</h6>
 
-          {/* <div className='space-y-2 rounded-xl bg-[#F8F8F9] xs:mt-2 xs:p-2 md:mt-4 md:px-3 md:py-[10px]'>
+          <div className='space-y-2 rounded-xl bg-[#F8F8F9] xs:mt-2 xs:p-2 md:mt-4 md:px-3 md:py-[10px]'>
             <div className='relative flex w-full items-center gap-5 rounded-[8px] bg-[#EAEAEA] xs:h-[52px] xs:px-3 sm:h-[60px] md:px-5'>
               <input
                 placeholder='Enter ref code'
@@ -115,7 +115,7 @@ const Checkout = memo(() => {
                 This feature will be available soon.
               </p>
             </div>
-          </div> */}
+          </div>
 
           <div className='flex-1'>
             <AnimationPage isVisble={step === 1} className={step === 1 ? 'flex' : 'hidden'} homePage={true}>

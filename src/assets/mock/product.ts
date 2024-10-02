@@ -147,7 +147,7 @@ export const listProducts: IProduct[] = [
           'The <strong>SecureVision 360 AI</strong> delivers top-tier, intelligent security that adapts to your needs, providing an all-in-one solution for smarter, safer environments. With advanced features, crystal-clear imaging, and intelligent automation, this system provides a new level of protection and convenience.',
         expiryTime: '1727629200000',
         flashSaleExpiryTime: '0',
-        images: [images.product.camera8, images.product.camera8_chip, images.product.camera8],
+        images: [images.product.camera8, images.product.camera8, images.product.camera8],
         isApprove: false,
         isFlashSale: false,
         isMultipleDiscount: false,

@@ -266,7 +266,10 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
         <p className='2xs:text-[16px] font-medium text-blackDark/[.44] xs:text-[16px] sm:text-[18px]/[18.9px]'>
           Discover our product
         </p>
-        <Link to={product.product.params.videoUrl} className='cursor-pointer'>
+        <Link
+          to={'https://drive.google.com/file/d/1uw-HRUjaQNGthUnYGbJfkxzdHLiXwauK/view?usp=sharing'}
+          className='cursor-pointer'
+        >
           <IconButton size={smDown ? '28' : '32'} color='white' shadow>
             <FaPlay className='2xs:size-[8.5px] xs:size-[8.5px] sm:size-[10px]' />
           </IconButton>

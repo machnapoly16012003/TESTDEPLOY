@@ -28,7 +28,7 @@ const ProductDetail = memo(() => {
 
   return (
     <section className='flex bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
-      <div className='flex flex-col bg-ln-product-card shadow-s-24 xs:min-h-[844px] xs:w-full xs:px-6 xs:pb-[100px] xs:pt-40 md:min-h-[1000px] md:px-20 md:pb-[56px] md:pt-32 xl:!min-h-[810px] xl:w-[37.5%] xl:!pt-[120px] 3xl:!min-h-[1000px] 3xl:!pt-[100px]'>
+      <div className='flex h-screen flex-col bg-ln-product-card shadow-s-24 xs:min-h-[844px] xs:w-full xs:px-6 xs:pb-[100px] xs:pt-40 md:min-h-[1000px] md:px-20 md:pb-[56px] md:pt-32 xl:!min-h-[810px] xl:w-[37.5%] xl:!pt-[120px] 3xl:!min-h-[1000px] 3xl:!pt-[100px]'>
         <div className='z-20 flex w-full items-end justify-between xs:h-[138px] md:h-[138px] xl:h-[115px]'>
           <p className='font-semibold uppercase text-white xs:!w-[280px] xs:!text-[36px]/[46px] md:!w-[280px] md:!text-[36px]/[46px] xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[320px] 3xl:!text-[32px]/[40px]'>
             {productInfor?.params.name}
@@ -147,7 +147,7 @@ const ProductDetail = memo(() => {
         </div>
       </div>
 
-      <div className='h-full xs:min-h-[780px] xs:w-full xs:px-6 xs:py-8 md:px-10 md:py-14 xl:!block xl:!min-h-[810px] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[190px] xl:pr-[100px] 3xl:!flex 3xl:!min-h-[1000px] 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
+      <div className='h-screen xs:min-h-[780px] xs:w-full xs:px-6 xs:py-8 md:px-10 md:py-14 xl:!block xl:!min-h-[810px] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[190px] xl:pr-[100px] 3xl:!flex 3xl:!min-h-[1000px] 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
         <button className='mb-12 items-center gap-4 xs:hidden md:hidden xl:flex' onClick={() => window.history.back()}>
           <ArrowLeftIcon className='opacity-[.44]' />
           <p className='text-[16px]/[16px] text-black/[.72]'>Back</p>
