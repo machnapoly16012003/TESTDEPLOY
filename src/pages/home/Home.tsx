@@ -68,7 +68,6 @@ const Home = memo(() => {
       <WebSummit />
       <CustomerReaction />
       <ListenToOurCustomer />
-      ``
       <InStoreExperienceToday />
     </div>
   )

@@ -80,6 +80,7 @@ import remote from '~/assets/icons/remote.svg'
 import lock from '~/assets/icons/lock.svg'
 import subscription from '~/assets/icons/subscription.png'
 import otp from '~/assets/icons/otp.png'
+import action_3D from '~/assets/icons/3D_action.png'
 
 import gt_earth_1 from '~/assets/images/gt-earth-1.png'
 import gt_earth_2 from '~/assets/images/gt-earth-2.png'
@@ -167,7 +168,8 @@ const images = {
     real_time,
     subscription,
     lock,
-    otp
+    otp,
+    action_3D
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
   componets: { earth_line_big },

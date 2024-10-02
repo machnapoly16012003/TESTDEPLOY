@@ -85,6 +85,18 @@ const PaymentFrom = memo(
                   name='cardNumber'
                   label='Card Number'
                   placeholder='Enter your card number'
+                  rightIcon={
+                    <button
+                      className='mt-2'
+                      onClick={async () => {
+                        const string = await navigator.clipboard.readText()
+                        setValue('cardNumber', string)
+                        clearErrors('cardNumber')
+                      }}
+                    >
+                      <CopyIcon color='#818EA1' className='xs:size-4 md:size-6' />
+                    </button>
+                  }
                 />
                 <InputField
                   fullWidth

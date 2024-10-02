@@ -8,20 +8,22 @@ import { Environment, OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import classNames from 'classnames'
 import { IProduct, IProductVariant } from '~/@types/models'
+import images from '~/assets'
 import { ProductCardBanner } from '~/components/feature/productCardBanner'
 import { SliderPagination } from '~/components/feature/sliderPagination'
+import { TimeCountdownSimple } from '~/components/feature/timeCountdown'
 import { Button } from '~/components/shared/button'
 import { ArrowLeftIcon, ArrowRightIcon, ShareIcon } from '~/components/shared/icon'
 import { IconButton } from '~/components/shared/iconButton'
 import { Skeleton } from '~/components/shared/skeleton'
 import useCheckGLB from '~/hooks/useCheckGLB'
+import useCopy from '~/hooks/useCopy'
 import useResponsive from '~/hooks/useResponsive'
-import { formatDate, formatLocaleString } from '~/utils/format'
+import { formatLocaleString } from '~/utils/format'
 import { Model } from './Model'
 import { ModelMD } from './ModelMD'
 import { ModelXS } from './ModelXS'
 import { ModelXS2 } from './ModelXS2'
-import useCopy from '~/hooks/useCopy'
 
 type BannerSectionProps = {
   isLoading: boolean
@@ -80,7 +82,8 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
         className={classNames(
           isWebGLBAvailable()
             ? '2xs:mt-[180px] relative xs:mt-[200px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-44 3xl:mt-[140px]'
-            : '2xs:mt-[180px] relative xs:mt-[265px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-36 3xl:mt-[90px]'
+            : '2xs:mt-[180px] relative xs:mt-[265px] sm:mt-24 md:mt-40 lg:mt-40 xl:mt-36 3xl:mt-[90px]',
+          'z-50'
         )}
       >
         <Swiper
@@ -183,7 +186,10 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
         </Swiper>
       </div>
 
-      <div className='2xs:left-1 2xs:top-[240px] 2xs:h-[44px] 2xs:w-fit 2xs:rounded-lg 2xs:px-3 absolute z-20 flex items-center justify-center gap-3 bg-white/[.44] shadow-s-22 backdrop-blur-2xl transition-all duration-200 ease-in-out xs:left-0 xs:top-[15%] xs:h-[76px] xs:w-fit xs:flex-col xs:rounded-xl xs:rounded-bl-none xs:rounded-tl-none xs:px-4 sm:left-0 sm:top-[154px] sm:h-[88px] sm:scale-[80%] sm:flex-row sm:rounded-3xl sm:p-5 md:left-5 md:top-40 md:rounded-3xl lg:left-16 lg:top-40 lg:rounded-2xl xl:left-[190px] xl:top-[154px] xl:min-w-[388px] xl:gap-5 xl:rounded-3xl 3xl:h-[100px] 3xl:min-w-[400px] 3xl:scale-105'>
+      <div
+        data-aos='fade-right'
+        className='2xs:left-1 2xs:top-[240px] 2xs:h-[44px] 2xs:w-fit 2xs:rounded-lg 2xs:px-3 absolute z-20 flex items-center justify-center gap-3 bg-white/[.44] shadow-s-22 backdrop-blur-2xl transition-all duration-200 ease-in-out xs:left-0 xs:top-[15%] xs:h-[76px] xs:w-fit xs:flex-col xs:rounded-xl xs:rounded-bl-none xs:rounded-tl-none xs:px-4 sm:left-0 sm:top-[154px] sm:h-[88px] sm:scale-[80%] sm:flex-row sm:rounded-3xl sm:p-5 md:left-5 md:top-24 md:z-10 md:rounded-3xl lg:left-16 lg:top-40 lg:rounded-2xl xl:left-[190px] xl:top-[154px] xl:min-w-[388px] xl:gap-5 xl:rounded-3xl 3xl:h-[100px] 3xl:min-w-[400px] 3xl:scale-105'
+      >
         <div className='2xs:-space-x-[10px] flex xs:-space-x-[10px] sm:-space-x-[18px]'>
           {[
             'https://images.unsplash.com/photo-1712068944618-21bbd010c8ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D',
@@ -223,6 +229,17 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
         </p>
       </div>
 
+      <div
+        data-aos='fade-right'
+        className='absolute left-10 top-[63%] z-40 flex items-center gap-4 xs:left-4 xs:top-[56%] xs:flex-col xs:items-start xs:gap-1 sm:items-start md:left-5 md:top-[51%] md:flex-col md:items-start md:gap-2 xl:flex-row'
+      >
+        <img src={images.icon.action_3D} alt='action 3D' className='xs:size-10 md:size-12 xl:size-[60px]' />
+        <p className='text-blackDark/[.68] xs:text-[12px]/[18px] md:text-[16px]/[24px] xl:text-[18px]/[27px]'>
+          Rotate the product to view details <br />
+          from every angle
+        </p>
+      </div>
+
       <div className='2xs:bottom-20 2xs:left-[5%] 2xs:gap-3 absolute z-50 flex flex-col xs:bottom-24 xs:left-[4.5%] xs:gap-3 sm:bottom-20 sm:left-4 sm:gap-6 md:bottom-8 md:left-8 md:gap-6 lg:bottom-10 lg:left-10 lg:gap-5 xl:bottom-[37px] xl:left-[116px] xl:gap-6'>
         <div className='flex items-center gap-2'>
           <Button
@@ -250,7 +267,8 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
           <p className='2xs:text-[10.24px] font-customRegular text-[#606060]/[.64] xs:text-[12px] sm:text-[16px]/[16.8px]'>
             Remain:{' '}
             <span className='font-medium text-blackDark'>
-              {formatDate(+product.product.params.expiryTime, 'h:mm:ss')}
+              <TimeCountdownSimple duration={18 * 60 * 60 * 1000} />
+              {/* {formatDate(+product.product.params.expiryTime, 'h:mm:ss')} */}
             </span>
           </p>
           <svg width='6' height='6' viewBox='0 0 6 6' fill='none'>
@@ -276,12 +294,12 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
         </Link>
       </div>
 
-      <div className='2xs:bottom-[250px] 2xs:right-4 absolute z-50 xs:bottom-[200px] xs:right-0 sm:-right-5 sm:bottom-64 sm:scale-[80%] md:bottom-48 md:right-10 md:scale-100 lg:bottom-48 lg:right-20 xl:bottom-[118px] xl:right-[177px]'>
+      <div className='2xs:bottom-[250px] 2xs:right-4 absolute z-50 xs:bottom-[200px] xs:right-0 sm:-right-5 sm:bottom-64 sm:scale-[80%] md:bottom-40 md:right-10 md:scale-100 lg:bottom-48 lg:right-20 xl:bottom-[118px] xl:right-[177px]'>
         <ProductCardBanner productParam={product.product} />
       </div>
 
       {product && listImages?.length > 1 && (
-        <div className='2xs:bottom-7 2xs:left-[15%] 2xs:gap-2 absolute z-10 flex -translate-x-1/2 transform items-center justify-center xs:bottom-10 xs:left-[15%] xs:gap-2 sm:bottom-3 sm:left-1/2 sm:gap-3 md:bottom-4 lg:bottom-4 xl:bottom-6'>
+        <div className='2xs:bottom-7 2xs:left-[15%] 2xs:gap-2 absolute z-10 flex -translate-x-1/2 transform items-center justify-center xs:bottom-10 xs:left-[15%] xs:hidden xs:gap-2 sm:bottom-3 sm:left-1/2 sm:gap-3 md:bottom-4 md:hidden lg:bottom-4 xl:bottom-6 xl:flex'>
           <button ref={prevRef} onClick={() => swiperRef.current?.swiper.slidePrev()}>
             <ArrowLeftIcon className='2xs:size-6 xs:size-6 sm:size-8' />
           </button>

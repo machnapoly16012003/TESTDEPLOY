@@ -37,7 +37,7 @@ export function ModelMD(props) {
         makeDefault={true} // Đặt camera này làm camera chính
         far={3000} // Thay đổi giá trị far
         near={0.1} // Thay đổi giá trị near
-        fov={15} // Thay đổi giá trị fov
+        fov={16} // Thay đổi giá trị fov
         position={[-1250, 700, -1450]} // Thay đổi vị trí camera
         rotation={[0, 0.5, 0]} // Thay đổi góc quay camera
         scale={[1, 1, 1]} // Thay đổi tỷ lệ camera

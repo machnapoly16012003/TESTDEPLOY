@@ -33,19 +33,19 @@ const TimeCountdown: React.FC<TimeCountdownProps> = memo(({ duration }) => {
 
   return (
     <div className='flex items-center gap-3'>
-      <div className='bg-box-time-count flex flex-shrink-0 items-center justify-center rounded-[5.33px] bg-cover bg-center xs:size-[60px] md:size-20'>
+      <div className='flex flex-shrink-0 items-center justify-center rounded-[5.33px] bg-box-time-count bg-cover bg-center xs:size-[60px] md:size-20'>
         <p className='font-medium text-[#11B0F2] xs:text-[28px] md:text-[32px]'>
           {formattedTime.hours < 10 ? `0${formattedTime.hours}` : formattedTime.hours}
         </p>
       </div>
       <p className='font-semibold text-[#F200F2] xs:text-[28px] md:text-[32px]'>:</p>
-      <div className='bg-box-time-count flex flex-shrink-0 items-center justify-center rounded-[5.33px] bg-cover bg-center xs:size-[60px] md:size-20'>
+      <div className='flex flex-shrink-0 items-center justify-center rounded-[5.33px] bg-box-time-count bg-cover bg-center xs:size-[60px] md:size-20'>
         <p className='font-medium text-[#11B0F2] xs:text-[28px] md:text-[32px]'>
           {formattedTime.minutes < 10 ? `0${formattedTime.minutes}` : formattedTime.minutes}
         </p>
       </div>
       <p className='font-semibold text-[#F200F2] xs:text-[28px] md:text-[32px]'>:</p>
-      <div className='bg-box-time-count flex flex-shrink-0 items-center justify-center rounded-[5.33px] bg-cover bg-center xs:size-[60px] md:size-20'>
+      <div className='flex flex-shrink-0 items-center justify-center rounded-[5.33px] bg-box-time-count bg-cover bg-center xs:size-[60px] md:size-20'>
         <p className='font-medium text-[#11B0F2] xs:text-[28px] md:text-[32px]'>
           {formattedTime.seconds < 10 ? `0${formattedTime.seconds}` : formattedTime.seconds}
         </p>

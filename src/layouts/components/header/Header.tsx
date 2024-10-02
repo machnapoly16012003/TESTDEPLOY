@@ -56,7 +56,10 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                       // (window.location.href = 'https://pre.fi.ai/')
                       navigate(PATH_PUBLIC_APP.gettingStarted)
                     }}
-                    className={classNames(pathname === PATH_PUBLIC_APP.gettingStarted && 'rp-text-linear')}
+                    className={classNames(
+                      pathname === PATH_PUBLIC_APP.gettingStarted && 'rp-text-linear',
+                      'hover:scale-[101%] hover:rp-text-linear'
+                    )}
                   >
                     Getting started
                     {/* <TbLockCancel className='absolute left-[0px] top-[0px] text-[0.7em]' /> */}
@@ -96,7 +99,10 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                       // document.querySelector('#ai-work')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
                       navigate(PATH_PUBLIC_APP.components)
                     }
-                    className={classNames(pathname === PATH_PUBLIC_APP.components && 'rp-text-linear')}
+                    className={classNames(
+                      pathname === PATH_PUBLIC_APP.components && 'rp-text-linear',
+                      'hover:scale-[101%] hover:rp-text-linear'
+                    )}
                   >
                     Components
                     {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
@@ -117,7 +123,10 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
                       () => navigate(PATH_PUBLIC_APP.document)
                       // document.querySelector('#in-store')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
                     }
-                    className={classNames(pathname === PATH_PUBLIC_APP.document && 'rp-text-linear')}
+                    className={classNames(
+                      pathname === PATH_PUBLIC_APP.document && 'rp-text-linear',
+                      'hover:scale-[101%] hover:rp-text-linear'
+                    )}
                   >
                     Documentation
                     {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
