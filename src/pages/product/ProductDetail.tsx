@@ -30,7 +30,7 @@ const ProductDetail = memo(() => {
     <section className='flex bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
       <div className='flex flex-col bg-ln-product-card shadow-s-24 xs:min-h-[844px] xs:w-full xs:px-6 xs:pb-[100px] xs:pt-40 md:min-h-[1000px] md:px-20 md:pb-[56px] md:pt-32 xl:!min-h-[810px] xl:w-[37.5%] xl:!pt-[120px] 3xl:!min-h-[1000px] 3xl:!pt-[100px]'>
         <div className='z-20 flex w-full items-end justify-between xs:h-[138px] md:h-[138px] xl:h-[115px]'>
-          <p className='font-semibold uppercase text-white xs:!w-[280px] xs:!text-[36px]/[46px] md:!w-[280px] md:!text-[36px]/[46px] xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[350px] 3xl:!text-[32px]/[40px]'>
+          <p className='font-semibold uppercase text-white xs:!w-[280px] xs:!text-[36px]/[46px] md:!w-[280px] md:!text-[36px]/[46px] xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[320px] 3xl:!text-[32px]/[40px]'>
             {productInfor?.params.name}
           </p>
           <div className='relative items-center xs:hidden md:hidden xl:flex 3xl:mb-1'>

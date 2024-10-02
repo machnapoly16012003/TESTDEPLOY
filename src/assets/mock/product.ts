@@ -151,7 +151,7 @@ export const listProducts: IProduct[] = [
         isApprove: false,
         isFlashSale: false,
         isMultipleDiscount: false,
-        name: 'SecureVision 360 AI Pro 8-Camera',
+        name: 'SecureVision 360 AI 8-Camera',
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
@@ -165,7 +165,7 @@ export const listProducts: IProduct[] = [
       {
         priceOptions: {
           price: '1810000000',
-          subscriptionFee: '50000000',
+          subscriptionFee: '98000000',
           quantity: '100'
         },
         variantID: '89477152217924674838424037953991966239322087453347756267410168184682657981552'
@@ -191,7 +191,7 @@ export const listProducts: IProduct[] = [
         isApprove: false,
         isFlashSale: false,
         isMultipleDiscount: false,
-        name: 'SecureVision 360 AI Pro 12-Camera',
+        name: 'SecureVision 360 AI 12-Camera',
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
@@ -204,8 +204,8 @@ export const listProducts: IProduct[] = [
     variants: [
       {
         priceOptions: {
-          price: '990000000',
-          subscriptionFee: '50000000',
+          price: '2715000000',
+          subscriptionFee: '148000000',
           quantity: '100'
         },
         variantID: '89477152217924674838424037953991966239322087453347756267410168184682657981552'
@@ -231,7 +231,7 @@ export const listProducts: IProduct[] = [
         isApprove: false,
         isFlashSale: false,
         isMultipleDiscount: false,
-        name: 'SecureVision 360 AI Pro 24-Camera',
+        name: 'SecureVision 360 AI 24-Camera',
         retailer: '47c887ed344128f0e6a7008006a352cf8d3e1516',
         shippingFee: '0',
         sold: '0',
@@ -244,8 +244,8 @@ export const listProducts: IProduct[] = [
     variants: [
       {
         priceOptions: {
-          price: '990000000',
-          subscriptionFee: '50000000',
+          price: '5580000000',
+          subscriptionFee: '198000000',
           quantity: '100'
         },
         variantID: '89477152217924674838424037953991966239322087453347756267410168184682657981552'
