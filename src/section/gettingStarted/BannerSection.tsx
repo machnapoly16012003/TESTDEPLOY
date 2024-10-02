@@ -188,7 +188,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
 
       <div
         data-aos='fade-right'
-        className='2xs:left-1 2xs:top-[240px] 2xs:h-[44px] 2xs:w-fit 2xs:rounded-lg 2xs:px-3 absolute z-20 flex items-center justify-center gap-3 bg-white/[.44] shadow-s-22 backdrop-blur-2xl transition-all duration-200 ease-in-out xs:left-0 xs:top-[15%] xs:h-[76px] xs:w-fit xs:flex-col xs:rounded-xl xs:rounded-bl-none xs:rounded-tl-none xs:px-4 sm:left-0 sm:top-[154px] sm:h-[88px] sm:scale-[80%] sm:flex-row sm:rounded-3xl sm:p-5 md:left-5 md:top-24 md:z-10 md:rounded-3xl lg:left-16 lg:top-40 lg:rounded-2xl xl:left-[190px] xl:top-[154px] xl:min-w-[388px] xl:gap-5 xl:rounded-3xl 3xl:h-[100px] 3xl:min-w-[400px] 3xl:scale-105'
+        className='2xs:left-1 2xs:top-[240px] 2xs:h-[44px] 2xs:w-fit 2xs:rounded-lg 2xs:px-3 absolute z-20 flex items-center justify-center gap-3 bg-white/[.44] shadow-s-22 backdrop-blur-2xl transition-all duration-200 ease-in-out xs:left-0 xs:top-[15%] xs:h-[76px] xs:w-fit xs:flex-col xs:rounded-xl xs:rounded-bl-none xs:rounded-tl-none xs:px-4 sm:left-0 sm:top-[154px] sm:h-[88px] sm:scale-[80%] sm:flex-row sm:rounded-3xl sm:p-5 md:left-5 md:top-24 md:z-10 md:rounded-3xl lg:left-16 lg:top-40 lg:rounded-2xl xl:left-[160px] xl:top-[120px] xl:z-[60] xl:min-w-[388px] xl:gap-5 xl:rounded-3xl 3xl:h-[100px] 3xl:min-w-[400px] 3xl:scale-105'
       >
         <div className='2xs:-space-x-[10px] flex xs:-space-x-[10px] sm:-space-x-[18px]'>
           {[
@@ -231,7 +231,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
 
       <div
         data-aos='fade-right'
-        className='absolute left-10 top-[63%] z-40 flex items-center gap-4 xs:left-4 xs:top-[56%] xs:flex-col xs:items-start xs:gap-1 sm:items-start md:left-5 md:top-[51%] md:flex-col md:items-start md:gap-2 xl:flex-row'
+        className='absolute left-10 top-[63%] z-40 flex items-center gap-4 xs:left-4 xs:top-[56%] xs:flex-col xs:items-start xs:gap-1 sm:items-start md:left-[38px] md:top-[52%] md:flex-col md:items-start md:gap-2 xl:left-9 xl:top-[450px] xl:flex-row 3xl:left-[180px] 3xl:top-[490px]'
       >
         <img src={images.icon.action_3D} alt='action 3D' className='xs:size-10 md:size-12 xl:size-[60px]' />
         <p className='text-blackDark/[.68] xs:text-[12px]/[18px] md:text-[16px]/[24px] xl:text-[18px]/[27px]'>

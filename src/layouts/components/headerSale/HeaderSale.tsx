@@ -1,6 +1,8 @@
 import classNames from 'classnames'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
+import toast from 'react-hot-toast'
 import { FaBars } from 'react-icons/fa6'
+import { RiInformation2Fill } from 'react-icons/ri'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import images from '~/assets'
 import { Button } from '~/components/shared/button'
@@ -194,8 +196,17 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
 
       {pathname.split('/')[1] !== 'checkout' && (
         <div className='flex items-center gap-5'>
-          <p className='text-[16px]/[16.8px] font-semibold'>Log In</p>
-          <Button variant='linear' className='h-[48px] w-[98px]' classNameText='text-[16px]/[16.8px] text-white'>
+          {/* <p className='text-[16px]/[16.8px] font-semibold'>Log In</p> */}
+          <Button
+            onClick={() =>
+              toast('SignIn feature is currently unavailable. Please try again later.', {
+                icon: <RiInformation2Fill color='#5495FC' className='size-10' />
+              })
+            }
+            variant='linear'
+            className='h-[48px] w-[98px]'
+            classNameText='text-[16px]/[16.8px] text-white'
+          >
             Sign in
           </Button>
         </div>

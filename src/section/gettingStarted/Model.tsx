@@ -38,8 +38,8 @@ export function Model(props) {
         makeDefault={true} // Đặt camera này làm camera chính
         far={3000} // Thay đổi giá trị far
         near={0.5} // Thay đổi giá trị near
-        fov={30} // Thay đổi giá trị fov
-        position={[-450, 600, -750]} // Thay đổi vị trí camera
+        fov={28} // Thay đổi giá trị fov
+        position={[-450, 600, -850]} // Thay đổi vị trí camera
         rotation={[0, 0.5, 0]} // Thay đổi góc quay camera
         scale={[1, 1, 1]} // Thay đổi tỷ lệ camera
       />
