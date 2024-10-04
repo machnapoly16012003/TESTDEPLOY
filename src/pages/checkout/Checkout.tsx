@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import classNames from 'classnames'
-import { memo, useCallback, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 
@@ -29,6 +29,7 @@ const Checkout = memo(() => {
   const { listProducts } = useAppSelector((s) => s.product)
 
   const queryConfig: QueryConfig = useQueryConfig()
+
   const { isOpen, setIsOpen, handleOpen } = useDialog()
   const { shippingFrom, paymentFrom } = useValidationForm()
 
@@ -50,9 +51,20 @@ const Checkout = memo(() => {
   const [step, setStep] = useState<number>(1)
   const [refCode, setRefCode] = useState<string>('')
   const [errMessage, setErrMessage] = useState<string>('')
+  const [showTooltip, setShowTootip] = useState<boolean>(false)
+
+  useEffect(() => {
+    setShowTootip(true)
+    setTimeout(() => {
+      setShowTootip(false)
+    }, 3000)
+  }, [])
 
   const listProductCheckouts = useMemo(
-    () => listProducts.filter((p) => p.product.id === productId),
+    () =>
+      listProducts
+        .filter((p) => p.product.id === productId)
+        .map((p) => ({ ...p, quantityInCart: Number(queryConfig.productQuantity) })),
     [productId, listProducts]
   )
 
@@ -166,13 +178,36 @@ const Checkout = memo(() => {
                   : formatPrice(0, 2)}
               </p>
             </div>
+
+            <div className='flex w-full items-center justify-between'>
+              <div className='flex items-center gap-2'>
+                <p
+                  className={`text-[#818EA1] xs:text-[16px]/[24px] md:text-[16px]/[24px] xl:text-[16px]/[24px] 3xl:text-[16px]/[24px]`}
+                >
+                  Shipping
+                </p>
+                <div className='group relative flex'>
+                  <img src={images.icon.alert_circle} alt='info' />
+                  <span
+                    className={classNames(
+                      showTooltip ? 'opacity-100' : 'opacity-0',
+                      'shadow-s-29 absolute left-[150%] top-1/2 w-[189px] -translate-y-1/2 rounded-2xl bg-white p-4 text-[14px]/[24px] text-black transition-opacity group-hover:opacity-100'
+                    )}
+                  >
+                    Calculate after you select the country you want to pick up from.
+                  </span>
+                </div>
+              </div>
+              <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatPrice(0, 2)}</p>
+            </div>
+
             <div className='flex w-full items-center justify-between'>
               <p
                 className={`text-[#818EA1] xs:text-[16px]/[24px] md:text-[16px]/[24px] xl:text-[16px]/[24px] 3xl:text-[16px]/[24px]`}
               >
-                Shipping
+                Discount
               </p>
-              <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>+${formatPrice(5000000, 2)}</p>
+              <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatPrice(0, 2)}</p>
             </div>
 
             <div className='flex items-center justify-between'>
@@ -183,7 +218,7 @@ const Checkout = memo(() => {
                   ? formatPrice(
                       listProducts.reduce((total: number, currentProduct: IProduct) => {
                         return total + Number(currentProduct.variants?.[0]?.priceOptions.price)
-                      }, 0) + 5000000,
+                      }, 0),
                       2
                     )
                   : formatPrice(0, 2)}

@@ -13,7 +13,8 @@ function useQueryConfig() {
 
   const queryConfig: QueryConfig = omitBy(
     {
-      subscription: queryParams.subscription
+      subscription: queryParams.subscription,
+      productQuantity: queryParams.productQuantity
     },
     isUndefined
   )

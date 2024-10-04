@@ -2,6 +2,7 @@ export interface IProduct {
   product: IProductParam
   variants: IProductVariant[]
   attributes: IProductAttrs[][]
+  quantityInCart?: number
 }
 
 export interface IProductParam {

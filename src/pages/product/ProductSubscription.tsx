@@ -14,6 +14,8 @@ import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { useAppSelector } from '~/redux/configStore'
 import { checkNumbersInString10, formatLocaleString } from '~/utils/format'
 import './styles.scss'
+import { QueryConfig } from '~/@types/common'
+import useQueryConfig from '~/hooks/useQueryConfig'
 
 const ProductSubscription = memo(() => {
   const swiperRef = useRef<any>(null)
@@ -27,6 +29,10 @@ const ProductSubscription = memo(() => {
   const productDetail = useMemo(() => listProducts.find((p) => p.product.id === productId), [productId, listProducts])
 
   const { product: productInfor, variants } = productDetail || {}
+
+  const queryConfig: QueryConfig = useQueryConfig()
+
+  console.log('queryConfig', queryConfig)
 
   const [subSelected, setSubSelected] = useState<number>(0)
   const [activeSlide, setActiveSlide] = useState<number>(0)
@@ -63,13 +69,14 @@ const ProductSubscription = memo(() => {
     navigate({
       pathname: `${PATH_PUBLIC_APP.checkout.root}/${productInfor?.id}`,
       search: createSearchParams({
+        ...queryConfig,
         subscription: subSelected.toString()
       }).toString()
     })
   }, [subSelected])
 
   return (
-    <section className='product-subscription flex min-h-[100vh] overflow-hidden bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
+    <section className='product-subscription flex min-h-[100vh] overflow-hidden bg-[#fafdff] xs:flex-col md:flex-col xl:translate-y-5 xl:flex-row'>
       <div className='x h-full pb-[60px] xs:w-full xs:px-6 xs:pb-10 xs:pt-20 md:min-h-[700px] md:w-full md:px-24 md:pt-[100px] xl:!block xl:min-h-[100vh] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[100px] xl:pr-[184px] 3xl:!flex 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
         <button className='flex items-center xs:mb-8 xs:gap-3 md:mb-12 md:gap-4' onClick={() => window.history.back()}>
           <ArrowLeftIcon className='opacity-[.44] xs:size-6 md:size-8' />
@@ -135,7 +142,7 @@ const ProductSubscription = memo(() => {
         </Link>
       </div>
 
-      <div className='flex flex-col bg-ln-product-card shadow-s-24 xs:min-h-[888px] xs:w-full xs:px-6 xs:pb-16 xs:pt-[100px] md:min-h-[1000px] md:w-full md:px-20 md:pb-16 md:pt-[100px] xl:min-h-[100vh] xl:w-[37.5%] xl:px-[100px] xl:!pt-[120px] xl:pb-10 3xl:!pt-[100px]'>
+      <div className='flex flex-col bg-ln-product-card shadow-s-24 xs:min-h-[888px] xs:w-full xs:px-6 xs:pb-16 xs:pt-[100px] md:min-h-[1000px] md:w-full md:px-20 md:pb-16 md:pt-[100px] xl:min-h-[100vh] xl:w-[37.5%] xl:px-[100px] xl:!pt-[120px] xl:pb-16 3xl:!pt-[100px]'>
         <p className='font-semibold uppercase text-white xs:!w-[80%] xs:!text-[36px]/[46px] md:!w-[260px] md:!text-[36px]/[46px] xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[350px] 3xl:!text-[32px]/[40px]'>
           {productInfor?.params.name}
         </p>

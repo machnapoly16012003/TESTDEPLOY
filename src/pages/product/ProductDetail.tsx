@@ -1,8 +1,9 @@
 import classNames from 'classnames'
-import { memo, useMemo, useRef, useState } from 'react'
-import { FaPause, FaPlay, FaPlus } from 'react-icons/fa6'
-import { useNavigate, useParams } from 'react-router-dom'
+import { memo, useCallback, useMemo, useRef, useState } from 'react'
+import { FaPause, FaPlay } from 'react-icons/fa6'
+import { createSearchParams, useNavigate, useParams } from 'react-router-dom'
 import { listAdvantages } from '~/assets/mock/product'
+import { QuantityController } from '~/components/feature/quantityController'
 import { ArrowLeftIcon } from '~/components/shared/icon'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { useAppSelector } from '~/redux/configStore'
@@ -25,10 +26,13 @@ const ProductDetail = memo(() => {
 
   const [tabActive, setTabActive] = useState<string>(tabs[0])
   const [playVideo, setPlayVideo] = useState<boolean>(false)
+  const [quantity, setQuantity] = useState<number>(1)
+
+  const handleQuantity = useCallback((value: number) => setQuantity(value), [])
 
   return (
-    <section className='flex bg-[#fafdff] xs:flex-col md:flex-col xl:flex-row'>
-      <div className='flex h-screen flex-col bg-ln-product-card shadow-s-24 xs:min-h-[844px] xs:w-full xs:px-6 xs:pb-[100px] xs:pt-40 md:min-h-[1000px] md:px-20 md:pb-[56px] md:pt-32 xl:!min-h-[810px] xl:w-[37.5%] xl:!pt-[120px] 3xl:!min-h-[1000px] 3xl:!pt-[100px]'>
+    <section className='flex bg-[#fafdff] xs:flex-col md:flex-col lg:translate-y-5 xl:flex-row'>
+      <div className='flex h-screen flex-col bg-ln-product-card shadow-s-24 xs:min-h-[844px] xs:w-full xs:px-6 xs:pb-[100px] xs:pt-40 md:min-h-[1000px] md:px-20 md:pb-[56px] md:pt-32 lg:pb-[80px] xl:!min-h-[810px] xl:w-[37.5%] xl:!pt-[120px] 3xl:!min-h-[1000px] 3xl:!pt-[100px]'>
         <div className='z-20 flex w-full items-end justify-between xs:h-[138px] md:h-[138px] xl:h-[115px]'>
           <p className='font-semibold uppercase text-white xs:!w-[280px] xs:!text-[36px]/[46px] md:!w-[280px] md:!text-[36px]/[46px] xl:!w-[210px] xl:!text-[28px]/[38px] 3xl:!w-[320px] 3xl:!text-[32px]/[40px]'>
             {productInfor?.params.name}
@@ -61,40 +65,6 @@ const ProductDetail = memo(() => {
         </div>
 
         <div className='relative flex-1 xl:!min-h-[300px]'>
-          <div className='relative z-[100] ml-auto mt-5 flex w-fit flex-col items-center justify-center xs:-translate-y-[78px] xs:gap-2 md:-translate-y-[120px] md:gap-3 xl:translate-y-0 xl:gap-2'>
-            <div className='group relative z-50'>
-              <video
-                ref={videoRef}
-                className='rounded-[10px] border border-solid border-[#E5E5EACC]/[.8] object-cover object-center xs:size-[52px] md:size-[100px] xl:size-[60px]'
-                src={productInfor?.params.videoUrl}
-                muted
-                loop
-              />
-              <button
-                onClick={() => {
-                  if (playVideo) {
-                    setPlayVideo(false)
-                    videoRef.current?.pause()
-                  } else {
-                    setPlayVideo(true)
-                    videoRef.current?.play()
-                  }
-                }}
-                className='absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform transition duration-200 ease-in-out group-hover:block'
-              >
-                {playVideo ? (
-                  <FaPause color='white' className='opacity-90 xs:size-5 md:size-6 xl:size-4' />
-                ) : (
-                  <FaPlay color='white' className='opacity-90 xs:size-5 md:size-6 xl:size-4' />
-                )}
-              </button>
-            </div>
-
-            <p className='text-center font-medium text-white xs:text-[12px]/[17px] md:text-[16px]/[16.8px] xl:text-[12px]/[17px]'>
-              Review
-            </p>
-          </div>
-
           <p
             className={classNames(
               checkNumbersInString10(productInfor?.params.type as string)
@@ -133,21 +103,43 @@ const ProductDetail = memo(() => {
             </p>
           </div>
 
-          <button
-            onClick={() => {
-              navigate(`${PATH_PUBLIC_APP.product.root}/subscription/${productInfor?.id}`)
-            }}
-            className='flex items-center justify-center bg-ln-text-product shadow-s-25 transition duration-200 ease-in-out hover:scale-105 xs:gap-3 xs:rounded-[8px] xs:p-[17px] md:gap-4 md:rounded-xl md:p-[22px]'
-          >
-            <FaPlus className='xs:size-[18px] md:size-6' color='white' />
-            <p className='font-semibold text-white xs:text-[16px]/[16px] md:text-[20px]/[20px]'>
-              {tabActive === tabs[1] ? 'HIRE' : 'BUY'}
+          <div className='relative flex w-fit flex-col items-center justify-center xs:gap-2 md:gap-3 xl:gap-2'>
+            <div className='group relative z-50'>
+              <video
+                ref={videoRef}
+                className='rounded-[10px] border border-solid border-[#E5E5EACC]/[.8] object-cover object-center xs:size-[52px] md:size-[100px] xl:size-[60px]'
+                src={productInfor?.params.videoUrl}
+                muted
+                loop
+              />
+              <button
+                onClick={() => {
+                  if (playVideo) {
+                    setPlayVideo(false)
+                    videoRef.current?.pause()
+                  } else {
+                    setPlayVideo(true)
+                    videoRef.current?.play()
+                  }
+                }}
+                className='absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform transition duration-200 ease-in-out group-hover:block'
+              >
+                {playVideo ? (
+                  <FaPause color='white' className='opacity-90 xs:size-5 md:size-6 xl:size-4' />
+                ) : (
+                  <FaPlay color='white' className='opacity-90 xs:size-5 md:size-6 xl:size-4' />
+                )}
+              </button>
+            </div>
+
+            <p className='text-center font-medium text-white xs:text-[12px]/[17px] md:text-[16px]/[16.8px] xl:text-[12px]/[17px]'>
+              Review
             </p>
-          </button>
+          </div>
         </div>
       </div>
 
-      <div className='h-screen xs:min-h-[780px] xs:w-full xs:px-6 xs:py-8 md:px-10 md:py-14 xl:!block xl:!min-h-[810px] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[190px] xl:pr-[100px] 3xl:!flex 3xl:!min-h-[1000px] 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
+      <div className='h-screen xs:min-h-[860px] xs:w-full xs:px-6 xs:py-8 md:h-fit md:px-10 md:py-14 xl:!block xl:!min-h-[810px] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[190px] xl:pr-[100px] 3xl:!flex 3xl:!min-h-[1000px] 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
         <button className='mb-12 items-center gap-4 xs:hidden md:hidden xl:flex' onClick={() => window.history.back()}>
           <ArrowLeftIcon className='opacity-[.44]' />
           <p className='text-[16px]/[16px] text-black/[.72]'>Back</p>
@@ -192,11 +184,11 @@ const ProductDetail = memo(() => {
           <p className='font-semibold text-black xs:text-[18px]/[20px] md:text-[24px]/[26.8px] xl:text-[20px]/[20px]'>
             Main advantages
           </p>
-          <div className='flex items-center xs:flex-wrap xs:justify-between md:flex-nowrap md:justify-center md:gap-4 xl:justify-start xl:gap-5'>
+          <div className='flex items-center xs:flex-wrap xs:justify-between xs:gap-4 md:flex-nowrap md:justify-center md:gap-4 xl:justify-start xl:gap-5'>
             {listAdvantages.map((advantages) => (
               <div
                 key={advantages.id}
-                className='xs:max-[98px] md:max-[95px] xs:max-[85px] flex flex-col items-center gap-3 xl:max-w-[85px]'
+                className='md:max-[95px] xs:max-[85px] flex flex-col items-center gap-3 xs:max-w-[98px] xl:max-w-[85px]'
               >
                 <div className='flex flex-shrink-0 items-center justify-center rounded-2xl border border-solid border-[#E5E5EA] xs:size-[98px] md:size-[95px] xl:size-[85px]'>
                   <img src={advantages.icon} alt={advantages.title} className='xs:size-[42px] md:size-9' />
@@ -208,6 +200,29 @@ const ProductDetail = memo(() => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className='shadow-s-28 ml-auto flex w-fit items-center gap-[18px] rounded-xl bg-white pl-[18px] xs:mt-10 md:mt-[62px] xl:mr-5'>
+          <QuantityController
+            value={quantity}
+            onDecrease={handleQuantity}
+            onIncrease={handleQuantity}
+            max={Number(variants?.[0].priceOptions.quantity)}
+          />
+
+          <button
+            onClick={() => {
+              navigate({
+                pathname: `${PATH_PUBLIC_APP.product.root}/subscription/${productInfor?.id}`,
+                search: createSearchParams({ productQuantity: String(quantity) }).toString()
+              })
+            }}
+            className='flex items-center justify-center bg-ln-text-product shadow-s-25 transition duration-200 ease-in-out hover:scale-105 xs:gap-3 xs:rounded-[8px] xs:p-[17px] md:gap-4 md:rounded-xl md:px-[22.25px] md:py-[24px]'
+          >
+            <p className='font-semibold text-white xs:text-[16px]/[16px] md:text-[20px]/[20px]'>
+              {tabActive === tabs[1] ? 'HIRE' : 'BUY'}
+            </p>
+          </button>
         </div>
       </div>
     </section>

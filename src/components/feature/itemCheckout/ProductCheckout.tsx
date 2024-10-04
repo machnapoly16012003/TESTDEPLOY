@@ -18,7 +18,10 @@ const ProductCheckout: FC<IProductCheckoutProps> = memo(({ product }) => {
       </div>
 
       <div className='rp-box-content-item-checkout'>
-        <p className='rp-title-item-checkout'>{product.product.params.name}</p>
+        <div className='space-y-1'>
+          <p className='rp-title-item-checkout'>{product.product.params.name}</p>
+          <p className='text-[14px]/[14.7px] font-medium text-blackDark/[.64]'>Quantity: {product.quantityInCart}</p>
+        </div>
         <p className='rp-price-item-checkout'>${formatPrice(Number(product.variants[0].priceOptions.price), 2)}</p>
       </div>
     </div>

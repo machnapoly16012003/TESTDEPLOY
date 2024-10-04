@@ -231,7 +231,7 @@ const BannerSection = memo(({ isLoading, purchases, trend, product, scrollToSect
 
       <div
         data-aos='fade-right'
-        className='absolute left-10 top-[63%] z-40 flex items-center gap-4 xs:left-4 xs:top-[56%] xs:flex-col xs:items-start xs:gap-1 sm:items-start md:left-[38px] md:top-[52%] md:flex-col md:items-start md:gap-2 xl:left-9 xl:top-[450px] xl:flex-row 3xl:left-[180px] 3xl:top-[490px]'
+        className='absolute left-10 top-[63%] z-40 flex items-center gap-4 xs:left-4 xs:top-[56%] xs:flex-col xs:items-start xs:gap-1 sm:items-start md:left-[38px] md:top-[52%] md:flex-col md:items-center md:gap-2 xl:left-9 xl:top-[450px] xl:flex-row 3xl:left-[180px] 3xl:top-[490px]'
       >
         <img src={images.icon.action_3D} alt='action 3D' className='xs:size-10 md:size-12 xl:size-[60px]' />
         <p className='text-blackDark/[.68] xs:text-[12px]/[18px] md:text-[16px]/[24px] xl:text-[18px]/[27px]'>

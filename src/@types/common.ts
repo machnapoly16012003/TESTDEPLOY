@@ -9,4 +9,5 @@ export type QueryConfig = {
 
 export interface ListConfig {
   subscription?: string
+  productQuantity?: string
 }

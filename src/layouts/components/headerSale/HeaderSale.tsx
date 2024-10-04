@@ -53,7 +53,10 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
     >
       <div className='flex items-center xs:gap-2 md:gap-4'>
         <div className='flex items-center justify-between rounded-[50%] bg-gray-100 lg:hidden'>
-          <button onClick={toggleMenu} className='relative rounded-[50%] bg-white text-2xl xs:p-[12px] md:p-[16px]'>
+          <button
+            onClick={toggleMenu}
+            className='relative rounded-[50%] bg-white text-2xl xs:p-[12px] md:p-[12px] xl:p-[16px]'
+          >
             <FaBars className='relative z-10' />
           </button>
           {isMenuOpen && (
@@ -109,7 +112,7 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
                   }}
                   className={classNames(
                     pathname === PATH_PUBLIC_APP.gettingStarted && 'rp-text-linear',
-                    'hover:scale-[101%] hover:rp-text-linear'
+                    'px-10 text-[16px] hover:scale-[101%] hover:rp-text-linear'
                   )}
                 >
                   Getting started
@@ -152,7 +155,7 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
                   }
                   className={classNames(
                     pathname === PATH_PUBLIC_APP.components && 'rp-text-linear',
-                    'hover:scale-[101%] hover:rp-text-linear'
+                    'px-10 text-[16px] hover:scale-[101%] hover:rp-text-linear'
                   )}
                 >
                   Components
@@ -176,7 +179,7 @@ const HeaderSale: React.FunctionComponent<HeaderProps> = memo(() => {
                   }
                   className={classNames(
                     pathname === PATH_PUBLIC_APP.document && 'rp-text-linear',
-                    'hover:scale-[101%] hover:rp-text-linear'
+                    'px-10 text-[16px] hover:scale-[101%] hover:rp-text-linear'
                   )}
                 >
                   Documentation
