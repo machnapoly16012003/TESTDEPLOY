@@ -189,6 +189,7 @@ export default {
         'ln-text-getting': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-line-footer': 'linear-gradient(180deg, rgba(205, 131, 255, 0.2) 0.45%, rgba(205, 131, 255, 0) 93.86%)',
         'ln-text-product': 'linear-gradient(126deg, #11B0F2 7.58%, #F200F2 92.42%)',
+        'ln-text-product-left': 'linear-gradient(145deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-text-product-detail':
           'linear-gradient(180deg, rgba(173, 173, 173, 0) 0%, rgba(217, 217, 217, 0.4) 50%, rgba(173, 173, 173, 0) 100%)',
         'ln-product-card': 'linear-gradient(180deg, #2B2680 0%, #19174C 100%)',

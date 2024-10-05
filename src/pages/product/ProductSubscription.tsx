@@ -32,9 +32,7 @@ const ProductSubscription = memo(() => {
 
   const queryConfig: QueryConfig = useQueryConfig()
 
-  console.log('queryConfig', queryConfig)
-
-  const [subSelected, setSubSelected] = useState<number>(0)
+  const [subSelected, setSubSelected] = useState<number>(listSubscriptions[1].id)
   const [activeSlide, setActiveSlide] = useState<number>(0)
 
   const subscriptionSelected = useMemo(
@@ -85,15 +83,42 @@ const ProductSubscription = memo(() => {
 
         <h3 className='text-[36px]/[36px] font-semibold text-black xs:hidden md:flex'>Choose Subscription</h3>
 
-        <div className='my-8 items-center gap-5 xs:hidden md:flex'>
-          {listSubscriptions.map((subscription) => (
-            <BoxSubscription
-              key={subscription.id}
-              subscription={subscription}
-              isSelected={subSelected === subscription.id}
-              handleSelect={handleSelectSubscription}
-            />
-          ))}
+        <div className='my-8 min-h-[324px] items-center gap-[10px] xs:hidden md:flex'>
+          {listSubscriptions.map((subscription) => {
+            const isSelected = subSelected === subscription.id
+            return (
+              <div
+                key={subscription.id}
+                className={classNames(
+                  isSelected ? 'bg-white shadow-s-28' : 'bg-transparent',
+                  'min-h-[324px] rounded-xl p-3 transition-all duration-300 ease-in-out'
+                )}
+              >
+                <BoxSubscription
+                  subscription={subscription}
+                  isSelected={isSelected}
+                  handleSelect={handleSelectSubscription}
+                  className='relative z-20'
+                />
+                <button
+                  onClick={handleCheckout}
+                  className={classNames(
+                    isSelected ? 'translate-y-3 opacity-100' : '-translate-y-11 opacity-0',
+                    'hover:bg-ln-text-product-left z-10 flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-3 transition duration-300 ease-in-out hover:scale-[101%]'
+                  )}
+                >
+                  <p className='font-semibold text-white xs:text-[16px]/[20px] md:text-[16px]/[20px] xl:text-[16px]/[20px]'>
+                    Pay $
+                    {formatLocaleString(
+                      Number(variants?.[0].priceOptions.price) / 10 ** 6 +
+                        (subSelected === 0 ? 0 : Number(subscriptionSelected?.subscription) / 10 ** 6)
+                    )}
+                    .00
+                  </p>
+                </button>
+              </div>
+            )
+          })}
         </div>
 
         <div className='relative mb-7 flex justify-center'>
@@ -162,12 +187,12 @@ const ProductSubscription = memo(() => {
         </div>
 
         <div className='w-full'>
-          <div className='w-full xs:mb-4 xs:space-y-2 md:mb-5 md:space-y-4 xl:space-y-3'>
+          <div className='w-full xs:mb-4 xs:space-y-2 md:mb-5 md:space-y-4 xl:space-y-4'>
             <div className='flex w-full items-center justify-between'>
               <span className='text-white/[.72] xs:text-[14px]/[24px] md:text-[20px]/[28px] xl:text-[16px]/[24px]'>
                 Device price
               </span>
-              <span className='font-semibold text-white xs:text-[16px]/[24px] md:text-[24px]/[32px] xl:text-[18px]/[24px]'>
+              <span className='font-semibold tracking-wide text-white xs:text-[16px]/[24px] md:text-[24px]/[32px] xl:text-[18px]/[24px]'>
                 ${formatLocaleString(Number(variants?.[0].priceOptions.price) / 10 ** 6)}.00
               </span>
             </div>
@@ -175,25 +200,24 @@ const ProductSubscription = memo(() => {
               <span className='text-white/[.72] xs:text-[14px]/[24px] md:text-[20px]/[28px] xl:text-[16px]/[24px]'>
                 Subscription
               </span>
-              <span className='font-medium text-white xs:text-[16px]/[24px] md:text-[24px]/[32px] xl:text-[18px]/[24px]'>
+              <span className='font-medium tracking-wide text-white xs:text-[16px]/[24px] md:text-[24px]/[32px] xl:text-[18px]/[24px]'>
                 ${subSelected === 0 ? 0 : formatLocaleString(Number(subscriptionSelected?.subscription) / 10 ** 6)}.00
               </span>
             </div>
+            <div className='flex w-full items-center justify-between'>
+              <span className='text-white/[.72] xs:text-[14px]/[24px] md:text-[20px]/[28px] xl:text-[16px]/[24px]'>
+                Subtotal
+              </span>
+              <span className='font-medium tracking-wide text-white xs:text-[16px]/[24px] md:text-[24px]/[32px] xl:text-[18px]/[24px]'>
+                $
+                {formatLocaleString(
+                  Number(variants?.[0].priceOptions.price) / 10 ** 6 +
+                    (subSelected === 0 ? 0 : Number(subscriptionSelected?.subscription) / 10 ** 6)
+                )}
+                .00
+              </span>
+            </div>
           </div>
-
-          <button
-            onClick={handleCheckout}
-            className='flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] transition duration-200 ease-in-out hover:scale-105'
-          >
-            <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[26px]/[30px] xl:text-[20px]/[20px]'>
-              Pay $
-              {formatLocaleString(
-                Number(variants?.[0].priceOptions.price) / 10 ** 6 +
-                  (subSelected === 0 ? 0 : Number(subscriptionSelected?.subscription) / 10 ** 6)
-              )}
-              .00
-            </p>
-          </button>
         </div>
       </div>
     </section>
