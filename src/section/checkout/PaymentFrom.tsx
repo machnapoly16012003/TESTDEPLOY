@@ -29,6 +29,7 @@ const PaymentFrom = memo(
     const [cardType, setCardType] = useState<number>(0)
 
     const paymentMethod = watch('paymentMethod')
+    const walletAddress = watch('walletAddress')
 
     useEffect(() => {
       if (paymentMethod === 'wallet-address') {
@@ -213,14 +214,14 @@ const PaymentFrom = memo(
                       )
                     })}
                   </div>
-                  <div className='col-span-1 flex flex-1 items-center justify-end xs:flex-col xs:gap-3 md:flex-row md:gap-[35px]'>
+                  <div className='col-span-1 flex flex-1 items-center xs:flex-col xs:justify-center xs:gap-3 md:flex-row md:justify-center md:gap-[35px] lg:justify-center xl:justify-end 3xl:justify-center'>
                     <p className='text-[18px]/[22px] font-bold'>OR</p>
                     <div className='flex flex-col items-center gap-4'>
                       <div className='space-y-2 text-center'>
                         <p className='text-[14px]/[16.94px] font-medium'>Scan QR to Pay</p>
                         <p className='text-[12px]/[14.52px]'>Sufficient wallet balance required</p>
                       </div>
-                      <div className='shadow-s-30 rounded-xl bg-white p-2 xs:size-[230px] md:size-[230px] xl:size-[230px]'>
+                      <div className='rounded-xl bg-white p-2 shadow-s-30 xs:size-[230px] md:size-[230px] xl:size-[230px]'>
                         <img src={images.image.QR} alt='QR' className='size-full rounded-[7.8px]' />
                       </div>
                     </div>
@@ -257,7 +258,9 @@ const PaymentFrom = memo(
 
             {paymentMethod === 'wallet-address' && (
               <button
+                disabled={walletAddress === ''}
                 className={classNames(
+                  walletAddress === '' && 'opacity-50',
                   'z-10 mt-2 flex w-[105px] items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-3 transition duration-300 ease-in-out hover:scale-[101%] hover:bg-ln-text-product-left'
                 )}
               >

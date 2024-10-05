@@ -114,7 +114,7 @@ function RadioWalletGroupField({
                               field.onChange(value)
                             }}
                             checked={field.value === option.address}
-                            className='checked:after:content-[" "] hover:shadow-avatar absolute right-[10px] top-[10px] z-20 flex size-5 cursor-pointer appearance-none items-center justify-center rounded-full border-[1.5px] border-solid transition-all duration-300 ease-linear checked:z-10 checked:bg-[#2F373C] checked:after:absolute checked:after:left-[6.9px] checked:after:top-[3px] checked:after:block checked:after:h-[10px] checked:after:w-[5px] checked:after:rotate-[45deg] checked:after:border-b-[2px] checked:after:border-r-[2px] checked:after:border-solid checked:after:border-white'
+                            className='checked:after:content-[" "] hover:shadow-avatar absolute right-[10px] top-[10px] z-20 flex size-5 cursor-pointer appearance-none items-center justify-center rounded-full border-[1.5px] border-solid transition-all duration-300 ease-linear checked:z-10 checked:bg-[#2F373C] checked:after:absolute checked:after:left-[6.9px] checked:after:top-[3.5px] checked:after:block checked:after:h-[10px] checked:after:w-[5px] checked:after:rotate-[45deg] checked:after:border-b-[2px] checked:after:border-r-[2px] checked:after:border-solid checked:after:border-white'
                           />
                         </div>
                       </SwiperSlide>

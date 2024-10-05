@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { Dispatch, FC, memo, SetStateAction } from 'react'
+import { useFormContext } from 'react-hook-form'
 import { Dialog } from '~/components/shared/dialog'
 import RadioWalletGroupField from '~/components/shared/form/RadioWalletGroupField'
 import { CloseIcon } from '~/components/shared/icon'
@@ -12,6 +13,10 @@ type ISelectCardPaymentDialogProps = {
 
 const SelectCardPaymentDialog: FC<ISelectCardPaymentDialogProps> = memo(({ open, setOpen }) => {
   const { listWallets } = useAppSelector((s) => s.cardPayment)
+
+  const { watch } = useFormContext()
+
+  const walletAddress = watch('walletAddress')
 
   return (
     <Dialog
@@ -40,8 +45,10 @@ const SelectCardPaymentDialog: FC<ISelectCardPaymentDialogProps> = memo(({ open,
 
         <div className='w-full px-5'>
           <button
+            disabled={walletAddress === ''}
             onClick={() => setOpen(false)}
             className={classNames(
+              walletAddress === '' && 'opacity-50',
               'z-10 flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-3 transition duration-300 ease-in-out hover:scale-[101%] hover:bg-ln-text-product-left'
             )}
           >

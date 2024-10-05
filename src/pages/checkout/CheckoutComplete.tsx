@@ -19,7 +19,10 @@ const CheckoutComplete = memo(() => {
   const queryConfig: QueryConfig = useQueryConfig()
 
   const listProductCheckouts = useMemo(
-    () => listProducts.filter((p) => p.product.id === productId),
+    () =>
+      listProducts
+        .filter((p) => p.product.id === productId)
+        .map((p) => ({ ...p, quantityInCart: Number(queryConfig.productQuantity) })),
     [productId, listProducts]
   )
 
@@ -31,7 +34,7 @@ const CheckoutComplete = memo(() => {
   return (
     <div className='flex items-start xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row xl:gap-[86px]'>
       <section
-        className={`relative flex h-full w-full flex-1 flex-col py-20 xs:px-4 xs:pb-4 sm:px-4 md:px-10 md:pb-5 md:pt-[110px] lg:px-10 xl:min-h-[100vh] xl:pl-[100px] xl:pr-0 xl:pt-[116px]`}
+        className={`relative flex h-full w-full flex-1 flex-col py-20 xs:px-4 xs:pb-4 sm:px-4 md:px-10 md:pb-5 md:pt-[110px] lg:px-10 lg:pb-10 xl:min-h-[100vh] xl:pl-[100px] xl:pr-0 xl:pt-[116px]`}
       >
         <Lottie
           animationData={success}
@@ -80,7 +83,7 @@ const CheckoutComplete = memo(() => {
         </div>
       </section>
 
-      <section className='top-0 flex-col pt-[120px] xs:flex xs:w-full xs:gap-4 xs:bg-white xs:px-6 xs:py-8 sm:flex md:flex md:h-fit md:w-full md:gap-5 md:bg-white md:px-10 md:py-10 lg:flex lg:h-full lg:min-h-screen lg:w-[50%] lg:pt-24 xl:sticky xl:order-2 xl:min-h-[100vh] xl:w-fit xl:min-w-[625px] xl:gap-5 xl:bg-[#FCFDFF] xl:px-10 xl:py-10'>
+      <section className='top-0 h-full flex-1 flex-col pt-[120px] xs:flex xs:w-full xs:gap-4 xs:bg-white xs:px-6 xs:py-8 sm:flex md:flex md:h-fit md:w-full md:gap-5 md:bg-white md:px-10 md:py-10 lg:flex lg:h-full lg:min-h-[1024px] lg:w-[50%] lg:pt-24 xl:sticky xl:order-2 xl:min-h-[100vh] xl:w-fit xl:min-w-[625px] xl:gap-5 xl:bg-[#FCFDFF] xl:px-10 xl:py-10 xl:pt-28'>
         <div>
           <p className='rp-content-checkout-complete'>Your order: C994747546746</p>
           <p className='rp-content-checkout-complete'>Order date: Dec 24 2024 at 3:40 PM GMT +2</p>

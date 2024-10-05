@@ -68,7 +68,7 @@ const RadioGroupField = memo(
                                 field.onChange(value)
                               }}
                               checked={field.value === option.value}
-                              className='checked:after:content-[" "] hover:shadow-avatar size-5 shrink-0 appearance-none rounded-full bg-transparent transition-colors duration-200 ease-in-out checked:border-none checked:bg-[#D814F2] checked:after:absolute checked:after:left-[7.4px] checked:after:top-[4.45px] checked:after:block checked:after:h-[10px] checked:after:w-[5.2px] checked:after:rotate-[45deg] checked:after:border-b-[2px] checked:after:border-r-[2px] checked:after:border-solid checked:after:border-white focus:outline-none'
+                              className='checked:after:content-[" "] hover:shadow-avatar size-5 shrink-0 appearance-none rounded-full bg-transparent transition-colors duration-200 ease-in-out checked:border-none checked:bg-[#D814F2] checked:after:absolute checked:after:left-[7px] checked:after:top-[4px] checked:after:block checked:after:h-[10px] checked:after:w-[5.2px] checked:after:rotate-[45deg] checked:after:border-b-[2px] checked:after:border-r-[2px] checked:after:border-solid checked:after:border-white focus:outline-none'
                             />
                           </div>
                         </div>
