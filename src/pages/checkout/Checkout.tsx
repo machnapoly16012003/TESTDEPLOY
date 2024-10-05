@@ -260,18 +260,26 @@ const Checkout = memo(() => {
             </div>
 
             {step === 1 ? (
-              <button
-                onClick={handleSubmitShipping(handleShippingFrom)}
-                className={classNames(
-                  // shippingFormState.errors !== null ? 'bg-black/[.2]' : 'bg-ln-text-product hover:scale-[102%]',
-                  'bg-ln-text-product hover:scale-[102%]',
-                  'mt-4 flex w-full items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out xs:p-[16px] md:p-[18px]'
-                )}
-              >
-                <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[20px]/[20px] xl:text-[20px]/[20px]'>
-                  Continue
-                </p>
-              </button>
+              <div className='mt-4 flex items-center gap-2'>
+                <button
+                  onClick={() => window.history?.back()}
+                  className='flex h-[52px] min-w-20 items-center justify-center rounded-[8px] bg-blackDark/[.24] shadow-s-24'
+                >
+                  <ArrowLeftIcon color='white' />
+                </button>
+                <button
+                  onClick={handleSubmitShipping(handleShippingFrom)}
+                  className={classNames(
+                    // shippingFormState.errors !== null ? 'bg-black/[.2]' : 'bg-ln-text-product hover:scale-[102%]',
+                    'bg-ln-text-product hover:scale-[102%]',
+                    'mt-4 flex w-full items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out xs:p-[16px] md:p-[18px]'
+                  )}
+                >
+                  <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[20px]/[20px] xl:text-[20px]/[20px]'>
+                    Continue
+                  </p>
+                </button>{' '}
+              </div>
             ) : (
               <div className='mt-4 flex items-center gap-2'>
                 <button

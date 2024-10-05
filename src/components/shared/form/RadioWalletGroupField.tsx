@@ -45,7 +45,7 @@ function RadioWalletGroupField({
         return (
           <div className={`flex flex-col gap-1 xs:gap-0 xs:pl-0 md:pl-[10px]`}>
             <div className='flex flex-1 items-center justify-center gap-3'>
-              <div className='flex h-[243px] min-w-[278px] overflow-hidden xs:w-full'>
+              <div className='flex min-w-[278px] overflow-hidden xs:h-[238px] md:h-[243px]'>
                 <Swiper
                   ref={swiperWalletRef}
                   direction='vertical'
@@ -74,7 +74,7 @@ function RadioWalletGroupField({
                     prevEl: prevRef.current ? prevRef.current : undefined,
                     nextEl: nextRef.current ? nextRef.current : undefined
                   }}
-                  className='pt-[39px]'
+                  className='w-[278px] xs:pt-[40px] md:pt-[39px]'
                 >
                   {options.map((option, index) => {
                     const bgCard = listBgCards[index % listBgCards.length]
