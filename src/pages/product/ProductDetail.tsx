@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { memo, useCallback, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FaPause, FaPlay } from 'react-icons/fa6'
 import { createSearchParams, useNavigate, useParams } from 'react-router-dom'
 import { listAdvantages } from '~/assets/mock/product'
@@ -27,6 +27,8 @@ const ProductDetail = memo(() => {
   const [tabActive, setTabActive] = useState<string>(tabs[0])
   const [playVideo, setPlayVideo] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
+
+  useEffect(() => window.scrollTo(0, 0), [])
 
   const handleQuantity = useCallback((value: number) => setQuantity(value), [])
 
@@ -202,7 +204,7 @@ const ProductDetail = memo(() => {
           </div>
         </div>
 
-        <div className='shadow-s-28 ml-auto flex w-fit items-center gap-[18px] rounded-xl bg-white pl-[18px] xs:mt-10 md:mt-[62px] xl:mr-5'>
+        <div className='ml-auto flex w-fit items-center gap-[18px] rounded-xl bg-white pl-[18px] shadow-s-28 xs:mt-10 md:mt-[62px] xl:mr-5'>
           <QuantityController
             value={quantity}
             onDecrease={handleQuantity}

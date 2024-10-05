@@ -1,21 +1,21 @@
 import classNames from 'classnames'
-import { memo, useCallback, useMemo, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
 import { RiInformation2Fill } from 'react-icons/ri'
 import { createSearchParams, Link, useNavigate, useParams } from 'react-router-dom'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import { QueryConfig } from '~/@types/common'
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { BoxSubscription } from '~/components/feature/boxSubscription'
 import { SliderPagination } from '~/components/feature/sliderPagination'
 import { ArrowLeftIcon } from '~/components/shared/icon'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
+import useQueryConfig from '~/hooks/useQueryConfig'
 import { useAppSelector } from '~/redux/configStore'
 import { checkNumbersInString10, formatLocaleString } from '~/utils/format'
 import './styles.scss'
-import { QueryConfig } from '~/@types/common'
-import useQueryConfig from '~/hooks/useQueryConfig'
 
 const ProductSubscription = memo(() => {
   const swiperRef = useRef<any>(null)
@@ -34,6 +34,8 @@ const ProductSubscription = memo(() => {
 
   const [subSelected, setSubSelected] = useState<number>(listSubscriptions[1].id)
   const [activeSlide, setActiveSlide] = useState<number>(0)
+
+  useEffect(() => window.scrollTo(0, 0), [])
 
   const subscriptionSelected = useMemo(
     () => listSubscriptions.find((s) => s.id === subSelected),

@@ -54,7 +54,8 @@ const OtpDialog: FC<OtpDialogProps> = memo(({ productId, open, setOpen }) => {
           <img src={images.icon.otp} className='mx-auto xs:w-[80px] sm:w-[100px]' />
 
           <p className='mt-5 text-center font-semibold text-[#1E1B39] xs:px-0 xs:text-[16px]/[18.6px] md:px-10 md:text-[18px]/[24px] xl:px-0'>
-            Please enter your 6-digit authentication code <span className='xs:hidden md:flex'>from your email!</span>
+            Please enter your 6-digit authentication code{' '}
+            <span className='text-center xs:hidden md:block'>from your email!</span>
           </p>
 
           <div className='mb-4 mt-5'>

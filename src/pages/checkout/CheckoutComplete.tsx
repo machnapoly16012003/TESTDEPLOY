@@ -9,7 +9,7 @@ import { ProductCheckout, SupscriptionCheckout } from '~/components/feature/item
 import success from '~/constants/animation/success.json'
 import useQueryConfig from '~/hooks/useQueryConfig'
 import { useAppSelector } from '~/redux/configStore'
-import { formatLocaleString, formatPrice } from '~/utils/format'
+import { formatLocaleString } from '~/utils/format'
 
 const CheckoutComplete = memo(() => {
   const { id: productId } = useParams()
@@ -120,7 +120,7 @@ const CheckoutComplete = memo(() => {
               Subtotal
             </p>
             <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>
-              $ $
+              $
               {listProductCheckouts.length > 0
                 ? formatLocaleString(
                     (listProductCheckouts.reduce((total: number, currentProduct: IProduct) => {
@@ -144,7 +144,15 @@ const CheckoutComplete = memo(() => {
             >
               Shipping
             </p>
-            <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>+${formatPrice(5000000, 2)}</p>
+            <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatLocaleString(0)}.00</p>
+          </div>
+          <div className='flex w-full items-center justify-between'>
+            <p
+              className={`text-[#818EA1] xs:text-[16px]/[24px] md:text-[16px]/[24px] xl:text-[16px]/[24px] 3xl:text-[16px]/[24px]`}
+            >
+              Discount
+            </p>
+            <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatLocaleString(0)}.00</p>
           </div>
 
           <div className='flex items-center justify-between'>
