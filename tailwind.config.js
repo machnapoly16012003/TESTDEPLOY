@@ -245,7 +245,11 @@ export default {
       's-26': '0px -4px 4px 0px #00000040',
       's-27': '0px 4px 4px 0px #00000040',
       's-28': '0px 0px 8px 0px #00000014',
-      's-29': '0px 0px 10px 0px #0000001A'
+      's-29': '0px 0px 10px 0px #0000001A',
+      's-30': '0px 3.07px 24.53px 0px #12121233',
+      's-31': '0px 0px 106.67px 0px #0000000D',
+      's-32': '0px 0px 4px 0px #0000001A',
+      's-33': '-1px 2px 100px 0px #004DFF0D'
     }
   },
   plugins: [

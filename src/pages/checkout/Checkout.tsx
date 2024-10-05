@@ -5,7 +5,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 
 import { QueryConfig } from '~/@types/common'
-import { IProduct, PaymentForm, ShippingForm } from '~/@types/models'
+import { IProduct, ISubscription, PaymentForm, ShippingForm } from '~/@types/models'
 import images from '~/assets'
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { ProductCheckout, SupscriptionCheckout } from '~/components/feature/itemCheckout'
@@ -18,7 +18,7 @@ import { useAppSelector } from '~/redux/configStore'
 import { OtpDialog, PaymentFrom, ShippingInfoFrom } from '~/section/checkout'
 import { IPaymentFromRef } from '~/section/checkout/PaymentFrom'
 import { IShippingInfoFromRef } from '~/section/checkout/ShippingInfoFrom'
-import { formatPrice } from '~/utils/format'
+import { formatLocaleString } from '~/utils/format'
 
 const Checkout = memo(() => {
   const shippingRef = useRef<IShippingInfoFromRef>(null)
@@ -48,7 +48,7 @@ const Checkout = memo(() => {
 
   const { handleSubmit } = paymentForm
 
-  const [step, setStep] = useState<number>(1)
+  const [step, setStep] = useState<number>(2)
   const [refCode, setRefCode] = useState<string>('')
   const [errMessage, setErrMessage] = useState<string>('')
   const [showTooltip, setShowTootip] = useState<boolean>(false)
@@ -57,7 +57,7 @@ const Checkout = memo(() => {
     setShowTootip(true)
     setTimeout(() => {
       setShowTootip(false)
-    }, 3000)
+    }, 5000)
   }, [])
 
   const listProductCheckouts = useMemo(
@@ -93,6 +93,14 @@ const Checkout = memo(() => {
     [paymnetRef.current?.autoPayment]
   )
 
+  const handleBack = useCallback(() => {
+    if (step === 1) {
+      window.history.back()
+    } else {
+      setStep(1)
+    }
+  }, [step])
+
   return (
     <>
       <div className='flex items-start xs:flex-col md:flex-col xl:flex-row xl:gap-[86px]'>
@@ -104,6 +112,7 @@ const Checkout = memo(() => {
           <div className='space-y-2 rounded-xl bg-[#F8F8F9] xs:mt-2 xs:p-2 md:mt-4 md:px-3 md:py-[10px]'>
             <div className='relative flex w-full items-center gap-5 rounded-[8px] bg-[#EAEAEA] xs:h-[52px] xs:px-3 sm:h-[60px] md:px-5'>
               <input
+                disabled
                 placeholder='Enter ref code'
                 value={refCode}
                 onChange={(e) => {
@@ -137,27 +146,36 @@ const Checkout = memo(() => {
             </AnimationPage>
             <AnimationPage isVisble={step === 2} className={step === 2 ? 'flex' : 'hidden'}>
               <FormProvider {...paymentForm}>
-                <PaymentFrom
-                  ref={paymnetRef}
-                  onBack={() => setStep(1)}
-                  errMessage={errMessage}
-                  setErrMessage={setErrMessage}
-                />
+                <PaymentFrom ref={paymnetRef} errMessage={errMessage} setErrMessage={setErrMessage} />
               </FormProvider>
             </AnimationPage>
           </div>
+
+          <button
+            onClick={handleBack}
+            className={classNames('mt-5 items-center gap-4 xs:hidden sm:hidden md:hidden lg:hidden xl:flex')}
+          >
+            <ArrowLeftIcon color='#818EA170' />
+            <p className='text-[16px]/[16px] text-[#818EA1]'>Previous step</p>
+          </button>
         </section>
 
         {/* list item checkout */}
-        <section className='top-0 flex-col bg-[#FCFDFF] pt-[120px] xs:flex xs:w-full xs:gap-8 xs:px-6 xs:py-8 sm:flex md:flex md:h-fit md:w-full md:min-w-[625px] md:gap-5 md:px-10 md:py-10 lg:flex lg:h-fit lg:w-full xl:sticky xl:order-2 xl:min-h-[100vh] xl:w-fit xl:gap-5 xl:px-10 xl:py-10'>
+        <section className='top-0 flex-col bg-[#FCFDFF] pt-[120px] xs:flex xs:w-full xs:gap-8 xs:px-6 xs:py-8 sm:flex md:flex md:h-fit md:w-full md:min-w-[625px] md:gap-5 md:px-10 md:py-10 lg:flex lg:h-fit lg:w-full xl:sticky xl:order-2 xl:min-h-[100vh] xl:w-fit xl:gap-[22px] xl:px-10 xl:py-10 xl:pt-[125px]'>
           <h6 className='text-[20px]/[30px] font-bold capitalize'>Preview</h6>
-          <div className='mb-[30px] flex flex-1 flex-col xs:gap-6 md:gap-5 xl:gap-5'>
-            {listProductCheckouts.map((product, index) => (
-              <ProductCheckout key={`${product.product.id}-${index}`} product={product} />
-            ))}
-            {listSubCheckouts.map((sub, index) => (
-              <SupscriptionCheckout key={`${sub.id}-${index}`} subscription={sub} />
-            ))}
+          <div className='mb-[30px] flex flex-1 flex-col xs:gap-6 md:gap-5 xl:gap-6'>
+            <div className='space-y-2'>
+              <p className='text-[14px]/[21px] text-[#818EA1]'>Product</p>
+              {listProductCheckouts.map((product, index) => (
+                <ProductCheckout key={`${product.product.id}-${index}`} product={product} />
+              ))}
+            </div>
+            <div className='space-y-2'>
+              <p className='text-[14px]/[21px] text-[#818EA1]'>Subscription Package</p>
+              {listSubCheckouts.map((sub, index) => (
+                <SupscriptionCheckout key={`${sub.id}-${index}`} subscription={sub} />
+              ))}
+            </div>
           </div>
           <div className='flex flex-col gap-3'>
             <div className='flex w-full items-center justify-between'>
@@ -168,14 +186,22 @@ const Checkout = memo(() => {
               </p>
               <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>
                 $
-                {listProducts.length > 0
-                  ? formatPrice(
-                      listProducts.reduce((total: number, currentProduct: IProduct) => {
-                        return total + Number(currentProduct.variants?.[0]?.priceOptions.price)
-                      }, 0),
-                      2
+                {listProductCheckouts.length > 0
+                  ? formatLocaleString(
+                      (listProductCheckouts.reduce((total: number, currentProduct: IProduct) => {
+                        return (
+                          total +
+                          Number(currentProduct.variants?.[0]?.priceOptions.price) *
+                            Number(currentProduct.quantityInCart)
+                        )
+                      }, 0) +
+                        listSubCheckouts.reduce((total: number, currentSub: ISubscription) => {
+                          return total + Number(currentSub.subscription)
+                        }, 0)) /
+                        10 ** 6
                     )
-                  : formatPrice(0, 2)}
+                  : formatLocaleString(0)}
+                .00
               </p>
             </div>
 
@@ -191,14 +217,14 @@ const Checkout = memo(() => {
                   <span
                     className={classNames(
                       showTooltip ? 'opacity-100' : 'opacity-0',
-                      'shadow-s-29 absolute left-[150%] top-1/2 w-[189px] -translate-y-1/2 rounded-2xl bg-white p-4 text-[14px]/[24px] text-black transition-opacity group-hover:opacity-100'
+                      'absolute left-[150%] top-1/2 w-[189px] -translate-y-1/2 rounded-2xl bg-white p-4 text-[14px]/[24px] text-black shadow-s-29 transition-opacity group-hover:opacity-100'
                     )}
                   >
                     Calculate after you select the country you want to pick up from.
                   </span>
                 </div>
               </div>
-              <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatPrice(0, 2)}</p>
+              <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatLocaleString(0)}.00</p>
             </div>
 
             <div className='flex w-full items-center justify-between'>
@@ -207,21 +233,29 @@ const Checkout = memo(() => {
               >
                 Discount
               </p>
-              <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatPrice(0, 2)}</p>
+              <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>${formatLocaleString(0)}.00</p>
             </div>
 
             <div className='flex items-center justify-between'>
               <p className='text-[18px]/[27px] font-medium'>Total</p>
               <p className='text-[18px]/[27px] font-bold'>
                 $
-                {listProducts.length > 0
-                  ? formatPrice(
-                      listProducts.reduce((total: number, currentProduct: IProduct) => {
-                        return total + Number(currentProduct.variants?.[0]?.priceOptions.price)
-                      }, 0),
-                      2
+                {listProductCheckouts.length > 0
+                  ? formatLocaleString(
+                      (listProductCheckouts.reduce((total: number, currentProduct: IProduct) => {
+                        return (
+                          total +
+                          Number(currentProduct.variants?.[0]?.priceOptions.price) *
+                            Number(currentProduct.quantityInCart)
+                        )
+                      }, 0) +
+                        listSubCheckouts.reduce((total: number, currentSub: ISubscription) => {
+                          return total + Number(currentSub.subscription)
+                        }, 0)) /
+                        10 ** 6
                     )
-                  : formatPrice(0, 2)}
+                  : formatLocaleString(0)}
+                .00
               </p>
             </div>
 

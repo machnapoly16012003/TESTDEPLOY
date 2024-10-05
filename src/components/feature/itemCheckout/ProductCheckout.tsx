@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 import { IProduct } from '~/@types/models'
-import { formatPrice } from '~/utils/format'
+import { formatLocaleString } from '~/utils/format'
 
 interface IProductCheckoutProps {
   product: IProduct
@@ -22,7 +22,9 @@ const ProductCheckout: FC<IProductCheckoutProps> = memo(({ product }) => {
           <p className='rp-title-item-checkout'>{product.product.params.name}</p>
           <p className='text-[14px]/[14.7px] font-medium text-blackDark/[.64]'>Quantity: {product.quantityInCart}</p>
         </div>
-        <p className='rp-price-item-checkout'>${formatPrice(Number(product.variants[0].priceOptions.price), 2)}</p>
+        <p className='rp-price-item-checkout'>
+          ${formatLocaleString(Number(product.variants[0].priceOptions.price) / 10 ** 6)}.00
+        </p>
       </div>
     </div>
   )

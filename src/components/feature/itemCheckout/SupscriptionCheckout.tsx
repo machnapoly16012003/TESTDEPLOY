@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { ISubscription } from '~/@types/models'
 import images from '~/assets'
-import { formatPrice } from '~/utils/format'
+import { formatLocaleString } from '~/utils/format'
 
 interface ISupscriptionCheckoutProps {
   subscription: ISubscription
@@ -20,7 +20,7 @@ const SupscriptionCheckout: FC<ISupscriptionCheckoutProps> = memo(({ subscriptio
 
       <div className='rp-box-content-item-checkout'>
         <p className='rp-title-item-checkout'>{subscription.title} Subscription</p>
-        <p className='rp-price-item-checkout'>${formatPrice(Number(subscription.subscription), 2)}</p>
+        <p className='rp-price-item-checkout'>${formatLocaleString(Number(subscription.subscription) / 10 ** 6)}.00</p>
       </div>
     </div>
   )

@@ -104,7 +104,7 @@ const ProductSubscription = memo(() => {
                   onClick={handleCheckout}
                   className={classNames(
                     isSelected ? 'translate-y-3 opacity-100' : '-translate-y-11 opacity-0',
-                    'hover:bg-ln-text-product-left z-10 flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-3 transition duration-300 ease-in-out hover:scale-[101%]'
+                    'z-10 flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-3 transition duration-300 ease-in-out hover:scale-[101%] hover:bg-ln-text-product-left'
                   )}
                 >
                   <p className='font-semibold text-white xs:text-[16px]/[20px] md:text-[16px]/[20px] xl:text-[16px]/[20px]'>

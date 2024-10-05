@@ -9,6 +9,7 @@ import gg_play from '~/assets/logo/gg-play.png'
 import app_store from '~/assets/logo/app-store.png'
 import gg_play_black from '~/assets/logo/gg-play-black.png'
 import app_store_black from '~/assets/logo/app-store-black.png'
+import logo_trust_wallet from '~/assets/logo/logo-trust-wallet.png'
 
 import china from '~/assets/flag/china.png'
 import czech_republic from '~/assets/flag/czech-republic.png'
@@ -82,6 +83,7 @@ import subscription from '~/assets/icons/subscription.png'
 import otp from '~/assets/icons/otp.png'
 import action_3D from '~/assets/icons/3D_action.png'
 import alert_circle from '~/assets/icons/alert-circle.svg'
+import other from '~/assets/icons/other-icon.png'
 
 import gt_earth_1 from '~/assets/images/gt-earth-1.png'
 import gt_earth_2 from '~/assets/images/gt-earth-2.png'
@@ -111,7 +113,8 @@ const images = {
     gg_play,
     app_store,
     gg_play_black,
-    app_store_black
+    app_store_black,
+    logo_trust_wallet
   },
   flag: { china, czech_republic, france, indonesia, italy, japan, korea, spain, united_kingdom, vietnam },
   image: {
@@ -171,7 +174,8 @@ const images = {
     lock,
     otp,
     action_3D,
-    alert_circle
+    alert_circle,
+    other
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
   componets: { earth_line_big },

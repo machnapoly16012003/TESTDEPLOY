@@ -2,14 +2,14 @@ import Lottie from 'lottie-react'
 import { memo, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { QueryConfig } from '~/@types/common'
-import { IProduct } from '~/@types/models'
+import { IProduct, ISubscription } from '~/@types/models'
 import images from '~/assets'
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { ProductCheckout, SupscriptionCheckout } from '~/components/feature/itemCheckout'
 import success from '~/constants/animation/success.json'
 import useQueryConfig from '~/hooks/useQueryConfig'
 import { useAppSelector } from '~/redux/configStore'
-import { formatPrice } from '~/utils/format'
+import { formatLocaleString, formatPrice } from '~/utils/format'
 
 const CheckoutComplete = memo(() => {
   const { id: productId } = useParams()
@@ -62,9 +62,9 @@ const CheckoutComplete = memo(() => {
             </div>
 
             <div className='flex flex-col items-center gap-4'>
-              <div className='bg-ln-qr rounded-[14px] p-[4.5px]'>
+              <div className='rounded-[14px] bg-ln-qr p-[4.5px]'>
                 <div className='rounded-[10px] bg-white p-3'>
-                  <div className='bg-ln-qr w-[188px] flex-shrink-0 rounded-[9px] p-[2px]'>
+                  <div className='w-[188px] flex-shrink-0 rounded-[9px] bg-ln-qr p-[2px]'>
                     <img src={images.image.QR} alt='QR' className='size-full rounded-[7.8px]' />
                   </div>
                 </div>
@@ -95,13 +95,19 @@ const CheckoutComplete = memo(() => {
         </div>
 
         <h6 className='text-[20px]/[30px] font-bold capitalize xs:mt-10 md:mt-0'>Detail Information</h6>
-        <div className='mb-[30px] flex flex-1 flex-col xs:gap-6 md:gap-5 xl:gap-5'>
-          {listProductCheckouts.map((product, index) => (
-            <ProductCheckout key={`${product.product.id}-${index}`} product={product} />
-          ))}
-          {listSubCheckouts.map((sub, index) => (
-            <SupscriptionCheckout key={`${sub.id}-${index}`} subscription={sub} />
-          ))}
+        <div className='mb-[30px] flex flex-1 flex-col xs:gap-6 md:gap-5 xl:gap-6'>
+          <div className='space-y-2'>
+            <p className='text-[14px]/[21px] text-[#818EA1]'>Product</p>
+            {listProductCheckouts.map((product, index) => (
+              <ProductCheckout key={`${product.product.id}-${index}`} product={product} />
+            ))}
+          </div>
+          <div className='space-y-2'>
+            <p className='text-[14px]/[21px] text-[#818EA1]'>Subscription Package</p>
+            {listSubCheckouts.map((sub, index) => (
+              <SupscriptionCheckout key={`${sub.id}-${index}`} subscription={sub} />
+            ))}
+          </div>
         </div>
         <div className='flex flex-col gap-3'>
           <div className='flex w-full items-center justify-between'>
@@ -111,15 +117,22 @@ const CheckoutComplete = memo(() => {
               Subtotal
             </p>
             <p className='font-semibold xs:text-[16px]/[24px] md:text-[16px]/[24px]'>
-              $
-              {listProducts.length > 0
-                ? formatPrice(
-                    listProducts.reduce((total: number, currentProduct: IProduct) => {
-                      return total + Number(currentProduct.variants?.[0]?.priceOptions.price)
-                    }, 0),
-                    2
+              $ $
+              {listProductCheckouts.length > 0
+                ? formatLocaleString(
+                    (listProductCheckouts.reduce((total: number, currentProduct: IProduct) => {
+                      return (
+                        total +
+                        Number(currentProduct.variants?.[0]?.priceOptions.price) * Number(currentProduct.quantityInCart)
+                      )
+                    }, 0) +
+                      listSubCheckouts.reduce((total: number, currentSub: ISubscription) => {
+                        return total + Number(currentSub.subscription)
+                      }, 0)) /
+                      10 ** 6
                   )
-                : formatPrice(0, 2)}
+                : formatLocaleString(0)}
+              .00
             </p>
           </div>
           <div className='flex w-full items-center justify-between'>
@@ -135,14 +148,21 @@ const CheckoutComplete = memo(() => {
             <p className='text-[18px]/[27px] font-medium'>Total</p>
             <p className='text-[18px]/[27px] font-bold'>
               $
-              {listProducts.length > 0
-                ? formatPrice(
-                    listProducts.reduce((total: number, currentProduct: IProduct) => {
-                      return total + Number(currentProduct.variants?.[0]?.priceOptions.price)
-                    }, 0) + 5000000,
-                    2
+              {listProductCheckouts.length > 0
+                ? formatLocaleString(
+                    (listProductCheckouts.reduce((total: number, currentProduct: IProduct) => {
+                      return (
+                        total +
+                        Number(currentProduct.variants?.[0]?.priceOptions.price) * Number(currentProduct.quantityInCart)
+                      )
+                    }, 0) +
+                      listSubCheckouts.reduce((total: number, currentSub: ISubscription) => {
+                        return total + Number(currentSub.subscription)
+                      }, 0)) /
+                      10 ** 6
                   )
-                : formatPrice(0, 2)}
+                : formatLocaleString(0)}
+              .00
             </p>
           </div>
         </div>
@@ -163,9 +183,9 @@ const CheckoutComplete = memo(() => {
           </div>
 
           <div className='flex flex-col items-center gap-4'>
-            <div className='bg-ln-qr rounded-[14px] p-[4.5px] xs:order-2 sm:order-2 md:order-2 lg:order-2 xl:order-1'>
+            <div className='rounded-[14px] bg-ln-qr p-[4.5px] xs:order-2 sm:order-2 md:order-2 lg:order-2 xl:order-1'>
               <div className='rounded-[10px] bg-white p-3'>
-                <div className='bg-ln-qr w-[188px] flex-shrink-0 rounded-[9px] p-[2px]'>
+                <div className='w-[188px] flex-shrink-0 rounded-[9px] bg-ln-qr p-[2px]'>
                   <img src={images.image.QR} alt='QR' className='size-full rounded-[7.8px]' />
                 </div>
               </div>

@@ -12,7 +12,7 @@ const HeaderLayout = memo(() => {
       <Outlet />
       <Footer />
       <ScrollToTop
-        className='rounded-full xs:mb-0 md:mb-10 xl:mb-[160px]'
+        className='rounded-full xs:mb-0 md:mb-10 xl:mb-[35px]'
         style={{ zIndex: '100', borderRadius: '50%', width: '50px', height: '50px' }}
         smooth
         component={<IconBxChevronUp className='rounded-full bg-secondary text-black' />}
