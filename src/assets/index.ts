@@ -54,6 +54,11 @@ import bg_web_summit from '~/assets/bg/bg-web-summit.png'
 import bg_web_summit_sm from '~/assets/bg/bg-web-summit-sm.png'
 import bg_footer from '~/assets/bg/bg-footer.png'
 import bg_text_footer from '~/assets/bg/bg-text-footer.png'
+import bg_add_wallet from '~/assets/bg/bg-add-wallet.png'
+import bg_line_group from '~/assets/bg/line-group.png'
+import bg_card_1 from '~/assets/bg/bg-card-1.png'
+import bg_card_2 from '~/assets/bg/bg-card-2.png'
+import bg_card_3 from '~/assets/bg/bg-card-3.png'
 
 import happy_green from '~/assets/icons/happy-green.svg'
 import unhappy_pink from '~/assets/icons/unhappy-pink.svg'
@@ -84,6 +89,8 @@ import otp from '~/assets/icons/otp.png'
 import action_3D from '~/assets/icons/3D_action.png'
 import alert_circle from '~/assets/icons/alert-circle.svg'
 import other from '~/assets/icons/other-icon.png'
+import arrow_top from '~/assets/icons/arrow-top.svg'
+import arrow_bot from '~/assets/icons/arrow-bot.svg'
 
 import gt_earth_1 from '~/assets/images/gt-earth-1.png'
 import gt_earth_2 from '~/assets/images/gt-earth-2.png'
@@ -145,7 +152,19 @@ const images = {
     model_footer,
     shadow_product
   },
-  bg: { bg_vistor_card, bg_footer, gradient_box, bg_web_summit, bg_text_footer, bg_web_summit_sm },
+  bg: {
+    bg_vistor_card,
+    bg_footer,
+    gradient_box,
+    bg_web_summit,
+    bg_text_footer,
+    bg_web_summit_sm,
+    bg_add_wallet,
+    bg_line_group,
+    bg_card_1,
+    bg_card_2,
+    bg_card_3
+  },
   icon: {
     happy_green,
     unhappy_pink,
@@ -175,7 +194,9 @@ const images = {
     otp,
     action_3D,
     alert_circle,
-    other
+    other,
+    arrow_top,
+    arrow_bot
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
   componets: { earth_line_big },

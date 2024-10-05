@@ -17,5 +17,4 @@ export interface PaymentForm {
   expirationDate: string
   cvv: string
   walletAddress: string
-  nameOnWallet?: string
 }

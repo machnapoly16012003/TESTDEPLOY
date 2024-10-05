@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import cardPaymentReducer from './cardPayment/cardPayment.slice'
 import productReducer from './product/product.slice'
 
 export const store = configureStore({
   reducer: {
-    product: productReducer
+    product: productReducer,
+    cardPayment: cardPaymentReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
