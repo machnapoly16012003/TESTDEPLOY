@@ -17,10 +17,11 @@ export interface IPaymentFromRef {
 interface IPaymentFromProps {
   errMessage: string
   setErrMessage: Dispatch<SetStateAction<string>>
+  onConfirm: () => void
 }
 
 const PaymentFrom = memo(
-  forwardRef<IPaymentFromRef, IPaymentFromProps>(({ errMessage, setErrMessage }, ref) => {
+  forwardRef<IPaymentFromRef, IPaymentFromProps>(({ errMessage, setErrMessage, onConfirm }, ref) => {
     const { watch, setValue, clearErrors } = useFormContext()
 
     const { isOpen, setIsOpen, handleOpen } = useDialog()
@@ -272,7 +273,7 @@ const PaymentFrom = memo(
           </div>
         </div>
 
-        <SelectCardPaymentDialog open={isOpen} setOpen={setIsOpen} />
+        <SelectCardPaymentDialog open={isOpen} setOpen={setIsOpen} onConfirm={onConfirm} />
       </>
     )
   })

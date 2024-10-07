@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
 import { RiInformation2Fill } from 'react-icons/ri'
-import { createSearchParams, Link, useNavigate, useParams } from 'react-router-dom'
+import { createSearchParams, Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -21,6 +21,7 @@ const ProductSubscription = memo(() => {
   const swiperRef = useRef<any>(null)
 
   const navigate = useNavigate()
+  const { pathname } = useLocation()
 
   const { id: productId } = useParams()
 
@@ -35,7 +36,7 @@ const ProductSubscription = memo(() => {
   const [subSelected, setSubSelected] = useState<number>(listSubscriptions[1].id)
   const [activeSlide, setActiveSlide] = useState<number>(0)
 
-  useEffect(() => window.scrollTo(0, 0), [])
+  useEffect(() => window.scrollTo(0, 0), [pathname])
 
   const subscriptionSelected = useMemo(
     () => listSubscriptions.find((s) => s.id === subSelected),

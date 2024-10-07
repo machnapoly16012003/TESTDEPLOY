@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FaPause, FaPlay } from 'react-icons/fa6'
-import { createSearchParams, useNavigate, useParams } from 'react-router-dom'
+import { createSearchParams, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { listAdvantages } from '~/assets/mock/product'
 import { QuantityController } from '~/components/feature/quantityController'
 import { ArrowLeftIcon } from '~/components/shared/icon'
@@ -15,6 +15,7 @@ const ProductDetail = memo(() => {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const navigate = useNavigate()
+  const { pathname } = useLocation()
 
   const { id: productId } = useParams()
 
@@ -28,7 +29,7 @@ const ProductDetail = memo(() => {
   const [playVideo, setPlayVideo] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
 
-  useEffect(() => window.scrollTo(0, 0), [])
+  useEffect(() => window.scrollTo(0, 0), [pathname])
 
   const handleQuantity = useCallback((value: number) => setQuantity(value), [])
 

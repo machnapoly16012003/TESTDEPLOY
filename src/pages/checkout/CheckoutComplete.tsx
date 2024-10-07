@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react'
-import { memo, useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import { memo, useEffect, useMemo } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import { QueryConfig } from '~/@types/common'
 import { IProduct, ISubscription } from '~/@types/models'
 import images from '~/assets'
@@ -13,10 +13,13 @@ import { formatLocaleString } from '~/utils/format'
 
 const CheckoutComplete = memo(() => {
   const { id: productId } = useParams()
+  const { pathname } = useLocation()
 
   const { listProducts } = useAppSelector((s) => s.product)
 
   const queryConfig: QueryConfig = useQueryConfig()
+
+  useEffect(() => window.scrollTo(0, 0), [pathname])
 
   const listProductCheckouts = useMemo(
     () =>

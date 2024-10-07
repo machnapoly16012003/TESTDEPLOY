@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import classNames from 'classnames'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 import { QueryConfig } from '~/@types/common'
 import { IProduct, ISubscription, PaymentForm, ShippingForm } from '~/@types/models'
@@ -25,6 +25,7 @@ const Checkout = memo(() => {
   const paymnetRef = useRef<IPaymentFromRef>(null)
 
   const { id: productId } = useParams()
+  const { pathname } = useLocation()
 
   const { listProducts } = useAppSelector((s) => s.product)
 
@@ -46,12 +47,16 @@ const Checkout = memo(() => {
 
   const { handleSubmit: handleSubmitShipping } = shippingForm
 
-  const { handleSubmit } = paymentForm
+  const { watch, handleSubmit } = paymentForm
 
   const [step, setStep] = useState<number>(1)
   const [refCode, setRefCode] = useState<string>('')
   const [errMessage, setErrMessage] = useState<string>('')
   const [showTooltip, setShowTootip] = useState<boolean>(false)
+
+  const paymentMethod = watch('paymentMethod')
+
+  useEffect(() => window.scrollTo(0, 0), [pathname])
 
   useEffect(() => {
     setShowTootip(true)
@@ -146,7 +151,12 @@ const Checkout = memo(() => {
             </AnimationPage>
             <AnimationPage isVisble={step === 2} className={step === 2 ? 'flex' : 'hidden'}>
               <FormProvider {...paymentForm}>
-                <PaymentFrom ref={paymnetRef} errMessage={errMessage} setErrMessage={setErrMessage} />
+                <PaymentFrom
+                  ref={paymnetRef}
+                  errMessage={errMessage}
+                  setErrMessage={setErrMessage}
+                  onConfirm={handleSubmit(handlePaymentFrom)}
+                />
               </FormProvider>
             </AnimationPage>
           </div>
@@ -288,18 +298,20 @@ const Checkout = memo(() => {
                 >
                   <ArrowLeftIcon color='white' />
                 </button>
-                <button
-                  onClick={handleSubmit(handlePaymentFrom)}
-                  className={classNames(
-                    // !formState.isValid ? 'bg-black/[.2]' : 'bg-ln-text-product hover:scale-[102%]',
-                    'bg-ln-text-product hover:scale-[102%]',
-                    'flex w-full items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out xs:p-[16px] md:p-[18px]'
-                  )}
-                >
-                  <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[20px]/[20px] xl:text-[20px]/[20px]'>
-                    Continue
-                  </p>
-                </button>
+                {paymentMethod === 'credit-card' && (
+                  <button
+                    onClick={handleSubmit(handlePaymentFrom)}
+                    className={classNames(
+                      // !formState.isValid ? 'bg-black/[.2]' : 'bg-ln-text-product hover:scale-[102%]',
+                      'bg-ln-text-product hover:scale-[102%]',
+                      'flex w-full items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out xs:p-[16px] md:p-[18px]'
+                    )}
+                  >
+                    <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[20px]/[20px] xl:text-[20px]/[20px]'>
+                      Continue
+                    </p>
+                  </button>
+                )}
               </div>
             )}
           </div>

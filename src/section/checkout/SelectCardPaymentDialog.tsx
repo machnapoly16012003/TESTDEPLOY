@@ -9,9 +9,10 @@ import { useAppSelector } from '~/redux/configStore'
 type ISelectCardPaymentDialogProps = {
   open: boolean
   setOpen: Dispatch<SetStateAction<boolean>>
+  onConfirm: () => void
 }
 
-const SelectCardPaymentDialog: FC<ISelectCardPaymentDialogProps> = memo(({ open, setOpen }) => {
+const SelectCardPaymentDialog: FC<ISelectCardPaymentDialogProps> = memo(({ open, setOpen, onConfirm }) => {
   const { listWallets } = useAppSelector((s) => s.cardPayment)
 
   const { watch } = useFormContext()
@@ -46,7 +47,10 @@ const SelectCardPaymentDialog: FC<ISelectCardPaymentDialogProps> = memo(({ open,
         <div className='w-full px-5'>
           <button
             disabled={walletAddress === ''}
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              onConfirm()
+              setOpen(false)
+            }}
             className={classNames(
               walletAddress === '' && 'opacity-50',
               'z-10 flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-3 transition duration-300 ease-in-out hover:scale-[101%] hover:bg-ln-text-product-left'
