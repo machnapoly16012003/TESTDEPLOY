@@ -11,17 +11,6 @@ import gg_play_black from '~/assets/logo/gg-play-black.png'
 import app_store_black from '~/assets/logo/app-store-black.png'
 import logo_trust_wallet from '~/assets/logo/logo-trust-wallet.png'
 
-import china from '~/assets/flag/china.png'
-import czech_republic from '~/assets/flag/czech-republic.png'
-import france from '~/assets/flag/france.png'
-import indonesia from '~/assets/flag/indonesia.png'
-import italy from '~/assets/flag/italy.png'
-import japan from '~/assets/flag/japan.png'
-import korea from '~/assets/flag/korea.png'
-import spain from '~/assets/flag/spain.png'
-import united_kingdom from '~/assets/flag/united-kingdom.png'
-import vietnam from '~/assets/flag/vietnam.png'
-
 import current_view_top from '~/assets/images/current-view-top.svg'
 import current_view_bottom from '~/assets/images/current-view-bottom.svg'
 import dash_line from '~/assets/images/dash-line.png'
@@ -59,6 +48,8 @@ import bg_line_group from '~/assets/bg/line-group.png'
 import bg_card_1 from '~/assets/bg/bg-card-1.png'
 import bg_card_2 from '~/assets/bg/bg-card-2.png'
 import bg_card_3 from '~/assets/bg/bg-card-3.png'
+import bg_career_left from '~/assets/bg/bg-career-left.png'
+import bg_career_right from '~/assets/bg/bg-career-right.png'
 
 import happy_green from '~/assets/icons/happy-green.svg'
 import unhappy_pink from '~/assets/icons/unhappy-pink.svg'
@@ -123,7 +114,6 @@ const images = {
     app_store_black,
     logo_trust_wallet
   },
-  flag: { china, czech_republic, france, indonesia, italy, japan, korea, spain, united_kingdom, vietnam },
   image: {
     current_view_top,
     current_view_bottom,
@@ -163,7 +153,9 @@ const images = {
     bg_line_group,
     bg_card_1,
     bg_card_2,
-    bg_card_3
+    bg_card_3,
+    bg_career_left,
+    bg_career_right
   },
   icon: {
     happy_green,

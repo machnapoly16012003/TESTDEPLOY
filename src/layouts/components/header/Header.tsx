@@ -1,8 +1,11 @@
 import classNames from 'classnames'
-import { memo, useCallback, useEffect, useState } from 'react'
+import { memo, useCallback, useEffect, useRef, useState } from 'react'
+import toast from 'react-hot-toast'
 import { FaBars } from 'react-icons/fa6'
+import { RiInformation2Fill } from 'react-icons/ri'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import images from '~/assets'
+import { Button } from '~/components/shared/button'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,196 +14,144 @@ import {
 } from '~/components/shared/navigationMenu'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 
+const listNavbars = [
+  {
+    id: 1,
+    label: 'Getting started',
+    pathname: PATH_PUBLIC_APP.gettingStarted
+  },
+  {
+    id: 2,
+    label: 'Components',
+    pathname: PATH_PUBLIC_APP.components
+  },
+  {
+    id: 3,
+    label: 'Documentation',
+    pathname: PATH_PUBLIC_APP.document
+  },
+  {
+    id: 4,
+    label: 'Career',
+    pathname: PATH_PUBLIC_APP.career
+  },
+  {
+    id: 5,
+    label: 'Products & Applications',
+    pathname: ''
+  }
+]
+
 interface HeaderProps {}
 
 const Header: React.FunctionComponent<HeaderProps> = memo(() => {
   const navigate = useNavigate()
 
+  const windowRef = useRef(window)
+
   const { pathname } = useLocation()
 
+  const [scrolledTo100, setScrolledTo100] = useState<boolean>(false)
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = useCallback(() => {
     setMenuOpen(!isMenuOpen)
   }, [isMenuOpen])
 
-  // const handleAlert = () => {
-  //   alert('you do not have administrative rights, please contact the administrator.')
-  // }
-
   useEffect(() => {
-    window.addEventListener('scroll', function () {
-      const header = document.querySelector('header')
-      if (window.scrollY > 100) {
-        header?.classList.add('header-active')
-      } else {
-        header?.classList.remove('header-active')
+    const handleScroll = () => {
+      if (windowRef.current.scrollY >= 60 && !scrolledTo100) {
+        setScrolledTo100(true)
+      } else if (windowRef.current.scrollY < 60 && scrolledTo100) {
+        setScrolledTo100(false)
       }
-    })
-    return () => {}
-  }, [])
+    }
+
+    windowRef.current.addEventListener('scroll', handleScroll)
+    return () => windowRef.current.removeEventListener('scroll', handleScroll)
+  }, [scrolledTo100, windowRef])
 
   return (
-    <header className='shadow-md fixed left-0 top-0 z-[9999] w-full bg-white'>
-      <div className='header_desktop block h-[80px]'>
-        <div className='container-wrapper mx-auto flex h-full items-center justify-between'>
-          <div className='hidden-scroll flex items-center overflow-x-auto xs:gap-2 md:gap-10'>
-            <Link to='/' className='text-lg font-bold text-gray-800'>
-              <img src={images.logo.logo_fi} alt='logo-fiai' className='w-[50px] xs:w-10 xs:min-w-[40px]' />
-            </Link>
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
+    <header
+      className={classNames(
+        pathname === PATH_PUBLIC_APP.gettingStarted
+          ? !scrolledTo100
+            ? 'bg-transparent'
+            : 'bg-white/[.6]'
+          : 'bg-white/[.6]',
+        `2xs:p-4 2xs:px-3 fixed top-0 z-[500] flex max-h-[80px] w-full items-center justify-between shadow-s-26 backdrop-blur-xl transition-colors duration-300 ease-in-out xs:gap-3 xs:p-4 xs:px-3 sm:gap-4 sm:p-4 md:gap-5 xl:px-[100px] 3xl:px-[100px]`
+      )}
+    >
+      <div className='flex items-center xs:gap-2 md:gap-4'>
+        <div className='flex items-center justify-between rounded-[50%] bg-gray-100 lg:hidden'>
+          <button
+            onClick={toggleMenu}
+            className='relative rounded-[50%] bg-[#F8F8F9] text-2xl shadow-s-23 xs:p-[12px] md:p-[12px] xl:p-[16px]'
+          >
+            <FaBars className='relative z-10' />
+          </button>
+          {isMenuOpen && (
+            <div className='shadow-lg absolute left-10 top-16 z-10 rounded-md bg-white p-8'>
+              <ul className='space-y-2'>
+                {listNavbars.map((nav) => (
+                  <li
+                    key={nav.id}
+                    className={classNames(
+                      pathname === nav.pathname && 'rp-text-linear',
+                      'cursor-pointer hover:scale-[101%] hover:rp-text-linear'
+                    )}
+                    onClick={() => navigate(nav.pathname)}
+                  >
+                    {nav.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <Link to='/' className='w-fit'>
+          <div className='flex items-center gap-[5px] rounded-full bg-[#F8F8F9] p-[7px] shadow-s-23 xs:pr-[7px] sm:pr-[11px]'>
+            <img src={images.logo.logo_fi} alt='logo-fiai' className='size-[34px]' />
+            <p className='text-[18px]/[18.9px] font-bold xs:hidden sm:flex'>Fi Ai</p>
+          </div>
+        </Link>
+
+        <div className='xs:hidden sm:hidden md:hidden lg:block'>
+          <NavigationMenu>
+            <NavigationMenuList>
+              {listNavbars.map((nav) => (
+                <NavigationMenuItem key={nav.id}>
                   <NavigationMenuTrigger
                     onClick={() => {
-                      // (window.location.href = 'https://pre.fi.ai/')
-                      navigate(PATH_PUBLIC_APP.gettingStarted)
+                      navigate(nav.pathname)
                     }}
                     className={classNames(
-                      pathname === PATH_PUBLIC_APP.gettingStarted && 'rp-text-linear',
-                      'hover:scale-[101%] hover:rp-text-linear'
+                      pathname === nav.pathname && 'rp-text-linear',
+                      'px-3 text-[16px] font-medium hover:scale-[101%] hover:rp-text-linear'
                     )}
                   >
-                    Getting started
-                    {/* <TbLockCancel className='absolute left-[0px] top-[0px] text-[0.7em]' /> */}
+                    {nav.label}
                   </NavigationMenuTrigger>
-                  {/* <NavigationMenuContent>
-                    <ul className='grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
-                      <li className='row-span-3'>
-                        <NavigationMenuLink asChild>
-                          <a
-                            className='focus:shadow-md flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none'
-                            href='/'
-                          >
-                            <img src={images.logo.logo_fi} alt='logo-fiai' />
-                            <div className='mb-2 mt-4 text-lg font-medium'>shadcn/ui</div>
-                            <p className='text-sm leading-tight text-muted-foreground'>
-                              Beautifully designed components that you can copy and paste into your apps. Accessible.
-                              Customizable. Open Source.
-                            </p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <ListItem href='/docs' title='Introduction'>
-                        Re-usable components built using Radix UI and Tailwind CSS.
-                      </ListItem>
-                      <ListItem href='/docs/installation' title='Installation'>
-                        How to install dependencies and structure your app.
-                      </ListItem>
-                      <ListItem href='/docs/primitives/typography' title='Typography'>
-                        Styles for headings, paragraphs, lists...etc
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent> */}
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    onClick={() =>
-                      // document.querySelector('#ai-work')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
-                      navigate(PATH_PUBLIC_APP.components)
-                    }
-                    className={classNames(
-                      pathname === PATH_PUBLIC_APP.components && 'rp-text-linear',
-                      'hover:scale-[101%] hover:rp-text-linear'
-                    )}
-                  >
-                    Components
-                    {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
-                  </NavigationMenuTrigger>
-                  {/* <NavigationMenuContent>
-                    <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
-                      {menuBar.map((component) => (
-                        <ListItem key={component.title} title={component.title} href={component.href}>
-                          {component.description}
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent> */}
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    onClick={
-                      () => navigate(PATH_PUBLIC_APP.document)
-                      // document.querySelector('#in-store')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
-                    }
-                    className={classNames(
-                      pathname === PATH_PUBLIC_APP.document && 'rp-text-linear',
-                      'hover:scale-[101%] hover:rp-text-linear'
-                    )}
-                  >
-                    Documentation
-                    {/* <TbLockCancel className='absolute left-[3px] top-[0px] text-[0.7em]' /> */}
-                  </NavigationMenuTrigger>
-                  {/* <Link to=''>
-                    <NavigationMenuLink className={(navigationMenuTriggerStyle(), 'relative')} onClick={handleAlert}>
-                      Documentation
-                      <TbLockCancel className='absolute left-[-7px] top-[-8px] text-[0.7em]' />
-                    </NavigationMenuLink>
-                  </Link> */}
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-
-          {/* <div className='flex items-center gap-2'>
-            <div className='flex h-[40px] w-[100px] items-center justify-center overflow-hidden rounded-[20px] bg-primary-gradient bg-clip-text p-2 font-semibold text-transparent'>
-              <Link to='/' className='' onClick={handleAlert}>
-                Login
-              </Link>
-            </div>
-            <ButtonPrimary>
-              <Link to='/' className='' onClick={handleAlert}>
-                Register
-              </Link>
-            </ButtonPrimary>
-          </div> */}
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </div>
 
-      <div className='hidden items-center justify-between bg-gray-100 p-4'>
-        <button onClick={toggleMenu} className='relative rounded-[50%] bg-white text-2xl xs:p-[12px] md:p-[16px]'>
-          <FaBars className='relative z-10' />
-          {/* <TbLockCancel className='absolute left-[0px] top-[3px] text-[0.7em]' /> */}
-        </button>
-        {/* <ButtonPrimary>
-          <Link to='/#' className='' onClick={handleAlert}>
-            SIGN IN
-          </Link>
-        </ButtonPrimary> */}
-        {isMenuOpen && (
-          <div className='shadow-lg absolute left-10 top-16 z-10 rounded-md bg-white p-8'>
-            <ul className='space-y-2'>
-              <li
-                className={classNames(
-                  pathname === PATH_PUBLIC_APP.gettingStarted && 'rp-text-linear',
-                  'cursor-pointer hover:text-blue-500'
-                )}
-                onClick={() => navigate(PATH_PUBLIC_APP.gettingStarted)}
-              >
-                Getting started
-              </li>
-              <li
-                className={classNames(
-                  pathname === PATH_PUBLIC_APP.components && 'rp-text-linear',
-                  'cursor-pointer hover:text-blue-500'
-                )}
-                onClick={() => navigate(PATH_PUBLIC_APP.components)}
-              >
-                Components
-              </li>
-              <li
-                className={classNames(
-                  pathname === PATH_PUBLIC_APP.document && 'rp-text-linear',
-                  'cursor-pointer hover:text-blue-500'
-                )}
-                onClick={() => navigate(PATH_PUBLIC_APP.document)}
-              >
-                Documentation
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
+      <Button
+        onClick={() =>
+          toast('SignIn feature is currently unavailable. Please try again later.', {
+            icon: <RiInformation2Fill color='#5495FC' className='size-10' />
+          })
+        }
+        variant='linear'
+        className='h-[48px] w-[98px]'
+        classNameText='text-[16px]/[16.8px] text-white'
+      >
+        Sign in
+      </Button>
     </header>
   )
 })

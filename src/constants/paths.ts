@@ -14,6 +14,7 @@ export const PATH_PUBLIC_APP = {
   document: '/document',
   gettingStarted: '/getting-started',
   components: '/components',
+  career: '/career',
   product: {
     root: '/product',
     list: '/products',

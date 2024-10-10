@@ -3,8 +3,7 @@ import { Navigate, useRoutes } from 'react-router-dom'
 
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import { BaseLayout } from '~/layouts/baseLayout'
-import { HeaderLayout } from '~/layouts/headerLayout'
-import { SaleLayout } from '~/layouts/saleLayout'
+import { Career } from '~/pages/career'
 import { Checkout, CheckoutComplete } from '~/pages/checkout'
 import { Components } from '~/pages/components'
 import { Document } from '~/pages/document'
@@ -38,23 +37,11 @@ function useRouteElements() {
           {
             path: removeSlash(PATH_PUBLIC_APP.components),
             element: <Components />
-          }
-        ]
-      },
-      {
-        path: '',
-        element: <SaleLayout />,
-        children: [
+          },
           {
             path: removeSlash(PATH_PUBLIC_APP.gettingStarted),
             element: <GettingStarted />
-          }
-        ]
-      },
-      {
-        path: '',
-        element: <HeaderLayout />,
-        children: [
+          },
           {
             path: removeSlash(PATH_PUBLIC_APP.product.detail),
             element: <ProductDetail />
@@ -70,6 +57,10 @@ function useRouteElements() {
           {
             path: removeSlash(PATH_PUBLIC_APP.checkout.complete),
             element: <CheckoutComplete />
+          },
+          {
+            path: removeSlash(PATH_PUBLIC_APP.career),
+            element: <Career />
           }
         ]
       }
