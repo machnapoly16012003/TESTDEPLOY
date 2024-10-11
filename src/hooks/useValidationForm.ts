@@ -80,10 +80,28 @@ function useValidationForm() {
       .matches(/^((0|\+84)(3|5|7|8|9))[0-9]{8}$/, 'Phone number is invalid.')
   })
 
+  const applyValidateFrom = yup.object({
+    fullName: yup
+      .string()
+      .required(VALIDATION_CONTENT.REQUIRED('full name'))
+      .matches(/^[^\d]*$/, 'User name must not contain numbers'),
+    gender: yup.number().required(VALIDATION_CONTENT.SELECT('gender')),
+    phone: yup
+      .string()
+      .min(10, 'Phone number must be ten digits')
+      .max(10, 'Phone number must be ten digits')
+      .required(VALIDATION_CONTENT.REQUIRED('phone number'))
+      .matches(/^\d+$/, 'Phone number must contain only digits.')
+      .matches(/^((0|\+84)(3|5|7|8|9))[0-9]{8}$/, 'Phone number is invalid.'),
+    addressDetail: yup.string().required(VALIDATION_CONTENT.REQUIRED('address detail')),
+    email: yup.string().required(VALIDATION_CONTENT.REQUIRED('email')).email('Email is not in correct format.')
+  })
+
   return {
     shippingFrom,
     paymentFrom,
-    registerFrom
+    registerFrom,
+    applyValidateFrom
   }
 }
 

@@ -47,7 +47,7 @@ const Benefits = memo(() => {
       </div>
 
       <div data-aos='fade-down' className='relative mt-10 h-[550px] scale-100 lg:px-10 xl:px-0 3xl:scale-110'>
-        <div className='bg-ln-benefit shadow-s-35 h-[511px] flex-shrink-0 rounded-[120px] pb-[31px] pt-[70px] lg:w-full xl:ml-[60px] xl:mt-[43px] xl:w-[1097px] 3xl:ml-[200px] 3xl:mt-[120px]'>
+        <div className='h-[511px] flex-shrink-0 rounded-[120px] bg-ln-benefit pb-[31px] pt-[70px] shadow-s-35 lg:w-full xl:ml-[60px] xl:mt-[43px] xl:w-[1097px] 3xl:ml-[200px] 3xl:mt-[120px]'>
           <div className='space-y-5 lg:mx-auto lg:max-w-[750px] xl:ml-[136px] xl:max-w-[869px]'>
             {listBenefitContents.map((row) => (
               <p key={row.id} className='text-[18px]/[32px] font-bold'>

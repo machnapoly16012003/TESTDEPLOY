@@ -11,9 +11,9 @@ function App() {
 
   const { isWebGLBAvailable } = useCheckGLB()
 
-  if (!isWebGLBAvailable()) {
-    alert('WebGL không được hỗ trợ trên thiết bị của bạn.')
-  }
+  // if (!isWebGLBAvailable()) {
+  //   alert('WebGL không được hỗ trợ trên thiết bị của bạn.')
+  // }
 
   useEffect(() => {
     AOS.init({

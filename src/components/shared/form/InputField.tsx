@@ -108,7 +108,7 @@ const InputField = memo(
                 </div>
               )}
               <div className='min-h-[18px]'>
-                <p className='2xs:text-[13px] ml-2 text-red-500 xs:text-[13px] sm:text-[14px]'>
+                <p className='2xs:text-[13px] ml-2 text-left text-red-500 xs:text-[13px] sm:text-[14px]'>
                   {fieldState.error && fieldState.error.message}
                 </p>
               </div>

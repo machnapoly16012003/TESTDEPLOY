@@ -27,7 +27,7 @@ const Dialog = memo(({ open, setOpen, children, className, classNameBg, zIndex }
           />
         </TransitionChild>
         <div className='fixed inset-0 z-10 w-screen overflow-y-auto'>
-          <div className='flex min-h-full justify-center p-4 text-center xs:items-center sm:items-center sm:p-0'>
+          <div className='flex min-h-full justify-center p-4 text-center xs:items-center sm:items-center sm:p-0 xl:p-5'>
             <TransitionChild
               enter='ease-out duration-300'
               enterFrom='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'

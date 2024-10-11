@@ -1,4 +1,5 @@
 import { OptionSelect } from '~/@types/common'
+import { Gender } from './enums'
 
 export const FILTER_DAY: OptionSelect[] = [
   { value: '1d', label: 'Daily' },
@@ -46,5 +47,16 @@ export const LIST_LANGUAGE_OPTIONS: OptionSelect[] = [
   {
     value: 'vi',
     label: 'Bahasa'
+  }
+]
+
+export const LIST_GENDER_OPTIONS: OptionSelect[] = [
+  {
+    value: Gender.MALE,
+    label: 'Male'
+  },
+  {
+    value: Gender.FEMALE,
+    label: 'Female'
   }
 ]
