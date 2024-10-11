@@ -226,6 +226,22 @@ button {
   background-clip: text;
 }
 
+.text-gradien-benefit {
+  width: fit-content;
+  background:
+    radial-gradient(42.85% 184.29% at 15.34% 39.06%, rgba(131, 113, 243, 0.5) 0%, rgba(69, 156, 236, 0) 100%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(130.16% 129.69% at 63.64% -12.5%, #ea80ff 0%, rgba(86, 84, 74, 0.12) 100%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(80.68% 51.24% at 19.32% 40.62%, #1864b7 0%, rgba(23, 61, 102, 0.88) 100%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(28.98% 110.94% at 43.75% -31.25%, rgba(24, 17, 24, 0.53) 21.25%, #000000 100%)
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  // linear-gradient(0deg, #030303, #030303);
+  color: transparent;
+  background-clip: text;
+}
+
 @layer utilities {
   .animate-spin-slow {
     @apply animate-spin;

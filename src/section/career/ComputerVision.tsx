@@ -7,7 +7,7 @@ const ComputerVision = memo(() => {
   const [inxActiveBox, setInxActiveBox] = useState<number>(1)
 
   return (
-    <div className='relative flex items-start pt-[70px] xl:max-w-[1440px] 3xl:max-w-full'>
+    <section className='relative flex items-start pt-[70px] xl:max-w-[1440px] 3xl:max-w-full'>
       <div className='absolute left-[100px] top-[70px] font-semibold text-black xl:w-[650px] 3xl:left-[200px]'>
         <h1 className='xs:text-[70px]/[52px] sm:text-[70px]/[52px] md:text-[70px]/[52px] lg:text-[70px]/[52px] xl:text-[80px]/[66px]'>
           AI Developer
@@ -45,7 +45,7 @@ const ComputerVision = memo(() => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 })
 

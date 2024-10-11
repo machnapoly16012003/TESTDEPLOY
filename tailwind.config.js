@@ -201,7 +201,8 @@ export default {
         'ln-box-sub-card-border': 'linear-gradient(93.33deg, #11B0F2 -1.77%, #F200F2 106.44%)',
         'ln-qr': 'linear-gradient(270deg, rgba(17, 176, 242, 0.2) 0%, rgba(242, 0, 242, 0.2) 100%)',
         'ln-input': 'linear-gradient(126.38deg, rgba(17, 176, 242, 0.4) 7.58%, rgba(242, 0, 242, 0.4) 92.42%)',
-        'ln-button-footer': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)'
+        'ln-button-footer': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
+        'ln-benefit': 'linear-gradient(180deg, #EBF7FF 0%, #FFFFFF 100%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'
@@ -250,7 +251,8 @@ export default {
       's-31': '0px 0px 106.67px 0px #0000000D',
       's-32': '0px 0px 4px 0px #0000001A',
       's-33': '-1px 2px 100px 0px #004DFF0D',
-      's-34': '0px 5px 40px 0px #0000001A'
+      's-34': '0px 5px 40px 0px #0000001A',
+      's-35': '15px 20px 50px 0px #4064E41A'
     }
   },
   plugins: [

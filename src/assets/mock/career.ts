@@ -37,3 +37,23 @@ export const listVisions = [
     ]
   }
 ]
+
+export const listBenefitContents = [
+  {
+    id: 1,
+    title: 'Competitive Salary & Compensation:',
+    content:
+      'We offer a salary that aligns with your skills and industry standards, ensuring you feel valued and rewarded.'
+  },
+  {
+    id: 2,
+    title: 'Transparent & Fair Culture:',
+    content:
+      'We prioritize transparency and fairness, recognizing and rewarding your contributions in a dynamic and supportive work environment.'
+  },
+  {
+    id: 3,
+    title: 'High Promotion Opportunities:',
+    content: 'Enjoy career advancement with the potential to increase your salary by 30% - 50% per year.'
+  }
+]

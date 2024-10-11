@@ -104,6 +104,18 @@ import vision_ball_1 from '~/assets/images/vision-ball-1.png'
 import vision_ball_2 from '~/assets/images/vision-ball-2.png'
 import vision_ball_3 from '~/assets/images/vision-ball-3.png'
 
+import text_benefits from '~/assets/images/text-benefits.png'
+import black_activities from '~/assets/images/black-activities.png'
+import black_dynamic from '~/assets/images/black-dynamic.png'
+import black_health from '~/assets/images/black-health.png'
+import black_paid_time from '~/assets/images/black-paid-time.png'
+import black_salary from '~/assets/images/black-salary.png'
+import ln_activities from '~/assets/images/ln-activities.png'
+import ln_dynamic from '~/assets/images/ln-dynamic.png'
+import ln_health from '~/assets/images/ln-health.png'
+import ln_paid_time from '~/assets/images/ln-paid-time.png'
+import ln_salary from '~/assets/images/ln-salary.png'
+
 const images = {
   logo: {
     logo_e_commerce,
@@ -197,6 +209,19 @@ const images = {
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
   vision: { vision_ball_big, vision_ball_1, vision_ball_2, vision_ball_3 },
+  benefit: {
+    text_benefits,
+    black_activities,
+    black_dynamic,
+    black_health,
+    black_paid_time,
+    black_salary,
+    ln_activities,
+    ln_dynamic,
+    ln_health,
+    ln_paid_time,
+    ln_salary
+  },
   componets: { earth_line_big },
   product: {
     camera4,
