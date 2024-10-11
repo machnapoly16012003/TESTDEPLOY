@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { memo, ReactNode } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
@@ -67,7 +68,10 @@ const RadioGroupBaseField = memo(
                               field.onChange(value)
                             }}
                             checked={field.value === option.value || +field.value === option.value}
-                            className='checked:after:content-[" "] hover:shadow-avatar size-8 shrink-0 cursor-pointer appearance-none rounded-[6px] border-[1px] border-solid border-blackDark/[.22] bg-transparent transition-colors duration-300 ease-in-out checked:border-[0px] checked:bg-ln-text-product checked:after:absolute checked:after:left-[11.5px] checked:after:top-[6px] checked:after:block checked:after:h-[16px] checked:after:w-[8px] checked:after:rotate-[45deg] checked:after:border-b-[2px] checked:after:border-r-[2px] checked:after:border-solid checked:after:border-white focus:outline-none'
+                            className={classNames(
+                              field.value === option.value || (+field.value === option.value && 'btn-explorer-now'),
+                              'checked:after:content-[" "] hover:shadow-avatar size-8 shrink-0 cursor-pointer appearance-none rounded-[6px] border-[1px] border-solid border-blackDark/[.22] bg-transparent transition-colors duration-300 ease-in-out checked:border-[0px] checked:after:absolute checked:after:left-[11.5px] checked:after:top-[6px] checked:after:block checked:after:h-[16px] checked:after:w-[8px] checked:after:rotate-[45deg] checked:after:border-b-[2px] checked:after:border-r-[2px] checked:after:border-solid checked:after:border-white focus:outline-none'
+                            )}
                           />
                         </div>
                       </div>
