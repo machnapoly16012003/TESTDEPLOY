@@ -7,17 +7,24 @@ const ComputerVision = memo(() => {
   const [inxActiveBox, setInxActiveBox] = useState<number>(1)
 
   return (
-    <section className='relative flex items-start pt-[70px] xl:max-w-[1440px] 3xl:max-w-full'>
+    <section className='relative mt-[50px] flex items-start pt-[70px] xl:max-w-[1440px] 3xl:max-w-full'>
       <div className='absolute left-[100px] top-[70px] font-semibold text-black xl:w-[650px] 3xl:left-[200px]'>
-        <h1 className='xs:text-[70px]/[52px] sm:text-[70px]/[52px] md:text-[70px]/[52px] lg:text-[70px]/[52px] xl:text-[80px]/[66px]'>
+        <h1
+          data-aos='fade-right'
+          className='xs:text-[70px]/[52px] sm:text-[70px]/[52px] md:text-[70px]/[52px] lg:text-[70px]/[52px] xl:text-[80px]/[66px]'
+        >
           AI Developer
         </h1>
-        <h3 className='mt-6 translate-x-20 text-right xs:text-[36px]/[52px] sm:text-[36px]/[52px] md:text-[36px]/[52px] lg:text-[36px]/[52px] xl:text-[42px]/[66px]'>
+        <h3
+          data-aos='fade-right'
+          className='mt-6 translate-x-20 text-right xs:text-[36px]/[52px] sm:text-[36px]/[52px] md:text-[36px]/[52px] lg:text-[36px]/[52px] xl:text-[42px]/[66px]'
+        >
           (computer vision)
         </h3>
       </div>
 
       <img
+        data-aos='zoom-in-down'
         src={images.vision.vision_ball_big}
         alt='vision-ball-big'
         className='absolute top-36 xs:-left-[130px] sm:-left-[130px] md:-left-[130px] lg:-left-[200px] lg:w-[800px] xl:-left-[130px] xl:w-[940px] 3xl:left-10 3xl:top-40'
@@ -40,7 +47,12 @@ const ComputerVision = memo(() => {
 
       <div className='mt-[184px] flex flex-1 flex-col items-end gap-5 3xl:pr-[100px]'>
         {listVisions.map((vision, index) => (
-          <div key={vision.id} onMouseEnter={() => setInxActiveBox(index)} onMouseLeave={() => setInxActiveBox(1)}>
+          <div
+            data-aos='fade-left'
+            key={vision.id}
+            onMouseEnter={() => setInxActiveBox(index)}
+            onMouseLeave={() => setInxActiveBox(1)}
+          >
             <BoxVision vision={vision} isActive={inxActiveBox === index} />
           </div>
         ))}

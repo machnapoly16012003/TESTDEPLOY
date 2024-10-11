@@ -40,11 +40,13 @@ const Benefits = memo(() => {
   return (
     <section className='mt-[200px] xl:max-w-[1440px] 3xl:max-w-full'>
       <div className='relative ml-auto w-fit'>
-        <img src={images.benefit.text_benefits} alt='text-benifits' className='z-0' />
-        <h4 className='absolute bottom-0 right-28 z-10 text-[56px]/[72px] font-semibold'>Benefits</h4>
+        <img data-aos='fade-left' src={images.benefit.text_benefits} alt='text-benifits' className='z-0' />
+        <h4 data-aos='fade-left' className='absolute bottom-0 right-28 z-10 text-[56px]/[72px] font-semibold'>
+          Benefits
+        </h4>
       </div>
 
-      <div className='relative mt-10 h-[550px] scale-100 lg:px-10 xl:px-0 3xl:scale-110'>
+      <div data-aos='fade-down' className='relative mt-10 h-[550px] scale-100 lg:px-10 xl:px-0 3xl:scale-110'>
         <div className='bg-ln-benefit shadow-s-35 h-[511px] flex-shrink-0 rounded-[120px] pb-[31px] pt-[70px] lg:w-full xl:ml-[60px] xl:mt-[43px] xl:w-[1097px] 3xl:ml-[200px] 3xl:mt-[120px]'>
           <div className='space-y-5 lg:mx-auto lg:max-w-[750px] xl:ml-[136px] xl:max-w-[869px]'>
             {listBenefitContents.map((row) => (
@@ -84,6 +86,7 @@ const Benefits = memo(() => {
           </div>
         </div>
         <Lottie
+          data-aos='zoom-in-up'
           animationData={astronaut}
           className='absolute top-0 z-10 xs:w-[520px] sm:w-[520px] md:w-[520px] lg:-top-80 lg:left-0 lg:w-[400px] lg:rotate-[30deg] xl:-right-10 xl:left-auto xl:top-0 xl:w-[520px] xl:rotate-0 3xl:-top-10 3xl:right-20 3xl:w-[700px]'
         />

@@ -115,6 +115,8 @@ import ln_dynamic from '~/assets/images/ln-dynamic.png'
 import ln_health from '~/assets/images/ln-health.png'
 import ln_paid_time from '~/assets/images/ln-paid-time.png'
 import ln_salary from '~/assets/images/ln-salary.png'
+import circle_line from '~/assets/images/circle-line.png'
+import astronaut_progression from '~/assets/images/astronaut-progression.png'
 
 const images = {
   logo: {
@@ -220,7 +222,9 @@ const images = {
     ln_dynamic,
     ln_health,
     ln_paid_time,
-    ln_salary
+    ln_salary,
+    circle_line,
+    astronaut_progression
   },
   componets: { earth_line_big },
   product: {
