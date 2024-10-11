@@ -57,7 +57,7 @@ const CareerProgression = memo(() => {
 
   return (
     <>
-      <section ref={reportRef} className='bg-getting px-[60px] py-[140px] xl:max-w-[1440px] 3xl:max-w-full'>
+      <section ref={reportRef} className='bg-getting px-[60px] pt-[140px] xl:max-w-[1440px] 3xl:max-w-full'>
         <h1 data-aos='fade-right' className='text-[52px]/[72px] font-semibold 3xl:mt-20'>
           Career Progression Path
         </h1>
@@ -87,11 +87,11 @@ const CareerProgression = memo(() => {
                 data-aos='fade-up'
                 className={classNames(
                   item.position,
-                  'shadow-s-37 flex h-[100px] w-[380px] items-center gap-5 rounded-[80px] bg-white/[.64] p-[15px] backdrop-blur-[105px]'
+                  'flex h-[100px] w-[380px] items-center gap-5 rounded-[80px] bg-white/[.64] p-[15px] shadow-s-37 backdrop-blur-[105px]'
                 )}
               >
                 <div
-                  className='bg-ln-black flex size-[70px] flex-shrink-0 items-center justify-center rounded-full text-[32px]/[36px] font-extrabold text-white'
+                  className='flex size-[70px] flex-shrink-0 items-center justify-center rounded-full bg-ln-black text-[32px]/[36px] font-extrabold text-white'
                   style={{ boxShadow: '0px 16.77px 25.16px 0px #4064E44D' }}
                 >
                   {item.id}
@@ -105,7 +105,7 @@ const CareerProgression = memo(() => {
         <button
           className={classNames(
             viewing ? 'opacity-100' : 'opacity-0',
-            'btn-explorer-now shadow-s-36 z-50 flex w-[203px] -translate-y-[320px] items-center justify-center rounded-[10px] text-[22px]/[32px] font-bold text-white transition duration-200 ease-in-out hover:scale-[101%] xs:mt-11 xs:h-[52px] sm:mt-11 sm:h-[52px] md:mt-11 md:h-[52px] lg:mt-8 lg:h-12 xl:mt-11 xl:h-[64px] 3xl:mt-12 3xl:-translate-y-[300px] 3xl:text-[18px]/[32px]'
+            'btn-explorer-now z-50 flex w-[203px] -translate-y-[320px] items-center justify-center rounded-[10px] text-[22px]/[32px] font-bold text-white shadow-s-36 transition duration-200 ease-in-out hover:scale-[101%] xs:mt-11 xs:h-[52px] sm:mt-11 sm:h-[52px] md:mt-11 md:h-[52px] lg:mt-8 lg:h-12 xl:mt-11 xl:h-[64px] 3xl:mt-12 3xl:-translate-y-[300px] 3xl:text-[18px]/[32px]'
           )}
         >
           Apply Now

@@ -1,6 +1,15 @@
 .bg-getting {
   background-image: url('../../assets/bg/bg-instore.png');
   background-repeat: no-repeat;
-  background-position: 0% 0%;
-  background-size: 100%;
+  background-position: 40% 30%;
+  background-size: 120%;
+}
+
+@media only screen and (max-width: 1440px) {
+  .bg-getting {
+    background-image: url('../../assets/bg/bg-instore.png');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: 120%;
+  }
 }
