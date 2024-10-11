@@ -62,6 +62,10 @@ function useRouteElements() {
           {
             path: removeSlash(PATH_PUBLIC_APP.career),
             element: <Career />
+          },
+          {
+            path: removeSlash(PATH_PUBLIC_APP.productApplication),
+            element: <Career />
           }
         ]
       },

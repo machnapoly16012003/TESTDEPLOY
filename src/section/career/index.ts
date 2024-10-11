@@ -1,4 +1,5 @@
+export { default as ApplyCVDialog } from './ApplyCVDialog'
 export { default as Benefits } from './Benefits'
 export { default as CareerProgression } from './CareerProgression'
 export { default as ComputerVision } from './ComputerVision'
-export { default as ApplyCVDialog } from './ApplyCVDialog'
+export { default as JobOpportunities } from './JobOpportunities'
