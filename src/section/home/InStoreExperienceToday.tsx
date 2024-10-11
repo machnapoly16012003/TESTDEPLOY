@@ -2,7 +2,7 @@ import Lottie, { AnimationItem } from 'lottie-web'
 import React, { memo, useEffect, useRef } from 'react'
 import { GoArrowRight } from 'react-icons/go'
 import { Link } from 'react-router-dom'
-import Astronaut from '../../assets/astronaut.json'
+import Astronaut from '../../assets/animation/astronaut.json'
 
 const InStoreExperienceToday = memo(() => {
   const loadingRef = useRef<HTMLDivElement>(null)

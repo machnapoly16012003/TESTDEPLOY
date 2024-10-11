@@ -1,7 +1,7 @@
 import Lottie from 'lottie-react'
 import { memo } from 'react'
 import images from '~/assets'
-import astronaut from '~/assets/animation/astronaut.json'
+import astronaut from '~/assets/animation/astronaut-vision.json'
 import { Benefits, CareerProgression, ComputerVision } from '~/section/career'
 
 const Career = memo(() => {
@@ -43,9 +43,9 @@ const Career = memo(() => {
         </div>
       </section>
 
-      <Benefits />
-
       <ComputerVision />
+
+      <Benefits />
 
       <CareerProgression />
     </div>

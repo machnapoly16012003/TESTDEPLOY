@@ -99,6 +99,11 @@ import camera8_chip from '~/assets/images/camera8-chip.png'
 import camera12 from '~/assets/images/camera12.png'
 import camera16 from '~/assets/images/camera16.png'
 
+import vision_ball_big from '~/assets/images/vision-ball-big.png'
+import vision_ball_1 from '~/assets/images/vision-ball-1.png'
+import vision_ball_2 from '~/assets/images/vision-ball-2.png'
+import vision_ball_3 from '~/assets/images/vision-ball-3.png'
+
 const images = {
   logo: {
     logo_e_commerce,
@@ -191,6 +196,7 @@ const images = {
     arrow_bot
   },
   gettingStarted: { gt_earth_1, gt_earth_2, gt_earth_3, gt_earth_4, gt_earth_5, gt_earth_6, earth_line },
+  vision: { vision_ball_big, vision_ball_1, vision_ball_2, vision_ball_3 },
   componets: { earth_line_big },
   product: {
     camera4,

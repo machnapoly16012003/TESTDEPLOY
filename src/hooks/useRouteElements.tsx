@@ -7,6 +7,7 @@ import { Career } from '~/pages/career'
 import { Checkout, CheckoutComplete } from '~/pages/checkout'
 import { Components } from '~/pages/components'
 import { Document } from '~/pages/document'
+import { Page404 } from '~/pages/error'
 import { GettingStarted } from '~/pages/gettingStarted'
 import { Home } from '~/pages/home'
 import { ProductDetail, ProductSubscription } from '~/pages/product'
@@ -63,6 +64,10 @@ function useRouteElements() {
             element: <Career />
           }
         ]
+      },
+      {
+        path: '*',
+        element: <Page404 />
       }
       // {
       //   path: '',
