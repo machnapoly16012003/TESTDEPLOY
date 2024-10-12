@@ -11,6 +11,7 @@ import { Page404 } from '~/pages/error'
 import { GettingStarted } from '~/pages/gettingStarted'
 import { Home } from '~/pages/home'
 import { ProductDetail, ProductSubscription } from '~/pages/product'
+import { ProductsApplications } from '~/pages/productApplications'
 // import { Analysis } from '~/pages/analysis'
 
 function useRouteElements() {
@@ -65,7 +66,7 @@ function useRouteElements() {
           },
           {
             path: removeSlash(PATH_PUBLIC_APP.productApplication),
-            element: <Career />
+            element: <ProductsApplications />
           }
         ]
       },

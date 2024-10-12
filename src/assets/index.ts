@@ -118,6 +118,21 @@ import ln_salary from '~/assets/images/ln-salary.png'
 import circle_line from '~/assets/images/circle-line.png'
 import astronaut_progression from '~/assets/images/astronaut-progression.png'
 
+import applicationOverview from '~/assets/images/application-overview.png'
+import applicationOverview2 from '~/assets/images/application-overview-2.png'
+import applicationOverviewBg from '~/assets/images/application-overview-bg.png'
+import overViewItem1 from '~/assets/images/overview-item-1.png'
+import overViewItem2 from '~/assets/images/overview-item-2.png'
+import overViewItem3 from '~/assets/images/overview-item-3.png'
+import overViewItem4 from '~/assets/images/overview-item-4.png'
+import overViewItem5 from '~/assets/images/overview-item-5.png'
+import featureCustomerService from '~/assets/images/feature-customer-service.png'
+import featureElectronics from '~/assets/images/feature-electronics.png'
+import featureFashion from '~/assets/images/feature-fashion.png'
+import featureFood from '~/assets/images/feature-food.png'
+import featureHomeAppliances from '~/assets/images/feature-home-appliances.png'
+import featureRetail from '~/assets/images/feature-retail.png'
+
 const images = {
   logo: {
     logo_e_commerce,
@@ -234,6 +249,22 @@ const images = {
     camera8_chip,
     camera12,
     camera16
+  },
+  productApplication: {
+    overview: applicationOverview,
+    overview2: applicationOverview2,
+    overviewBg: applicationOverviewBg,
+    item1: overViewItem1,
+    item2: overViewItem2,
+    item3: overViewItem3,
+    item4: overViewItem4,
+    item5: overViewItem5,
+    featureCustomerService,
+    featureElectronics,
+    featureFashion,
+    featureFood,
+    featureHomeAppliances,
+    featureRetail
   }
 }
 
