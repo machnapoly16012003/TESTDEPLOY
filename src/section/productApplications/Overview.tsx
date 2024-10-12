@@ -10,16 +10,14 @@ function Overview() {
     >
       <div className='mx-auto flex max-w-[1440px] flex-col-reverse gap-12 lg:flex-row lg:items-center lg:gap-8'>
         <div className='lg:flex-1 lg:pr-8'>
-          <h2 className='text-[52px] font-semibold leading-[62px]'>
-            Overview of AI Capabilities in Smart Store Management
-          </h2>
-          <p className='my-8'>
+          <h2 className='text-[52px]/[62px] font-semibold'>Overview of AI Capabilities in Smart Store Management</h2>
+          <p className='my-8 text-[16px]/[26px]'>
             The Smart Store Management AI system is designed to enhance customer experience, optimize store operations,
             and provide deep analytical insights. By leveraging real-time facial recognition, demographic analysis,
             behavior tracking, and performance monitoring, the system helps retailers understand their customers, manage
             staff, and predict business trends more effectively.
           </p>
-          <ul className='space-y-2'>
+          <ul className='mt-2 space-y-4'>
             <OverviewItem title='Real-Time Customer Behavior Analysis' image={item1} />
             <OverviewItem title='Predictive Analytics & Demand Forecasting' image={item2} />
             <OverviewItem title='Security and Anomaly Detection Alerts' image={item3} />

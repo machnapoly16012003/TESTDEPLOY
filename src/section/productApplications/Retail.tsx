@@ -10,7 +10,7 @@ function Retail() {
 
         <div className='rounded-3xl bg-gradient-to-b from-[#EBF7FF] to-white px-8 py-12 shadow-s-15'>
           <h4 className='mb-4 text-4xl font-medium'>Applied Features</h4>
-          <ul className='mb-6 pl-2'>
+          <ul className='mb-6 pl-0'>
             <RetailItem>Facial Recognition: Identify loyal customers and provide personalized offers.</RetailItem>
             <RetailItem>
               Demographic Analysis: Adjust product display and store layout based on customer groups.
@@ -21,7 +21,7 @@ function Retail() {
           </ul>
 
           <h4 className='mb-4 text-4xl font-medium'>Value</h4>
-          <ul className='pl-2'>
+          <ul className='pl-0'>
             <RetailItem>Enhance shopping experience and boost sales.</RetailItem>
             <RetailItem>Increase conversion rates from visitors to buyers.</RetailItem>
             <RetailItem>Improve operational efficiency by understanding customer behavior.</RetailItem>

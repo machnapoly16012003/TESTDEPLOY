@@ -204,8 +204,7 @@ export default {
         'ln-button-footer': 'linear-gradient(126.38deg, #11B0F2 7.58%, #F200F2 92.42%)',
         'ln-benefit': 'linear-gradient(180deg, #EBF7FF 0%, #FFFFFF 100%)',
         'ln-black': 'linear-gradient(180deg, #6976A0 0%, #2C3972 50.5%, #141D3E 100%)',
-        'ln-gradient-btn':
-          'radial-gradient(42.85% 184.29% at 15.34% 39.06%, rgba(131, 113, 243, 0.5) 0%, rgba(69, 156, 236, 0) 100%), radial-gradient(130.16% 129.69% at 63.64% -12.5%, #EA80FF 0%, rgba(86, 84, 74, 0.12) 100%), radial-gradient(80.68% 51.24% at 19.32% 40.62%, #1864B7 0%, rgba(23, 61, 102, 0.88) 100%), radial-gradient(28.98% 110.94% at 43.75% -31.25%, rgba(24, 17, 24, 0.53) 21.25%, #000000 100%), linear-gradient(0deg, #030303, #030303),'
+        'ln-text-insight': 'linear-gradient(180deg, #6976A0 0%, #2C3972 50.5%, #141D3E 100%)'
       },
       borderColor: {
         'box-getting': 'linear-gradient(147.29deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 105.45%)'

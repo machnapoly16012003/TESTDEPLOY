@@ -41,7 +41,10 @@ function InsightCard({ title, icon, detail }: Props) {
             >
               <div className='flex flex-col items-center gap-4'>
                 <img src={icon} alt={title} />
-                <div dangerouslySetInnerHTML={{ __html: title }} className='text-center font-semibold' />
+                <div
+                  dangerouslySetInnerHTML={{ __html: title }}
+                  className='bg-ln-text-insight bg-clip-text text-center font-semibold text-transparent'
+                />
               </div>
             </motion.div>
 

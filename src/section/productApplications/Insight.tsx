@@ -3,7 +3,7 @@ import { InsightCard } from '~/components/feature/productsApplications'
 const insights = [
   {
     id: 1,
-    title: '<h4><span class="text-[#6976A0]">Seamless and Fast</span></br>Shopping Experience</h4>',
+    title: '<h4>Seamless and Fast </br> Shopping Experience</h4>',
     icon: '/src/assets/images/insight-cart.png',
     detail:
       '<p><b>Reduced Waiting Time:</b> AI optimizes checkout and service processes, minimizing wait times, especially during peak hours.</br><b>Faster Service:</b> AI detects service delays and alerts staff to improve speed.</p>'
@@ -17,14 +17,14 @@ const insights = [
   },
   {
     id: 3,
-    title: '<h4><span class="text-[#6976A0]">Transparent and</span></br>Detailed Information</h4>',
+    title: '<h4>Transparent and </br> Detailed Information</h4>',
     icon: '/src/assets/images/insight-information.png',
     detail:
       '<p><b>Transparent Pricing:</b> Provides immediate price information, ensuring customers know the total cost before completing a purchase.</br><b>Comprehensive Product Information:</b> Offers details on </p>'
   },
   {
     id: 4,
-    title: '<h4><span class="text-[#6976A0]">Automatic Points Accumulation</span></br>and Synchronization</h4>',
+    title: '<h4>Automatic Points Accumulation </br> and Synchronization</h4>',
     icon: '/src/assets/images/insight-list.png',
     detail:
       '<p><b>Effortless Loyalty Program:</b> Automatically accumulates points for both online and offline transactions without needing personal information or membership cards.</p>'
@@ -44,7 +44,7 @@ function Insight() {
           </p>
         </div>
         <div className='lg:w-[55%]'>
-          <div className='grid w-full grid-cols-2 gap-4'>
+          <div className='grid w-full grid-cols-2 gap-5'>
             {insights.map((insight) => (
               <InsightCard key={insight.id} title={insight.title} icon={insight.icon} detail={insight.detail} />
             ))}
