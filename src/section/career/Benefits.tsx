@@ -40,8 +40,16 @@ const Benefits = memo(() => {
   return (
     <section className='mt-[200px] xl:max-w-[1440px] 3xl:max-w-full'>
       <div className='relative ml-auto w-fit'>
-        <img data-aos='fade-left' src={images.benefit.text_benefits} alt='text-benifits' className='z-0' />
-        <h4 data-aos='fade-left' className='absolute bottom-0 right-28 z-10 text-[56px]/[72px] font-semibold'>
+        <img
+          data-aos='fade-left'
+          src={images.benefit.text_benefits}
+          alt='text-benifits'
+          className='z-0 w-auto 3xl:w-[1400px]'
+        />
+        <h4
+          data-aos='fade-left'
+          className='absolute bottom-0 right-28 z-10 text-[56px]/[72px] font-semibold 3xl:text-[60px]/[76px]'
+        >
           Benefits
         </h4>
       </div>

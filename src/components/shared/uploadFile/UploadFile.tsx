@@ -74,8 +74,8 @@ const UploadFile = forwardRef<UploadFileRef, UploadFileProps>(({ className, maxF
         {...getRootProps({
           className: classNames(
             'flex h-[136px] w-full flex-col items-center justify-center rounded-[8px] border border-dashed transition-colors duration-300',
-            isDragActive ? 'border-blue-500' : 'border-blackDark/[.22]', // Prioritize border based on isDragActive
-            className // External className passed as prop
+            isDragActive ? 'border-[#df28fb]' : 'border-blackDark/[.22]',
+            className
           )
         })}
       >
@@ -89,7 +89,7 @@ const UploadFile = forwardRef<UploadFileRef, UploadFileProps>(({ className, maxF
 
         <button
           className={classNames(
-            'shadow-s-38 btn-explorer-now mx-auto mt-[14px] flex h-8 w-[120px] items-center justify-center gap-4 rounded-[6px] transition duration-200 ease-in-out hover:scale-[102%]'
+            'btn-explorer-now mx-auto mt-[14px] flex h-8 w-[120px] items-center justify-center gap-4 rounded-[6px] shadow-s-38 transition duration-200 ease-in-out hover:scale-[102%]'
           )}
         >
           <p className='text-[14px]/[22px] font-medium text-white'>Choose file</p>
@@ -103,9 +103,9 @@ const UploadFile = forwardRef<UploadFileRef, UploadFileProps>(({ className, maxF
           <p className='text-[14px]/[21px] font-medium'>Selected Files:</p>
           <ul>
             {selectedFiles.map((file, index) => (
-              <li key={index} className='text-[14px]/[21px]'>
+              <a href={file.url} key={index} className='text-[14px]/[21px] hover:text-[#df28fb]'>
                 {file.name}
-              </li>
+              </a>
             ))}
           </ul>
         </div>

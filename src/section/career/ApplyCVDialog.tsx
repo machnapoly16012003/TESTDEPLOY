@@ -32,7 +32,7 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
       open={open}
       setOpen={setOpen}
       zIndex='z-[700]'
-      className={classNames('h-fit !rounded-2xl bg-white xs:w-full md:w-[600px] xl:w-[820px]')}
+      className={classNames('h-fit !rounded-2xl bg-white xs:w-full md:w-[600px] lg:w-[700px] xl:w-[820px]')}
     >
       <div className='relative flex h-full flex-col items-center justify-start gap-4 text-left xs:p-8 md:min-h-[362px] md:p-10 xl:px-[85px] xl:py-[40px]'>
         <div
@@ -73,7 +73,7 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
           <button
             onClick={handleSubmit(handleApplyFrom)}
             className={classNames(
-              'btn-explorer-now mx-auto !mt-10 flex w-[200px] items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out hover:scale-[102%] xs:p-[10px] md:p-[10px]'
+              'btn-explorer-now mx-auto !mt-10 flex w-[160px] items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out hover:scale-[102%] xs:p-[10px] md:p-[10px]'
             )}
           >
             <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[20px]/[20px] xl:text-[20px]/[20px]'>
