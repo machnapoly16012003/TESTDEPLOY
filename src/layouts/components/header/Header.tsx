@@ -38,7 +38,7 @@ const listNavbars = [
   {
     id: 5,
     label: 'Products & Applications',
-    pathname: ''
+    pathname: PATH_PUBLIC_APP.productApplication
   }
 ]
 

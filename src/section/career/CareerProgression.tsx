@@ -90,7 +90,7 @@ const CareerProgression = memo(() => {
             {listProgressions.map((item) => (
               <div
                 key={item.id}
-                // data-aos='fade-up'
+                data-aos='fade-up'
                 className={classNames(
                   item.position,
                   'flex items-center rounded-[80px] bg-white/[.64] p-[15px] shadow-s-37 backdrop-blur-[105px] xs:h-[100px] xs:w-[380px] xs:gap-5 sm:h-[100px] sm:w-[380px] sm:gap-5 md:h-[100px] md:w-[380px] md:gap-5 lg:h-[90px] lg:w-[330px] lg:gap-4 xl:h-[100px] xl:w-[380px] xl:gap-5'

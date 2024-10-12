@@ -11,9 +11,11 @@ function App() {
 
   const { isWebGLBAvailable } = useCheckGLB()
 
-  // if (!isWebGLBAvailable()) {
-  //   alert('WebGL không được hỗ trợ trên thiết bị của bạn.')
-  // }
+  useEffect(() => {
+    if (!isWebGLBAvailable()) {
+      alert('WebGL không được hỗ trợ trên thiết bị của bạn.')
+    }
+  }, [isWebGLBAvailable])
 
   useEffect(() => {
     AOS.init({
@@ -26,10 +28,8 @@ function App() {
 
   return (
     <>
-      <>
-        {routeElements}
-        <Cursor />
-      </>
+      {routeElements}
+      <Cursor />
 
       <Toaster
         position='top-center'
