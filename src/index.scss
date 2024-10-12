@@ -242,6 +242,10 @@ button {
   background-clip: text;
 }
 
+.my-toast-container {
+  z-index: 99999 !important;
+}
+
 @layer utilities {
   .animate-spin-slow {
     @apply animate-spin;

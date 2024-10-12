@@ -47,6 +47,7 @@ function App() {
             }
           }
         }}
+        containerClassName='my-toast-container'
       />
     </>
   )

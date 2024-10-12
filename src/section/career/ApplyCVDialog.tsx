@@ -1,7 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import classNames from 'classnames'
-import { Dispatch, FC, memo, SetStateAction, useCallback } from 'react'
+import { Dispatch, FC, memo, SetStateAction, useCallback, useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+
 import { LIST_GENDER_OPTIONS } from '~/@types/listOptionCommon'
 import { ApplyForm } from '~/@types/models'
 import { Dialog } from '~/components/shared/dialog'
@@ -12,7 +13,16 @@ import useValidationForm from '~/hooks/useValidationForm'
 
 type ApplyCVDialogProps = { open: boolean; setOpen: Dispatch<SetStateAction<boolean>> }
 
+export interface SelectedFile {
+  name: string
+  url: string
+  file: File
+}
+
 const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
+  const [errorMessage, setErrorMessage] = useState<string>('')
+  const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([])
+
   const { applyValidateFrom } = useValidationForm()
 
   const applyFrom = useForm<ApplyForm>({
@@ -21,12 +31,19 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
     mode: 'onBlur'
   })
 
-  const { handleSubmit, clearErrors } = applyFrom
+  const { handleSubmit, clearErrors, reset } = applyFrom
 
-  const handleApplyFrom = useCallback((values: ApplyForm) => {
-    console.log('ApplyForm', values)
-  }, [])
+  useEffect(() => {
+    if (selectedFiles.length > 0) setErrorMessage('')
+  }, [selectedFiles])
 
+  const handleApplyFrom = useCallback(
+    (values: ApplyForm) => {
+      if (selectedFiles.length === 0) return setErrorMessage('Please select file to submit!')
+      console.log('ApplyForm', values, selectedFiles)
+    },
+    [selectedFiles]
+  )
   return (
     <Dialog
       open={open}
@@ -40,6 +57,8 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
           onClick={() => {
             setOpen(false)
             clearErrors()
+            reset()
+            setErrorMessage('')
           }}
         >
           <CloseIcon className='size-4' color='#000000' />
@@ -68,7 +87,17 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
               <InputField fullWidth name='email' placeholder='Enter your email' />
             </div>
 
-            <UploadFile className='!mt-5' />
+            <div className='relative !mt-5'>
+              <UploadFile selectedFiles={selectedFiles} setSelectedFiles={setSelectedFiles} />
+              <p
+                className={classNames(
+                  errorMessage ? 'opacity-100' : 'opacity-0',
+                  '2xs:text-[13px] absolute -bottom-5 z-[] ml-2 text-left text-red-500 xs:text-[13px] sm:text-[14px]'
+                )}
+              >
+                {errorMessage}
+              </p>
+            </div>
           </FormProvider>
           <button
             onClick={handleSubmit(handleApplyFrom)}
@@ -79,7 +108,7 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
             <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[20px]/[20px] xl:text-[20px]/[20px]'>
               Submit
             </p>
-          </button>{' '}
+          </button>
         </div>
       </div>
     </Dialog>
