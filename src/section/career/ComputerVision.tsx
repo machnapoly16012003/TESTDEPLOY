@@ -27,7 +27,7 @@ const ComputerVision = memo(() => {
         data-aos='zoom-in-down'
         src={images.vision.vision_ball_big}
         alt='vision-ball-big'
-        className='absolute top-36 xs:-left-[130px] sm:-left-[130px] md:-left-[130px] lg:-left-[200px] lg:w-[800px] xl:-left-[130px] xl:w-[940px] 3xl:left-10 3xl:top-40'
+        className='absolute top-40 xs:-left-[130px] sm:-left-[130px] md:-left-[130px] lg:-left-[200px] lg:w-[800px] xl:-left-[80px] xl:w-[880px] 3xl:left-10 3xl:top-40'
       />
       <img
         src={images.vision.vision_ball_1}

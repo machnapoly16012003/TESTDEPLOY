@@ -18,7 +18,7 @@ const Career = memo(() => {
             Empower Your <br />
             <span className='font-normal'>
               Career at FI.AI: <br />
-              Innovating Finance!
+              Innovating AI platform!
             </span>
           </h1>
 
@@ -26,11 +26,9 @@ const Career = memo(() => {
             data-aos='fade-right'
             className='z-10 mt-6 font-normal tracking-[2%] text-black xs:text-[16px]/[26px] sm:text-[16px]/[26px] md:text-[16px]/[26px] lg:mt-5 lg:text-[15px]/[25px] xl:text-[16px]/[26px] 3xl:mt-8 3xl:text-[18px]/[28px]'
           >
-            FI.AI is a start-up in the iBe ecosystem, specializing in AI solutions{' '}
-            <br className='xs:hidden md:hidden lg:hidden xl:block' /> for financial platforms. We partner with Fintech
-            companies to <br className='xs:hidden md:hidden lg:hidden xl:block' /> innovate and enhance user
-            experiences, driven by a team of <br className='xs:hidden md:hidden lg:hidden xl:block' /> experts from top
-            institutions and firms.{' '}
+            FIAI is an AI and machine learning platform that can help millions{' '}
+            <br className='xs:hidden md:hidden lg:block xl:block' /> of traditional customers have a seamless end-to-end
+            experience.{' '}
             <span className='cursor-pointer text-[14px]/[26px] text-[#000CE8] underline 3xl:text-[16px]/[26px]'>
               See More
             </span>
