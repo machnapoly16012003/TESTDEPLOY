@@ -1,5 +1,7 @@
 import Lottie from 'lottie-react'
 import { memo } from 'react'
+import toast from 'react-hot-toast'
+import { RiInformation2Fill } from 'react-icons/ri'
 import images from '~/assets'
 import astronaut from '~/assets/animation/astronaut-vision.json'
 import { Benefits, CareerProgression, ComputerVision, JobOpportunities } from '~/section/career'
@@ -34,7 +36,14 @@ const Career = memo(() => {
             </span>
           </p>
 
-          <button className='btn-explorer-now z-10 flex w-[145px] items-center justify-center rounded-[10px] text-[16px]/[32px] text-white transition duration-200 ease-in-out hover:scale-[101%] xs:mt-11 xs:h-[52px] sm:mt-11 sm:h-[52px] md:mt-11 md:h-[52px] lg:mt-8 lg:h-12 xl:mt-11 xl:h-[52px] 3xl:mt-12 3xl:text-[18px]/[32px]'>
+          <button
+            onClick={() =>
+              toast('SignIn feature is currently unavailable. Please try again later.', {
+                icon: <RiInformation2Fill color='#5495FC' className='size-10' />
+              })
+            }
+            className='btn-explorer-now z-10 flex w-[145px] items-center justify-center rounded-[10px] text-[16px]/[32px] text-white transition duration-200 ease-in-out hover:scale-[101%] xs:mt-11 xs:h-[52px] sm:mt-11 sm:h-[52px] md:mt-11 md:h-[52px] lg:mt-8 lg:h-12 xl:mt-11 xl:h-[52px] 3xl:mt-12 3xl:text-[18px]/[32px]'
+          >
             Explore Now
           </button>
 
