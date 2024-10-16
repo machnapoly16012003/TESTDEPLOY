@@ -132,6 +132,10 @@ import featureFashion from '~/assets/images/feature-fashion.png'
 import featureFood from '~/assets/images/feature-food.png'
 import featureHomeAppliances from '~/assets/images/feature-home-appliances.png'
 import featureRetail from '~/assets/images/feature-retail.png'
+import insight_cart from '~/assets/images/insight-cart.png'
+import insight_customer from '~/assets/images/insight-customer.png'
+import insight_information from '~/assets/images/insight-information.png'
+import insight_list from '~/assets/images/insight-list.png'
 
 const images = {
   logo: {
@@ -264,7 +268,11 @@ const images = {
     featureFashion,
     featureFood,
     featureHomeAppliances,
-    featureRetail
+    featureRetail,
+    insight_cart,
+    insight_customer,
+    insight_information,
+    insight_list
   }
 }
 

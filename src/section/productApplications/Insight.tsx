@@ -1,31 +1,32 @@
+import images from '~/assets'
 import { InsightCard } from '~/components/feature/productsApplications'
 
 const insights = [
   {
     id: 1,
     title: '<h4>Seamless and Fast </br> Shopping Experience</h4>',
-    icon: '/src/assets/images/insight-cart.png',
+    icon: images.productApplication.insight_cart,
     detail:
       '<p><b>Reduced Waiting Time:</b> AI optimizes checkout and service processes, minimizing wait times, especially during peak hours.</br><b>Faster Service:</b> AI detects service delays and alerts staff to improve speed.</p>'
   },
   {
     id: 2,
     title: 'Improved Customer Service',
-    icon: '/src/assets/images/insight-customer.png',
+    icon: images.productApplication.insight_customer,
     detail:
       '<p><b>Detects Dissatisfaction:</b> AI identifies signs of dissatisfaction (e.g., facial expressions, leaving without buying) and alerts staff to intervene promptly.</br><b>Easy Product Search:</b> Guides customers to the exact location of products, saving time in large or complex stores.</br><b>Quick and Convenient Checkout:</b> Automated payment processes reduce waiting time at checkout.</p>'
   },
   {
     id: 3,
     title: '<h4>Transparent and </br> Detailed Information</h4>',
-    icon: '/src/assets/images/insight-information.png',
+    icon: images.productApplication.insight_information,
     detail:
       '<p><b>Transparent Pricing:</b> Provides immediate price information, ensuring customers know the total cost before completing a purchase.</br><b>Comprehensive Product Information:</b> Offers details on </p>'
   },
   {
     id: 4,
     title: '<h4>Automatic Points Accumulation </br> and Synchronization</h4>',
-    icon: '/src/assets/images/insight-list.png',
+    icon: images.productApplication.insight_list,
     detail:
       '<p><b>Effortless Loyalty Program:</b> Automatically accumulates points for both online and offline transactions without needing personal information or membership cards.</p>'
   }
