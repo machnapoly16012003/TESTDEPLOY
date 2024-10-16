@@ -4,6 +4,8 @@ import images from '~/assets'
 import './styles.scss'
 import ApplyCVDialog from './ApplyCVDialog'
 import useDialog from '~/hooks/useDialog'
+import astronaut from '~/assets/animation/astronaut-progression.json'
+import Lottie from 'lottie-react'
 
 const listProgressions = [
   { id: 1, title: 'Entry-Level Position', position: '' },
@@ -65,16 +67,17 @@ const CareerProgression = memo(() => {
           Career Progression Path
         </h1>
 
-        <div className='relative flex w-fit -translate-x-10 items-center xs:-translate-y-[160px] sm:-translate-y-[160px] md:-translate-y-[160px] lg:-translate-y-[120px] xl:-translate-y-[160px] 3xl:ml-10'>
+        <div className='relative flex w-fit -translate-x-10 items-center xs:-translate-y-[160px] sm:-translate-y-[160px] md:-translate-y-[160px] lg:-translate-x-[220px] lg:-translate-y-[80px] xl:-translate-x-[270px] xl:-translate-y-[140px] 3xl:ml-10'>
           <div
-            data-aos='fade-right'
-            className='xs:min-w-[814px] sm:min-w-[814px] md:min-w-[814px] lg:min-w-[550px] xl:min-w-[814px]'
+            // data-aos='fade-right'
+            className='xs:min-w-[814px] sm:min-w-[814px] md:min-w-[814px] lg:min-w-[900px] xl:min-w-[1200px] 3xl:min-w-[1300px]'
           >
-            <img
+            {/* <img
               src={images.benefit.astronaut_progression}
               alt='astronaut-progression'
               className='translateY-5s w-full'
-            />
+            /> */}
+            <Lottie animationData={astronaut} className='' />
           </div>
 
           <img
@@ -82,15 +85,15 @@ const CareerProgression = memo(() => {
             alt='circle-line'
             className={classNames(
               viewing ? 'opacity-100' : 'opacity-0',
-              'w-auto -translate-x-10 transition duration-500 ease-in-out lg:mt-20 lg:w-[190px] xl:mt-10 xl:w-auto 3xl:mt-[40px] 3xl:translate-x-10'
+              'w-auto -translate-x-10 transition duration-500 ease-in-out lg:mt-10 lg:w-[190px] lg:-translate-x-[185px] xl:mt-0 xl:w-auto xl:-translate-x-[185px] 3xl:mt-[40px] 3xl:-translate-x-[70px]'
             )}
           />
 
-          <div className='flex -translate-x-[270px] flex-col xs:gap-[72px] sm:gap-[72px] md:gap-[72px] lg:ml-8 lg:mt-20 lg:gap-[50px] xl:ml-0 xl:mt-10 xl:gap-[72px] 3xl:mt-[40px] 3xl:-translate-x-[190px]'>
+          <div className='flex -translate-x-[270px] flex-col xs:gap-[72px] sm:gap-[72px] md:gap-[72px] lg:ml-8 lg:mt-10 lg:-translate-x-[420px] lg:gap-[50px] xl:ml-0 xl:mt-0 xl:-translate-x-[420px] xl:gap-[72px] 3xl:mt-[40px] 3xl:-translate-x-[300px]'>
             {listProgressions.map((item) => (
               <div
                 key={item.id}
-                data-aos='fade-up'
+                // data-aos='fade-up'
                 className={classNames(
                   item.position,
                   'flex items-center rounded-[80px] bg-white/[.64] p-[15px] shadow-s-37 backdrop-blur-[105px] xs:h-[100px] xs:w-[380px] xs:gap-5 sm:h-[100px] sm:w-[380px] sm:gap-5 md:h-[100px] md:w-[380px] md:gap-5 lg:h-[90px] lg:w-[330px] lg:gap-4 xl:h-[100px] xl:w-[380px] xl:gap-5'

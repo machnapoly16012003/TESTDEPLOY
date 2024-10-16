@@ -13,6 +13,7 @@ function useQueryConfig() {
 
   const queryConfig: QueryConfig = omitBy(
     {
+      checkoutType: queryParams.checkoutType,
       subscription: queryParams.subscription,
       productQuantity: queryParams.productQuantity
     },

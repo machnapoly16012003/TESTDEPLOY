@@ -9,7 +9,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { QueryConfig } from '~/@types/common'
 import { listSubscriptions } from '~/assets/mock/subscription'
 import { BoxSubscription } from '~/components/feature/boxSubscription'
-import { SliderPagination } from '~/components/feature/sliderPagination'
 import { ArrowLeftIcon } from '~/components/shared/icon'
 import { PATH_PUBLIC_APP } from '~/constants/paths'
 import useQueryConfig from '~/hooks/useQueryConfig'
@@ -34,7 +33,6 @@ const ProductSubscription = memo(() => {
   const queryConfig: QueryConfig = useQueryConfig()
 
   const [subSelected, setSubSelected] = useState<number>(listSubscriptions[1].id)
-  const [activeSlide, setActiveSlide] = useState<number>(0)
 
   useEffect(() => window.scrollTo(0, 0), [pathname])
 
@@ -47,19 +45,13 @@ const ProductSubscription = memo(() => {
     setSubSelected(id)
   }, [])
 
-  const handleGoToSlide = useCallback(
-    (index: number) => {
-      const activeIndex = index === 3 ? 0 : index === 4 ? 1 : index === 5 ? 2 : index
-      if (swiperRef.current && swiperRef.current.swiper) {
-        swiperRef.current.swiper.slideToLoop(activeIndex === 0 ? 3 : activeIndex)
-      }
-      setActiveSlide(activeIndex)
-    },
-    [swiperRef]
-  )
-
   const handleSlideChange = useCallback(() => {
-    if (swiperRef.current && swiperRef.current.swiper) setActiveSlide(swiperRef.current.swiper.realIndex)
+    if (swiperRef.current && swiperRef.current.swiper) {
+      const subSelect = swiperRef.current.swiper.realIndex + 2
+      const activeIndex =
+        subSelect === 4 ? 1 : subSelect === 5 ? 2 : subSelect === 6 ? 3 : subSelect === 7 ? 1 : subSelect
+      setSubSelected(activeIndex)
+    }
   }, [swiperRef])
 
   const handleCheckout = useCallback(() => {
@@ -77,8 +69,8 @@ const ProductSubscription = memo(() => {
   }, [subSelected])
 
   return (
-    <section className='product-subscription flex min-h-[100vh] overflow-hidden bg-[#fafdff] xs:flex-col md:flex-col xl:translate-y-5 xl:flex-row'>
-      <div className='x h-full pb-[60px] xs:w-full xs:px-6 xs:pb-10 xs:pt-20 md:min-h-[700px] md:w-full md:px-24 md:pt-[100px] xl:!block xl:min-h-[100vh] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[100px] xl:pr-[184px] 3xl:!flex 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
+    <section className='product-subscription flex min-h-[100vh] translate-y-5 overflow-hidden bg-[#fafdff] xs:flex-col md:flex-col xl:translate-y-5 xl:flex-row'>
+      <div className='x h-full pb-[60px] xs:w-full xs:px-6 xs:pb-10 xs:pt-[72px] md:min-h-[700px] md:w-full md:px-24 md:pt-[100px] xl:!block xl:min-h-[100vh] xl:w-[62.5%] xl:!pt-[120px] xl:pl-[100px] xl:pr-[184px] 3xl:!flex 3xl:!flex-col 3xl:!justify-center 3xl:!px-[200px] 3xl:!pt-[0px]'>
         <button className='flex items-center xs:mb-8 xs:gap-3 md:mb-12 md:gap-4' onClick={() => window.history.back()}>
           <ArrowLeftIcon className='opacity-[.44] xs:size-6 md:size-8' />
           <p className='text-black/[.72] xs:text-[18px]/[18px] md:text-[18px]/[18px] xl:text-[16px]/[16px]'>Back</p>
@@ -125,36 +117,62 @@ const ProductSubscription = memo(() => {
         </div>
 
         <div className='relative mb-7 flex justify-center'>
-          <div className='over z-10 ml-3 h-[300px] w-[640px] xs:flex md:hidden'>
+          <div className='over z-10 ml-3 h-[340px] w-[675px] xs:flex md:hidden'>
             <Swiper
               ref={swiperRef}
               loop
               initialSlide={1}
               slidesPerView={3}
-              spaceBetween={20}
+              spaceBetween={10}
               onSlideChange={handleSlideChange}
               modules={[Pagination]}
             >
-              {[...listSubscriptions, ...listSubscriptions].map((subscription) => (
-                <SwiperSlide key={`${subscription.id}`}>
-                  <BoxSubscription
-                    key={subscription.id}
-                    subscription={subscription}
-                    isSelected={subSelected === subscription.id}
-                    handleSelect={handleSelectSubscription}
-                  />
-                </SwiperSlide>
-              ))}
+              {[...listSubscriptions, ...listSubscriptions].map((subscription, index) => {
+                const isSelected = subSelected === subscription.id
+                return (
+                  <SwiperSlide key={`${subscription.id}-${index}`}>
+                    <div
+                      className={classNames(
+                        isSelected ? 'bg-white shadow-s-28' : 'bg-transparent',
+                        'min-h-[324px] rounded-xl p-3 transition-all duration-300 ease-in-out'
+                      )}
+                    >
+                      <BoxSubscription
+                        key={subscription.id}
+                        subscription={subscription}
+                        isSelected={subSelected === subscription.id}
+                        handleSelect={handleSelectSubscription}
+                      />
+                      <button
+                        onClick={handleCheckout}
+                        className={classNames(
+                          isSelected ? 'translate-y-3 opacity-100' : '-translate-y-11 opacity-0',
+                          'z-10 flex w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-3 transition duration-300 ease-in-out hover:scale-[101%] hover:bg-ln-text-product-left'
+                        )}
+                      >
+                        <p className='font-semibold text-white xs:text-[16px]/[20px] md:text-[16px]/[20px] xl:text-[16px]/[20px]'>
+                          Pay $
+                          {formatLocaleString(
+                            Number(variants?.[0].priceOptions.price) / 10 ** 6 +
+                              (subSelected === 0 ? 0 : Number(subscriptionSelected?.subscription) / 10 ** 6)
+                          )}
+                          .00
+                        </p>
+                      </button>
+                    </div>
+                  </SwiperSlide>
+                )
+              })}
             </Swiper>
           </div>
         </div>
-        <div className='absolute left-1/2 z-[100] mx-auto w-fit -translate-x-1/2 -translate-y-16 transform xs:block md:hidden'>
+        {/* <div className='absolute left-1/2 z-[100] mx-auto w-fit -translate-x-1/2 -translate-y-16 transform xs:block md:hidden'>
           <SliderPagination
             activeIndex={activeSlide === 3 ? 0 : activeSlide === 4 ? 1 : activeSlide === 5 ? 2 : activeSlide}
             slideToGo={handleGoToSlide}
             slideCount={3}
           />
-        </div>
+        </div> */}
 
         <p className='text-[#818EA1] xs:mb-5 xs:text-justify xs:text-[16px]/[26px] md:mb-6 md:text-pretty md:text-[16px]/[24px] xl:text-[14px]/[22px]'>
           If you choose to purchase a subscription, payment will be charged to your account upon confirmation of
@@ -220,6 +238,21 @@ const ProductSubscription = memo(() => {
                 .00
               </span>
             </div>
+            <button
+              onClick={handleCheckout}
+              className={classNames(
+                'xS:flex z-10 !mt-8 w-full items-center justify-center gap-4 rounded-[8px] bg-ln-text-product p-[18px] py-[18px] transition duration-300 ease-in-out hover:scale-[101%] hover:bg-ln-text-product-left md:hidden'
+              )}
+            >
+              <p className='text-[18px]/[20px] font-semibold text-white'>
+                Pay $
+                {formatLocaleString(
+                  Number(variants?.[0].priceOptions.price) / 10 ** 6 +
+                    (subSelected === 0 ? 0 : Number(subscriptionSelected?.subscription) / 10 ** 6)
+                )}
+                .00
+              </p>
+            </button>
           </div>
         </div>
       </div>

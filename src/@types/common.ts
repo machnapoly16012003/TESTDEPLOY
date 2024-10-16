@@ -8,6 +8,7 @@ export type QueryConfig = {
 }
 
 export interface ListConfig {
+  checkoutType?: 'buy' | 'hire'
   subscription?: string
   productQuantity?: string
 }
