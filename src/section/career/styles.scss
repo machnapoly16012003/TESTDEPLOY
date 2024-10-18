@@ -22,3 +22,21 @@
     background-size: 130%;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .bg-getting {
+    background-image: url('../../assets/bg/bg-instore.png');
+    background-repeat: no-repeat;
+    background-position: 20% 20%;
+    background-size: 180%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .bg-getting {
+    background-image: url('../../assets/bg/bg-instore.png');
+    background-repeat: no-repeat;
+    background-position: 20% 20%;
+    background-size: 180%;
+  }
+}

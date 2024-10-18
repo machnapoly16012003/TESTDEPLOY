@@ -12,17 +12,17 @@ const listProgressions = [
   {
     id: 2,
     title: 'Mid-Level Position',
-    position: 'xs:ml-[135px] sm:ml-[135px] md:ml-[135px] lg:ml-[120px] xl:ml-[135px]'
+    position: 'xs:ml-[75px] sm:ml-[75px] md:ml-[135px] lg:ml-[120px] xl:ml-[135px]'
   },
   {
     id: 3,
     title: 'Senior-Level Position',
-    position: 'xs:ml-[175px] sm:ml-[175px] md:ml-[175px] lg:ml-[150px] xl:ml-[175px]'
+    position: 'xs:ml-[94px] sm:ml-[94px] md:ml-[175px] lg:ml-[150px] xl:ml-[175px]'
   },
   {
     id: 4,
     title: 'Managerial Position',
-    position: 'xs:ml-[130px] sm:ml-[130px] md:ml-[130px] lg:ml-[115px] xl:ml-[130px]'
+    position: 'xs:ml-[75px] sm:ml-[75px] md:ml-[130px] lg:ml-[115px] xl:ml-[130px]'
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const CareerProgression = memo(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setViewing(true), 500)
+          setTimeout(() => setViewing(true), 1000)
         } else {
           setViewing(false)
         }
@@ -59,50 +59,61 @@ const CareerProgression = memo(() => {
 
   return (
     <>
-      <section ref={reportRef} className='bg-getting px-[60px] pt-[140px] xl:max-w-[1440px] 3xl:max-w-full'>
+      <section
+        ref={reportRef}
+        className='bg-getting pt-[140px] xs:px-4 sm:px-4 md:px-[60px] md:pb-[140px] lg:pb-0 xl:max-w-[1440px] 3xl:max-w-full'
+      >
         <h1
           data-aos='fade-right'
-          className='font-semibold xs:text-[52px]/[72px] sm:text-[52px]/[72px] md:text-[52px]/[72px] lg:text-[48px]/[68px] xl:text-[52px]/[72px] 3xl:mt-20'
+          className='font-semibold xs:text-[48px]/[50px] sm:text-[48px]/[50px] md:translate-y-20 md:text-[52px]/[72px] lg:text-[48px]/[68px] xl:text-[52px]/[72px] 3xl:mt-20'
         >
-          Career Progression Path
+          Career{' '}
+          <span className='xs:text-[36px]/[50px] sm:text-[36px]/[50px] md:text-[52px]/[72px] lg:text-[48px]/[68px] xl:text-[52px]/[72px]'>
+            Progression Path
+          </span>
         </h1>
 
-        <div className='relative flex w-fit -translate-x-10 items-center xs:-translate-y-[160px] sm:-translate-y-[160px] md:-translate-y-[160px] lg:-translate-x-[220px] lg:-translate-y-[80px] xl:-translate-x-[270px] xl:-translate-y-[140px] 3xl:ml-10'>
+        <div className='relative flex w-fit items-center xs:-translate-x-40 xs:-translate-y-[100px] xs:flex-col xs:justify-center sm:-translate-x-10 sm:-translate-y-[160px] sm:flex-col md:-translate-x-72 md:-translate-y-[0px] md:flex-col md:items-center md:justify-center lg:-translate-x-[220px] lg:-translate-y-[80px] lg:flex-row xl:-translate-x-[270px] xl:-translate-y-[140px] 3xl:ml-10'>
           <div
             data-aos='fade-right'
-            className='xs:min-w-[814px] sm:min-w-[814px] md:min-w-[814px] lg:min-w-[900px] xl:min-w-[1200px] 3xl:min-w-[1300px]'
+            className='xs:min-w-[700px] sm:min-w-[700px] md:min-w-[1200px] lg:min-w-[900px] xl:min-w-[1200px] 3xl:min-w-[1300px]'
           >
             <Lottie animationData={astronaut} />
           </div>
 
-          <img
-            src={images.benefit.circle_line}
-            alt='circle-line'
-            className={classNames(
-              viewing ? 'opacity-100' : 'opacity-0',
-              'w-auto -translate-x-10 transition duration-500 ease-in-out lg:mt-10 lg:w-[190px] lg:-translate-x-[185px] xl:mt-0 xl:w-auto xl:-translate-x-[185px] 3xl:mt-[40px] 3xl:-translate-x-[70px]'
-            )}
-          />
+          <div className='flex w-full items-center justify-end xs:-translate-y-20 sm:-translate-y-20 md:translate-y-0'>
+            <img
+              src={images.benefit.circle_line}
+              alt='circle-line'
+              className={classNames(
+                viewing ? 'opacity-100' : 'opacity-0',
+                'w-auto transition duration-500 ease-in-out xs:w-[130px] xs:-translate-x-20 sm:w-[130px] sm:-translate-x-10 md:w-[240px] md:-translate-x-10 lg:mt-10 lg:w-[190px] lg:-translate-x-[40px] xl:mt-0 xl:w-auto xl:translate-x-[50px] 3xl:mt-[40px] 3xl:translate-x-[30px]'
+              )}
+            />
 
-          <div className='flex -translate-x-[270px] flex-col xs:gap-[72px] sm:gap-[72px] md:gap-[72px] lg:ml-8 lg:mt-10 lg:-translate-x-[420px] lg:gap-[50px] xl:ml-0 xl:mt-0 xl:-translate-x-[420px] xl:gap-[72px] 3xl:mt-[40px] 3xl:-translate-x-[300px]'>
-            {listProgressions.map((item) => (
-              <div
-                key={item.id}
-                data-aos='fade-up'
-                className={classNames(
-                  item.position,
-                  'flex items-center rounded-[80px] bg-white/[.64] p-[15px] shadow-s-37 backdrop-blur-[105px] xs:h-[100px] xs:w-[380px] xs:gap-5 sm:h-[100px] sm:w-[380px] sm:gap-5 md:h-[100px] md:w-[380px] md:gap-5 lg:h-[90px] lg:w-[330px] lg:gap-4 xl:h-[100px] xl:w-[380px] xl:gap-5'
-                )}
-              >
+            <div className='flex flex-col xs:-translate-x-[200px] xs:gap-[37px] sm:-translate-x-[120px] sm:gap-[37px] md:-translate-x-[270px] md:gap-[72px] lg:ml-8 lg:mt-10 lg:-translate-x-[260px] lg:gap-[50px] xl:ml-0 xl:mt-0 xl:-translate-x-[180px] xl:gap-[72px] 3xl:mt-[40px] 3xl:-translate-x-[200px]'>
+              {listProgressions.map((item) => (
                 <div
-                  className='flex flex-shrink-0 items-center justify-center rounded-full bg-ln-black font-extrabold text-white xs:size-[70px] xs:text-[32px]/[36px] sm:size-[70px] sm:text-[32px]/[36px] md:size-[70px] md:text-[32px]/[36px] lg:size-[60px] lg:text-[28px]/[32px] xl:size-[70px] xl:text-[32px]/[36px]'
-                  style={{ boxShadow: '0px 16.77px 25.16px 0px #4064E44D' }}
+                  key={item.id}
+                  // data-aos='fade-up'
+                  className={classNames(
+                    item.position,
+                    viewing ? 'opacity-100' : 'opacity-0',
+                    'flex items-center rounded-[80px] bg-white/[.64] shadow-s-37 backdrop-blur-[105px] xs:h-[50px] xs:w-[215px] xs:gap-[10px] xs:px-[8px] sm:h-[50px] sm:w-[215px] sm:gap-[10px] sm:px-[8px] md:h-[100px] md:w-[380px] md:gap-5 md:p-[15px] lg:h-[90px] lg:w-[330px] lg:gap-4 xl:h-[100px] xl:w-[380px] xl:gap-5'
+                  )}
                 >
-                  {item.id}
+                  <div
+                    className='flex flex-shrink-0 items-center justify-center rounded-full bg-ln-black font-extrabold text-white xs:size-[35px] xs:text-[16px]/[18px] sm:size-[35px] sm:text-[16px]/[18px] md:size-[70px] md:text-[32px]/[36px] lg:size-[60px] lg:text-[28px]/[32px] xl:size-[70px] xl:text-[32px]/[36px]'
+                    style={{ boxShadow: '0px 16.77px 25.16px 0px #4064E44D' }}
+                  >
+                    {item.id}
+                  </div>
+                  <p className='font-semibold xs:text-[14px]/[16.8px] sm:text-[14px]/[16.8px] md:text-[20px]/[18.87px]'>
+                    {item.title}
+                  </p>
                 </div>
-                <p className='text-[20px]/[18.87px] font-semibold'>{item.title}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
@@ -110,7 +121,7 @@ const CareerProgression = memo(() => {
           onClick={handleOpen}
           className={classNames(
             viewing ? 'opacity-100' : 'opacity-0',
-            'btn-explorer-now z-50 flex w-[203px] items-center justify-center rounded-[10px] text-[22px]/[32px] font-bold text-white shadow-s-36 transition duration-200 ease-in-out hover:scale-[101%] xs:mt-11 xs:h-[52px] xs:-translate-y-[320px] sm:mt-11 sm:h-[52px] sm:-translate-y-[320px] md:mt-11 md:h-[52px] md:-translate-y-[320px] lg:mt-8 lg:h-[64px] lg:-translate-y-[140px] xl:mt-11 xl:h-[64px] xl:-translate-y-[320px] 3xl:mt-12 3xl:-translate-y-[300px] 3xl:text-[18px]/[32px]'
+            'btn-explorer-now z-50 flex items-center justify-center rounded-[10px] text-white shadow-s-36 transition duration-200 ease-in-out hover:scale-[101%] xs:mx-auto xs:mt-11 xs:h-[52px] xs:w-[161px] xs:-translate-y-[180px] xs:text-[16px]/[32px] xs:font-medium sm:mx-auto sm:mt-11 sm:h-[52px] sm:w-[161px] sm:-translate-y-[180px] sm:text-[16px]/[32px] sm:font-medium md:mx-auto md:mt-20 md:h-[64px] md:w-[203px] md:translate-y-0 md:text-[22px]/[32px] md:font-bold lg:mx-0 lg:mt-8 lg:h-[64px] lg:-translate-y-[140px] xl:mt-11 xl:h-[64px] xl:-translate-y-[320px] 3xl:mt-12 3xl:-translate-y-[300px] 3xl:text-[18px]/[32px]'
           )}
         >
           Apply Now

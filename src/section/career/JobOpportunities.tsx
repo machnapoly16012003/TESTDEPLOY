@@ -2,6 +2,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '~/utils/utils'
 import { Indicator, JobOpportunityCard } from '~/components/feature/jobOpportunities'
+import useResponsive from '~/hooks/useResponsive'
 
 const initJobs = [
   {
@@ -98,12 +99,14 @@ const JobOpportunities = memo(() => {
   const [width, setWidth] = useState<number>(0)
   const [height, setHeight] = useState<number>(0)
 
+  const lgDown = useResponsive('down', 'lg')
+
   const jobCardClassNames = [
-    'top-20 left-36',
-    'bottom-8 left-20',
+    'xs:-top-2 xs:left-3 md:top-5 md:left-10 lg:top-20 lg:-left-10 xl:top-20 xl:left-36',
+    'xs:bottom-2 xs:-left-8 md:bottom-0 md:-left-10 lg:bottom-8 lg:left-4 xl:bottom-8 xl:left-20',
     'top-1/2 left-1/2',
-    'top-20 right-32',
-    'bottom-8 right-36',
+    'xs:top-2 xs:-right-5 md:top-0 md:-right-10 lg:top-20 lg:-right-10 xl:top-20 xl:right-32',
+    'xs:bottom-5 xs:-right-8 md:bottom-10 md:-right-5 lg:bottom-8 lg:right-4 xl:bottom-8 xl:right-36',
     'bottom-1/4 -right-60',
     'top-1/4 -left-56'
   ]
@@ -116,11 +119,12 @@ const JobOpportunities = memo(() => {
 
   useEffect(() => {
     if (selectedCardRef?.current) {
-      const rect = selectedCardRef.current?.getBoundingClientRect()
-      setWidth(rect.width)
-      setHeight(rect.height)
+      const clientWidth = selectedCardRef.current?.clientWidth
+      const clientHeight = selectedCardRef.current?.clientHeight
+      setWidth(clientWidth)
+      setHeight(clientHeight)
     }
-  }, [selectedCardRef])
+  }, [selectedCardRef, lgDown])
 
   const goToNextCard = useCallback(() => {
     const newJobs = [...filteredJobs]
@@ -154,14 +158,16 @@ const JobOpportunities = memo(() => {
   return (
     <section className='relative overflow-hidden py-12'>
       {/* bg image */}
-      <div className="absolute inset-0 bg-[url('~/assets/bg/bg-opportunities-1.png')] bg-contain bg-top bg-no-repeat" />
-      <div className="absolute inset-0 translate-y-40 bg-[url('~/assets/bg/bg-opportunities-2.png')] bg-contain bg-bottom bg-no-repeat" />
+      <div className="absolute inset-0 bg-[url('~/assets/bg/bg-opportunities-1.png')] bg-contain bg-top bg-no-repeat xs:w-[180%] sm:w-[180%] md:w-[120%] lg:w-fit" />
+      <div className="bg absolute inset-0 translate-y-40 bg-[url('~/assets/bg/bg-opportunities-2.png')] bg-bottom bg-no-repeat xs:bg-[length:100%_80%] sm:bg-[length:100%_80%] md:bg-[length:100%_70%] lg:bg-contain" />
 
       {/* content */}
       <div className='relative z-10 mx-auto'>
-        <h3 className='mb-12 text-center text-[56px] font-semibold'>Job Opportunities</h3>
+        <h3 className='mb-12 text-center font-semibold xs:text-[36px] sm:text-[36px] md:text-[56px]'>
+          Job Opportunities
+        </h3>
 
-        <div className='relative mx-auto h-[650px] w-full max-w-[1440px]'>
+        <div className='relative mx-auto w-full max-w-[1440px] xs:h-[500px] sm:h-[500px] md:h-[800px] lg:h-[650px]'>
           <>
             {filteredJobs.map((job, index) => {
               const isSelected = index === 2
@@ -181,7 +187,11 @@ const JobOpportunities = memo(() => {
                   whileTap={{ scale: 1.05 }}
                   whileHover={{ scale: 1.05 }}
                   onDragEnd={isSelected ? handleDragEnd : () => {}}
-                  className={cn('absolute', index < jobCardClassNames.length ? jobCardClassNames[index] : 'hidden')}
+                  className={cn(
+                    'absolute',
+                    index < jobCardClassNames.length ? jobCardClassNames[index] : 'hidden',
+                    isSelected ? 'z-20' : 'z-10'
+                  )}
                   transition={{ type: 'spring', stiffness: 120, duration: 0.3 }}
                 >
                   <JobOpportunityCard index={index} job={job} />
@@ -189,7 +199,7 @@ const JobOpportunities = memo(() => {
               )
             })}
           </>
-          <div className='absolute bottom-0 left-0 right-0'>
+          <div className='absolute xs:-bottom-8 xs:left-1/2 xs:right-auto xs:w-fit xs:-translate-x-1/2 xs:rounded-full xs:bg-white xs:p-2 md:bottom-0 md:left-0 md:right-0 md:w-full md:translate-x-0 md:rounded-none md:bg-transparent'>
             <Indicator
               total={jobLength}
               currentIndex={currentIndex}

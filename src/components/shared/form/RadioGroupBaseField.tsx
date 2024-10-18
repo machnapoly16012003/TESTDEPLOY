@@ -50,7 +50,7 @@ const RadioGroupBaseField = memo(
                     {label} {required && <span className='text-red-main'>*</span>}
                   </label>
                 )}
-                <div className='flex w-full xs:flex-col xs:items-start xs:gap-4 sm:flex-row sm:items-center sm:gap-10 md:gap-5 lg:gap-10'>
+                <div className='flex w-full xs:flex-row xs:items-start xs:gap-4 sm:flex-row sm:items-center sm:gap-10 md:gap-5 lg:gap-10'>
                   {options.map((option, i) => {
                     return (
                       <div key={i} className={`flex items-center gap-3 ${className}`}>

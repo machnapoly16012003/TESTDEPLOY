@@ -51,7 +51,7 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
       zIndex='z-[700]'
       className={classNames('h-fit !rounded-2xl bg-white xs:w-full md:w-[600px] lg:w-[700px] xl:w-[820px]')}
     >
-      <div className='relative flex h-full flex-col items-center justify-start gap-4 text-left xs:p-8 md:min-h-[362px] md:p-10 xl:px-[85px] xl:py-[40px]'>
+      <div className='relative flex h-full flex-col items-center justify-start gap-4 text-left xs:p-8 xs:px-5 md:min-h-[362px] md:p-10 xl:px-[85px] xl:py-[40px]'>
         <div
           className='absolute right-4 top-4 cursor-pointer'
           onClick={() => {
@@ -66,24 +66,24 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
 
         <div className='w-full space-y-1'>
           <FormProvider {...applyFrom}>
-            <div className='flex items-center'>
-              <p className='min-w-[125px] flex-shrink-0 pb-3 text-[16px]/[24px] font-medium'>Full Name</p>
+            <div className='flex xs:flex-col xs:items-start md:flex-row md:items-center'>
+              <p className='min-w-[125px] flex-shrink-0 text-[16px]/[24px] font-medium xs:pb-0 md:pb-3'>Full Name</p>
               <InputField fullWidth name='fullName' placeholder='Enter your full name' />
             </div>
-            <div className='flex items-center pt-2'>
-              <p className='min-w-[125px] flex-shrink-0 pb-5 text-[16px]/[24px] font-medium'>Gender</p>
+            <div className='flex xs:flex-col xs:items-start xs:pt-0 md:flex-row md:items-center md:pt-2'>
+              <p className='min-w-[125px] flex-shrink-0 text-[16px]/[24px] font-medium xs:pb-2 md:pb-5'>Gender</p>
               <RadioGroupBaseField name='gender' options={LIST_GENDER_OPTIONS} />
             </div>
-            <div className='flex items-center'>
-              <p className='min-w-[125px] flex-shrink-0 pb-3 text-[16px]/[24px] font-medium'>Phone</p>
+            <div className='flex xs:flex-col xs:items-start md:flex-row md:items-center'>
+              <p className='min-w-[125px] flex-shrink-0 text-[16px]/[24px] font-medium xs:pb-0 md:pb-3'>Phone</p>
               <InputField fullWidth name='phone' placeholder='Enter your phone' />
             </div>
-            <div className='flex items-center'>
-              <p className='min-w-[125px] flex-shrink-0 pb-3 text-[16px]/[24px] font-medium'>Address</p>
+            <div className='flex xs:flex-col xs:items-start md:flex-row md:items-center'>
+              <p className='min-w-[125px] flex-shrink-0 text-[16px]/[24px] font-medium xs:pb-0 md:pb-3'>Address</p>
               <InputField fullWidth name='addressDetail' placeholder='Enter your address' />
             </div>
-            <div className='flex items-center'>
-              <p className='min-w-[125px] flex-shrink-0 pb-3 text-[16px]/[24px] font-medium'>Email</p>
+            <div className='flex xs:flex-col xs:items-start md:flex-row md:items-center'>
+              <p className='min-w-[125px] flex-shrink-0 text-[16px]/[24px] font-medium xs:pb-0 md:pb-3'>Email</p>
               <InputField fullWidth name='email' placeholder='Enter your email' />
             </div>
 
@@ -102,7 +102,7 @@ const ApplyCVDialog: FC<ApplyCVDialogProps> = memo(({ open, setOpen }) => {
           <button
             onClick={handleSubmit(handleApplyFrom)}
             className={classNames(
-              'btn-explorer-now mx-auto !mt-10 flex w-[160px] items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out hover:scale-[102%] xs:p-[10px] md:p-[10px]'
+              'btn-explorer-now mx-auto flex w-[160px] items-center justify-center gap-4 rounded-[8px] transition duration-200 ease-in-out hover:scale-[102%] xs:!mt-5 xs:p-[10px] md:!mt-10 md:p-[10px]'
             )}
           >
             <p className='font-semibold text-white xs:text-[18px]/[20px] md:text-[20px]/[20px] xl:text-[20px]/[20px]'>

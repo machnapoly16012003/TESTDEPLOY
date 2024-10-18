@@ -22,8 +22,8 @@ const JobOpportunityCard = forwardRef<HTMLDivElement, IProps>(({ index, job, cla
       className={cn(
         'flex items-center justify-center rounded-[20px]',
         isSelected
-          ? 'max-w-lg bg-gradient-to-t from-[#6976A0] via-[#2C3972] to-[#141D3E] p-12 text-white'
-          : 'aspect-square max-w-72 from-[#D4E4FB] to-white px-12 text-foreground',
+          ? 'bg-gradient-to-t from-[#6976A0] via-[#2C3972] to-[#141D3E] text-white xs:max-w-[269px] xs:p-6 sm:p-6 md:max-w-lg md:p-8 lg:p-12'
+          : 'aspect-square from-[#D4E4FB] to-white text-foreground xs:max-w-[140px] xs:px-6 sm:px-6 md:max-w-72 md:px-8 lg:px-12',
         oddCard ? '' : '',
         index < 3 ? 'bg-gradient-to-br' : 'bg-gradient-to-bl',
         className
@@ -32,15 +32,20 @@ const JobOpportunityCard = forwardRef<HTMLDivElement, IProps>(({ index, job, cla
     >
       <div className={cn(oddCard ? 'max-w-40' : 'max-w-32', isSelected && 'max-w-fit')}>
         {!isSelected ? (
-          <span className={cn('block text-center text-lg font-medium text-black/50', oddCard ? 'text-2xl' : 'text-lg')}>
+          <span
+            className={cn(
+              'block text-center text-lg font-medium text-black/50',
+              oddCard ? 'xs:text-[14px] md:text-2xl' : 'xs:text-[12px] md:text-lg'
+            )}
+          >
             Position
           </span>
         ) : null}
         <h4
           className={cn(
             'text-center',
-            isSelected ? 'font-bold uppercase' : 'text-lg font-medium',
-            oddCard ? 'text-2xl' : 'text-lg'
+            isSelected ? 'font-bold uppercase' : 'font-medium xs:text-[14px]/[18px] sm:text-[14px]/[18px] md:text-lg',
+            oddCard ? 'text-2xl' : 'xs:text-[12px]/[18px] sm:text-[12px]/[18px] md:text-lg'
           )}
         >
           {position}
@@ -48,22 +53,30 @@ const JobOpportunityCard = forwardRef<HTMLDivElement, IProps>(({ index, job, cla
 
         {isSelected ? (
           <>
-            <h5 className='mb-2 mt-6 text-xl font-semibold'>Job Description:</h5>
-            <ul className='list list-disc pl-6 text-lg'>
+            <h5 className='font-semibold xs:mb-1 xs:mt-4 xs:text-[10px] sm:text-[10px] md:mb-2 md:mt-6 md:text-lg lg:text-xl'>
+              Job Description:
+            </h5>
+            <ul className='list list-disc pl-6 xs:text-[9px] sm:text-[9px] md:text-[16px] lg:text-lg'>
               {descriptions.map((desc, index) => (
                 <li key={index}>{desc}</li>
               ))}
             </ul>
 
-            <h5 className='my-2 text-xl font-semibold'>Requirement:</h5>
-            <ul className='list list-disc pl-6 text-lg'>
+            <h5 className='font-semibold xs:mb-1 xs:mt-2 xs:text-[10px] sm:text-[10px] md:my-2 md:text-lg lg:text-xl'>
+              Requirement:
+            </h5>
+            <ul className='list list-disc pl-6 xs:text-[9px] sm:text-[9px] md:text-[16px] lg:text-lg'>
               {requirements.map((desc, index) => (
                 <li key={index}>{desc}</li>
               ))}
             </ul>
 
-            <div className='mt-8 flex justify-center'>
-              <Button variant='' className='normal-case text-black'>
+            <div className='flex justify-center xs:mt-4 md:mt-8'>
+              <Button
+                variant=''
+                classNameText='xs:text-[9px] xs:mt-[2px] md:mt-0 sm:text-[9px] md:text-[18px]'
+                className='normal-case text-black xs:h-[26px] xs:w-[80px] sm:h-[26px] sm:w-[80px] md:h-[52px] md:w-[160px]'
+              >
                 Details
               </Button>
             </div>

@@ -12,7 +12,7 @@ interface IProps {
 function Indicator({ total, goPrevious, currentIndex, goNext }: IProps) {
   return (
     <div className='flex w-full items-center justify-center gap-2'>
-      <MoveLeft className='cursor-pointer' onClick={goPrevious} />
+      <MoveLeft className='cursor-pointer xs:hidden md:flex' onClick={goPrevious} />
       <div className='flex gap-0'>
         {[...Array(total)].map((_, index) => (
           <GoDotFill
@@ -22,7 +22,7 @@ function Indicator({ total, goPrevious, currentIndex, goNext }: IProps) {
           />
         ))}
       </div>
-      <MoveRight className='cursor-pointer' onClick={goNext} />
+      <MoveRight className='cursor-pointer xs:hidden md:flex' onClick={goNext} />
     </div>
   )
 }
