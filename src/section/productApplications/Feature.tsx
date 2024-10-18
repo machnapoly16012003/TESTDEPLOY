@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import images from '~/assets'
 import { FeatureCard, FeatureIndicators } from '~/components/feature/productsApplications'
+import useResponsive from '~/hooks/useResponsive'
 
 const {
   featureCustomerService,
@@ -46,8 +47,10 @@ const features = [
 ]
 
 function Feature() {
+  const mdDown = useResponsive('down', 'md')
+
   const screenWidth = window.innerWidth
-  const cardWidth = 420
+  const cardWidth = mdDown ? 280 : 420
   const [fileterdFeatures, setFilteredFeatures] = useState(features)
   const centerIndex = Math.round(features.length / 2) - 1
   const centerPosition = screenWidth / 2 - cardWidth / 2
@@ -77,15 +80,16 @@ function Feature() {
   const currentIndex = fileterdFeatures.findIndex((feature) => feature.id === 1)
 
   return (
-    <div className='bg-gradient-to-b from-white to-[#F4F7F9] pt-16'>
-      <div className='bg-[url("/src/assets/images/application-feature-bg.png")] bg-top bg-no-repeat'>
-        <div className='mb-8 flex justify-center pt-24'>
-          <h2 className='max-w-md text-center text-2xl font-semibold leading-tight lg:max-w-4xl lg:text-[52px] lg:leading-[62px]'>
-            Key Features of Smart Store Management
+    <div className='from-white to-[#F4F7F9] xs:bg-[#F4F7F9] xs:pt-0 sm:pt-0 md:bg-gradient-to-b md:pt-16 lg:pt-16 xl:pt-16'>
+      <div className='bg-top bg-no-repeat xs:bg-none sm:bg-none md:bg-[url("/src/assets/images/application-feature-bg.png")]'>
+        <div className='flex justify-center xs:mb-16 xs:pt-10 sm:mb-16 sm:pt-10 md:mb-8 md:pt-24'>
+          <h2 className='max-w-md text-center text-4xl font-semibold leading-tight lg:max-w-4xl lg:text-[52px] lg:leading-[62px]'>
+            Key Features of Smart Store Management{' '}
+            <span className='xs:hidden sm:hidden md:block'>and Their Applications</span>
           </h2>
         </div>
         <motion.div
-          className='relative mb-16 h-[420px]'
+          className='relative xs:h-[360px] sm:h-[360px] md:mb-16 md:h-[420px]'
           style={{
             perspective: '2000px'
           }}
@@ -121,7 +125,8 @@ function Feature() {
             )
           })}
 
-          <div className="absolute -bottom-12 left-0 right-0 h-[370px] bg-[url('/src/assets/images/application-feature-bg-2.png')] bg-center bg-no-repeat" />
+          <div className="absolute -bottom-12 left-0 right-0 h-[370px] bg-[url('/src/assets/images/application-feature-bg-2.png')] bg-center bg-no-repeat xs:hidden sm:hidden md:block" />
+          <div className="absolute -bottom-2 left-0 right-0 h-[200px] bg-[url('/src/assets/images/application-feature-bg-3.png')] bg-center bg-no-repeat xs:block sm:block md:hidden" />
         </motion.div>
         <FeatureIndicators
           total={features.length}

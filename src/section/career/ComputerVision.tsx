@@ -23,7 +23,7 @@ const ComputerVision = memo(() => {
         </h3>
       </div>
 
-      <div className='absolute top-40 xs:-left-[80px] xs:w-[480px] sm:-left-[80px] sm:w-[480px] md:-left-[0px] md:w-[1000px] lg:-left-[200px] lg:w-[800px] xl:-left-[80px] xl:w-[880px] 3xl:left-10 3xl:top-40'>
+      <div className='absolute top-40 xs:-left-[80px] xs:w-[480px] sm:-left-[80px] sm:w-[480px] md:-left-[40px] md:w-[800px] lg:-left-[200px] lg:w-[800px] xl:-left-[80px] xl:w-[880px] 3xl:left-10 3xl:top-40'>
         <img data-aos='zoom-in-down' src={images.vision.vision_ball_big} alt='vision-ball-big' className='w-full' />
       </div>
 

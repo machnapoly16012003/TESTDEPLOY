@@ -1,13 +1,18 @@
+import classNames from 'classnames'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
+import useResponsive from '~/hooks/useResponsive'
 
 interface Props {
+  id: number
   title: string
   icon: string
   detail: string
 }
 
-function InsightCard({ title, icon, detail }: Props) {
+function InsightCard({ id, title, icon, detail }: Props) {
+  const mdDown = useResponsive('down', 'md')
+
   const [flipped, setFlipped] = useState(false)
 
   return (
@@ -20,7 +25,10 @@ function InsightCard({ title, icon, detail }: Props) {
       <AnimatePresence>
         <div className='w-full' onMouseOver={() => setFlipped(true)} onMouseOut={() => setFlipped(false)}>
           <motion.div
-            className='relative h-72 w-full overflow-hidden rounded-[20px] transition-transform duration-700'
+            className={classNames(
+              mdDown && id === 2 && flipped ? 'h-[238px]' : 'h-[154px]',
+              'relative w-full overflow-hidden transition-transform duration-700 xs:min-h-[154px] xs:rounded-[10px] sm:min-h-[154px] sm:rounded-[10px] md:h-72 md:rounded-[20px]'
+            )}
             style={{ transform: flipped ? 'rotateY(180deg)' : '' }}
             transition={{ type: 'spring', stiffness: 120, damping: 20 }}
           >
@@ -37,13 +45,13 @@ function InsightCard({ title, icon, detail }: Props) {
                 stiffness: 120,
                 duration: 0.7
               }}
-              className='absolute flex h-full w-full items-center justify-center bg-[#FEFEFE] p-6 text-lg transition-colors duration-1000'
+              className='absolute flex h-full w-full items-center justify-center bg-[#FEFEFE] text-lg transition-colors duration-1000 xs:p-[10px] sm:p-[10px] md:p-6'
             >
-              <div className='flex flex-col items-center gap-4'>
-                <img src={icon} alt={title} />
+              <div className='flex flex-col items-center xs:gap-3 md:gap-4'>
+                <img src={icon} alt={title} className='xs:size-[65px] sm:size-[65px] md:size-auto' />
                 <div
                   dangerouslySetInnerHTML={{ __html: title }}
-                  className='bg-ln-text-insight bg-clip-text text-center font-semibold text-transparent'
+                  className='text-nowrap bg-ln-text-insight bg-clip-text text-center font-semibold text-transparent xs:text-[12px]/[18px] sm:text-[12px]/[16px] md:text-[16px]/[28px]'
                 />
               </div>
             </motion.div>
@@ -62,9 +70,12 @@ function InsightCard({ title, icon, detail }: Props) {
                 stiffness: 120,
                 duration: 0.7
               }}
-              className='absolute flex h-full w-full items-center justify-center bg-gradient-to-b from-[#6976A0] via-[#2C3972] to-[#141D3E] px-4 py-8 text-sm leading-relaxed text-white transition-colors duration-1000'
+              className='absolute flex h-full w-full items-center justify-center bg-gradient-to-b from-[#6976A0] via-[#2C3972] to-[#141D3E] text-sm leading-relaxed text-white transition-colors duration-1000 xs:px-4 xs:py-[13px] sm:px-[11px] sm:py-[13px] md:px-[20px] md:py-8'
             >
-              <div dangerouslySetInnerHTML={{ __html: detail }} />
+              <div
+                dangerouslySetInnerHTML={{ __html: detail }}
+                className='xs:text-[10px]/[14px] sm:text-[10px]/[14px] md:text-[14px]/[24px]'
+              />
             </motion.div>
           </motion.div>
         </div>

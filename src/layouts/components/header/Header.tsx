@@ -1,7 +1,6 @@
 import classNames from 'classnames'
-import { memo, useCallback, useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
-import { FaBars } from 'react-icons/fa6'
 import { RiInformation2Fill } from 'react-icons/ri'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import images from '~/assets'
@@ -48,15 +47,16 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
   const navigate = useNavigate()
 
   const windowRef = useRef(window)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const { pathname } = useLocation()
 
   const [scrolledTo100, setScrolledTo100] = useState<boolean>(false)
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  // const [isMenuOpen, setMenuOpen] = useState(false)
 
-  const toggleMenu = useCallback(() => {
-    setMenuOpen(!isMenuOpen)
-  }, [isMenuOpen])
+  // const toggleMenu = useCallback(() => {
+  //   setMenuOpen(!isMenuOpen)
+  // }, [isMenuOpen])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,19 +71,45 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
     return () => windowRef.current.removeEventListener('scroll', handleScroll)
   }, [scrolledTo100, windowRef])
 
+  // const handleMouseDown = useCallback(
+  //   (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  //     if (scrollRef.current) {
+  //       const startX = e.pageX
+  //       const startScrollLeft = scrollRef.current.scrollLeft
+
+  //       const onMouseMove = (e: MouseEvent) => {
+  //         if (scrollRef.current) {
+  //           const x = e.pageX - startX
+  //           scrollRef.current.scrollLeft = startScrollLeft - x
+  //         }
+  //       }
+
+  //       const onMouseUp = () => {
+  //         window.removeEventListener('mousemove', onMouseMove)
+  //         window.removeEventListener('mouseup', onMouseUp)
+  //       }
+
+  //       window.addEventListener('mousemove', onMouseMove)
+  //       window.addEventListener('mouseup', onMouseUp)
+  //     }
+  //   },
+  //   [scrollRef]
+  // )
+
   return (
     <header
+      ref={scrollRef}
       className={classNames(
         pathname === PATH_PUBLIC_APP.gettingStarted
           ? !scrolledTo100
             ? 'bg-transparent'
             : 'bg-white/[.6]'
           : 'bg-white/[.6]',
-        `2xs:p-4 2xs:px-3 fixed top-0 z-[500] flex max-h-[80px] w-full items-center justify-between shadow-s-26 backdrop-blur-xl transition-colors duration-300 ease-in-out xs:gap-3 xs:p-4 xs:px-3 sm:gap-4 sm:p-4 md:gap-5 xl:px-[100px] 3xl:px-[100px]`
+        `2xs:p-4 2xs:px-3 hidden-scroll fixed top-0 z-[500] flex max-h-[80px] w-full items-center justify-between overflow-auto shadow-s-26 backdrop-blur-xl transition-colors duration-300 ease-in-out xs:gap-3 xs:p-4 xs:px-3 sm:gap-4 sm:p-4 md:gap-5 xl:px-[100px] 3xl:px-[100px]`
       )}
     >
       <div className='flex items-center xs:gap-2 md:gap-4'>
-        <div className='flex items-center justify-between rounded-[50%] bg-gray-100 lg:hidden'>
+        {/* <div className='flex items-center justify-between rounded-[50%] bg-gray-100 lg:hidden'>
           <button
             onClick={toggleMenu}
             className='relative rounded-[50%] bg-[#F8F8F9] text-2xl shadow-s-23 xs:p-[12px] md:p-[12px] xl:p-[16px]'
@@ -108,16 +134,18 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
               </ul>
             </div>
           )}
-        </div>
+        </div> */}
 
-        <Link to='/' className='w-fit'>
+        <Link to='/' className='w-[86px] flex-shrink-0'>
           <div className='flex items-center gap-[5px] rounded-full bg-[#F8F8F9] p-[7px] shadow-s-23 xs:pr-[7px] sm:pr-[11px]'>
             <img src={images.logo.logo_fi} alt='logo-fiai' className='size-[34px]' />
-            <p className='text-[18px]/[18.9px] font-bold xs:hidden sm:flex'>Fi Ai</p>
+            <p className='text-nowrap font-bold xs:text-[14px]/[18.9px] sm:text-[14px]/[18.9px] md:text-[18px]/[18.9px]'>
+              Fi Ai
+            </p>
           </div>
         </Link>
 
-        <div className='xs:hidden sm:hidden md:hidden lg:block'>
+        <div className=''>
           <NavigationMenu>
             <NavigationMenuList>
               {listNavbars.map((nav) => (

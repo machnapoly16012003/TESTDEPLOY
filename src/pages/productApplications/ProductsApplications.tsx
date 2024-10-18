@@ -2,7 +2,7 @@ import { Overview, Feature, Retail, Insight } from '~/section/productApplication
 
 function ProductsApplications() {
   return (
-    <div className='mt-20'>
+    <div className='mt-20 overflow-hidden'>
       <Overview />
       <Feature />
       <Retail />
