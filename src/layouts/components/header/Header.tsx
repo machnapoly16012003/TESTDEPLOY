@@ -136,7 +136,7 @@ const Header: React.FunctionComponent<HeaderProps> = memo(() => {
           )}
         </div> */}
 
-        <Link to='/' className='w-[86px] flex-shrink-0'>
+        <Link to='/' className='min-w-[86px] flex-shrink-0'>
           <div className='flex items-center gap-[5px] rounded-full bg-[#F8F8F9] p-[7px] shadow-s-23 xs:pr-[7px] sm:pr-[11px]'>
             <img src={images.logo.logo_fi} alt='logo-fiai' className='size-[34px]' />
             <p className='text-nowrap font-bold xs:text-[14px]/[18.9px] sm:text-[14px]/[18.9px] md:text-[18px]/[18.9px]'>
